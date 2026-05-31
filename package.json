@@ -1,0 +1,12 @@
+{
+  "name": "fast-group-site",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "deploy": "netlify deploy --prod --dir . --functions netlify/functions"
+  },
+  "dependencies": {
+    "@netlify/blobs": "latest"
+  }
+}
