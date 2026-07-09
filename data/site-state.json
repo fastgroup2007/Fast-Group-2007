@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-07-09T10:57:53.557Z",
+  "updatedAt": "2026-07-09T10:58:02.565Z",
   "products": [
     {
       "hp": 1.5,
@@ -1646,6 +1646,22 @@
     ],
     "inventory": [
       {
+        "id": "item_1783594681411_8914a7",
+        "name": "يي",
+        "sku": "",
+        "category": "أجهزة",
+        "unit": "جهاز",
+        "minQty": "0",
+        "price": "12",
+        "unitCost": "12",
+        "cost": "12",
+        "quantity": "6",
+        "openingQty": "6",
+        "notes": "",
+        "createdAt": "2026-07-09T10:58:01.411Z",
+        "updatedAt": "2026-07-09T10:58:01.411Z"
+      },
+      {
         "id": "item_1783594000143_897a44",
         "name": "ي",
         "sku": "",
@@ -1710,6 +1726,13 @@
     }
   ],
   "auditLog": [
+    {
+      "id": "al_1783594681411",
+      "admin": "mustafa259",
+      "action": "إضافة جهاز مخزون",
+      "details": "يي — 72 ج.م",
+      "at": "2026-07-09T10:58:01.411Z"
+    },
     {
       "id": "al_1783594127981",
       "admin": "mustafa259",
