@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-07-09T19:45:19.433Z",
+  "updatedAt": "2026-07-09T19:46:56.738Z",
   "products": [
     {
       "hp": 1.5,
@@ -1562,7 +1562,24 @@
     "jobs": [],
     "purchases": [],
     "expenses": [],
-    "inventory": [],
+    "inventory": [
+      {
+        "id": "item_1783626415439_ba0a05",
+        "name": "Midea 1.5 cr",
+        "sku": "",
+        "category": "أجهزة",
+        "unit": "جهاز",
+        "minQty": "0",
+        "price": "20452",
+        "unitCost": "20452",
+        "cost": "20452",
+        "quantity": "7",
+        "openingQty": "7",
+        "notes": "",
+        "createdAt": "2026-07-09T19:46:55.440Z",
+        "updatedAt": "2026-07-09T19:46:55.440Z"
+      }
+    ],
     "inventoryDeletes": [
       "item_1783594833311_fd8208",
       "item_1783594681411_8914a7",
@@ -1613,6 +1630,13 @@
     }
   ],
   "auditLog": [
+    {
+      "id": "al_1783626415440",
+      "admin": "mustafa259",
+      "action": "إضافة جهاز مخزون",
+      "details": "Midea 1.5 cr — 143,164 ج.م",
+      "at": "2026-07-09T19:46:55.440Z"
+    },
     {
       "id": "al_1783626316905",
       "admin": "mustafa259",
