@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-07-09T11:24:21.308Z",
+  "updatedAt": "2026-07-09T11:32:53.742Z",
   "products": [
     {
       "hp": 1.5,
@@ -1562,89 +1562,11 @@
   ],
   "productDeletes": [],
   "crmData": {
-    "customers": [
-      {
-        "id": "customer_1783536159999_e02fdb",
-        "name": "أحمد سمير",
-        "phone": "01000000000",
-        "altPhone": "01200000000",
-        "area": "القاهرة الجديدة",
-        "address": "التجمع الخامس - شارع التسعين",
-        "status": "متابعة",
-        "notes": "عميل محتاج متابعة دورية كل 3 شهور ويفضل التواصل واتساب قبل الزيارة.",
-        "createdAt": "2026-07-08T18:42:39.999Z",
-        "updatedAt": "2026-07-08T18:42:39.999Z"
-      }
-    ],
+    "customers": [],
     "technicians": [],
-    "jobs": [
-      {
-        "id": "job_1783536159999_af00d0",
-        "customerId": "customer_1783536159999_e02fdb",
-        "technicianId": "",
-        "assistantIds": [],
-        "title": "شحن فريون وصيانة جهاز غرفة النوم",
-        "type": "صيانة",
-        "dueDate": "2026-07-08",
-        "status": "تم التنفيذ",
-        "description": "فحص الجهاز وتنظيف الفلاتر ومراجعة التبريد.",
-        "report": "تم تنظيف الفلاتر وفحص ضغط الفريون وشحن الجهاز وضبط التشغيل. الجهاز يعمل بكفاءة.",
-        "revenue": "1000",
-        "materialCost": "360",
-        "laborCost": "150",
-        "otherCost": "50",
-        "cost": "1000",
-        "createdAt": "2026-07-08T18:42:39.999Z",
-        "updatedAt": "2026-07-08T18:42:39.999Z",
-        "completedAt": "2026-07-08T18:42:39.999Z"
-      },
-      {
-        "id": "job_1783536159999_2fd508",
-        "customerId": "customer_1783536159999_e02fdb",
-        "technicianId": "",
-        "assistantIds": [],
-        "title": "متابعة صوت في الوحدة الخارجية",
-        "type": "متابعة",
-        "dueDate": "2026-07-08",
-        "status": "يحتاج متابعة",
-        "description": "مراجعة صوت الوحدة الخارجية بعد آخر صيانة.",
-        "report": "تم فحص الحامل والوحدة. يحتاج زيارة أخرى لتغيير كاوتش قواعد الوحدة.",
-        "revenue": "0",
-        "materialCost": "0",
-        "laborCost": "0",
-        "otherCost": "0",
-        "cost": "0",
-        "createdAt": "2026-07-08T18:42:39.999Z",
-        "updatedAt": "2026-07-08T18:42:39.999Z",
-        "completedAt": ""
-      }
-    ],
-    "purchases": [
-      {
-        "id": "purchase_1783536159999_a2acc0",
-        "customerId": "customer_1783536159999_e02fdb",
-        "date": "2026-07-08",
-        "item": "وحدة تكييف 1.5 حصان",
-        "quantity": "1",
-        "amount": "22000",
-        "payment": "مدفوع",
-        "warranty": "ضمان سنة",
-        "createdAt": "2026-07-08T18:42:39.999Z"
-      }
-    ],
-    "expenses": [
-      {
-        "id": "expense_1783536159999_09a5f9",
-        "date": "2026-07-08",
-        "category": "مواصلات",
-        "title": "بنزين ومشاوير شغل شحن الفريون",
-        "amount": "80",
-        "jobId": "job_1783536159999_af00d0",
-        "customerId": "customer_1783536159999_e02fdb",
-        "notes": "مصروف مرتبط بالشغلانة المنفذة.",
-        "createdAt": "2026-07-08T18:42:39.999Z"
-      }
-    ],
+    "jobs": [],
+    "purchases": [],
+    "expenses": [],
     "inventory": [],
     "inventoryDeletes": [
       "item_1783594833311_fd8208",
@@ -1657,7 +1579,34 @@
     "projects": [],
     "maintenanceGallery": [],
     "publicWorks": [],
-    "publicWorkDeletes": []
+    "publicWorkDeletes": [],
+    "crmDeletes": {
+      "customers": [
+        "customer_1783536159999_e02fdb"
+      ],
+      "technicians": [],
+      "jobs": [
+        "job_1783536159999_af00d0",
+        "job_1783536159999_2fd508"
+      ],
+      "purchases": [
+        "purchase_1783536159999_a2acc0"
+      ],
+      "expenses": [
+        "expense_1783536159999_09a5f9"
+      ],
+      "inventory": [
+        "item_1783594833311_fd8208",
+        "item_1783594681411_8914a7",
+        "item_1783594000143_897a44",
+        "item_1783593216418_b0644d",
+        "item_1783538492245_6632f0"
+      ],
+      "stockMoves": [],
+      "projects": [],
+      "maintenanceGallery": [],
+      "publicWorks": []
+    }
   },
   "reviews": [
     {
