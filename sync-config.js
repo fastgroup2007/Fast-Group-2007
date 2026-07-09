@@ -1,4 +1,4 @@
 window.FG_SYNC_CONFIG = {
-  endpoint: '',
+  endpoint: 'https://fast-group-sync.fastgroup2007.workers.dev',
   adminKey: ''
 };
