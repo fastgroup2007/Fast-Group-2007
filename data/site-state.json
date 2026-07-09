@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-07-09T11:22:26.886Z",
+  "updatedAt": "2026-07-09T11:22:29.226Z",
   "products": [
     {
       "hp": 1.5,
@@ -1647,22 +1647,6 @@
     ],
     "inventory": [
       {
-        "id": "item_1783594000143_897a44",
-        "name": "ي",
-        "sku": "",
-        "category": "أجهزة",
-        "unit": "جهاز",
-        "minQty": "0",
-        "price": "104",
-        "unitCost": "104",
-        "cost": "104",
-        "quantity": "3",
-        "openingQty": "3",
-        "notes": "",
-        "createdAt": "2026-07-09T10:46:40.143Z",
-        "updatedAt": "2026-07-09T10:48:47.981Z"
-      },
-      {
         "id": "item_1783593216418_b0644d",
         "name": "ري",
         "sku": "",
@@ -1697,7 +1681,8 @@
     ],
     "inventoryDeletes": [
       "item_1783594833311_fd8208",
-      "item_1783594681411_8914a7"
+      "item_1783594681411_8914a7",
+      "item_1783594000143_897a44"
     ],
     "stockMoves": [],
     "projects": [],
