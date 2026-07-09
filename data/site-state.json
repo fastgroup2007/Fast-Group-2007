@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-07-09T11:22:30.912Z",
+  "updatedAt": "2026-07-09T11:22:32.953Z",
   "products": [
     {
       "hp": 1.5,
@@ -1645,29 +1645,13 @@
         "createdAt": "2026-07-08T18:42:39.999Z"
       }
     ],
-    "inventory": [
-      {
-        "id": "item_1783538492245_6632f0",
-        "name": "CAA",
-        "sku": "",
-        "category": "أجهزة",
-        "unit": "جهاز",
-        "minQty": "0",
-        "price": "10",
-        "unitCost": "10",
-        "cost": "10",
-        "quantity": "30",
-        "openingQty": "30",
-        "notes": "",
-        "createdAt": "2026-07-08T19:21:32.245Z",
-        "updatedAt": "2026-07-08T19:21:32.245Z"
-      }
-    ],
+    "inventory": [],
     "inventoryDeletes": [
       "item_1783594833311_fd8208",
       "item_1783594681411_8914a7",
       "item_1783594000143_897a44",
-      "item_1783593216418_b0644d"
+      "item_1783593216418_b0644d",
+      "item_1783538492245_6632f0"
     ],
     "stockMoves": [],
     "projects": [],
