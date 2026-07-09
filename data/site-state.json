@@ -1,0 +1,1852 @@
+{
+  "version": 1,
+  "updatedAt": "2026-07-09T10:46:05.321Z",
+  "products": [
+    {
+      "hp": 1.5,
+      "id": "p1",
+      "img": "https://carrier-egy.com/cdn/shop/files/af48ce1d6ad8d687b4b00073767e490f.jpg?v=1757416112&width=900",
+      "area": "12-18m",
+      "name": "XCOOL Inverter (بارد)",
+      "type": "Inverter",
+      "badge": "موفر",
+      "brand": "Carrier",
+      "model": "53KHEFT12DN8-708F",
+      "price": 30390,
+      "cooling": "بارد",
+      "gallery": [
+        "https://carrier-egy.com/cdn/shop/files/af48ce1d6ad8d687b4b00073767e490f.jpg?v=1757416112&width=900",
+        "https://carrier-egy.com/cdn/shop/files/dc2cd3c1-2478-44a5-9e74-f0b10f1ffec9.jpg?v=1757159454&width=900",
+        "https://carrier-egy.com/cdn/shop/files/0311_4a3a394c-a951-4b13-bf3e-e266b4efb9f1.webp?v=1742071498&width=900"
+      ],
+      "category": "wall",
+      "features": [
+        "توفير كهرباء حتى 40%",
+        "تشغيل هادئ",
+        "ضمان معتمد"
+      ],
+      "refrigerant": "R-32",
+      "originalPrice": null
+    },
+    {
+      "hp": 2.25,
+      "id": "p2",
+      "img": "https://carrier-egy.com/cdn/shop/files/af48ce1d6ad8d687b4b00073767e490f.jpg?v=1757416112&width=900",
+      "area": "18-28m",
+      "name": "XCOOL Inverter (بارد)",
+      "type": "Inverter",
+      "badge": "موفر",
+      "brand": "Carrier",
+      "model": "53KHEFT18DN8-708F",
+      "price": 44910,
+      "cooling": "بارد",
+      "gallery": [
+        "https://carrier-egy.com/cdn/shop/files/af48ce1d6ad8d687b4b00073767e490f.jpg?v=1757416112&width=900",
+        "https://carrier-egy.com/cdn/shop/files/dc2cd3c1-2478-44a5-9e74-f0b10f1ffec9.jpg?v=1757159454&width=900",
+        "https://carrier-egy.com/cdn/shop/files/0311_4a3a394c-a951-4b13-bf3e-e266b4efb9f1.webp?v=1742071498&width=900"
+      ],
+      "category": "wall",
+      "features": [
+        "توفير كهرباء حتى 40%",
+        "تشغيل هادئ",
+        "ضمان معتمد"
+      ],
+      "refrigerant": "R-32",
+      "originalPrice": null
+    },
+    {
+      "hp": 3,
+      "id": "p3",
+      "img": "https://carrier-egy.com/cdn/shop/files/dc2cd3c1-2478-44a5-9e74-f0b10f1ffec9.jpg?v=1757159454&width=900",
+      "area": "28-38m",
+      "name": "XCOOL Inverter (بارد)",
+      "type": "Inverter",
+      "badge": "موفر",
+      "brand": "Carrier",
+      "model": "53KHEFT24DN8-708F",
+      "price": 50995,
+      "cooling": "بارد",
+      "gallery": [
+        "https://carrier-egy.com/cdn/shop/files/dc2cd3c1-2478-44a5-9e74-f0b10f1ffec9.jpg?v=1757159454&width=900",
+        "https://carrier-egy.com/cdn/shop/files/0311_4a3a394c-a951-4b13-bf3e-e266b4efb9f1.webp?v=1742071498&width=900"
+      ],
+      "category": "wall",
+      "features": [
+        "توفير كهرباء حتى 40%",
+        "تشغيل هادئ",
+        "ضمان معتمد"
+      ],
+      "refrigerant": "R-32",
+      "originalPrice": null
+    },
+    {
+      "hp": 1.5,
+      "id": "p4",
+      "img": "https://carrier-egy.com/cdn/shop/files/af48ce1d6ad8d687b4b00073767e490f.jpg?v=1757416112&width=900",
+      "area": "12-18m",
+      "name": "XCOOL Inverter (بارد ساخن)",
+      "type": "Inverter",
+      "badge": "موفر",
+      "brand": "Carrier",
+      "model": "53QHEFT12DN8-708F",
+      "price": 33105,
+      "cooling": "بارد ساخن",
+      "gallery": [
+        "https://carrier-egy.com/cdn/shop/files/af48ce1d6ad8d687b4b00073767e490f.jpg?v=1757416112&width=900",
+        "https://carrier-egy.com/cdn/shop/files/dc2cd3c1-2478-44a5-9e74-f0b10f1ffec9.jpg?v=1757159454&width=900",
+        "https://carrier-egy.com/cdn/shop/files/0311_4a3a394c-a951-4b13-bf3e-e266b4efb9f1.webp?v=1742071498&width=900"
+      ],
+      "category": "wall",
+      "features": [
+        "توفير كهرباء حتى 40%",
+        "تشغيل هادئ",
+        "ضمان معتمد"
+      ],
+      "refrigerant": "R-32",
+      "originalPrice": null
+    },
+    {
+      "hp": 2.25,
+      "id": "p5",
+      "img": "https://carrier-egy.com/cdn/shop/files/af48ce1d6ad8d687b4b00073767e490f.jpg?v=1757416112&width=900",
+      "area": "18-28m",
+      "name": "XCOOL Inverter (بارد ساخن)",
+      "type": "Inverter",
+      "badge": "موفر",
+      "brand": "Carrier",
+      "model": "53QHEFT18DN8-708F",
+      "price": 48565,
+      "cooling": "بارد ساخن",
+      "gallery": [
+        "https://carrier-egy.com/cdn/shop/files/af48ce1d6ad8d687b4b00073767e490f.jpg?v=1757416112&width=900",
+        "https://carrier-egy.com/cdn/shop/files/dc2cd3c1-2478-44a5-9e74-f0b10f1ffec9.jpg?v=1757159454&width=900",
+        "https://carrier-egy.com/cdn/shop/files/0311_4a3a394c-a951-4b13-bf3e-e266b4efb9f1.webp?v=1742071498&width=900"
+      ],
+      "category": "wall",
+      "features": [
+        "توفير كهرباء حتى 40%",
+        "تشغيل هادئ",
+        "ضمان معتمد"
+      ],
+      "refrigerant": "R-32",
+      "originalPrice": null
+    },
+    {
+      "hp": 3,
+      "id": "p6",
+      "img": "https://carrier-egy.com/cdn/shop/files/dc2cd3c1-2478-44a5-9e74-f0b10f1ffec9.jpg?v=1757159454&width=900",
+      "area": "28-38m",
+      "name": "XCOOL Inverter (بارد ساخن)",
+      "type": "Inverter",
+      "badge": "موفر",
+      "brand": "Carrier",
+      "model": "53QHEFT24DN8-708F",
+      "price": 55140,
+      "cooling": "بارد ساخن",
+      "gallery": [
+        "https://carrier-egy.com/cdn/shop/files/dc2cd3c1-2478-44a5-9e74-f0b10f1ffec9.jpg?v=1757159454&width=900",
+        "https://carrier-egy.com/cdn/shop/files/0311_4a3a394c-a951-4b13-bf3e-e266b4efb9f1.webp?v=1742071498&width=900"
+      ],
+      "category": "wall",
+      "features": [
+        "توفير كهرباء حتى 40%",
+        "تشغيل هادئ",
+        "ضمان معتمد"
+      ],
+      "refrigerant": "R-32",
+      "originalPrice": null
+    },
+    {
+      "hp": 4,
+      "id": "p7",
+      "img": "https://carrier-egy.com/cdn/shop/files/111111111111.jpg?v=1742071501&width=900",
+      "area": "38-50m",
+      "name": "Optimax Inverter (بارد ساخن)",
+      "type": "Inverter",
+      "badge": "موفر",
+      "brand": "Carrier",
+      "model": "53QHABT30DN-708F",
+      "price": 85940,
+      "cooling": "بارد ساخن",
+      "gallery": [
+        "https://carrier-egy.com/cdn/shop/files/111111111111.jpg?v=1742071501&width=900",
+        "https://carrier-egy.com/cdn/shop/files/0311_4a3a394c-a951-4b13-bf3e-e266b4efb9f1.webp?v=1742071498&width=900"
+      ],
+      "category": "wall",
+      "features": [
+        "توفير كهرباء حتى 40%",
+        "تشغيل هادئ",
+        "ضمان معتمد"
+      ],
+      "refrigerant": "R410A",
+      "originalPrice": null
+    },
+    {
+      "hp": 5,
+      "id": "p8",
+      "img": "https://carrier-egy.com/cdn/shop/files/111111111111.jpg?v=1742071501&width=900",
+      "area": "50-65m",
+      "name": "Optimax Inverter (بارد ساخن)",
+      "type": "Inverter",
+      "badge": "موفر",
+      "brand": "Carrier",
+      "model": "53QHABT36DN-708F",
+      "price": 98750,
+      "cooling": "بارد ساخن",
+      "gallery": [
+        "https://carrier-egy.com/cdn/shop/files/111111111111.jpg?v=1742071501&width=900",
+        "https://carrier-egy.com/cdn/shop/files/0311_4a3a394c-a951-4b13-bf3e-e266b4efb9f1.webp?v=1742071498&width=900"
+      ],
+      "category": "wall",
+      "features": [
+        "توفير كهرباء حتى 40%",
+        "تشغيل هادئ",
+        "ضمان معتمد"
+      ],
+      "refrigerant": "R410A",
+      "originalPrice": null
+    },
+    {
+      "hp": 1.5,
+      "id": "p9",
+      "img": "https://carrier-egy.com/cdn/shop/files/25555.png?v=1742071504&width=900",
+      "area": "12-18m",
+      "name": "Optimax Pro (بارد)",
+      "type": "Fixed",
+      "badge": "",
+      "brand": "Carrier",
+      "model": "53KHCT12N-708",
+      "price": 26415,
+      "cooling": "بارد",
+      "gallery": [
+        "https://carrier-egy.com/cdn/shop/files/25555.png?v=1742071504&width=900",
+        "https://carrier-egy.com/cdn/shop/files/111111111111.jpg?v=1742071501&width=900",
+        "https://carrier-egy.com/cdn/shop/files/0311_4a3a394c-a951-4b13-bf3e-e266b4efb9f1.webp?v=1742071498&width=900"
+      ],
+      "category": "wall",
+      "features": [
+        "تبريد قوي ومستقر",
+        "سهولة صيانة",
+        "قيمة ممتازة"
+      ],
+      "refrigerant": "R410A",
+      "originalPrice": null
+    },
+    {
+      "hp": 2.25,
+      "id": "p10",
+      "img": "https://carrier-egy.com/cdn/shop/files/25555.png?v=1742071504&width=900",
+      "area": "18-28m",
+      "name": "Optimax Pro (بارد)",
+      "type": "Fixed",
+      "badge": "",
+      "brand": "Carrier",
+      "model": "53KHCT18N-708",
+      "price": 37325,
+      "cooling": "بارد",
+      "gallery": [
+        "https://carrier-egy.com/cdn/shop/files/25555.png?v=1742071504&width=900",
+        "https://carrier-egy.com/cdn/shop/files/111111111111.jpg?v=1742071501&width=900",
+        "https://carrier-egy.com/cdn/shop/files/0311_4a3a394c-a951-4b13-bf3e-e266b4efb9f1.webp?v=1742071498&width=900"
+      ],
+      "category": "wall",
+      "features": [
+        "تبريد قوي ومستقر",
+        "سهولة صيانة",
+        "قيمة ممتازة"
+      ],
+      "refrigerant": "R410A",
+      "originalPrice": null
+    },
+    {
+      "hp": 3,
+      "id": "p11",
+      "img": "https://carrier-egy.com/cdn/shop/files/25555.png?v=1742071504&width=900",
+      "area": "28-38m",
+      "name": "Optimax Pro (بارد)",
+      "type": "Fixed",
+      "badge": "",
+      "brand": "Carrier",
+      "model": "53KHCT24N-708",
+      "price": 44705,
+      "cooling": "بارد",
+      "gallery": [
+        "https://carrier-egy.com/cdn/shop/files/25555.png?v=1742071504&width=900",
+        "https://carrier-egy.com/cdn/shop/files/111111111111.jpg?v=1742071501&width=900",
+        "https://carrier-egy.com/cdn/shop/files/0311_4a3a394c-a951-4b13-bf3e-e266b4efb9f1.webp?v=1742071498&width=900"
+      ],
+      "category": "wall",
+      "features": [
+        "تبريد قوي ومستقر",
+        "سهولة صيانة",
+        "قيمة ممتازة"
+      ],
+      "refrigerant": "R410A",
+      "originalPrice": null
+    },
+    {
+      "hp": 1.5,
+      "id": "p12",
+      "img": "https://carrier-egy.com/cdn/shop/files/111111111111.jpg?v=1742071501&width=900",
+      "area": "12-18m",
+      "name": "Optimax Pro (بارد ساخن)",
+      "type": "Fixed",
+      "badge": "",
+      "brand": "Carrier",
+      "model": "53QHCT12N-708F",
+      "price": 28630,
+      "cooling": "بارد ساخن",
+      "gallery": [
+        "https://carrier-egy.com/cdn/shop/files/111111111111.jpg?v=1742071501&width=900",
+        "https://carrier-egy.com/cdn/shop/files/0311_4a3a394c-a951-4b13-bf3e-e266b4efb9f1.webp?v=1742071498&width=900"
+      ],
+      "category": "wall",
+      "features": [
+        "تبريد قوي ومستقر",
+        "سهولة صيانة",
+        "قيمة ممتازة"
+      ],
+      "refrigerant": "R410A",
+      "originalPrice": null
+    },
+    {
+      "hp": 2.25,
+      "id": "p13",
+      "img": "https://carrier-egy.com/cdn/shop/files/111111111111.jpg?v=1742071501&width=900",
+      "area": "18-28m",
+      "name": "Optimax Pro (بارد ساخن)",
+      "type": "Fixed",
+      "badge": "",
+      "brand": "Carrier",
+      "model": "53QHCT18N-708F",
+      "price": 40730,
+      "cooling": "بارد ساخن",
+      "gallery": [
+        "https://carrier-egy.com/cdn/shop/files/111111111111.jpg?v=1742071501&width=900",
+        "https://carrier-egy.com/cdn/shop/files/0311_4a3a394c-a951-4b13-bf3e-e266b4efb9f1.webp?v=1742071498&width=900"
+      ],
+      "category": "wall",
+      "features": [
+        "تبريد قوي ومستقر",
+        "سهولة صيانة",
+        "قيمة ممتازة"
+      ],
+      "refrigerant": "R410A",
+      "originalPrice": null
+    },
+    {
+      "hp": 3,
+      "id": "p14",
+      "img": "https://carrier-egy.com/cdn/shop/files/111111111111.jpg?v=1742071501&width=900",
+      "area": "28-38m",
+      "name": "Optimax Pro (بارد ساخن)",
+      "type": "Fixed",
+      "badge": "",
+      "brand": "Carrier",
+      "model": "53QHCT24N-708F",
+      "price": 48200,
+      "cooling": "بارد ساخن",
+      "gallery": [
+        "https://carrier-egy.com/cdn/shop/files/111111111111.jpg?v=1742071501&width=900",
+        "https://carrier-egy.com/cdn/shop/files/0311_4a3a394c-a951-4b13-bf3e-e266b4efb9f1.webp?v=1742071498&width=900"
+      ],
+      "category": "wall",
+      "features": [
+        "تبريد قوي ومستقر",
+        "سهولة صيانة",
+        "قيمة ممتازة"
+      ],
+      "refrigerant": "R410A",
+      "originalPrice": null
+    },
+    {
+      "hp": 4,
+      "id": "p15",
+      "img": "https://carrier-egy.com/cdn/shop/files/25555.png?v=1742071504&width=900",
+      "area": "38-50m",
+      "name": "Optimax Pro (بارد ساخن)",
+      "type": "Fixed",
+      "badge": "",
+      "brand": "Carrier",
+      "model": "53QHABT30N-708F",
+      "price": 76460,
+      "cooling": "بارد ساخن",
+      "gallery": [
+        "https://carrier-egy.com/cdn/shop/files/25555.png?v=1742071504&width=900",
+        "https://carrier-egy.com/cdn/shop/files/111111111111.jpg?v=1742071501&width=900",
+        "https://carrier-egy.com/cdn/shop/files/0311_4a3a394c-a951-4b13-bf3e-e266b4efb9f1.webp?v=1742071498&width=900"
+      ],
+      "category": "wall",
+      "features": [
+        "تبريد قوي ومستقر",
+        "سهولة صيانة",
+        "قيمة ممتازة"
+      ],
+      "refrigerant": "R410A",
+      "originalPrice": null
+    },
+    {
+      "hp": 5,
+      "id": "p16",
+      "img": "https://carrier-egy.com/cdn/shop/files/25555.png?v=1742071504&width=900",
+      "area": "50-65m",
+      "name": "Optimax Pro (بارد ساخن)",
+      "type": "Fixed",
+      "badge": "",
+      "brand": "Carrier",
+      "model": "53QHABT36N-708F",
+      "price": 87850,
+      "cooling": "بارد ساخن",
+      "gallery": [
+        "https://carrier-egy.com/cdn/shop/files/25555.png?v=1742071504&width=900",
+        "https://carrier-egy.com/cdn/shop/files/111111111111.jpg?v=1742071501&width=900",
+        "https://carrier-egy.com/cdn/shop/files/0311_4a3a394c-a951-4b13-bf3e-e266b4efb9f1.webp?v=1742071498&width=900"
+      ],
+      "category": "wall",
+      "features": [
+        "تبريد قوي ومستقر",
+        "سهولة صيانة",
+        "قيمة ممتازة"
+      ],
+      "refrigerant": "R410A",
+      "originalPrice": null
+    },
+    {
+      "hp": 1.5,
+      "id": "p17",
+      "img": "https://carrier-egy.com/cdn/shop/files/af48ce1d6ad8d687b4b00073767e490f.jpg?v=1757416112&width=900",
+      "area": "12-18m",
+      "name": "XCOOL (بارد)",
+      "type": "Fixed",
+      "badge": "",
+      "brand": "Carrier",
+      "model": "53KHEFT12N8-708F",
+      "price": 26415,
+      "cooling": "بارد",
+      "gallery": [
+        "https://carrier-egy.com/cdn/shop/files/af48ce1d6ad8d687b4b00073767e490f.jpg?v=1757416112&width=900",
+        "https://carrier-egy.com/cdn/shop/files/dc2cd3c1-2478-44a5-9e74-f0b10f1ffec9.jpg?v=1757159454&width=900",
+        "https://carrier-egy.com/cdn/shop/files/0311_4a3a394c-a951-4b13-bf3e-e266b4efb9f1.webp?v=1742071498&width=900"
+      ],
+      "category": "wall",
+      "features": [
+        "تبريد قوي ومستقر",
+        "سهولة صيانة",
+        "قيمة ممتازة"
+      ],
+      "refrigerant": "R-32",
+      "originalPrice": null
+    },
+    {
+      "hp": 2.25,
+      "id": "p18",
+      "img": "https://carrier-egy.com/cdn/shop/files/af48ce1d6ad8d687b4b00073767e490f.jpg?v=1757416112&width=900",
+      "area": "18-28m",
+      "name": "XCOOL (بارد)",
+      "type": "Fixed",
+      "badge": "",
+      "brand": "Carrier",
+      "model": "53KHEFT18N8-708F",
+      "price": 37935,
+      "cooling": "بارد",
+      "gallery": [
+        "https://carrier-egy.com/cdn/shop/files/af48ce1d6ad8d687b4b00073767e490f.jpg?v=1757416112&width=900",
+        "https://carrier-egy.com/cdn/shop/files/dc2cd3c1-2478-44a5-9e74-f0b10f1ffec9.jpg?v=1757159454&width=900",
+        "https://carrier-egy.com/cdn/shop/files/0311_4a3a394c-a951-4b13-bf3e-e266b4efb9f1.webp?v=1742071498&width=900"
+      ],
+      "category": "wall",
+      "features": [
+        "تبريد قوي ومستقر",
+        "سهولة صيانة",
+        "قيمة ممتازة"
+      ],
+      "refrigerant": "R-32",
+      "originalPrice": null
+    },
+    {
+      "hp": 3,
+      "id": "p19",
+      "img": "https://carrier-egy.com/cdn/shop/files/dc2cd3c1-2478-44a5-9e74-f0b10f1ffec9.jpg?v=1757159454&width=900",
+      "area": "28-38m",
+      "name": "XCOOL (بارد)",
+      "type": "Fixed",
+      "badge": "",
+      "brand": "Carrier",
+      "model": "53KHEFT24N8-708F",
+      "price": 45520,
+      "cooling": "بارد",
+      "gallery": [
+        "https://carrier-egy.com/cdn/shop/files/dc2cd3c1-2478-44a5-9e74-f0b10f1ffec9.jpg?v=1757159454&width=900",
+        "https://carrier-egy.com/cdn/shop/files/0311_4a3a394c-a951-4b13-bf3e-e266b4efb9f1.webp?v=1742071498&width=900"
+      ],
+      "category": "wall",
+      "features": [
+        "تبريد قوي ومستقر",
+        "سهولة صيانة",
+        "قيمة ممتازة"
+      ],
+      "refrigerant": "R-32",
+      "originalPrice": null
+    },
+    {
+      "hp": 1.5,
+      "id": "p20",
+      "img": "https://carrier-egy.com/cdn/shop/files/af48ce1d6ad8d687b4b00073767e490f.jpg?v=1757416112&width=900",
+      "area": "12-18m",
+      "name": "XCOOL (بارد ساخن)",
+      "type": "Fixed",
+      "badge": "",
+      "brand": "Carrier",
+      "model": "53QHEFT12N8-708F",
+      "price": 28630,
+      "cooling": "بارد ساخن",
+      "gallery": [
+        "https://carrier-egy.com/cdn/shop/files/af48ce1d6ad8d687b4b00073767e490f.jpg?v=1757416112&width=900",
+        "https://carrier-egy.com/cdn/shop/files/dc2cd3c1-2478-44a5-9e74-f0b10f1ffec9.jpg?v=1757159454&width=900",
+        "https://carrier-egy.com/cdn/shop/files/0311_4a3a394c-a951-4b13-bf3e-e266b4efb9f1.webp?v=1742071498&width=900"
+      ],
+      "category": "wall",
+      "features": [
+        "تبريد قوي ومستقر",
+        "سهولة صيانة",
+        "قيمة ممتازة"
+      ],
+      "refrigerant": "R-32",
+      "originalPrice": null
+    },
+    {
+      "hp": 2.25,
+      "id": "p21",
+      "img": "https://carrier-egy.com/cdn/shop/files/af48ce1d6ad8d687b4b00073767e490f.jpg?v=1757416112&width=900",
+      "area": "18-28m",
+      "name": "XCOOL (بارد ساخن)",
+      "type": "Fixed",
+      "badge": "",
+      "brand": "Carrier",
+      "model": "53QHEFT18N8-708F",
+      "price": 41345,
+      "cooling": "بارد ساخن",
+      "gallery": [
+        "https://carrier-egy.com/cdn/shop/files/af48ce1d6ad8d687b4b00073767e490f.jpg?v=1757416112&width=900",
+        "https://carrier-egy.com/cdn/shop/files/dc2cd3c1-2478-44a5-9e74-f0b10f1ffec9.jpg?v=1757159454&width=900",
+        "https://carrier-egy.com/cdn/shop/files/0311_4a3a394c-a951-4b13-bf3e-e266b4efb9f1.webp?v=1742071498&width=900"
+      ],
+      "category": "wall",
+      "features": [
+        "تبريد قوي ومستقر",
+        "سهولة صيانة",
+        "قيمة ممتازة"
+      ],
+      "refrigerant": "R-32",
+      "originalPrice": null
+    },
+    {
+      "hp": 3,
+      "id": "p22",
+      "img": "https://carrier-egy.com/cdn/shop/files/dc2cd3c1-2478-44a5-9e74-f0b10f1ffec9.jpg?v=1757159454&width=900",
+      "area": "28-38m",
+      "name": "XCOOL (بارد ساخن)",
+      "type": "Fixed",
+      "badge": "",
+      "brand": "Carrier",
+      "model": "53QHEFT24N8-708F",
+      "price": 49015,
+      "cooling": "بارد ساخن",
+      "gallery": [
+        "https://carrier-egy.com/cdn/shop/files/dc2cd3c1-2478-44a5-9e74-f0b10f1ffec9.jpg?v=1757159454&width=900",
+        "https://carrier-egy.com/cdn/shop/files/0311_4a3a394c-a951-4b13-bf3e-e266b4efb9f1.webp?v=1742071498&width=900"
+      ],
+      "category": "wall",
+      "features": [
+        "تبريد قوي ومستقر",
+        "سهولة صيانة",
+        "قيمة ممتازة"
+      ],
+      "refrigerant": "R-32",
+      "originalPrice": null
+    },
+    {
+      "hp": 2.25,
+      "id": "p23",
+      "img": "https://carrier-egy.com/cdn/shop/files/7_5c7f2806-b92b-4570-ac92-bb6311edaa84.png?v=1742071526&width=900",
+      "area": "18-28m",
+      "name": "ClassiCool Inverter (بارد ساخن)",
+      "type": "Inverter",
+      "badge": "موفر",
+      "brand": "Carrier",
+      "model": "53QDMA6T18DN-728",
+      "price": 64300,
+      "cooling": "بارد ساخن",
+      "gallery": [
+        "https://carrier-egy.com/cdn/shop/files/7_5c7f2806-b92b-4570-ac92-bb6311edaa84.png?v=1742071526&width=900",
+        "https://carrier-egy.com/cdn/shop/files/7_9c2f284c-8d8e-460e-912c-0646086e9833.png?v=1742071544&width=900",
+        "https://carrier-egy.com/cdn/shop/files/2_d3a19cb8-9531-44f4-876b-db430a309a99.png?v=1742071535&width=900"
+      ],
+      "category": "ducted",
+      "features": [
+        "مناسب للمشروعات",
+        "توزيع هواء احترافي",
+        "اعتمادية تشغيل"
+      ],
+      "refrigerant": "R410A",
+      "originalPrice": null
+    },
+    {
+      "hp": 3,
+      "id": "p24",
+      "img": "https://carrier-egy.com/cdn/shop/files/7_5c7f2806-b92b-4570-ac92-bb6311edaa84.png?v=1742071526&width=900",
+      "area": "28-38m",
+      "name": "ClassiCool Inverter (بارد ساخن)",
+      "type": "Inverter",
+      "badge": "موفر",
+      "brand": "Carrier",
+      "model": "53QDMA6T24DN-728",
+      "price": 74085,
+      "cooling": "بارد ساخن",
+      "gallery": [
+        "https://carrier-egy.com/cdn/shop/files/7_5c7f2806-b92b-4570-ac92-bb6311edaa84.png?v=1742071526&width=900",
+        "https://carrier-egy.com/cdn/shop/files/7_9c2f284c-8d8e-460e-912c-0646086e9833.png?v=1742071544&width=900",
+        "https://carrier-egy.com/cdn/shop/files/2_d3a19cb8-9531-44f4-876b-db430a309a99.png?v=1742071535&width=900"
+      ],
+      "category": "ducted",
+      "features": [
+        "مناسب للمشروعات",
+        "توزيع هواء احترافي",
+        "اعتمادية تشغيل"
+      ],
+      "refrigerant": "R410A",
+      "originalPrice": null
+    },
+    {
+      "hp": 5,
+      "id": "p25",
+      "img": "https://carrier-egy.com/cdn/shop/files/7_5c7f2806-b92b-4570-ac92-bb6311edaa84.png?v=1742071526&width=900",
+      "area": "50-65m",
+      "name": "ClassiCool Inverter (بارد ساخن)",
+      "type": "Inverter",
+      "badge": "موفر",
+      "brand": "Carrier",
+      "model": "53QDMA6T36DN-728",
+      "price": 109270,
+      "cooling": "بارد ساخن",
+      "gallery": [
+        "https://carrier-egy.com/cdn/shop/files/7_5c7f2806-b92b-4570-ac92-bb6311edaa84.png?v=1742071526&width=900",
+        "https://carrier-egy.com/cdn/shop/files/7_9c2f284c-8d8e-460e-912c-0646086e9833.png?v=1742071544&width=900",
+        "https://carrier-egy.com/cdn/shop/files/2_d3a19cb8-9531-44f4-876b-db430a309a99.png?v=1742071535&width=900"
+      ],
+      "category": "ducted",
+      "features": [
+        "مناسب للمشروعات",
+        "توزيع هواء احترافي",
+        "اعتمادية تشغيل"
+      ],
+      "refrigerant": "R410A",
+      "originalPrice": null
+    },
+    {
+      "hp": 6,
+      "id": "p26",
+      "img": "https://carrier-egy.com/cdn/shop/files/7_5c7f2806-b92b-4570-ac92-bb6311edaa84.png?v=1742071526&width=900",
+      "area": "65-80m",
+      "name": "ClassiCool Inverter (بارد ساخن)",
+      "type": "Inverter",
+      "badge": "موفر",
+      "brand": "Carrier",
+      "model": "53QDHTGT48DN-528",
+      "price": 143050,
+      "cooling": "بارد ساخن",
+      "gallery": [
+        "https://carrier-egy.com/cdn/shop/files/7_5c7f2806-b92b-4570-ac92-bb6311edaa84.png?v=1742071526&width=900",
+        "https://carrier-egy.com/cdn/shop/files/7_9c2f284c-8d8e-460e-912c-0646086e9833.png?v=1742071544&width=900",
+        "https://carrier-egy.com/cdn/shop/files/2_d3a19cb8-9531-44f4-876b-db430a309a99.png?v=1742071535&width=900"
+      ],
+      "category": "ducted",
+      "features": [
+        "مناسب للمشروعات",
+        "توزيع هواء احترافي",
+        "اعتمادية تشغيل"
+      ],
+      "refrigerant": "R410A",
+      "originalPrice": null
+    },
+    {
+      "hp": 7.5,
+      "id": "p27",
+      "img": "https://carrier-egy.com/cdn/shop/files/7_5c7f2806-b92b-4570-ac92-bb6311edaa84.png?v=1742071526&width=900",
+      "area": "80-110m",
+      "name": "ClassiCool Inverter (بارد ساخن)",
+      "type": "Inverter",
+      "badge": "موفر",
+      "brand": "Carrier",
+      "model": "53QDHTGT60DN-528",
+      "price": 157860,
+      "cooling": "بارد ساخن",
+      "gallery": [
+        "https://carrier-egy.com/cdn/shop/files/7_5c7f2806-b92b-4570-ac92-bb6311edaa84.png?v=1742071526&width=900",
+        "https://carrier-egy.com/cdn/shop/files/7_9c2f284c-8d8e-460e-912c-0646086e9833.png?v=1742071544&width=900",
+        "https://carrier-egy.com/cdn/shop/files/2_d3a19cb8-9531-44f4-876b-db430a309a99.png?v=1742071535&width=900"
+      ],
+      "category": "ducted",
+      "features": [
+        "مناسب للمشروعات",
+        "توزيع هواء احترافي",
+        "اعتمادية تشغيل"
+      ],
+      "refrigerant": "R410A",
+      "originalPrice": null
+    },
+    {
+      "hp": 1.5,
+      "id": "p28",
+      "img": "https://carrier-egy.com/cdn/shop/files/7_5c7f2806-b92b-4570-ac92-bb6311edaa84.png?v=1742071526&width=900",
+      "area": "12-18m",
+      "name": "ClassiCool Pro (بارد ساخن)",
+      "type": "Fixed",
+      "badge": "",
+      "brand": "Carrier",
+      "model": "53QDMA6T12N-728",
+      "price": 41260,
+      "cooling": "بارد ساخن",
+      "gallery": [
+        "https://carrier-egy.com/cdn/shop/files/7_5c7f2806-b92b-4570-ac92-bb6311edaa84.png?v=1742071526&width=900",
+        "https://carrier-egy.com/cdn/shop/files/7_9c2f284c-8d8e-460e-912c-0646086e9833.png?v=1742071544&width=900",
+        "https://carrier-egy.com/cdn/shop/files/2_d3a19cb8-9531-44f4-876b-db430a309a99.png?v=1742071535&width=900"
+      ],
+      "category": "ducted",
+      "features": [
+        "مناسب للمشروعات",
+        "توزيع هواء احترافي",
+        "اعتمادية تشغيل"
+      ],
+      "refrigerant": "R410A",
+      "originalPrice": null
+    },
+    {
+      "hp": 2.25,
+      "id": "p29",
+      "img": "https://carrier-egy.com/cdn/shop/files/7_5c7f2806-b92b-4570-ac92-bb6311edaa84.png?v=1742071526&width=900",
+      "area": "18-28m",
+      "name": "ClassiCool Pro (بارد ساخن)",
+      "type": "Fixed",
+      "badge": "",
+      "brand": "Carrier",
+      "model": "53QDMA6T18N-728",
+      "price": 53655,
+      "cooling": "بارد ساخن",
+      "gallery": [
+        "https://carrier-egy.com/cdn/shop/files/7_5c7f2806-b92b-4570-ac92-bb6311edaa84.png?v=1742071526&width=900",
+        "https://carrier-egy.com/cdn/shop/files/7_9c2f284c-8d8e-460e-912c-0646086e9833.png?v=1742071544&width=900",
+        "https://carrier-egy.com/cdn/shop/files/2_d3a19cb8-9531-44f4-876b-db430a309a99.png?v=1742071535&width=900"
+      ],
+      "category": "ducted",
+      "features": [
+        "مناسب للمشروعات",
+        "توزيع هواء احترافي",
+        "اعتمادية تشغيل"
+      ],
+      "refrigerant": "R410A",
+      "originalPrice": null
+    },
+    {
+      "hp": 3,
+      "id": "p30",
+      "img": "https://carrier-egy.com/cdn/shop/files/7_5c7f2806-b92b-4570-ac92-bb6311edaa84.png?v=1742071526&width=900",
+      "area": "28-38m",
+      "name": "ClassiCool Pro (بارد ساخن)",
+      "type": "Fixed",
+      "badge": "",
+      "brand": "Carrier",
+      "model": "53QDMA6T24N-728",
+      "price": 64385,
+      "cooling": "بارد ساخن",
+      "gallery": [
+        "https://carrier-egy.com/cdn/shop/files/7_5c7f2806-b92b-4570-ac92-bb6311edaa84.png?v=1742071526&width=900",
+        "https://carrier-egy.com/cdn/shop/files/7_9c2f284c-8d8e-460e-912c-0646086e9833.png?v=1742071544&width=900",
+        "https://carrier-egy.com/cdn/shop/files/2_d3a19cb8-9531-44f4-876b-db430a309a99.png?v=1742071535&width=900"
+      ],
+      "category": "ducted",
+      "features": [
+        "مناسب للمشروعات",
+        "توزيع هواء احترافي",
+        "اعتمادية تشغيل"
+      ],
+      "refrigerant": "R410A",
+      "originalPrice": null
+    },
+    {
+      "hp": 4,
+      "id": "p31",
+      "img": "https://carrier-egy.com/cdn/shop/files/7_5c7f2806-b92b-4570-ac92-bb6311edaa84.png?v=1742071526&width=900",
+      "area": "38-50m",
+      "name": "ClassiCool Pro (بارد ساخن)",
+      "type": "Fixed",
+      "badge": "",
+      "brand": "Carrier",
+      "model": "53QDMA6T30N-728",
+      "price": 82705,
+      "cooling": "بارد ساخن",
+      "gallery": [
+        "https://carrier-egy.com/cdn/shop/files/7_5c7f2806-b92b-4570-ac92-bb6311edaa84.png?v=1742071526&width=900",
+        "https://carrier-egy.com/cdn/shop/files/7_9c2f284c-8d8e-460e-912c-0646086e9833.png?v=1742071544&width=900",
+        "https://carrier-egy.com/cdn/shop/files/2_d3a19cb8-9531-44f4-876b-db430a309a99.png?v=1742071535&width=900"
+      ],
+      "category": "ducted",
+      "features": [
+        "مناسب للمشروعات",
+        "توزيع هواء احترافي",
+        "اعتمادية تشغيل"
+      ],
+      "refrigerant": "R410A",
+      "originalPrice": null
+    },
+    {
+      "hp": 5,
+      "id": "p32",
+      "img": "https://carrier-egy.com/cdn/shop/files/7_5c7f2806-b92b-4570-ac92-bb6311edaa84.png?v=1742071526&width=900",
+      "area": "50-65m",
+      "name": "ClassiCool Pro (بارد ساخن)",
+      "type": "Fixed",
+      "badge": "",
+      "brand": "Carrier",
+      "model": "53QDMA6T36N-728",
+      "price": 95055,
+      "cooling": "بارد ساخن",
+      "gallery": [
+        "https://carrier-egy.com/cdn/shop/files/7_5c7f2806-b92b-4570-ac92-bb6311edaa84.png?v=1742071526&width=900",
+        "https://carrier-egy.com/cdn/shop/files/7_9c2f284c-8d8e-460e-912c-0646086e9833.png?v=1742071544&width=900",
+        "https://carrier-egy.com/cdn/shop/files/2_d3a19cb8-9531-44f4-876b-db430a309a99.png?v=1742071535&width=900"
+      ],
+      "category": "ducted",
+      "features": [
+        "مناسب للمشروعات",
+        "توزيع هواء احترافي",
+        "اعتمادية تشغيل"
+      ],
+      "refrigerant": "R410A",
+      "originalPrice": null
+    },
+    {
+      "hp": 6,
+      "id": "p33",
+      "img": "https://carrier-egy.com/cdn/shop/files/2_d3a19cb8-9531-44f4-876b-db430a309a99.png?v=1742071535&width=900",
+      "area": "65-80m",
+      "name": "ClassiCool Pro (بارد ساخن)",
+      "type": "Fixed",
+      "badge": "",
+      "brand": "Carrier",
+      "model": "53QDMA6T48N-528",
+      "price": 124335,
+      "cooling": "بارد ساخن",
+      "gallery": [
+        "https://carrier-egy.com/cdn/shop/files/2_d3a19cb8-9531-44f4-876b-db430a309a99.png?v=1742071535&width=900",
+        "https://carrier-egy.com/cdn/shop/files/7_9c2f284c-8d8e-460e-912c-0646086e9833.png?v=1742071544&width=900"
+      ],
+      "category": "ducted",
+      "features": [
+        "مناسب للمشروعات",
+        "توزيع هواء احترافي",
+        "اعتمادية تشغيل"
+      ],
+      "refrigerant": "R410A",
+      "originalPrice": null
+    },
+    {
+      "hp": 7.5,
+      "id": "p34",
+      "img": "https://carrier-egy.com/cdn/shop/files/2_d3a19cb8-9531-44f4-876b-db430a309a99.png?v=1742071535&width=900",
+      "area": "80-110m",
+      "name": "ClassiCool Pro (بارد ساخن)",
+      "type": "Fixed",
+      "badge": "",
+      "brand": "Carrier",
+      "model": "53QDMA6T60N-528",
+      "price": 137300,
+      "cooling": "بارد ساخن",
+      "gallery": [
+        "https://carrier-egy.com/cdn/shop/files/2_d3a19cb8-9531-44f4-876b-db430a309a99.png?v=1742071535&width=900",
+        "https://carrier-egy.com/cdn/shop/files/7_9c2f284c-8d8e-460e-912c-0646086e9833.png?v=1742071544&width=900"
+      ],
+      "category": "ducted",
+      "features": [
+        "مناسب للمشروعات",
+        "توزيع هواء احترافي",
+        "اعتمادية تشغيل"
+      ],
+      "refrigerant": "R410A",
+      "originalPrice": null
+    },
+    {
+      "hp": 5,
+      "id": "p35",
+      "img": "https://carrier-egy.com/cdn/shop/files/4.png?v=1742071513&width=900",
+      "area": "50-65m",
+      "name": "DECOR Inverter (بارد ساخن)",
+      "type": "Inverter",
+      "badge": "موفر",
+      "brand": "Carrier",
+      "model": "53QCDT36DN-708",
+      "price": 131010,
+      "cooling": "بارد ساخن",
+      "gallery": [
+        "https://carrier-egy.com/cdn/shop/files/4.png?v=1742071513&width=900",
+        "https://carrier-egy.com/cdn/shop/files/7_5c7f2806-b92b-4570-ac92-bb6311edaa84.png?v=1742071526&width=900"
+      ],
+      "category": "cassette",
+      "features": [
+        "توزيع هواء رباعي",
+        "حل سقفي أنيق",
+        "مناسب للمكاتب والمحلات"
+      ],
+      "refrigerant": "R410A",
+      "originalPrice": null
+    },
+    {
+      "hp": 6,
+      "id": "p36",
+      "img": "https://carrier-egy.com/cdn/shop/files/4.png?v=1742071513&width=900",
+      "area": "65-80m",
+      "name": "DECOR Inverter (بارد ساخن)",
+      "type": "Inverter",
+      "badge": "موفر",
+      "brand": "Carrier",
+      "model": "53QCDT48DN-508",
+      "price": 144070,
+      "cooling": "بارد ساخن",
+      "gallery": [
+        "https://carrier-egy.com/cdn/shop/files/4.png?v=1742071513&width=900",
+        "https://carrier-egy.com/cdn/shop/files/7_5c7f2806-b92b-4570-ac92-bb6311edaa84.png?v=1742071526&width=900"
+      ],
+      "category": "cassette",
+      "features": [
+        "توزيع هواء رباعي",
+        "حل سقفي أنيق",
+        "مناسب للمكاتب والمحلات"
+      ],
+      "refrigerant": "R410A",
+      "originalPrice": null
+    },
+    {
+      "hp": 7.5,
+      "id": "p37",
+      "img": "https://carrier-egy.com/cdn/shop/files/14.png?v=1742071565&width=900",
+      "area": "80-110m",
+      "name": "Elegant Inverter (بارد ساخن)",
+      "type": "Inverter",
+      "badge": "موفر",
+      "brand": "Carrier",
+      "model": "53QFGDT60DN-508",
+      "price": 166640,
+      "cooling": "بارد ساخن",
+      "gallery": [
+        "https://carrier-egy.com/cdn/shop/files/14.png?v=1742071565&width=900",
+        "https://carrier-egy.com/cdn/shop/files/10_b1f43485-2c97-422c-99de-b01d5a32dbbd.png?v=1742071566&width=900"
+      ],
+      "category": "floor",
+      "features": [
+        "قدرات كبيرة",
+        "مناسب للمساحات المفتوحة",
+        "أداء ثابت"
+      ],
+      "refrigerant": "R410A",
+      "originalPrice": null
+    },
+    {
+      "hp": 5,
+      "id": "p38",
+      "img": "https://carrier-egy.com/cdn/shop/files/16.png?v=1742071570&width=900",
+      "area": "50-65m",
+      "name": "Elegant Pro (بارد ساخن)",
+      "type": "Fixed",
+      "badge": "",
+      "brand": "Carrier",
+      "model": "53QFMT36N-708",
+      "price": 114265,
+      "cooling": "بارد ساخن",
+      "gallery": [
+        "https://carrier-egy.com/cdn/shop/files/16.png?v=1742071570&width=900",
+        "https://carrier-egy.com/cdn/shop/files/17.png?v=1742071571&width=900"
+      ],
+      "category": "floor",
+      "features": [
+        "قدرات كبيرة",
+        "مناسب للمساحات المفتوحة",
+        "أداء ثابت"
+      ],
+      "refrigerant": "R410A",
+      "originalPrice": null
+    },
+    {
+      "hp": 7.5,
+      "id": "p39",
+      "img": "https://carrier-egy.com/cdn/shop/files/17.png?v=1742071571&width=900",
+      "area": "80-110m",
+      "name": "Elegant Pro (بارد)",
+      "type": "Fixed",
+      "badge": "",
+      "brand": "Carrier",
+      "model": "53KFGDT60N-508",
+      "price": 145060,
+      "cooling": "بارد",
+      "gallery": [
+        "https://carrier-egy.com/cdn/shop/files/17.png?v=1742071571&width=900"
+      ],
+      "category": "floor",
+      "features": [
+        "قدرات كبيرة",
+        "مناسب للمساحات المفتوحة",
+        "أداء ثابت"
+      ],
+      "refrigerant": "R410A",
+      "originalPrice": null
+    },
+    {
+      "hp": 1.5,
+      "id": "p40",
+      "img": "https://carrier-egy.com/cdn/shop/files/5494c874-4426-401a-a807-499ab508a97f_6a82b6c2-6cda-4a87-a0f4-c63f48a61aab.jpg?v=1759141662&width=900",
+      "area": "12-18m",
+      "name": "AI ECO MASTER Inverter (بارد)",
+      "type": "Inverter",
+      "badge": "موفر",
+      "brand": "Midea",
+      "model": "M1SEFT-12CRDN8F-Q8",
+      "price": 27525,
+      "cooling": "بارد",
+      "gallery": [
+        "https://carrier-egy.com/cdn/shop/files/5494c874-4426-401a-a807-499ab508a97f_6a82b6c2-6cda-4a87-a0f4-c63f48a61aab.jpg?v=1759141662&width=900",
+        "https://carrier-egy.com/cdn/shop/files/5494c874-4426-401a-a807-499ab508a97f_b75435d8-fc66-4d57-b543-c10213a7e325.jpg?v=1759142894&width=900",
+        "https://carrier-egy.com/cdn/shop/files/59046c85-1778-48fa-bdb7-264501459696.jpg?v=1757159671&width=900"
+      ],
+      "category": "wall",
+      "features": [
+        "توفير كهرباء حتى 40%",
+        "تشغيل هادئ",
+        "ضمان معتمد"
+      ],
+      "refrigerant": "R-32",
+      "originalPrice": null
+    },
+    {
+      "hp": 2.25,
+      "id": "p41",
+      "img": "https://carrier-egy.com/cdn/shop/files/5494c874-4426-401a-a807-499ab508a97f_6a82b6c2-6cda-4a87-a0f4-c63f48a61aab.jpg?v=1759141662&width=900",
+      "area": "18-28m",
+      "name": "AI ECO MASTER Inverter (بارد)",
+      "type": "Inverter",
+      "badge": "موفر",
+      "brand": "Midea",
+      "model": "M1SEFT-18CRDN8F-Q8",
+      "price": 40510,
+      "cooling": "بارد",
+      "gallery": [
+        "https://carrier-egy.com/cdn/shop/files/5494c874-4426-401a-a807-499ab508a97f_6a82b6c2-6cda-4a87-a0f4-c63f48a61aab.jpg?v=1759141662&width=900",
+        "https://carrier-egy.com/cdn/shop/files/5494c874-4426-401a-a807-499ab508a97f_b75435d8-fc66-4d57-b543-c10213a7e325.jpg?v=1759142894&width=900",
+        "https://carrier-egy.com/cdn/shop/files/59046c85-1778-48fa-bdb7-264501459696.jpg?v=1757159671&width=900"
+      ],
+      "category": "wall",
+      "features": [
+        "توفير كهرباء حتى 40%",
+        "تشغيل هادئ",
+        "ضمان معتمد"
+      ],
+      "refrigerant": "R-32",
+      "originalPrice": null
+    },
+    {
+      "hp": 3,
+      "id": "p42",
+      "img": "https://carrier-egy.com/cdn/shop/files/59046c85-1778-48fa-bdb7-264501459696.jpg?v=1757159671&width=900",
+      "area": "28-38m",
+      "name": "AI ECO MASTER Inverter (بارد)",
+      "type": "Inverter",
+      "badge": "موفر",
+      "brand": "Midea",
+      "model": "M1SEFT-24CRDN8F-Q8",
+      "price": 46050,
+      "cooling": "بارد",
+      "gallery": [
+        "https://carrier-egy.com/cdn/shop/files/59046c85-1778-48fa-bdb7-264501459696.jpg?v=1757159671&width=900",
+        "https://carrier-egy.com/cdn/shop/files/5494c874-4426-401a-a807-499ab508a97f_b75435d8-fc66-4d57-b543-c10213a7e325.jpg?v=1759142894&width=900"
+      ],
+      "category": "wall",
+      "features": [
+        "توفير كهرباء حتى 40%",
+        "تشغيل هادئ",
+        "ضمان معتمد"
+      ],
+      "refrigerant": "R-32",
+      "originalPrice": null
+    },
+    {
+      "hp": 1.5,
+      "id": "p43",
+      "img": "https://carrier-egy.com/cdn/shop/files/5494c874-4426-401a-a807-499ab508a97f_6a82b6c2-6cda-4a87-a0f4-c63f48a61aab.jpg?v=1759141662&width=900",
+      "area": "12-18m",
+      "name": "AI ECO MASTER Inverter (بارد ساخن)",
+      "type": "Inverter",
+      "badge": "موفر",
+      "brand": "Midea",
+      "model": "M1SEFT-12HRDN8F-Q8",
+      "price": 29990,
+      "cooling": "بارد ساخن",
+      "gallery": [
+        "https://carrier-egy.com/cdn/shop/files/5494c874-4426-401a-a807-499ab508a97f_6a82b6c2-6cda-4a87-a0f4-c63f48a61aab.jpg?v=1759141662&width=900",
+        "https://carrier-egy.com/cdn/shop/files/5494c874-4426-401a-a807-499ab508a97f_b75435d8-fc66-4d57-b543-c10213a7e325.jpg?v=1759142894&width=900",
+        "https://carrier-egy.com/cdn/shop/files/59046c85-1778-48fa-bdb7-264501459696.jpg?v=1757159671&width=900"
+      ],
+      "category": "wall",
+      "features": [
+        "توفير كهرباء حتى 40%",
+        "تشغيل هادئ",
+        "ضمان معتمد"
+      ],
+      "refrigerant": "R-32",
+      "originalPrice": null
+    },
+    {
+      "hp": 2.25,
+      "id": "p44",
+      "img": "https://carrier-egy.com/cdn/shop/files/5494c874-4426-401a-a807-499ab508a97f_6a82b6c2-6cda-4a87-a0f4-c63f48a61aab.jpg?v=1759141662&width=900",
+      "area": "18-28m",
+      "name": "AI ECO MASTER Inverter (بارد ساخن)",
+      "type": "Inverter",
+      "badge": "موفر",
+      "brand": "Midea",
+      "model": "M1SEFT-18HRDN8F-Q8",
+      "price": 43815,
+      "cooling": "بارد ساخن",
+      "gallery": [
+        "https://carrier-egy.com/cdn/shop/files/5494c874-4426-401a-a807-499ab508a97f_6a82b6c2-6cda-4a87-a0f4-c63f48a61aab.jpg?v=1759141662&width=900",
+        "https://carrier-egy.com/cdn/shop/files/5494c874-4426-401a-a807-499ab508a97f_b75435d8-fc66-4d57-b543-c10213a7e325.jpg?v=1759142894&width=900",
+        "https://carrier-egy.com/cdn/shop/files/59046c85-1778-48fa-bdb7-264501459696.jpg?v=1757159671&width=900"
+      ],
+      "category": "wall",
+      "features": [
+        "توفير كهرباء حتى 40%",
+        "تشغيل هادئ",
+        "ضمان معتمد"
+      ],
+      "refrigerant": "R-32",
+      "originalPrice": null
+    },
+    {
+      "hp": 3,
+      "id": "p45",
+      "img": "https://carrier-egy.com/cdn/shop/files/59046c85-1778-48fa-bdb7-264501459696.jpg?v=1757159671&width=900",
+      "area": "28-38m",
+      "name": "AI ECO MASTER Inverter (بارد ساخن)",
+      "type": "Inverter",
+      "badge": "موفر",
+      "brand": "Midea",
+      "model": "M1SEFT-24HRDN8F-Q8",
+      "price": 49800,
+      "cooling": "بارد ساخن",
+      "gallery": [
+        "https://carrier-egy.com/cdn/shop/files/59046c85-1778-48fa-bdb7-264501459696.jpg?v=1757159671&width=900",
+        "https://carrier-egy.com/cdn/shop/files/5494c874-4426-401a-a807-499ab508a97f_b75435d8-fc66-4d57-b543-c10213a7e325.jpg?v=1759142894&width=900"
+      ],
+      "category": "wall",
+      "features": [
+        "توفير كهرباء حتى 40%",
+        "تشغيل هادئ",
+        "ضمان معتمد"
+      ],
+      "refrigerant": "R-32",
+      "originalPrice": null
+    },
+    {
+      "hp": 4,
+      "id": "p46",
+      "img": "https://carrier-egy.com/cdn/shop/files/5494c874-4426-401a-a807-499ab508a97f_b75435d8-fc66-4d57-b543-c10213a7e325.jpg?v=1759142894&width=900",
+      "area": "38-50m",
+      "name": "Mission Inverter (بارد ساخن)",
+      "type": "Inverter",
+      "badge": "موفر",
+      "brand": "Midea",
+      "model": "M1SABT-30HRDNF-Q8",
+      "price": 78725,
+      "cooling": "بارد ساخن",
+      "gallery": [
+        "https://carrier-egy.com/cdn/shop/files/5494c874-4426-401a-a807-499ab508a97f_b75435d8-fc66-4d57-b543-c10213a7e325.jpg?v=1759142894&width=900",
+        "https://carrier-egy.com/cdn/shop/files/59046c85-1778-48fa-bdb7-264501459696.jpg?v=1757159671&width=900"
+      ],
+      "category": "wall",
+      "features": [
+        "توفير كهرباء حتى 40%",
+        "تشغيل هادئ",
+        "ضمان معتمد"
+      ],
+      "refrigerant": "R410A",
+      "originalPrice": null
+    },
+    {
+      "hp": 5,
+      "id": "p47",
+      "img": "https://carrier-egy.com/cdn/shop/files/5494c874-4426-401a-a807-499ab508a97f_b75435d8-fc66-4d57-b543-c10213a7e325.jpg?v=1759142894&width=900",
+      "area": "50-65m",
+      "name": "Mission Inverter (بارد ساخن)",
+      "type": "Inverter",
+      "badge": "موفر",
+      "brand": "Midea",
+      "model": "M1SABT-36HRDNF-Q8",
+      "price": 90495,
+      "cooling": "بارد ساخن",
+      "gallery": [
+        "https://carrier-egy.com/cdn/shop/files/5494c874-4426-401a-a807-499ab508a97f_b75435d8-fc66-4d57-b543-c10213a7e325.jpg?v=1759142894&width=900",
+        "https://carrier-egy.com/cdn/shop/files/59046c85-1778-48fa-bdb7-264501459696.jpg?v=1757159671&width=900"
+      ],
+      "category": "wall",
+      "features": [
+        "توفير كهرباء حتى 40%",
+        "تشغيل هادئ",
+        "ضمان معتمد"
+      ],
+      "refrigerant": "R410A",
+      "originalPrice": null
+    },
+    {
+      "hp": 1.5,
+      "id": "p48",
+      "img": "https://carrier-egy.com/cdn/shop/files/5494c874-4426-401a-a807-499ab508a97f_6a82b6c2-6cda-4a87-a0f4-c63f48a61aab.jpg?v=1759141662&width=900",
+      "area": "12-18m",
+      "name": "XtreamPro (بارد)",
+      "type": "Fixed",
+      "badge": "",
+      "brand": "Midea",
+      "model": "M1SEFT-12CRN8F-Q8",
+      "price": 23430,
+      "cooling": "بارد",
+      "gallery": [
+        "https://carrier-egy.com/cdn/shop/files/5494c874-4426-401a-a807-499ab508a97f_6a82b6c2-6cda-4a87-a0f4-c63f48a61aab.jpg?v=1759141662&width=900",
+        "https://carrier-egy.com/cdn/shop/files/5494c874-4426-401a-a807-499ab508a97f_b75435d8-fc66-4d57-b543-c10213a7e325.jpg?v=1759142894&width=900",
+        "https://carrier-egy.com/cdn/shop/files/59046c85-1778-48fa-bdb7-264501459696.jpg?v=1757159671&width=900"
+      ],
+      "category": "wall",
+      "features": [
+        "تبريد قوي ومستقر",
+        "سهولة صيانة",
+        "قيمة ممتازة"
+      ],
+      "refrigerant": "R-32",
+      "originalPrice": null
+    },
+    {
+      "hp": 2.25,
+      "id": "p49",
+      "img": "https://carrier-egy.com/cdn/shop/files/5494c874-4426-401a-a807-499ab508a97f_6a82b6c2-6cda-4a87-a0f4-c63f48a61aab.jpg?v=1759141662&width=900",
+      "area": "18-28m",
+      "name": "XtreamPro (بارد)",
+      "type": "Fixed",
+      "badge": "",
+      "brand": "Midea",
+      "model": "M1SEFT-18CRN8F-Q8",
+      "price": 35210,
+      "cooling": "بارد",
+      "gallery": [
+        "https://carrier-egy.com/cdn/shop/files/5494c874-4426-401a-a807-499ab508a97f_6a82b6c2-6cda-4a87-a0f4-c63f48a61aab.jpg?v=1759141662&width=900",
+        "https://carrier-egy.com/cdn/shop/files/5494c874-4426-401a-a807-499ab508a97f_b75435d8-fc66-4d57-b543-c10213a7e325.jpg?v=1759142894&width=900",
+        "https://carrier-egy.com/cdn/shop/files/59046c85-1778-48fa-bdb7-264501459696.jpg?v=1757159671&width=900"
+      ],
+      "category": "wall",
+      "features": [
+        "تبريد قوي ومستقر",
+        "سهولة صيانة",
+        "قيمة ممتازة"
+      ],
+      "refrigerant": "R-32",
+      "originalPrice": null
+    },
+    {
+      "hp": 3,
+      "id": "p50",
+      "img": "https://carrier-egy.com/cdn/shop/files/5494c874-4426-401a-a807-499ab508a97f_6a82b6c2-6cda-4a87-a0f4-c63f48a61aab.jpg?v=1759141662&width=900",
+      "area": "28-38m",
+      "name": "XtreamPro (بارد)",
+      "type": "Fixed",
+      "badge": "",
+      "brand": "Midea",
+      "model": "M1SEFT-24CRN8F-Q8",
+      "price": 43160,
+      "cooling": "بارد",
+      "gallery": [
+        "https://carrier-egy.com/cdn/shop/files/5494c874-4426-401a-a807-499ab508a97f_6a82b6c2-6cda-4a87-a0f4-c63f48a61aab.jpg?v=1759141662&width=900",
+        "https://carrier-egy.com/cdn/shop/files/5494c874-4426-401a-a807-499ab508a97f_b75435d8-fc66-4d57-b543-c10213a7e325.jpg?v=1759142894&width=900",
+        "https://carrier-egy.com/cdn/shop/files/59046c85-1778-48fa-bdb7-264501459696.jpg?v=1757159671&width=900"
+      ],
+      "category": "wall",
+      "features": [
+        "تبريد قوي ومستقر",
+        "سهولة صيانة",
+        "قيمة ممتازة"
+      ],
+      "refrigerant": "R-32",
+      "originalPrice": null
+    },
+    {
+      "hp": 1.5,
+      "id": "p51",
+      "img": "https://carrier-egy.com/cdn/shop/files/5494c874-4426-401a-a807-499ab508a97f_6a82b6c2-6cda-4a87-a0f4-c63f48a61aab.jpg?v=1759141662&width=900",
+      "area": "12-18m",
+      "name": "XtreamPro (بارد ساخن)",
+      "type": "Fixed",
+      "badge": "",
+      "brand": "Midea",
+      "model": "M1SEFT-12HRN8F-Q8",
+      "price": 25435,
+      "cooling": "بارد ساخن",
+      "gallery": [
+        "https://carrier-egy.com/cdn/shop/files/5494c874-4426-401a-a807-499ab508a97f_6a82b6c2-6cda-4a87-a0f4-c63f48a61aab.jpg?v=1759141662&width=900",
+        "https://carrier-egy.com/cdn/shop/files/5494c874-4426-401a-a807-499ab508a97f_b75435d8-fc66-4d57-b543-c10213a7e325.jpg?v=1759142894&width=900",
+        "https://carrier-egy.com/cdn/shop/files/59046c85-1778-48fa-bdb7-264501459696.jpg?v=1757159671&width=900"
+      ],
+      "category": "wall",
+      "features": [
+        "تبريد قوي ومستقر",
+        "سهولة صيانة",
+        "قيمة ممتازة"
+      ],
+      "refrigerant": "R-32",
+      "originalPrice": null
+    },
+    {
+      "hp": 2.25,
+      "id": "p52",
+      "img": "https://carrier-egy.com/cdn/shop/files/5494c874-4426-401a-a807-499ab508a97f_6a82b6c2-6cda-4a87-a0f4-c63f48a61aab.jpg?v=1759141662&width=900",
+      "area": "18-28m",
+      "name": "XtreamPro (بارد ساخن)",
+      "type": "Fixed",
+      "badge": "",
+      "brand": "Midea",
+      "model": "M1SEFT-18HRN8F-Q8",
+      "price": 38670,
+      "cooling": "بارد ساخن",
+      "gallery": [
+        "https://carrier-egy.com/cdn/shop/files/5494c874-4426-401a-a807-499ab508a97f_6a82b6c2-6cda-4a87-a0f4-c63f48a61aab.jpg?v=1759141662&width=900",
+        "https://carrier-egy.com/cdn/shop/files/5494c874-4426-401a-a807-499ab508a97f_b75435d8-fc66-4d57-b543-c10213a7e325.jpg?v=1759142894&width=900",
+        "https://carrier-egy.com/cdn/shop/files/59046c85-1778-48fa-bdb7-264501459696.jpg?v=1757159671&width=900"
+      ],
+      "category": "wall",
+      "features": [
+        "تبريد قوي ومستقر",
+        "سهولة صيانة",
+        "قيمة ممتازة"
+      ],
+      "refrigerant": "R-32",
+      "originalPrice": null
+    },
+    {
+      "hp": 3,
+      "id": "p53",
+      "img": "https://carrier-egy.com/cdn/shop/files/5494c874-4426-401a-a807-499ab508a97f_6a82b6c2-6cda-4a87-a0f4-c63f48a61aab.jpg?v=1759141662&width=900",
+      "area": "28-38m",
+      "name": "XtreamPro (بارد ساخن)",
+      "type": "Fixed",
+      "badge": "",
+      "brand": "Midea",
+      "model": "M1SEFT-24HRN8F-Q8",
+      "price": 46350,
+      "cooling": "بارد ساخن",
+      "gallery": [
+        "https://carrier-egy.com/cdn/shop/files/5494c874-4426-401a-a807-499ab508a97f_6a82b6c2-6cda-4a87-a0f4-c63f48a61aab.jpg?v=1759141662&width=900",
+        "https://carrier-egy.com/cdn/shop/files/5494c874-4426-401a-a807-499ab508a97f_b75435d8-fc66-4d57-b543-c10213a7e325.jpg?v=1759142894&width=900",
+        "https://carrier-egy.com/cdn/shop/files/59046c85-1778-48fa-bdb7-264501459696.jpg?v=1757159671&width=900"
+      ],
+      "category": "wall",
+      "features": [
+        "تبريد قوي ومستقر",
+        "سهولة صيانة",
+        "قيمة ممتازة"
+      ],
+      "refrigerant": "R-32",
+      "originalPrice": null
+    },
+    {
+      "hp": 1.5,
+      "id": "p54",
+      "img": "https://carrier-egy.com/cdn/shop/files/5494c874-4426-401a-a807-499ab508a97f_b75435d8-fc66-4d57-b543-c10213a7e325.jpg?v=1759142894&width=900",
+      "area": "12-18m",
+      "name": "Mission Pro (بارد)",
+      "type": "Fixed",
+      "badge": "",
+      "brand": "Midea",
+      "model": "M1SCT-12CRN-Q8",
+      "price": 23430,
+      "cooling": "بارد",
+      "gallery": [
+        "https://carrier-egy.com/cdn/shop/files/5494c874-4426-401a-a807-499ab508a97f_b75435d8-fc66-4d57-b543-c10213a7e325.jpg?v=1759142894&width=900",
+        "https://carrier-egy.com/cdn/shop/files/59046c85-1778-48fa-bdb7-264501459696.jpg?v=1757159671&width=900"
+      ],
+      "category": "wall",
+      "features": [
+        "تبريد قوي ومستقر",
+        "سهولة صيانة",
+        "قيمة ممتازة"
+      ],
+      "refrigerant": "R410A",
+      "originalPrice": null
+    },
+    {
+      "hp": 2.25,
+      "id": "p55",
+      "img": "https://carrier-egy.com/cdn/shop/files/5494c874-4426-401a-a807-499ab508a97f_b75435d8-fc66-4d57-b543-c10213a7e325.jpg?v=1759142894&width=900",
+      "area": "18-28m",
+      "name": "Mission Pro (بارد)",
+      "type": "Fixed",
+      "badge": "",
+      "brand": "Midea",
+      "model": "M1SCT-18CRN-Q8",
+      "price": 34595,
+      "cooling": "بارد",
+      "gallery": [
+        "https://carrier-egy.com/cdn/shop/files/5494c874-4426-401a-a807-499ab508a97f_b75435d8-fc66-4d57-b543-c10213a7e325.jpg?v=1759142894&width=900",
+        "https://carrier-egy.com/cdn/shop/files/59046c85-1778-48fa-bdb7-264501459696.jpg?v=1757159671&width=900"
+      ],
+      "category": "wall",
+      "features": [
+        "تبريد قوي ومستقر",
+        "سهولة صيانة",
+        "قيمة ممتازة"
+      ],
+      "refrigerant": "R410A",
+      "originalPrice": null
+    },
+    {
+      "hp": 3,
+      "id": "p56",
+      "img": "https://carrier-egy.com/cdn/shop/files/59046c85-1778-48fa-bdb7-264501459696.jpg?v=1757159671&width=900",
+      "area": "28-38m",
+      "name": "Mission Pro (بارد)",
+      "type": "Fixed",
+      "badge": "",
+      "brand": "Midea",
+      "model": "M1SCT-24CRN-Q8",
+      "price": 42345,
+      "cooling": "بارد",
+      "gallery": [
+        "https://carrier-egy.com/cdn/shop/files/59046c85-1778-48fa-bdb7-264501459696.jpg?v=1757159671&width=900",
+        "https://carrier-egy.com/cdn/shop/files/5494c874-4426-401a-a807-499ab508a97f_b75435d8-fc66-4d57-b543-c10213a7e325.jpg?v=1759142894&width=900"
+      ],
+      "category": "wall",
+      "features": [
+        "تبريد قوي ومستقر",
+        "سهولة صيانة",
+        "قيمة ممتازة"
+      ],
+      "refrigerant": "R410A",
+      "originalPrice": null
+    },
+    {
+      "hp": 1.5,
+      "id": "p57",
+      "img": "https://carrier-egy.com/cdn/shop/files/5494c874-4426-401a-a807-499ab508a97f_b75435d8-fc66-4d57-b543-c10213a7e325.jpg?v=1759142894&width=900",
+      "area": "12-18m",
+      "name": "Mission Pro (بارد ساخن)",
+      "type": "Fixed",
+      "badge": "",
+      "brand": "Midea",
+      "model": "M1SCT-12HRNF-Q8",
+      "price": 25435,
+      "cooling": "بارد ساخن",
+      "gallery": [
+        "https://carrier-egy.com/cdn/shop/files/5494c874-4426-401a-a807-499ab508a97f_b75435d8-fc66-4d57-b543-c10213a7e325.jpg?v=1759142894&width=900",
+        "https://carrier-egy.com/cdn/shop/files/59046c85-1778-48fa-bdb7-264501459696.jpg?v=1757159671&width=900"
+      ],
+      "category": "wall",
+      "features": [
+        "تبريد قوي ومستقر",
+        "سهولة صيانة",
+        "قيمة ممتازة"
+      ],
+      "refrigerant": "R410A",
+      "originalPrice": null
+    },
+    {
+      "hp": 2.25,
+      "id": "p58",
+      "img": "https://carrier-egy.com/cdn/shop/files/5494c874-4426-401a-a807-499ab508a97f_b75435d8-fc66-4d57-b543-c10213a7e325.jpg?v=1759142894&width=900",
+      "area": "18-28m",
+      "name": "Mission Pro (بارد ساخن)",
+      "type": "Fixed",
+      "badge": "",
+      "brand": "Midea",
+      "model": "M1SCT-18HRNF-Q8",
+      "price": 38060,
+      "cooling": "بارد ساخن",
+      "gallery": [
+        "https://carrier-egy.com/cdn/shop/files/5494c874-4426-401a-a807-499ab508a97f_b75435d8-fc66-4d57-b543-c10213a7e325.jpg?v=1759142894&width=900",
+        "https://carrier-egy.com/cdn/shop/files/59046c85-1778-48fa-bdb7-264501459696.jpg?v=1757159671&width=900"
+      ],
+      "category": "wall",
+      "features": [
+        "تبريد قوي ومستقر",
+        "سهولة صيانة",
+        "قيمة ممتازة"
+      ],
+      "refrigerant": "R410A",
+      "originalPrice": null
+    },
+    {
+      "hp": 3,
+      "id": "p59",
+      "img": "https://carrier-egy.com/cdn/shop/files/59046c85-1778-48fa-bdb7-264501459696.jpg?v=1757159671&width=900",
+      "area": "28-38m",
+      "name": "Mission Pro (بارد ساخن)",
+      "type": "Fixed",
+      "badge": "",
+      "brand": "Midea",
+      "model": "M1SCT-24HRNF-Q8",
+      "price": 45535,
+      "cooling": "بارد ساخن",
+      "gallery": [
+        "https://carrier-egy.com/cdn/shop/files/59046c85-1778-48fa-bdb7-264501459696.jpg?v=1757159671&width=900",
+        "https://carrier-egy.com/cdn/shop/files/5494c874-4426-401a-a807-499ab508a97f_b75435d8-fc66-4d57-b543-c10213a7e325.jpg?v=1759142894&width=900"
+      ],
+      "category": "wall",
+      "features": [
+        "تبريد قوي ومستقر",
+        "سهولة صيانة",
+        "قيمة ممتازة"
+      ],
+      "refrigerant": "R410A",
+      "originalPrice": null
+    },
+    {
+      "hp": 4,
+      "id": "p60",
+      "img": "https://carrier-egy.com/cdn/shop/files/5494c874-4426-401a-a807-499ab508a97f_b75435d8-fc66-4d57-b543-c10213a7e325.jpg?v=1759142894&width=900",
+      "area": "38-50m",
+      "name": "Mission Pro (بارد ساخن)",
+      "type": "Fixed",
+      "badge": "",
+      "brand": "Midea",
+      "model": "M1SABT-30HRNF-Q8",
+      "price": 70235,
+      "cooling": "بارد ساخن",
+      "gallery": [
+        "https://carrier-egy.com/cdn/shop/files/5494c874-4426-401a-a807-499ab508a97f_b75435d8-fc66-4d57-b543-c10213a7e325.jpg?v=1759142894&width=900",
+        "https://carrier-egy.com/cdn/shop/files/59046c85-1778-48fa-bdb7-264501459696.jpg?v=1757159671&width=900"
+      ],
+      "category": "wall",
+      "features": [
+        "تبريد قوي ومستقر",
+        "سهولة صيانة",
+        "قيمة ممتازة"
+      ],
+      "refrigerant": "R410A",
+      "originalPrice": null
+    },
+    {
+      "hp": 5,
+      "id": "p61",
+      "img": "https://carrier-egy.com/cdn/shop/files/5494c874-4426-401a-a807-499ab508a97f_b75435d8-fc66-4d57-b543-c10213a7e325.jpg?v=1759142894&width=900",
+      "area": "50-65m",
+      "name": "Mission Pro (بارد ساخن)",
+      "type": "Fixed",
+      "badge": "",
+      "brand": "Midea",
+      "model": "M1SABT-36HRNF-Q8",
+      "price": 80690,
+      "cooling": "بارد ساخن",
+      "gallery": [
+        "https://carrier-egy.com/cdn/shop/files/5494c874-4426-401a-a807-499ab508a97f_b75435d8-fc66-4d57-b543-c10213a7e325.jpg?v=1759142894&width=900",
+        "https://carrier-egy.com/cdn/shop/files/59046c85-1778-48fa-bdb7-264501459696.jpg?v=1757159671&width=900"
+      ],
+      "category": "wall",
+      "features": [
+        "تبريد قوي ومستقر",
+        "سهولة صيانة",
+        "قيمة ممتازة"
+      ],
+      "refrigerant": "R410A",
+      "originalPrice": null
+    }
+  ],
+  "crmData": {
+    "customers": [
+      {
+        "id": "customer_1783536159999_e02fdb",
+        "name": "أحمد سمير",
+        "phone": "01000000000",
+        "altPhone": "01200000000",
+        "area": "القاهرة الجديدة",
+        "address": "التجمع الخامس - شارع التسعين",
+        "status": "متابعة",
+        "notes": "عميل محتاج متابعة دورية كل 3 شهور ويفضل التواصل واتساب قبل الزيارة.",
+        "createdAt": "2026-07-08T18:42:39.999Z",
+        "updatedAt": "2026-07-08T18:42:39.999Z"
+      }
+    ],
+    "technicians": [],
+    "jobs": [
+      {
+        "id": "job_1783536159999_af00d0",
+        "customerId": "customer_1783536159999_e02fdb",
+        "technicianId": "",
+        "assistantIds": [],
+        "title": "شحن فريون وصيانة جهاز غرفة النوم",
+        "type": "صيانة",
+        "dueDate": "2026-07-08",
+        "status": "تم التنفيذ",
+        "description": "فحص الجهاز وتنظيف الفلاتر ومراجعة التبريد.",
+        "report": "تم تنظيف الفلاتر وفحص ضغط الفريون وشحن الجهاز وضبط التشغيل. الجهاز يعمل بكفاءة.",
+        "revenue": "1000",
+        "materialCost": "360",
+        "laborCost": "150",
+        "otherCost": "50",
+        "cost": "1000",
+        "createdAt": "2026-07-08T18:42:39.999Z",
+        "updatedAt": "2026-07-08T18:42:39.999Z",
+        "completedAt": "2026-07-08T18:42:39.999Z"
+      },
+      {
+        "id": "job_1783536159999_2fd508",
+        "customerId": "customer_1783536159999_e02fdb",
+        "technicianId": "",
+        "assistantIds": [],
+        "title": "متابعة صوت في الوحدة الخارجية",
+        "type": "متابعة",
+        "dueDate": "2026-07-08",
+        "status": "يحتاج متابعة",
+        "description": "مراجعة صوت الوحدة الخارجية بعد آخر صيانة.",
+        "report": "تم فحص الحامل والوحدة. يحتاج زيارة أخرى لتغيير كاوتش قواعد الوحدة.",
+        "revenue": "0",
+        "materialCost": "0",
+        "laborCost": "0",
+        "otherCost": "0",
+        "cost": "0",
+        "createdAt": "2026-07-08T18:42:39.999Z",
+        "updatedAt": "2026-07-08T18:42:39.999Z",
+        "completedAt": ""
+      }
+    ],
+    "purchases": [
+      {
+        "id": "purchase_1783536159999_a2acc0",
+        "customerId": "customer_1783536159999_e02fdb",
+        "date": "2026-07-08",
+        "item": "وحدة تكييف 1.5 حصان",
+        "quantity": "1",
+        "amount": "22000",
+        "payment": "مدفوع",
+        "warranty": "ضمان سنة",
+        "createdAt": "2026-07-08T18:42:39.999Z"
+      }
+    ],
+    "expenses": [
+      {
+        "id": "expense_1783536159999_09a5f9",
+        "date": "2026-07-08",
+        "category": "مواصلات",
+        "title": "بنزين ومشاوير شغل شحن الفريون",
+        "amount": "80",
+        "jobId": "job_1783536159999_af00d0",
+        "customerId": "customer_1783536159999_e02fdb",
+        "notes": "مصروف مرتبط بالشغلانة المنفذة.",
+        "createdAt": "2026-07-08T18:42:39.999Z"
+      }
+    ],
+    "inventory": [
+      {
+        "id": "item_1783593216418_b0644d",
+        "name": "ري",
+        "sku": "",
+        "category": "أجهزة",
+        "unit": "جهاز",
+        "minQty": "0",
+        "price": "20",
+        "unitCost": "20",
+        "cost": "20",
+        "quantity": "2",
+        "openingQty": "2",
+        "notes": "",
+        "createdAt": "2026-07-09T10:33:36.418Z",
+        "updatedAt": "2026-07-09T10:33:36.418Z"
+      },
+      {
+        "id": "item_1783538492245_6632f0",
+        "name": "CAA",
+        "sku": "",
+        "category": "أجهزة",
+        "unit": "جهاز",
+        "minQty": "0",
+        "price": "10",
+        "unitCost": "10",
+        "cost": "10",
+        "quantity": "30",
+        "openingQty": "30",
+        "notes": "",
+        "createdAt": "2026-07-08T19:21:32.245Z",
+        "updatedAt": "2026-07-08T19:21:32.245Z"
+      }
+    ],
+    "stockMoves": [],
+    "projects": [],
+    "maintenanceGallery": [],
+    "publicWorks": [],
+    "publicWorkDeletes": []
+  },
+  "reviews": [
+    {
+      "id": "review_1782856577137_9ujv7v",
+      "date": "2026-06-30",
+      "name": "Medo",
+      "stars": 5,
+      "comment": "خدمة فوق الممتازة ومتابعة فورية واهتمام بالعميل"
+    }
+  ],
+  "auditLog": [
+    {
+      "id": "al_1783593964344",
+      "admin": "mustafa259",
+      "action": "دخول للوحة التحكم",
+      "details": "تسجيل دخول ناجح",
+      "at": "2026-07-09T10:46:04.344Z"
+    },
+    {
+      "id": "al_1783593216418",
+      "admin": "mustafa259",
+      "action": "إضافة جهاز مخزون",
+      "details": "ري — 40 ج.م",
+      "at": "2026-07-09T10:33:36.418Z"
+    },
+    {
+      "id": "al_1783593101792",
+      "admin": "mustafa259",
+      "action": "دخول للوحة التحكم",
+      "details": "تسجيل دخول ناجح",
+      "at": "2026-07-09T10:31:41.792Z"
+    },
+    {
+      "id": "al_1783592846871",
+      "admin": "mustafa259",
+      "action": "دخول للوحة التحكم",
+      "details": "تسجيل دخول ناجح",
+      "at": "2026-07-09T10:27:26.871Z"
+    },
+    {
+      "id": "al_1783592736640",
+      "admin": "mustafa259",
+      "action": "خروج من لوحة التحكم",
+      "details": "",
+      "at": "2026-07-09T10:25:36.640Z"
+    },
+    {
+      "id": "al_1783592729287",
+      "admin": "mustafa259",
+      "action": "دخول للوحة التحكم",
+      "details": "تسجيل دخول ناجح",
+      "at": "2026-07-09T10:25:29.287Z"
+    },
+    {
+      "id": "al_1783538492245",
+      "admin": "Dawlat",
+      "action": "إضافة جهاز مخزون",
+      "details": "CAA — 300 ج.م",
+      "at": "2026-07-08T19:21:32.245Z"
+    },
+    {
+      "id": "al_1783538485790",
+      "admin": "Dawlat",
+      "action": "مسح جهاز مخزون",
+      "details": "carrier 1.5 kh",
+      "at": "2026-07-08T19:21:25.790Z"
+    },
+    {
+      "id": "al_1783538429275",
+      "admin": "Dawlat",
+      "action": "دخول للوحة التحكم",
+      "details": "تسجيل دخول ناجح",
+      "at": "2026-07-08T19:20:29.275Z"
+    },
+    {
+      "id": "al_1783538425065",
+      "admin": "mustafa259",
+      "action": "خروج من لوحة التحكم",
+      "details": "",
+      "at": "2026-07-08T19:20:25.065Z"
+    },
+    {
+      "id": "al_1783537536621",
+      "admin": "mustafa259",
+      "action": "إضافة جهاز مخزون",
+      "details": "carrier 1.5 kh — 30 ج.م",
+      "at": "2026-07-08T19:05:36.621Z"
+    },
+    {
+      "id": "al_1783537207340",
+      "admin": "mustafa259",
+      "action": "إضافة مستخدم",
+      "details": "Dawlat — كل الصلاحيات",
+      "at": "2026-07-08T19:00:07.340Z"
+    },
+    {
+      "id": "al_1783536187645",
+      "admin": "mustafa259",
+      "action": "مسح فني",
+      "details": "إسلام فتحي — مساعد (1 شغلانة)",
+      "at": "2026-07-08T18:43:07.645Z"
+    },
+    {
+      "id": "al_1783536185255",
+      "admin": "mustafa259",
+      "action": "مسح فني",
+      "details": "كريم حسن — مساعد (2 شغلانة)",
+      "at": "2026-07-08T18:43:05.255Z"
+    },
+    {
+      "id": "al_1783536183733",
+      "admin": "mustafa259",
+      "action": "مسح فني",
+      "details": "محمود علي — فني تكييف (2 شغلانة)",
+      "at": "2026-07-08T18:43:03.733Z"
+    },
+    {
+      "id": "al_1783536160000",
+      "admin": "mustafa259",
+      "action": "بيانات تجريبية",
+      "details": "تم استبدال العملاء والشغل والمشتريات مع الاحتفاظ بالفنيين الحاليين",
+      "at": "2026-07-08T18:42:40.000Z"
+    },
+    {
+      "id": "al_1783369633456",
+      "admin": "mustafa259",
+      "action": "دخول للوحة التحكم",
+      "details": "تسجيل دخول ناجح",
+      "at": "2026-07-06T20:27:13.456Z"
+    },
+    {
+      "id": "al_1783369628114",
+      "admin": "غير معروف",
+      "action": "محاولة دخول فاشلة",
+      "details": "yoya",
+      "at": "2026-07-06T20:27:08.114Z"
+    },
+    {
+      "id": "al_1783369624833",
+      "admin": "mustafa259",
+      "action": "خروج من لوحة التحكم",
+      "details": "",
+      "at": "2026-07-06T20:27:04.833Z"
+    },
+    {
+      "id": "al_1783369603324",
+      "admin": "mustafa259",
+      "action": "دخول للوحة التحكم",
+      "details": "تسجيل دخول ناجح",
+      "at": "2026-07-06T20:26:43.324Z"
+    },
+    {
+      "at": "2026-07-01T21:02:36.852Z",
+      "id": "al_1782939756852",
+      "admin": "mustafa259",
+      "action": "دخول للوحة التحكم",
+      "details": "تسجيل دخول ناجح"
+    },
+    {
+      "at": "2026-07-01T16:28:27.120Z",
+      "id": "al_1782923307120",
+      "admin": "mustafa259",
+      "action": "إعداد كلمة مرور المالك",
+      "details": "تم حفظ بصمة كلمة المرور فقط"
+    }
+  ]
+}
