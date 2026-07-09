@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-07-09T11:07:45.155Z",
+  "updatedAt": "2026-07-09T11:17:20.357Z",
   "products": [
     {
       "hp": 1.5,
@@ -1560,6 +1560,7 @@
       "originalPrice": null
     }
   ],
+  "productDeletes": [],
   "crmData": {
     "customers": [
       {
@@ -1742,6 +1743,13 @@
     }
   ],
   "auditLog": [
+    {
+      "id": "al_1783595839323",
+      "admin": "mustafa259",
+      "action": "دخول للوحة التحكم",
+      "details": "تسجيل دخول ناجح",
+      "at": "2026-07-09T11:17:19.323Z"
+    },
     {
       "id": "al_1783595254289",
       "admin": "mustafa259",
