@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-07-10T15:24:47.068Z",
+  "updatedAt": "2026-07-10T15:25:04.016Z",
   "products": [
     {
       "id": "p1",
@@ -129,29 +129,25 @@
       ]
     },
     {
-      "hp": 4,
       "id": "p7",
-      "img": "https://carrier-egy.com/cdn/shop/files/111111111111.jpg?v=1742071501&width=900",
-      "area": "38-50m",
-      "name": "Optimax Inverter (بارد ساخن)",
-      "type": "Inverter",
-      "badge": "موفر",
       "brand": "Carrier",
+      "name": "Optimax Inverter (بارد ساخن)",
       "model": "53QHABT30DN-708F",
-      "price": 85940,
-      "cooling": "بارد ساخن",
-      "gallery": [
-        "https://carrier-egy.com/cdn/shop/files/111111111111.jpg?v=1742071501&width=900",
-        "https://carrier-egy.com/cdn/shop/files/0311_4a3a394c-a951-4b13-bf3e-e266b4efb9f1.webp?v=1742071498&width=900"
-      ],
+      "hp": 4,
+      "type": "Inverter",
       "category": "wall",
+      "cooling": "بارد ساخن",
+      "price": 82550,
+      "originalPrice": 85940,
+      "refrigerant": "R410A",
+      "area": "38-50m",
+      "img": "https://carrier-egy.com/cdn/shop/files/111111111111.jpg?v=1742071501&width=900",
+      "badge": "موفر",
       "features": [
         "توفير كهرباء حتى 40%",
         "تشغيل هادئ",
         "ضمان معتمد"
-      ],
-      "refrigerant": "R410A",
-      "originalPrice": null
+      ]
     },
     {
       "hp": 5,
@@ -1602,6 +1598,13 @@
     }
   ],
   "auditLog": [
+    {
+      "id": "al_1783697101610",
+      "admin": "mustafa259",
+      "action": "تعديل منتج",
+      "details": "Carrier Optimax Inverter (بارد ساخن) — 53QHABT30DN-708F",
+      "at": "2026-07-10T15:25:01.610Z"
+    },
     {
       "id": "al_1783697084844",
       "admin": "mustafa259",
