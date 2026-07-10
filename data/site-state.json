@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-07-10T15:35:02.264Z",
+  "updatedAt": "2026-07-10T15:35:18.321Z",
   "products": [
     {
       "id": "p1",
@@ -925,30 +925,25 @@
       ]
     },
     {
-      "hp": 2.25,
       "id": "p41",
-      "img": "https://carrier-egy.com/cdn/shop/files/5494c874-4426-401a-a807-499ab508a97f_6a82b6c2-6cda-4a87-a0f4-c63f48a61aab.jpg?v=1759141662&width=900",
-      "area": "18-28m",
-      "name": "AI ECO MASTER Inverter (بارد)",
-      "type": "Inverter",
-      "badge": "موفر",
       "brand": "Midea",
+      "name": "AI ECO MASTER Inverter (بارد)",
       "model": "M1SEFT-18CRDN8F-Q8",
-      "price": 40510,
-      "cooling": "بارد",
-      "gallery": [
-        "https://carrier-egy.com/cdn/shop/files/5494c874-4426-401a-a807-499ab508a97f_6a82b6c2-6cda-4a87-a0f4-c63f48a61aab.jpg?v=1759141662&width=900",
-        "https://carrier-egy.com/cdn/shop/files/5494c874-4426-401a-a807-499ab508a97f_b75435d8-fc66-4d57-b543-c10213a7e325.jpg?v=1759142894&width=900",
-        "https://carrier-egy.com/cdn/shop/files/59046c85-1778-48fa-bdb7-264501459696.jpg?v=1757159671&width=900"
-      ],
+      "hp": 2.25,
+      "type": "Inverter",
       "category": "wall",
+      "cooling": "بارد",
+      "price": 38110,
+      "originalPrice": 40510,
+      "refrigerant": "R-32",
+      "area": "18-28m",
+      "img": "https://carrier-egy.com/cdn/shop/files/5494c874-4426-401a-a807-499ab508a97f_6a82b6c2-6cda-4a87-a0f4-c63f48a61aab.jpg?v=1759141662&width=900",
+      "badge": "موفر",
       "features": [
         "توفير كهرباء حتى 40%",
         "تشغيل هادئ",
         "ضمان معتمد"
-      ],
-      "refrigerant": "R-32",
-      "originalPrice": null
+      ]
     },
     {
       "hp": 3,
@@ -1534,6 +1529,13 @@
     }
   ],
   "auditLog": [
+    {
+      "id": "al_1783697716089",
+      "admin": "mustafa259",
+      "action": "تعديل منتج",
+      "details": "Midea AI ECO MASTER Inverter (بارد) — M1SEFT-18CRDN8F-Q8",
+      "at": "2026-07-10T15:35:16.089Z"
+    },
     {
       "id": "al_1783697700052",
       "admin": "mustafa259",
