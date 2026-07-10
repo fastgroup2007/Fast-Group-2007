@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-07-10T15:30:40.638Z",
+  "updatedAt": "2026-07-10T15:30:59.864Z",
   "products": [
     {
       "id": "p1",
@@ -318,30 +318,25 @@
       ]
     },
     {
-      "hp": 5,
       "id": "p16",
-      "img": "https://carrier-egy.com/cdn/shop/files/25555.png?v=1742071504&width=900",
-      "area": "50-65m",
-      "name": "Optimax Pro (بارد ساخن)",
-      "type": "Fixed",
-      "badge": "",
       "brand": "Carrier",
+      "name": "Optimax Pro (بارد ساخن)",
       "model": "53QHABT36N-708F",
-      "price": 87850,
-      "cooling": "بارد ساخن",
-      "gallery": [
-        "https://carrier-egy.com/cdn/shop/files/25555.png?v=1742071504&width=900",
-        "https://carrier-egy.com/cdn/shop/files/111111111111.jpg?v=1742071501&width=900",
-        "https://carrier-egy.com/cdn/shop/files/0311_4a3a394c-a951-4b13-bf3e-e266b4efb9f1.webp?v=1742071498&width=900"
-      ],
+      "hp": 5,
+      "type": "Fixed",
       "category": "wall",
+      "cooling": "بارد ساخن",
+      "price": 84500,
+      "originalPrice": 87850,
+      "refrigerant": "R410A",
+      "area": "50-65m",
+      "img": "https://carrier-egy.com/cdn/shop/files/25555.png?v=1742071504&width=900",
+      "badge": "",
       "features": [
         "تبريد قوي ومستقر",
         "سهولة صيانة",
         "قيمة ممتازة"
-      ],
-      "refrigerant": "R410A",
-      "originalPrice": null
+      ]
     },
     {
       "hp": 1.5,
@@ -1567,6 +1562,13 @@
     }
   ],
   "auditLog": [
+    {
+      "id": "al_1783697457515",
+      "admin": "mustafa259",
+      "action": "تعديل منتج",
+      "details": "Carrier Optimax Pro (بارد ساخن) — 53QHABT36N-708F",
+      "at": "2026-07-10T15:30:57.515Z"
+    },
     {
       "id": "al_1783697438334",
       "admin": "mustafa259",
