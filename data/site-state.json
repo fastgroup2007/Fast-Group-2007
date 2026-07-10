@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-07-10T15:26:14.465Z",
+  "updatedAt": "2026-07-10T15:27:14.739Z",
   "products": [
     {
       "id": "p1",
@@ -192,30 +192,25 @@
       ]
     },
     {
-      "hp": 2.25,
       "id": "p10",
-      "img": "https://carrier-egy.com/cdn/shop/files/25555.png?v=1742071504&width=900",
-      "area": "18-28m",
-      "name": "Optimax Pro (بارد)",
-      "type": "Fixed",
-      "badge": "",
       "brand": "Carrier",
+      "name": "Optimax Pro (بارد)",
       "model": "53KHCT18N-708",
-      "price": 37325,
-      "cooling": "بارد",
-      "gallery": [
-        "https://carrier-egy.com/cdn/shop/files/25555.png?v=1742071504&width=900",
-        "https://carrier-egy.com/cdn/shop/files/111111111111.jpg?v=1742071501&width=900",
-        "https://carrier-egy.com/cdn/shop/files/0311_4a3a394c-a951-4b13-bf3e-e266b4efb9f1.webp?v=1742071498&width=900"
-      ],
+      "hp": 2.25,
+      "type": "Fixed",
       "category": "wall",
+      "cooling": "بارد",
+      "price": 35353,
+      "originalPrice": 37325,
+      "refrigerant": "R410A",
+      "area": "18-28m",
+      "img": "https://carrier-egy.com/cdn/shop/files/25555.png?v=1742071504&width=900",
+      "badge": "",
       "features": [
         "تبريد قوي ومستقر",
         "سهولة صيانة",
         "قيمة ممتازة"
-      ],
-      "refrigerant": "R410A",
-      "originalPrice": null
+      ]
     },
     {
       "hp": 3,
@@ -1594,6 +1589,13 @@
     }
   ],
   "auditLog": [
+    {
+      "id": "al_1783697231577",
+      "admin": "mustafa259",
+      "action": "تعديل منتج",
+      "details": "Carrier Optimax Pro (بارد) — 53KHCT18N-708",
+      "at": "2026-07-10T15:27:11.577Z"
+    },
     {
       "id": "al_1783697172167",
       "admin": "mustafa259",
