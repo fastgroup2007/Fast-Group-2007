@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-07-10T15:32:31.162Z",
+  "updatedAt": "2026-07-10T15:33:10.153Z",
   "products": [
     {
       "id": "p1",
@@ -428,30 +428,25 @@
       "originalPrice": null
     },
     {
-      "hp": 2.25,
       "id": "p21",
-      "img": "https://carrier-egy.com/cdn/shop/files/af48ce1d6ad8d687b4b00073767e490f.jpg?v=1757416112&width=900",
-      "area": "18-28m",
-      "name": "XCOOL (بارد ساخن)",
-      "type": "Fixed",
-      "badge": "",
       "brand": "Carrier",
+      "name": "XCOOL (بارد ساخن)",
       "model": "53QHEFT18N8-708F",
-      "price": 41345,
-      "cooling": "بارد ساخن",
-      "gallery": [
-        "https://carrier-egy.com/cdn/shop/files/af48ce1d6ad8d687b4b00073767e490f.jpg?v=1757416112&width=900",
-        "https://carrier-egy.com/cdn/shop/files/dc2cd3c1-2478-44a5-9e74-f0b10f1ffec9.jpg?v=1757159454&width=900",
-        "https://carrier-egy.com/cdn/shop/files/0311_4a3a394c-a951-4b13-bf3e-e266b4efb9f1.webp?v=1742071498&width=900"
-      ],
+      "hp": 2.25,
+      "type": "Fixed",
       "category": "wall",
+      "cooling": "بارد ساخن",
+      "price": 38599,
+      "originalPrice": 41345,
+      "refrigerant": "R-32",
+      "area": "18-28m",
+      "img": "https://carrier-egy.com/cdn/shop/files/af48ce1d6ad8d687b4b00073767e490f.jpg?v=1757416112&width=900",
+      "badge": "",
       "features": [
         "تبريد قوي ومستقر",
         "سهولة صيانة",
         "قيمة ممتازة"
-      ],
-      "refrigerant": "R-32",
-      "originalPrice": null
+      ]
     },
     {
       "hp": 3,
@@ -1548,6 +1543,13 @@
     }
   ],
   "auditLog": [
+    {
+      "id": "al_1783697587900",
+      "admin": "mustafa259",
+      "action": "تعديل منتج",
+      "details": "Carrier XCOOL (بارد ساخن) — 53QHEFT18N8-708F",
+      "at": "2026-07-10T15:33:07.900Z"
+    },
     {
       "id": "al_1783697536418",
       "admin": "mustafa259",
