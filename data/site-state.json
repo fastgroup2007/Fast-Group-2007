@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-07-10T15:21:55.182Z",
+  "updatedAt": "2026-07-10T15:23:11.692Z",
   "products": [
     {
       "id": "p1",
@@ -24,30 +24,25 @@
       ]
     },
     {
-      "hp": 2.25,
       "id": "p2",
-      "img": "https://carrier-egy.com/cdn/shop/files/af48ce1d6ad8d687b4b00073767e490f.jpg?v=1757416112&width=900",
-      "area": "18-28m",
-      "name": "XCOOL Inverter (بارد)",
-      "type": "Inverter",
-      "badge": "موفر",
       "brand": "Carrier",
+      "name": "XCOOL Inverter (بارد)",
       "model": "53KHEFT18DN8-708F",
-      "price": 44910,
-      "cooling": "بارد",
-      "gallery": [
-        "https://carrier-egy.com/cdn/shop/files/af48ce1d6ad8d687b4b00073767e490f.jpg?v=1757416112&width=900",
-        "https://carrier-egy.com/cdn/shop/files/dc2cd3c1-2478-44a5-9e74-f0b10f1ffec9.jpg?v=1757159454&width=900",
-        "https://carrier-egy.com/cdn/shop/files/0311_4a3a394c-a951-4b13-bf3e-e266b4efb9f1.webp?v=1742071498&width=900"
-      ],
+      "hp": 2.25,
+      "type": "Inverter",
       "category": "wall",
+      "cooling": "بارد",
+      "price": 42125,
+      "originalPrice": 44910,
+      "refrigerant": "R-32",
+      "area": "18-28m",
+      "img": "https://carrier-egy.com/cdn/shop/files/af48ce1d6ad8d687b4b00073767e490f.jpg?v=1757416112&width=900",
+      "badge": "موفر",
       "features": [
         "توفير كهرباء حتى 40%",
         "تشغيل هادئ",
         "ضمان معتمد"
-      ],
-      "refrigerant": "R-32",
-      "originalPrice": null
+      ]
     },
     {
       "hp": 3,
@@ -1625,6 +1620,13 @@
     }
   ],
   "auditLog": [
+    {
+      "id": "al_1783696989244",
+      "admin": "mustafa259",
+      "action": "تعديل منتج",
+      "details": "Carrier XCOOL Inverter (بارد) — 53KHEFT18DN8-708F",
+      "at": "2026-07-10T15:23:09.244Z"
+    },
     {
       "id": "al_1783696909408",
       "admin": "mustafa259",
