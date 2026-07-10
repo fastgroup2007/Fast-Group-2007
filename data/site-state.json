@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-07-10T15:25:52.832Z",
+  "updatedAt": "2026-07-10T15:26:14.465Z",
   "products": [
     {
       "id": "p1",
@@ -179,8 +179,8 @@
       "type": "Fixed",
       "category": "wall",
       "cooling": "بارد",
-      "price": 26400,
-      "originalPrice": null,
+      "price": 24799,
+      "originalPrice": 26400,
       "refrigerant": "R410A",
       "area": "12-18m",
       "img": "https://carrier-egy.com/cdn/shop/files/25555.png?v=1742071504&width=900",
@@ -1594,6 +1594,13 @@
     }
   ],
   "auditLog": [
+    {
+      "id": "al_1783697172167",
+      "admin": "mustafa259",
+      "action": "تعديل منتج",
+      "details": "Carrier Optimax Pro (بارد) — 53KHCT12N-708",
+      "at": "2026-07-10T15:26:12.167Z"
+    },
     {
       "id": "al_1783697150620",
       "admin": "mustafa259",
