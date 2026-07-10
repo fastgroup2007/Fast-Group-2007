@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-07-10T15:44:56.522Z",
+  "updatedAt": "2026-07-10T15:45:04.926Z",
   "products": [
     {
       "id": "p1",
@@ -1240,7 +1240,7 @@
       "type": "Fixed",
       "category": "wall",
       "cooling": "بارد",
-      "price": 32399,
+      "price": 32199,
       "originalPrice": 34595,
       "refrigerant": "R410A",
       "area": "18-28m",
@@ -1478,6 +1478,13 @@
     }
   ],
   "auditLog": [
+    {
+      "id": "al_1783698302564",
+      "admin": "mustafa259",
+      "action": "تعديل منتج",
+      "details": "Midea Mission Pro (بارد) — M1SCT-18CRN-Q8",
+      "at": "2026-07-10T15:45:02.564Z"
+    },
     {
       "id": "al_1783698294156",
       "admin": "mustafa259",
