@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-07-11T09:55:44.420Z",
+  "updatedAt": "2026-07-11T09:55:49.108Z",
   "products": [
     {
       "id": "p1",
@@ -1404,6 +1404,20 @@
     "customers": [],
     "technicians": [
       {
+        "id": "tech_1783763745910_3cc170",
+        "name": "كيرو",
+        "phone": "",
+        "role": "فني تكييف",
+        "status": "نشط",
+        "notes": "",
+        "createdAt": "2026-07-11T09:55:45.910Z",
+        "updatedAt": "2026-07-11T09:55:45.910Z",
+        "codeHash": "tFvqjxdlf1h2ogfyT4tM4uaozSQGgjSM2OMhj7Hto9k=",
+        "codeSalt": "J5PwPKKeXUaQDGW69olwWQ==",
+        "codeIterations": 210000,
+        "codeVersion": 2
+      },
+      {
         "id": "tech_1783763741492_284cb0",
         "name": "يوسف",
         "phone": "",
@@ -1737,6 +1751,13 @@
     }
   ],
   "auditLog": [
+    {
+      "id": "al_1783763746074",
+      "admin": "mustafa259",
+      "action": "إضافة فني",
+      "details": "كيرو — فني تكييف",
+      "at": "2026-07-11T09:55:46.074Z"
+    },
     {
       "id": "al_1783763741679",
       "admin": "mustafa259",
