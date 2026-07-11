@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-07-11T09:55:49.108Z",
+  "updatedAt": "2026-07-11T09:55:55.831Z",
   "products": [
     {
       "id": "p1",
@@ -1404,6 +1404,20 @@
     "customers": [],
     "technicians": [
       {
+        "id": "tech_1783763751534_5b3803",
+        "name": "كيرو",
+        "phone": "",
+        "role": "مساعد",
+        "status": "نشط",
+        "notes": "",
+        "createdAt": "2026-07-11T09:55:51.534Z",
+        "updatedAt": "2026-07-11T09:55:51.534Z",
+        "codeHash": "BJvjCSfN/TPBc3xCYdA+7aW1VqVuWrzMR/Gx8oG8dNk=",
+        "codeSalt": "6AI132G5wbY8xvfx4f5Egw==",
+        "codeIterations": 210000,
+        "codeVersion": 2
+      },
+      {
         "id": "tech_1783763745910_3cc170",
         "name": "كيرو",
         "phone": "",
@@ -1751,6 +1765,13 @@
     }
   ],
   "auditLog": [
+    {
+      "id": "al_1783763751710",
+      "admin": "mustafa259",
+      "action": "إضافة فني",
+      "details": "كيرو — مساعد",
+      "at": "2026-07-11T09:55:51.710Z"
+    },
     {
       "id": "al_1783763746074",
       "admin": "mustafa259",
