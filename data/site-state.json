@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-07-11T09:30:13.332Z",
+  "updatedAt": "2026-07-11T09:31:45.658Z",
   "products": [
     {
       "id": "p1",
@@ -1408,6 +1408,22 @@
     "expenses": [],
     "inventory": [
       {
+        "id": "item_1783762356207_1e1352",
+        "name": "Carrier 1,5 بارد",
+        "sku": "",
+        "category": "أجهزة",
+        "unit": "جهاز",
+        "minQty": "0",
+        "price": "24165",
+        "unitCost": "24165",
+        "cost": "24165",
+        "quantity": "4",
+        "openingQty": "4",
+        "notes": "خصم 3%",
+        "createdAt": "2026-07-11T09:32:36.207Z",
+        "updatedAt": "2026-07-11T09:32:36.207Z"
+      },
+      {
         "id": "item_1783626415439_ba0a05",
         "name": "Midea 1.5 cr",
         "sku": "",
@@ -1474,6 +1490,13 @@
     }
   ],
   "auditLog": [
+    {
+      "id": "al_1783762356208",
+      "admin": "mustafa259",
+      "action": "إضافة جهاز مخزون",
+      "details": "Carrier 1,5 بارد — 96,660 ج.م",
+      "at": "2026-07-11T09:32:36.208Z"
+    },
     {
       "id": "al_1783762263782",
       "admin": "mustafa259",
