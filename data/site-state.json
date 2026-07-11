@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-07-11T09:55:39.084Z",
+  "updatedAt": "2026-07-11T09:55:44.420Z",
   "products": [
     {
       "id": "p1",
@@ -1404,6 +1404,20 @@
     "customers": [],
     "technicians": [
       {
+        "id": "tech_1783763741492_284cb0",
+        "name": "يوسف",
+        "phone": "",
+        "role": "فني تكييف",
+        "status": "نشط",
+        "notes": "",
+        "createdAt": "2026-07-11T09:55:41.492Z",
+        "updatedAt": "2026-07-11T09:55:41.492Z",
+        "codeHash": "z5AxyqRWbWUu/tN4w9zgs7iYzZfRZ5O1LRWz/AwqNZI=",
+        "codeSalt": "rd4Q6dUO3g51E45STfzHVA==",
+        "codeIterations": 210000,
+        "codeVersion": 2
+      },
+      {
         "id": "tech_1783763736084_f1e27a",
         "name": "يعقوب",
         "phone": "",
@@ -1723,6 +1737,13 @@
     }
   ],
   "auditLog": [
+    {
+      "id": "al_1783763741679",
+      "admin": "mustafa259",
+      "action": "إضافة فني",
+      "details": "يوسف — فني تكييف",
+      "at": "2026-07-11T09:55:41.679Z"
+    },
     {
       "id": "al_1783763736271",
       "admin": "mustafa259",
