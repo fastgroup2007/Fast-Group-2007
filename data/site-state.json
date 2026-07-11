@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-07-11T09:50:47.643Z",
+  "updatedAt": "2026-07-11T09:55:17.023Z",
   "products": [
     {
       "id": "p1",
@@ -1402,7 +1402,22 @@
   "productDeletes": [],
   "crmData": {
     "customers": [],
-    "technicians": [],
+    "technicians": [
+      {
+        "id": "tech_1783763713721_327c4f",
+        "name": "ابانوب",
+        "phone": "",
+        "role": "فني تكييف",
+        "status": "نشط",
+        "notes": "",
+        "createdAt": "2026-07-11T09:55:13.721Z",
+        "updatedAt": "2026-07-11T09:55:13.721Z",
+        "codeHash": "d+DB2L0DuZCAGg97KZpF9HxZqzCn0zQMcCWH+mjWxX0=",
+        "codeSalt": "DYeRXmrEqCJUGwDkrX2Q/w==",
+        "codeIterations": 210000,
+        "codeVersion": 2
+      }
+    ],
     "jobs": [],
     "purchases": [],
     "expenses": [],
@@ -1666,6 +1681,13 @@
     }
   ],
   "auditLog": [
+    {
+      "id": "al_1783763713967",
+      "admin": "mustafa259",
+      "action": "إضافة فني",
+      "details": "ابانوب — فني تكييف",
+      "at": "2026-07-11T09:55:13.967Z"
+    },
     {
       "id": "al_1783763498141",
       "admin": "mustafa259",
