@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-07-11T09:55:25.165Z",
+  "updatedAt": "2026-07-11T09:55:31.498Z",
   "products": [
     {
       "id": "p1",
@@ -1404,6 +1404,20 @@
     "customers": [],
     "technicians": [
       {
+        "id": "tech_1783763728120_d553fc",
+        "name": "بورجي",
+        "phone": "",
+        "role": "مشرف",
+        "status": "نشط",
+        "notes": "",
+        "createdAt": "2026-07-11T09:55:28.120Z",
+        "updatedAt": "2026-07-11T09:55:28.120Z",
+        "codeHash": "jyW3et+2fdazqn1emydqQIuYE5ttRc1BL9crVjCjm3Y=",
+        "codeSalt": "RJ1lf5AXA0xJFRwULQstng==",
+        "codeIterations": 210000,
+        "codeVersion": 2
+      },
+      {
         "id": "tech_1783763721055_9d3c63",
         "name": "محمد",
         "phone": "",
@@ -1695,6 +1709,13 @@
     }
   ],
   "auditLog": [
+    {
+      "id": "al_1783763728285",
+      "admin": "mustafa259",
+      "action": "إضافة فني",
+      "details": "بورجي — مشرف",
+      "at": "2026-07-11T09:55:28.285Z"
+    },
     {
       "id": "al_1783763721222",
       "admin": "mustafa259",
