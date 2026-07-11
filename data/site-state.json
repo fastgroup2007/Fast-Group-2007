@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-07-11T09:34:40.643Z",
+  "updatedAt": "2026-07-11T09:35:40.425Z",
   "products": [
     {
       "id": "p1",
@@ -1408,6 +1408,22 @@
     "expenses": [],
     "inventory": [
       {
+        "id": "item_1783762590169_d91b5d",
+        "name": "Carrier 1.5 بارد انفرتر",
+        "sku": "",
+        "category": "أجهزة",
+        "unit": "جهاز",
+        "minQty": "0",
+        "price": "27550",
+        "unitCost": "27550",
+        "cost": "27550",
+        "quantity": "1",
+        "openingQty": "1",
+        "notes": "خصم 3%",
+        "createdAt": "2026-07-11T09:36:30.169Z",
+        "updatedAt": "2026-07-11T09:36:30.169Z"
+      },
+      {
         "id": "item_1783762530982_1bf605",
         "name": "Carrier 1.5 بارد ساخن",
         "sku": "",
@@ -1506,6 +1522,13 @@
     }
   ],
   "auditLog": [
+    {
+      "id": "al_1783762590170",
+      "admin": "mustafa259",
+      "action": "إضافة جهاز مخزون",
+      "details": "Carrier 1.5 بارد انفرتر — 27,550 ج.م",
+      "at": "2026-07-11T09:36:30.170Z"
+    },
     {
       "id": "al_1783762530983",
       "admin": "mustafa259",
