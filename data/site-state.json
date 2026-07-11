@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-07-11T09:41:06.599Z",
+  "updatedAt": "2026-07-11T09:48:20.247Z",
   "products": [
     {
       "id": "p1",
@@ -1408,6 +1408,22 @@
     "expenses": [],
     "inventory": [
       {
+        "id": "item_1783763350218_5b8393",
+        "name": "Midea 2.25 بارد",
+        "sku": "",
+        "category": "أجهزة",
+        "unit": "جهاز",
+        "minQty": "0",
+        "price": "31685",
+        "unitCost": "31685",
+        "cost": "31685",
+        "quantity": "1",
+        "openingQty": "1",
+        "notes": "خصم 3%",
+        "createdAt": "2026-07-11T09:49:10.218Z",
+        "updatedAt": "2026-07-11T09:49:10.218Z"
+      },
+      {
         "id": "item_1783762916908_5267e8",
         "name": "Carrier 3 optimax بارد ساخن",
         "sku": "",
@@ -1618,6 +1634,13 @@
     }
   ],
   "auditLog": [
+    {
+      "id": "al_1783763350219",
+      "admin": "mustafa259",
+      "action": "إضافة جهاز مخزون",
+      "details": "Midea 2.25 بارد — 31,685 ج.م",
+      "at": "2026-07-11T09:49:10.219Z"
+    },
     {
       "id": "al_1783762916908",
       "admin": "mustafa259",
