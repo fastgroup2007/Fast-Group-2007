@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-07-11T09:36:58.544Z",
+  "updatedAt": "2026-07-11T09:37:33.817Z",
   "products": [
     {
       "id": "p1",
@@ -1408,6 +1408,22 @@
     "expenses": [],
     "inventory": [
       {
+        "id": "item_1783762704299_429b33",
+        "name": "Carrier 2.25 بارد ساخن",
+        "sku": "",
+        "category": "أجهزة",
+        "unit": "جهاز",
+        "minQty": "0",
+        "price": "37495",
+        "unitCost": "37495",
+        "cost": "37495",
+        "quantity": "3",
+        "openingQty": "3",
+        "notes": "خصم 3%",
+        "createdAt": "2026-07-11T09:38:24.299Z",
+        "updatedAt": "2026-07-11T09:38:24.299Z"
+      },
+      {
         "id": "item_1783762668310_07b89d",
         "name": "Carrier 2.25 بارد",
         "sku": "",
@@ -1554,6 +1570,13 @@
     }
   ],
   "auditLog": [
+    {
+      "id": "al_1783762704301",
+      "admin": "mustafa259",
+      "action": "إضافة جهاز مخزون",
+      "details": "Carrier 2.25 بارد ساخن — 112,485 ج.م",
+      "at": "2026-07-11T09:38:24.301Z"
+    },
     {
       "id": "al_1783762668311",
       "admin": "mustafa259",
