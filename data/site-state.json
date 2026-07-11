@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-07-11T09:55:59.949Z",
+  "updatedAt": "2026-07-11T09:56:07.791Z",
   "products": [
     {
       "id": "p1",
@@ -1418,20 +1418,6 @@
         "codeVersion": 2
       },
       {
-        "id": "tech_1783763741492_284cb0",
-        "name": "يوسف",
-        "phone": "",
-        "role": "فني تكييف",
-        "status": "نشط",
-        "notes": "",
-        "createdAt": "2026-07-11T09:55:41.492Z",
-        "updatedAt": "2026-07-11T09:55:41.492Z",
-        "codeHash": "z5AxyqRWbWUu/tN4w9zgs7iYzZfRZ5O1LRWz/AwqNZI=",
-        "codeSalt": "rd4Q6dUO3g51E45STfzHVA==",
-        "codeIterations": 210000,
-        "codeVersion": 2
-      },
-      {
         "id": "tech_1783763736084_f1e27a",
         "name": "يعقوب",
         "phone": "",
@@ -1718,7 +1704,8 @@
         "customer_1783536159999_e02fdb"
       ],
       "technicians": [
-        "tech_1783763745910_3cc170"
+        "tech_1783763745910_3cc170",
+        "tech_1783763741492_284cb0"
       ],
       "jobs": [
         "job_1783536159999_af00d0",
