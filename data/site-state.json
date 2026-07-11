@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-07-11T09:38:27.150Z",
+  "updatedAt": "2026-07-11T09:39:54.926Z",
   "products": [
     {
       "id": "p1",
@@ -1408,6 +1408,22 @@
     "expenses": [],
     "inventory": [
       {
+        "id": "item_1783762844684_98761a",
+        "name": "Carrier 3 xcool بارد",
+        "sku": "",
+        "category": "أجهزة",
+        "unit": "جهاز",
+        "minQty": "0",
+        "price": "41140",
+        "unitCost": "41140",
+        "cost": "41140",
+        "quantity": "2",
+        "openingQty": "2",
+        "notes": "خصم 3%",
+        "createdAt": "2026-07-11T09:40:44.684Z",
+        "updatedAt": "2026-07-11T09:40:44.684Z"
+      },
+      {
         "id": "item_1783762757635_fc7ae5",
         "name": "Carrier 2.25 بارد ساخن انفرتر",
         "sku": "",
@@ -1586,6 +1602,13 @@
     }
   ],
   "auditLog": [
+    {
+      "id": "al_1783762844684",
+      "admin": "mustafa259",
+      "action": "إضافة جهاز مخزون",
+      "details": "Carrier 3 xcool بارد — 82,280 ج.م",
+      "at": "2026-07-11T09:40:44.684Z"
+    },
     {
       "id": "al_1783762757636",
       "admin": "mustafa259",
