@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-07-11T09:39:54.926Z",
+  "updatedAt": "2026-07-11T09:41:06.599Z",
   "products": [
     {
       "id": "p1",
@@ -1408,6 +1408,22 @@
     "expenses": [],
     "inventory": [
       {
+        "id": "item_1783762916908_5267e8",
+        "name": "Carrier 3 optimax بارد ساخن",
+        "sku": "",
+        "category": "أجهزة",
+        "unit": "جهاز",
+        "minQty": "0",
+        "price": "44385",
+        "unitCost": "44385",
+        "cost": "44385",
+        "quantity": "4",
+        "openingQty": "4",
+        "notes": "خصم 3%",
+        "createdAt": "2026-07-11T09:41:56.908Z",
+        "updatedAt": "2026-07-11T09:41:56.908Z"
+      },
+      {
         "id": "item_1783762844684_98761a",
         "name": "Carrier 3 xcool بارد",
         "sku": "",
@@ -1602,6 +1618,13 @@
     }
   ],
   "auditLog": [
+    {
+      "id": "al_1783762916908",
+      "admin": "mustafa259",
+      "action": "إضافة جهاز مخزون",
+      "details": "Carrier 3 optimax بارد ساخن — 177,540 ج.م",
+      "at": "2026-07-11T09:41:56.908Z"
+    },
     {
       "id": "al_1783762844684",
       "admin": "mustafa259",
