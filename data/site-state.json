@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-07-29T10:39:29.609Z",
+  "updatedAt": "2026-07-29T10:41:39.434Z",
   "products": [
     {
       "id": "p1",
@@ -1493,6 +1493,22 @@
     "expenses": [],
     "inventory": [
       {
+        "id": "item_1785321779301_b92e75",
+        "name": "Midea 1.5 بارد انفرتر",
+        "sku": "",
+        "category": "أجهزة",
+        "unit": "جهاز",
+        "minQty": "0",
+        "price": "37110",
+        "unitCost": "37110",
+        "cost": "37110",
+        "quantity": "1",
+        "openingQty": "1",
+        "notes": "خصم 3%",
+        "createdAt": "2026-07-29T10:42:59.301Z",
+        "updatedAt": "2026-07-29T10:42:59.301Z"
+      },
+      {
         "id": "item_1783763498140_abf34b",
         "name": "Midea 3Xtream",
         "sku": "",
@@ -1754,6 +1770,13 @@
     }
   ],
   "auditLog": [
+    {
+      "id": "al_1785321779301",
+      "admin": "mustafa259",
+      "action": "إضافة جهاز مخزون",
+      "details": "Midea 1.5 بارد انفرتر — 37,110 ج.م",
+      "at": "2026-07-29T10:42:59.301Z"
+    },
     {
       "id": "al_1785321649496",
       "admin": "mustafa259",
