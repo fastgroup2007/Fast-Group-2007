@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-07-29T10:32:36.308Z",
+  "updatedAt": "2026-07-29T10:33:31.787Z",
   "products": [
     {
       "id": "p1",
@@ -1534,11 +1534,11 @@
         "price": "31685",
         "unitCost": "31685",
         "cost": "31685",
-        "quantity": "1",
-        "openingQty": "1",
+        "quantity": "3",
+        "openingQty": "3",
         "notes": "خصم 3%",
         "createdAt": "2026-07-11T09:49:10.218Z",
-        "updatedAt": "2026-07-11T09:49:10.218Z"
+        "updatedAt": "2026-07-29T10:34:51.612Z"
       },
       {
         "id": "item_1783762916908_5267e8",
@@ -1754,6 +1754,13 @@
     }
   ],
   "auditLog": [
+    {
+      "id": "al_1785321291613",
+      "admin": "mustafa259",
+      "action": "تعديل جهاز مخزون",
+      "details": "Midea 2.25 بارد — 95,055 ج.م",
+      "at": "2026-07-29T10:34:51.613Z"
+    },
     {
       "id": "al_1785321235949",
       "admin": "mustafa259",
