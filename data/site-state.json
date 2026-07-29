@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-07-29T10:33:31.787Z",
+  "updatedAt": "2026-07-29T10:38:06.092Z",
   "products": [
     {
       "id": "p1",
@@ -1566,11 +1566,11 @@
         "price": "41140",
         "unitCost": "41140",
         "cost": "41140",
-        "quantity": "2",
-        "openingQty": "2",
+        "quantity": "0",
+        "openingQty": "0",
         "notes": "خصم 3%",
         "createdAt": "2026-07-11T09:40:44.684Z",
-        "updatedAt": "2026-07-11T09:40:44.684Z"
+        "updatedAt": "2026-07-29T10:39:25.893Z"
       },
       {
         "id": "item_1783762757635_fc7ae5",
@@ -1754,6 +1754,13 @@
     }
   ],
   "auditLog": [
+    {
+      "id": "al_1785321565894",
+      "admin": "mustafa259",
+      "action": "تعديل جهاز مخزون",
+      "details": "Carrier 3 xcool بارد — 0 ج.م",
+      "at": "2026-07-29T10:39:25.894Z"
+    },
     {
       "id": "al_1785321291613",
       "admin": "mustafa259",
