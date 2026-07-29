@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-07-29T10:38:44.779Z",
+  "updatedAt": "2026-07-29T10:39:29.609Z",
   "products": [
     {
       "id": "p1",
@@ -1678,11 +1678,11 @@
         "price": "24165",
         "unitCost": "24165",
         "cost": "24165",
-        "quantity": "4",
-        "openingQty": "4",
+        "quantity": "3",
+        "openingQty": "3",
         "notes": "خصم 3%",
         "createdAt": "2026-07-11T09:32:36.207Z",
-        "updatedAt": "2026-07-11T09:32:36.207Z"
+        "updatedAt": "2026-07-29T10:40:49.495Z"
       },
       {
         "id": "item_1783626415439_ba0a05",
@@ -1754,6 +1754,13 @@
     }
   ],
   "auditLog": [
+    {
+      "id": "al_1785321649496",
+      "admin": "mustafa259",
+      "action": "تعديل جهاز مخزون",
+      "details": "Carrier 1,5 بارد — 72,495 ج.م",
+      "at": "2026-07-29T10:40:49.496Z"
+    },
     {
       "id": "al_1785321604655",
       "admin": "mustafa259",
