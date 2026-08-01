@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-08-01T08:45:51.182Z",
+  "updatedAt": "2026-08-01T08:46:27.705Z",
   "products": [
     {
       "id": "p1",
@@ -1678,11 +1678,11 @@
         "price": "27550",
         "unitCost": "27550",
         "cost": "27550",
-        "quantity": "1",
-        "openingQty": "1",
+        "quantity": "0",
+        "openingQty": "0",
         "notes": "خصم 3%",
         "createdAt": "2026-07-11T09:36:30.169Z",
-        "updatedAt": "2026-07-11T09:36:30.169Z"
+        "updatedAt": "2026-08-01T08:47:44.545Z"
       },
       {
         "id": "item_1783762530982_1bf605",
@@ -1792,6 +1792,13 @@
     }
   ],
   "auditLog": [
+    {
+      "id": "al_1785574064546",
+      "admin": "mustafa259",
+      "action": "تعديل جهاز مخزون",
+      "details": "Carrier 1.5 بارد انفرتر — 0 ج.م",
+      "at": "2026-08-01T08:47:44.546Z"
+    },
     {
       "id": "al_1785574027987",
       "admin": "mustafa259",
