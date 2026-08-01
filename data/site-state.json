@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-08-01T08:46:27.705Z",
+  "updatedAt": "2026-08-01T09:11:26.467Z",
   "products": [
     {
       "id": "p1",
@@ -1493,6 +1493,22 @@
     "expenses": [],
     "inventory": [
       {
+        "id": "item_1785575563257_609f9f",
+        "name": "Midea 3 بارد انفرتر",
+        "sku": "",
+        "category": "أجهزة",
+        "unit": "جهاز",
+        "minQty": "0",
+        "price": "42185",
+        "unitCost": "42185",
+        "cost": "42185",
+        "quantity": "1",
+        "openingQty": "1",
+        "notes": "خصم 3%",
+        "createdAt": "2026-08-01T09:12:43.258Z",
+        "updatedAt": "2026-08-01T09:12:43.258Z"
+      },
+      {
         "id": "item_1785321926019_23697c",
         "name": "Carrier 3 بارد ساخن انفرتر",
         "sku": "",
@@ -1792,6 +1808,13 @@
     }
   ],
   "auditLog": [
+    {
+      "id": "al_1785575563258",
+      "admin": "mustafa259",
+      "action": "إضافة جهاز مخزون",
+      "details": "Midea 3 بارد انفرتر — 42,185 ج.م",
+      "at": "2026-08-01T09:12:43.258Z"
+    },
     {
       "id": "al_1785574064546",
       "admin": "mustafa259",
