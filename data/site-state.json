@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-08-01T10:27:42.975Z",
+  "updatedAt": "2026-08-01T10:28:12.176Z",
   "products": [
     {
       "id": "p1",
@@ -1502,11 +1502,11 @@
         "price": "42185",
         "unitCost": "42185",
         "cost": "42185",
-        "quantity": "1",
-        "openingQty": "1",
+        "quantity": "0",
+        "openingQty": "0",
         "notes": "خصم 3%",
         "createdAt": "2026-08-01T09:12:43.258Z",
-        "updatedAt": "2026-08-01T09:12:43.258Z"
+        "updatedAt": "2026-08-01T10:29:28.994Z"
       },
       {
         "id": "item_1785321926019_23697c",
@@ -1808,6 +1808,13 @@
     }
   ],
   "auditLog": [
+    {
+      "id": "al_1785580168994",
+      "admin": "mustafa259",
+      "action": "تعديل جهاز مخزون",
+      "details": "Midea 3 بارد انفرتر — 0 ج.م",
+      "at": "2026-08-01T10:29:28.994Z"
+    },
     {
       "id": "al_1785580139735",
       "admin": "mustafa259",
