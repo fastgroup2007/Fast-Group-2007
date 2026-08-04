@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-08-04T08:13:25.754Z",
+  "updatedAt": "2026-08-04T08:14:29.072Z",
   "products": [
     {
       "id": "p1",
@@ -1566,11 +1566,11 @@
         "price": "37110",
         "unitCost": "37110",
         "cost": "37110",
-        "quantity": "1",
-        "openingQty": "1",
+        "quantity": "0",
+        "openingQty": "0",
         "notes": "خصم 3%",
         "createdAt": "2026-07-11T09:50:10.700Z",
-        "updatedAt": "2026-07-11T09:50:10.700Z"
+        "updatedAt": "2026-08-04T08:15:43.000Z"
       },
       {
         "id": "item_1783763350218_5b8393",
@@ -1808,6 +1808,13 @@
     }
   ],
   "auditLog": [
+    {
+      "id": "al_1785831343000",
+      "admin": "mustafa259",
+      "action": "تعديل جهاز مخزون",
+      "details": "Midea 2.25 بارد انفرتر — 0 ج.م",
+      "at": "2026-08-04T08:15:43.000Z"
+    },
     {
       "id": "al_1785831279540",
       "admin": "mustafa259",
