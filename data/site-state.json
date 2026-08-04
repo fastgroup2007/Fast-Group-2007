@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-08-04T08:14:29.072Z",
+  "updatedAt": "2026-08-04T08:16:00.241Z",
   "products": [
     {
       "id": "p1",
@@ -1742,11 +1742,11 @@
         "price": "20452",
         "unitCost": "20452",
         "cost": "20452",
-        "quantity": "7",
-        "openingQty": "7",
+        "quantity": "6",
+        "openingQty": "6",
         "notes": "",
         "createdAt": "2026-07-09T19:46:55.440Z",
-        "updatedAt": "2026-07-09T19:46:55.440Z"
+        "updatedAt": "2026-08-04T08:17:14.297Z"
       }
     ],
     "inventoryDeletes": [
@@ -1808,6 +1808,13 @@
     }
   ],
   "auditLog": [
+    {
+      "id": "al_1785831434297",
+      "admin": "mustafa259",
+      "action": "تعديل جهاز مخزون",
+      "details": "Midea 1.5 cr — 122,712 ج.م",
+      "at": "2026-08-04T08:17:14.297Z"
+    },
     {
       "id": "al_1785831343000",
       "admin": "mustafa259",
