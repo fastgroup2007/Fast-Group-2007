@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-08-06T12:23:08.783Z",
+  "updatedAt": "2026-08-06T12:23:25.527Z",
   "products": [
     {
       "id": "p1",
@@ -1710,11 +1710,11 @@
         "price": "26220",
         "unitCost": "26220",
         "cost": "26220",
-        "quantity": "1",
-        "openingQty": "1",
+        "quantity": "0",
+        "openingQty": "0",
         "notes": "خصم 3%",
         "createdAt": "2026-07-11T09:35:30.982Z",
-        "updatedAt": "2026-08-01T10:30:16.828Z"
+        "updatedAt": "2026-08-06T12:24:37.524Z"
       },
       {
         "id": "item_1783762356207_1e1352",
@@ -1808,6 +1808,13 @@
     }
   ],
   "auditLog": [
+    {
+      "id": "al_1786019077524",
+      "admin": "mustafa259",
+      "action": "تعديل جهاز مخزون",
+      "details": "Carrier 1.5 بارد ساخن — 0 ج.م",
+      "at": "2026-08-06T12:24:37.524Z"
+    },
     {
       "id": "al_1786019060517",
       "admin": "mustafa259",
