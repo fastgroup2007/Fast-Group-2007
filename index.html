@@ -1,11 +1,16 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ar" dir="rtl" class="scroll-smooth">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <title>Fast Group | أسعار التكييفات</title>
   <meta name="description" content="Fast Group لأنظمة التبريد والتكييف - كتالوج أسعار احترافي مع لوحة تحكم لإدارة المنتجات والعروض." />
   <meta name="theme-color" content="#0f172a" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="Fast Group" />
+  <link rel="manifest" href="manifest.webmanifest" />
   <meta name="fg-build" content="standalone-2026-04-16-2157" />
   <link rel="icon" type="image/png" sizes="32x32" href="https://i.ibb.co/gbW8ZW9z/logo.png">
   <link rel="shortcut icon" href="https://i.ibb.co/gbW8ZW9z/logo.png">
@@ -13,38 +18,17 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800;900&display=swap" rel="stylesheet">
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      darkMode: 'class',
-      theme: {
-        extend: {
-          fontFamily: { tajawal: ['Tajawal', 'sans-serif'] },
-          colors: {
-            brand: {
-              50: '#eef8ff',
-              100: '#d9f0ff',
-              200: '#bce6ff',
-              300: '#8fd7ff',
-              400: '#59c1ff',
-              500: '#27a5ff',
-              600: '#0d85e6',
-              700: '#0d68b4',
-              800: '#115995',
-              900: '#164b79'
-            },
-            deep: '#081120'
-          },
-          boxShadow: {
-            soft: '0 10px 35px rgba(8,17,32,.08)',
-            strong: '0 24px 60px rgba(8,17,32,.14)'
-          }
-        }
-      }
-    }
-  </script>
+  <link rel="stylesheet" href="app.css">
+
   <style>
-    body { font-family: 'Tajawal', sans-serif; }
+    html, body { max-width: 100%; overflow-x: hidden; }
+    .admin-share-bar{display:flex;gap:8px;align-items:center;flex-wrap:wrap;padding:8px 16px;flex-shrink:0;font-size:13px}
+    .admin-share-bar input{flex:1;min-width:130px;max-width:360px;background:transparent;border:1px solid #64748b;border-radius:8px;padding:8px}
+    .admin-share-bar button{padding:8px;border-radius:8px;background:#0369a1;color:white}
+    #syncStatus{flex:1;min-width:150px}
+    body { font-family: 'Tajawal', sans-serif; min-width: 0; }
+    img, video { max-width: 100%; }
+    input, select, textarea, button { min-width: 0; }
     [hidden] { display: none !important; }
     .hero-grid {
       background-image:
@@ -107,613 +91,25 @@
       padding: 4px;
       filter: contrast(1.08) brightness(1.02);
     }
-    @media (max-width: 640px){
-      #productsGrid{
-        grid-template-columns:repeat(2,minmax(0,1fr));
-        gap:.75rem;
-      }
-      .product-card{
-        border-radius:1.15rem;
-      }
-      .product-media{
-        padding:.7rem;
-      }
-      .product-badge-wrap{
-        top:.55rem;
-        left:.55rem;
-        gap:.25rem;
-      }
-      .product-badge-wrap span,
-      .product-tags span{
-        font-size:.62rem;
-        padding:.16rem .38rem;
-        border-radius:.45rem;
-      }
-      .product-image{
-        height:6.5rem;
-        margin-top:1.45rem;
-      }
-      .product-hp-badge{
-        bottom:.55rem;
-        right:.55rem;
-        padding:.24rem .5rem;
-        font-size:.62rem;
-        border-radius:.6rem;
-      }
-      .product-body{
-        padding:.75rem;
-      }
-      .product-tags{
-        gap:.25rem;
-        margin-bottom:.45rem;
-      }
-      .product-title{
-        font-size:.86rem;
-        line-height:1.35;
-        min-height:2.35rem;
-      }
-      .product-model{
-        font-size:.68rem;
-        margin-top:.25rem;
-        white-space:nowrap;
-        overflow:hidden;
-        text-overflow:ellipsis;
-      }
-      .product-specs{
-        gap:.35rem;
-        margin-top:.6rem;
-        font-size:.67rem;
-      }
-      .product-spec-card{
-        padding:.45rem;
-        border-radius:.7rem;
-      }
-      .product-spec-card .text-slate-500{ margin-bottom:.1rem; }
-      .product-features{ display:none; }
-      .product-price-row{
-        align-items:stretch;
-        gap:.4rem;
-        margin-top:.7rem;
-      }
-      .product-price-label,
-      .product-price-unit{
-        font-size:.62rem;
-      }
-      .product-price-value{
-        font-size:1rem;
-        line-height:1.2;
-      }
-      .product-old-price{
-        font-size:.72rem;
-      }
-      .product-discount-pill{
-        display:none;
-      }
-      .product-compare-btn{
-        padding:.5rem .4rem;
-        font-size:.68rem;
-        border-radius:.7rem;
-      }
-      .product-actions{
-        gap:.38rem;
-        margin-top:.65rem;
-      }
-      .product-actions button,
-      .product-actions a{
-        padding:.55rem .35rem;
-        border-radius:.78rem;
-        font-size:.72rem;
-      }
-    }
-    @media (max-width: 640px){
-      header .container{
-        padding-left:.8rem;
-        padding-right:.8rem;
-      }
-      .mobile-header-row{
-        gap:.55rem;
-        padding-top:.45rem;
-        padding-bottom:.45rem;
-      }
-      .site-brand-link{
-        min-width:0;
-        gap:.55rem;
-      }
-      .site-brand-logo{
-        width:2.55rem !important;
-        height:2.55rem !important;
-      }
-      .site-brand-copy{
-        min-width:0;
-      }
-      .site-brand-title{
-        font-size:1.05rem;
-        white-space:nowrap;
-        overflow:hidden;
-        text-overflow:ellipsis;
-      }
-      .site-brand-subtitle{
-        display:none;
-      }
-      .mobile-header-actions{
-        gap:.4rem;
-        flex-shrink:0;
-      }
-      .mobile-header-action{
-        width:2.45rem !important;
-        height:2.45rem !important;
-        border-radius:.85rem !important;
-      }
-      .mobile-hero-panels{
-        display:none !important;
-      }
-      #top > .container{
-        padding-top:.4rem !important;
-        padding-bottom:.5rem !important;
-      }
-      #top > .container > .grid{
-        display:grid !important;
-        grid-template-columns:minmax(0,1fr) !important;
-        gap:.55rem !important;
-        align-items:start !important;
-      }
-      #top .text-white{
-        text-align:center;
-      }
-      #top .text-white > .inline-flex{
-        display:inline-flex !important;
-        max-width:100%;
-        gap:.35rem !important;
-        padding:.22rem .5rem !important;
-        margin-bottom:.32rem !important;
-        font-size:.56rem !important;
-        line-height:1.2 !important;
-        white-space:nowrap;
-      }
-      #top .text-white > .inline-flex span{
-        width:.45rem !important;
-        height:.45rem !important;
-        flex:0 0 auto;
-      }
-      #top h1{
-        display:block !important;
-        font-size:1.25rem !important;
-        line-height:1.12 !important;
-        margin-bottom:.25rem !important;
-      }
-      #top h1 br{
-        display:none;
-      }
-      #top p{
-        display:block !important;
-        max-width:100% !important;
-        margin-bottom:.35rem !important;
-        font-size:.7rem !important;
-        line-height:1.35 !important;
-      }
-      #top .text-white > .flex.flex-wrap.gap-3{
-        display:grid !important;
-        grid-template-columns:repeat(3,minmax(0,1fr));
-        gap:.3rem !important;
-        margin-bottom:.38rem !important;
-      }
-      #top .text-white > .flex.flex-wrap.gap-3 > *{
-        display:flex;
-        align-items:center;
-        justify-content:center;
-        min-height:2rem;
-        padding:.38rem .28rem !important;
-        border-radius:.72rem !important;
-        font-size:.6rem !important;
-        line-height:1.15 !important;
-        text-align:center;
-        white-space:normal;
-        box-shadow:none !important;
-      }
-      #top .text-white > .grid.grid-cols-2{
-        display:grid !important;
-        grid-template-columns:repeat(4,minmax(0,1fr)) !important;
-        gap:.3rem !important;
-      }
-      #top .text-white > .grid.grid-cols-2 .glass{
-        display:flex;
-        min-height:2.6rem;
-        flex-direction:column;
-        justify-content:center;
-        border-radius:.75rem !important;
-        padding:.34rem .22rem !important;
-      }
-      #top .text-white > .grid.grid-cols-2 .text-3xl{
-        font-size:.72rem !important;
-        line-height:1.1 !important;
-      }
-      #top .text-white > .grid.grid-cols-2 .text-xs{
-        margin-top:.12rem !important;
-        font-size:.5rem !important;
-        line-height:1.15 !important;
-      }
-      #top .text-white > .grid.grid-cols-2 .glass:nth-child(3) .text-3xl{
-        font-size:.58rem !important;
-      }
-      .hero-feature-col{
-        display:block !important;
-      }
-      .hero-feature-shell{
-        padding:.25rem !important;
-        border-radius:1rem !important;
-        box-shadow:none !important;
-      }
-      .hero-feature-card{
-        padding:.45rem !important;
-        border-radius:.85rem !important;
-      }
-      .hero-feature-head{
-        gap:.35rem !important;
-        margin-bottom:.35rem !important;
-        align-items:center !important;
-      }
-      .hero-feature-head .text-sm{
-        font-size:.55rem !important;
-        line-height:1.1 !important;
-      }
-      .hero-feature-head .font-black.text-xl{
-        font-size:.72rem !important;
-        line-height:1.2 !important;
-      }
-      .hero-feature-head > div:last-child{
-        padding:.24rem .35rem !important;
-        border-radius:.55rem !important;
-        font-size:.5rem !important;
-        line-height:1.1 !important;
-      }
-      .hero-feature-list{
-        display:grid !important;
-        grid-template-columns:repeat(3,minmax(0,1fr));
-        gap:.28rem !important;
-      }
-      .hero-feature-list > div{
-        padding:.35rem .24rem !important;
-        border-radius:.75rem !important;
-      }
-      .hero-feature-list > div > div:first-child{
-        width:1.45rem !important;
-        height:1.45rem !important;
-        border-radius:.55rem !important;
-        margin-bottom:.18rem !important;
-      }
-      .hero-feature-list svg{
-        width:.78rem !important;
-        height:.78rem !important;
-      }
-      .hero-feature-list .font-black.text-lg{
-        font-size:.56rem !important;
-        line-height:1.15 !important;
-      }
-      .hero-feature-list .text-sm{
-        margin-top:.1rem !important;
-        font-size:.48rem !important;
-        line-height:1.18 !important;
-      }
-      .hero-feature-mini-grid{
-        gap:.28rem !important;
-        margin-top:.32rem !important;
-      }
-      .hero-feature-mini-grid > div{
-        padding:.28rem .22rem !important;
-        border-radius:.65rem !important;
-      }
-      .hero-feature-mini-grid .font-black.text-lg{
-        font-size:.52rem !important;
-        line-height:1.1 !important;
-      }
-      .hero-feature-mini-grid .text-\[11px\]{
-        margin-top:.08rem !important;
-        font-size:.44rem !important;
-        line-height:1.1 !important;
-      }
-      #top .absolute.blur-3xl{
-        display:none !important;
-      }
-      #products{
-        padding-top:.75rem !important;
-        padding-bottom:2rem !important;
-        scroll-margin-top:4.75rem;
-      }
-      #products .section-title{
-        font-size:1.35rem !important;
-        line-height:1.2 !important;
-      }
-      #products .section-title:after{
-        margin-top:.42rem;
-      }
-      .product-intro{
-        margin-bottom:.55rem !important;
-      }
-      .product-intro p{
-        display:none !important;
-      }
-      .product-intro .mt-4{
-        margin-top:.42rem !important;
-        padding:.36rem .62rem !important;
-        border-radius:999px !important;
-        font-size:.66rem !important;
-        line-height:1.35 !important;
-      }
-      .product-filter-panel{
-        padding:.52rem !important;
-        margin-bottom:.55rem !important;
-        border-radius:1rem !important;
-      }
-      .product-filter-grid{
-        display:block !important;
-      }
-      .product-filter-grid > div:not(:first-child){
-        display:none !important;
-      }
-      .product-filter-grid label{
-        display:none !important;
-      }
-      .product-filter-grid input{
-        padding:.58rem .78rem !important;
-        border-radius:.9rem !important;
-        font-size:.74rem !important;
-      }
-      .product-filter-row{
-        flex-wrap:nowrap !important;
-        gap:.3rem !important;
-        margin-top:.38rem !important;
-        overflow-x:auto;
-        padding-bottom:.1rem;
-      }
-      .product-filter-row .chip{
-        flex:0 0 auto;
-        padding:.34rem .55rem !important;
-        font-size:.66rem !important;
-      }
-      .product-sort-controls{
-        display:none !important;
-      }
-      .product-results-summary{
-        gap:.4rem !important;
-        margin-bottom:.55rem !important;
-      }
-      .product-results-summary > div{
-        padding:.34rem .62rem !important;
-        font-size:.66rem !important;
-      }
-      .product-results-summary > div:nth-child(2){
-        display:none !important;
-      }
-      #productsGrid .product-card{
-        border-radius:1.15rem !important;
-      }
-      #productsGrid .product-media{
-        padding:.65rem !important;
-      }
-      #productsGrid .product-badge-wrap{
-        top:.55rem !important;
-        left:.55rem !important;
-        gap:.25rem !important;
-      }
-      #productsGrid .product-badge-wrap span,
-      #productsGrid .product-tags span{
-        font-size:.62rem !important;
-        line-height:1.1 !important;
-        padding:.16rem .38rem !important;
-        border-radius:.45rem !important;
-      }
-      #productsGrid .product-image{
-        height:5.9rem !important;
-        margin-top:1.35rem !important;
-      }
-      #productsGrid .product-hp-badge{
-        bottom:.5rem !important;
-        right:.5rem !important;
-        padding:.22rem .45rem !important;
-        font-size:.62rem !important;
-        border-radius:.6rem !important;
-      }
-      #productsGrid .product-body{
-        padding:.7rem !important;
-      }
-      #productsGrid .product-tags{
-        gap:.25rem !important;
-        margin-bottom:.45rem !important;
-      }
-      #productsGrid .product-tags span:nth-child(3){
-        display:none !important;
-      }
-      #productsGrid .product-title{
-        font-size:.84rem !important;
-        line-height:1.32 !important;
-        min-height:2.25rem !important;
-      }
-      #productsGrid .product-model{
-        font-size:.66rem !important;
-        line-height:1.2 !important;
-        margin-top:.22rem !important;
-        white-space:nowrap !important;
-        overflow:hidden !important;
-        text-overflow:ellipsis !important;
-      }
-      #productsGrid .product-specs,
-      #productsGrid .product-features,
-      #productsGrid .product-compare-btn,
-      #productsGrid .product-discount-pill,
-      #productsGrid .product-price-unit{
-        display:none !important;
-      }
-      #productsGrid .product-price-row{
-        display:block !important;
-        margin-top:.55rem !important;
-      }
-      #productsGrid .product-price-label{
-        font-size:.6rem !important;
-        line-height:1.1 !important;
-        margin-bottom:.08rem !important;
-      }
-      #productsGrid .product-price-value{
-        font-size:1rem !important;
-        line-height:1.15 !important;
-      }
-      #productsGrid .product-old-price{
-        font-size:.7rem !important;
-        line-height:1.1 !important;
-      }
-      #productsGrid .product-actions{
-        gap:.35rem !important;
-        margin-top:.55rem !important;
-      }
-      #productsGrid .product-actions button,
-      #productsGrid .product-actions a{
-        padding:.52rem .3rem !important;
-        border-radius:.75rem !important;
-        font-size:.7rem !important;
-        line-height:1.1 !important;
-      }
-      #adminPanel{
-        padding:0 !important;
-      }
-      #adminPanel .admin-panel-card{
-        max-width:none !important;
-        border-radius:0 !important;
-        border:0 !important;
-      }
-      #adminPanel .admin-panel-header{
-        display:grid !important;
-        grid-template-columns:1fr !important;
-        gap:.45rem !important;
-        padding:.55rem .65rem !important;
-      }
-      #adminPanel .admin-panel-title{
-        font-size:1.05rem !important;
-        line-height:1.15 !important;
-      }
-      #adminPanel .admin-panel-subtitle{
-        display:none !important;
-      }
-      #adminPanel .admin-panel-actions{
-        display:grid !important;
-        grid-template-columns:repeat(4,minmax(0,1fr)) !important;
-        gap:.32rem !important;
-        width:100% !important;
-      }
-      #adminPanel .admin-panel-actions button{
-        min-height:2.05rem;
-        padding:.38rem .28rem !important;
-        border-radius:.65rem !important;
-        font-size:.62rem !important;
-        line-height:1.12 !important;
-        white-space:normal !important;
-      }
-      #adminPanel .admin-panel-tabs-wrap{
-        padding:.45rem .55rem .5rem !important;
-      }
-      #adminPanel .admin-panel-tabs{
-        flex-wrap:nowrap !important;
-        gap:.35rem !important;
-        overflow-x:auto;
-        overflow-y:hidden;
-        -webkit-overflow-scrolling:touch;
-        scrollbar-width:none;
-      }
-      #adminPanel .admin-panel-tabs::-webkit-scrollbar{
-        display:none;
-      }
-      #adminPanel .admin-panel-tabs > button{
-        flex:0 0 auto;
-        padding:.45rem .7rem !important;
-        border-radius:.8rem !important;
-        font-size:.72rem !important;
-        line-height:1.1 !important;
-        white-space:nowrap !important;
-      }
-      #adminPanel [data-admin-view]{
-        min-height:0;
-      }
-      #adminPanel .admin-view{
-        overflow-y:auto !important;
-      }
-      #adminInventoryView{
-        padding:.65rem !important;
-      }
-      #adminInventoryView .admin-inventory-intro{
-        padding:.65rem !important;
-        border-radius:1rem !important;
-        margin-bottom:.65rem !important;
-      }
-      #adminInventoryView .admin-inventory-intro .font-black{
-        font-size:.95rem !important;
-        line-height:1.2 !important;
-      }
-      #adminInventoryView .admin-inventory-intro .text-sm{
-        font-size:.68rem !important;
-        line-height:1.35 !important;
-      }
-      #adminInventoryView .admin-inventory-summary{
-        grid-template-columns:repeat(2,minmax(0,1fr)) !important;
-        gap:.45rem !important;
-        margin-bottom:.65rem !important;
-      }
-      #adminInventoryView .admin-inventory-stat{
-        padding:.65rem !important;
-        border-radius:.9rem !important;
-      }
-      #adminInventoryView .admin-inventory-stat .text-sm{
-        font-size:.62rem !important;
-        line-height:1.15 !important;
-      }
-      #adminInventoryView .admin-inventory-stat .text-3xl{
-        margin-top:.25rem !important;
-        font-size:1rem !important;
-        line-height:1.1 !important;
-      }
-      #adminInventoryView .admin-inventory-layout{
-        gap:.65rem !important;
-      }
-      #adminInventoryView .admin-inventory-card{
-        padding:.75rem !important;
-        border-radius:1rem !important;
-      }
-      #adminInventoryView .admin-inventory-card .font-black.text-xl{
-        font-size:1rem !important;
-        line-height:1.2 !important;
-      }
-      #adminInventoryView .admin-inventory-card .text-sm{
-        font-size:.68rem !important;
-        line-height:1.3 !important;
-      }
-      #adminInventoryView input,
-      #adminInventoryView textarea{
-        padding:.62rem .75rem !important;
-        border-radius:.85rem !important;
-        font-size:.76rem !important;
-      }
-      #adminInventoryView textarea{
-        min-height:4.5rem;
-      }
-      #adminInventoryView .admin-inventory-list > div{
-        padding:.72rem !important;
-        border-radius:1rem !important;
-      }
-      #adminInventoryView .admin-inventory-list .text-lg{
-        font-size:.92rem !important;
-        line-height:1.25 !important;
-      }
-      #adminInventoryView .admin-inventory-list .rounded-2xl{
-        border-radius:.85rem !important;
-        padding:.62rem !important;
-      }
-      #adminInventoryView .admin-inventory-list .grid{
-        gap:.4rem !important;
-      }
-      #adminInventoryView .admin-inventory-list button{
-        padding:.5rem .75rem !important;
-        border-radius:.75rem !important;
-        font-size:.72rem !important;
-      }
+    .mobile-scroll { -webkit-overflow-scrolling: touch; scrollbar-width: thin; }
+    .photo-thumb { width: 100%; aspect-ratio: 4/3; object-fit: cover; border-radius: 1rem; }
+    @media (max-width: 767px){
+      .mobile-stack { flex-direction: column; align-items: stretch; }
+      .mobile-toolbar { overflow-x: auto; flex-wrap: nowrap; padding-bottom: .35rem; }
+      .mobile-toolbar > * { flex: 0 0 auto; }
+      .mobile-grid-1 { grid-template-columns: minmax(0, 1fr) !important; }
+      #adminPanel { padding: 0; }
+      #adminPanel > div { border-radius: 0; border-inline: 0; }
+      #adminPanel .admin-view { overflow-y: auto; }
+      #adminPanel .grid > *, #adminPanel .flex > * { min-width:0; }
+      #adminPanel input,#adminPanel select,#adminPanel textarea { max-width:100%;font-size:16px; }
+      #adminPanel > div { height:100dvh;max-height:100dvh; }
+      #adminPanel .admin-scroll { min-height:0;overscroll-behavior:contain; }
+      #adminLoginModal > div { max-height:90dvh;overflow-y:auto; }
+      .admin-share-bar { padding:6px 10px;gap:6px; }
     }
   </style>
+<link rel="stylesheet" href="compact.css">
 </head>
 <body class="bg-slate-50 text-slate-800 dark:bg-slate-950 dark:text-slate-100 transition-colors duration-300">
   <div class="fixed inset-x-0 top-0 h-1 z-[120]" id="progressBarWrap">
@@ -722,14 +118,14 @@
 
   <header class="sticky top-0 z-[110] border-b border-slate-200/80 dark:border-slate-800 bg-white/88 dark:bg-slate-950/88 backdrop-blur-xl">
     <div class="container mx-auto px-4">
-      <div class="mobile-header-row flex items-center justify-between gap-4 py-3">
-        <a href="#top" class="site-brand-link flex items-center gap-3">
-          <div class="site-brand-logo w-14 h-14 md:w-16 md:h-16 brand-logo-wrap shadow-soft">
+      <div class="flex items-center justify-between gap-4 py-3">
+        <a href="#top" class="flex items-center gap-3">
+          <div class="w-14 h-14 md:w-16 md:h-16 brand-logo-wrap shadow-soft">
             <img src="https://i.ibb.co/gbW8ZW9z/logo.png" alt="Fast Group" class="brand-logo-img" onerror="this.onerror=null;this.src='https://placehold.co/200x200?text=Fast+Group';" />
           </div>
-          <div class="site-brand-copy">
-            <div class="site-brand-title font-black text-xl leading-none">Fast Group</div>
-            <div class="site-brand-subtitle text-[11px] text-brand-700 dark:text-brand-300 font-bold mt-1">لأنظمة التبريد والتكييف • منذ 2007</div>
+          <div>
+            <div class="font-black text-xl leading-none">Fast Group</div>
+            <div class="text-[11px] text-brand-700 dark:text-brand-300 font-bold mt-1">لأنظمة التبريد والتكييف • منذ 2007</div>
           </div>
         </a>
 
@@ -737,15 +133,14 @@
           <a href="#products" class="hover:text-brand-600">المنتجات</a>
           <a href="#calculator" class="hover:text-brand-600">حاسبة الحصان</a>
           <a href="#business" class="hover:text-brand-600">خدماتنا</a>
-          <a href="#maintenance" class="hover:text-brand-600">الصيانة</a>
           <a href="#projects" class="hover:text-brand-600">سابقة الأعمال</a>
           <a href="#documents" class="hover:text-brand-600">أوامر التوريد</a>
           <a href="#faq" class="hover:text-brand-600">الأسئلة الشائعة</a>
           <a href="#contact" class="hover:text-brand-600">تواصل معنا</a>
         </nav>
 
-        <div class="mobile-header-actions flex items-center gap-2">
-          <button onclick="toggleTheme()" class="mobile-header-action w-11 h-11 rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 shadow-soft hover:scale-105 transition">
+        <div class="flex items-center gap-2">
+          <button onclick="toggleTheme()" class="w-11 h-11 rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 shadow-soft hover:scale-105 transition">
             <span class="dark:hidden">🌙</span>
             <span class="hidden dark:inline">☀</span>
           </button>
@@ -756,7 +151,7 @@
             <span>اتصل الآن</span>
             <span dir="ltr">01013283466</span>
           </a>
-          <button onclick="toggleMobileMenu()" class="mobile-header-action lg:hidden w-11 h-11 rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 shadow-soft">☰</button>
+          <button onclick="toggleMobileMenu()" class="lg:hidden w-11 h-11 rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 shadow-soft">☰</button>
         </div>
       </div>
       <div id="mobileMenu" class="hidden lg:hidden pb-4">
@@ -764,7 +159,6 @@
           <a href="#products" class="rounded-xl px-4 py-3 bg-slate-100 dark:bg-slate-900">المنتجات</a>
           <a href="#calculator" class="rounded-xl px-4 py-3 bg-slate-100 dark:bg-slate-900">حاسبة الحصان</a>
           <a href="#business" class="rounded-xl px-4 py-3 bg-slate-100 dark:bg-slate-900">خدماتنا</a>
-          <a href="#maintenance" class="rounded-xl px-4 py-3 bg-slate-100 dark:bg-slate-900">الصيانة</a>
           <a href="#projects" class="rounded-xl px-4 py-3 bg-slate-100 dark:bg-slate-900">سابقة الأعمال</a>
           <a href="#documents" class="rounded-xl px-4 py-3 bg-slate-100 dark:bg-slate-900">أوامر التوريد</a>
           <a href="#faq" class="rounded-xl px-4 py-3 bg-slate-100 dark:bg-slate-900">الأسئلة الشائعة</a>
@@ -816,10 +210,10 @@
           </div>
         </div>
 
-        <div class="relative hero-feature-col">
-          <div class="hero-feature-shell rounded-[2rem] bg-white/10 border border-white/10 p-4 md:p-5 shadow-strong backdrop-blur-xl">
-            <div class="hero-feature-card rounded-[1.5rem] bg-white dark:bg-slate-900 p-5 md:p-6 shadow-strong">
-              <div class="hero-feature-head flex items-center justify-between gap-3 mb-5">
+        <div class="relative">
+          <div class="rounded-[2rem] bg-white/10 border border-white/10 p-4 md:p-5 shadow-strong backdrop-blur-xl">
+            <div class="rounded-[1.5rem] bg-white dark:bg-slate-900 p-5 md:p-6 shadow-strong">
+              <div class="flex items-center justify-between gap-3 mb-5">
                 <div>
                   <div class="text-sm text-slate-500">مزايا Fast Group</div>
                   <div class="font-black text-xl">حلول تكييف جاهزة للتنفيذ</div>
@@ -828,7 +222,7 @@
                   توريد + تركيب + ضمان
                 </div>
               </div>
-              <div class="hero-feature-list grid gap-4">
+              <div class="grid gap-4">
                 <div class="rounded-3xl border border-slate-200 dark:border-slate-800 p-4 card-hover text-center">
                   <div class="w-14 h-14 rounded-2xl bg-brand-50 dark:bg-brand-900/30 flex items-center justify-center mx-auto mb-3">
                     <svg viewBox="0 0 24 24" class="w-7 h-7 text-brand-700 dark:text-brand-300" fill="none" stroke="currentColor" stroke-width="2">
@@ -861,7 +255,7 @@
                   <div class="text-sm text-slate-500 mt-1">صور تنفيذ فعلية + خطابات أعمال + أوامر توريد موثقة تدعم الثقة قبل التعاقد.</div>
                 </div>
               </div>
-              <div class="hero-feature-mini-grid grid grid-cols-3 gap-3 mt-5">
+              <div class="grid grid-cols-3 gap-3 mt-5">
                 <div class="rounded-2xl bg-slate-50 dark:bg-slate-950 p-3 text-center">
                   <div class="font-black text-lg">كتالوج حي</div>
                   <div class="text-[11px] text-slate-500">تحديث أسعار مستمر</div>
@@ -1009,7 +403,7 @@
 
   <section id="products" class="py-16 bg-white dark:bg-slate-950">
     <div class="container mx-auto px-4">
-      <div class="product-intro text-center max-w-3xl mx-auto mb-10 reveal">
+      <div class="text-center max-w-3xl mx-auto mb-10 reveal">
         <h2 class="section-title text-3xl md:text-4xl font-black">كتالوج الأسعار الاحترافي</h2>
         <p class="text-slate-600 dark:text-slate-400 mt-4 text-lg leading-8">فلترة ذكية، ترتيب، مقارنة بين الموديلات، وتفاصيل تساعد العميل يوصل للقرار أسرع.</p>
         <div class="mt-4 inline-flex rounded-full bg-emerald-50 dark:bg-emerald-900/20 text-emerald-700 dark:text-emerald-300 px-4 py-2 text-sm font-black">
@@ -1017,8 +411,8 @@
         </div>
       </div>
 
-      <div class="product-filter-panel rounded-[2rem] border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900 p-4 md:p-5 shadow-soft mb-6 reveal">
-        <div class="product-filter-grid grid xl:grid-cols-[1.4fr,repeat(4,1fr)] gap-3">
+      <div class="rounded-[2rem] border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900 p-4 md:p-5 shadow-soft mb-6 reveal">
+        <div class="grid xl:grid-cols-[1.4fr,repeat(4,1fr)] gap-3">
           <div>
             <label class="block font-bold text-sm mb-2">بحث سريع</label>
             <input id="searchInput" type="text" placeholder="ابحث باسم الموديل أو النوع أو الماركة..." oninput="applyFilters()" class="w-full rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950 px-4 py-3 outline-none">
@@ -1056,7 +450,7 @@
           </div>
         </div>
 
-        <div class="product-filter-row mt-4 flex flex-wrap items-center gap-2">
+        <div class="mt-4 flex flex-wrap items-center gap-2">
           <button class="chip active rounded-full border border-slate-200 dark:border-slate-800 px-4 py-2 text-sm font-black bg-white dark:bg-slate-950" data-hp="all" onclick="setHPFilter('all', this)">الكل</button>
           <button class="chip rounded-full border border-slate-200 dark:border-slate-800 px-4 py-2 text-sm font-black bg-white dark:bg-slate-950" data-hp="1.5" onclick="setHPFilter('1.5', this)">1.5</button>
           <button class="chip rounded-full border border-slate-200 dark:border-slate-800 px-4 py-2 text-sm font-black bg-white dark:bg-slate-950" data-hp="2.25" onclick="setHPFilter('2.25', this)">2.25</button>
@@ -1064,7 +458,7 @@
           <button class="chip rounded-full border border-slate-200 dark:border-slate-800 px-4 py-2 text-sm font-black bg-white dark:bg-slate-950" data-hp="4" onclick="setHPFilter('4', this)">4</button>
           <button class="chip rounded-full border border-slate-200 dark:border-slate-800 px-4 py-2 text-sm font-black bg-white dark:bg-slate-950" data-hp="5" onclick="setHPFilter('5', this)">5</button>
           <button class="chip rounded-full border border-slate-200 dark:border-slate-800 px-4 py-2 text-sm font-black bg-white dark:bg-slate-950" data-hp="7.5" onclick="setHPFilter('7.5', this)">7.5</button>
-          <div class="product-sort-controls ms-auto flex flex-wrap gap-2">
+          <div class="ms-auto flex flex-wrap gap-2">
             <button class="sort-btn active rounded-full border border-slate-200 dark:border-slate-800 px-4 py-2 text-sm font-black bg-white dark:bg-slate-950" onclick="setSort('popular', this)">الأكثر مناسبة</button>
             <button class="sort-btn rounded-full border border-slate-200 dark:border-slate-800 px-4 py-2 text-sm font-black bg-white dark:bg-slate-950" onclick="setSort('priceAsc', this)">السعر الأقل</button>
             <button class="sort-btn rounded-full border border-slate-200 dark:border-slate-800 px-4 py-2 text-sm font-black bg-white dark:bg-slate-950" onclick="setSort('priceDesc', this)">السعر الأعلى</button>
@@ -1072,7 +466,7 @@
         </div>
       </div>
 
-      <div class="product-results-summary flex flex-wrap items-center gap-3 mb-6">
+      <div class="flex flex-wrap items-center gap-3 mb-6">
         <div class="rounded-full bg-brand-50 dark:bg-brand-900/20 text-brand-700 dark:text-brand-300 px-4 py-2 text-sm font-black">
           <span id="resultsCount">0</span> منتج
         </div>
@@ -1081,7 +475,7 @@
         </div>
       </div>
 
-      <div id="productsGrid" class="grid grid-cols-2 sm:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-3 sm:gap-5"></div>
+      <div id="productsGrid" class="grid sm:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-5"></div>
 
         <div id="noResults" class="hidden text-center py-16">
           <div class="text-5xl mb-4"></div>
@@ -1115,40 +509,6 @@
     </div>
   </section>
 
-  <section id="maintenance" class="py-16 bg-white dark:bg-slate-950">
-    <div class="container mx-auto px-4">
-      <div class="text-center max-w-3xl mx-auto mb-10 reveal">
-        <h2 class="section-title text-3xl md:text-4xl font-black">قسم الصيانة</h2>
-        <p class="text-slate-600 dark:text-slate-400 mt-4 text-lg leading-8">متابعة أعطال التكييف والتنظيف العميق والإصلاحات مع صور قبل وبعد من زيارات الصيانة الفعلية.</p>
-      </div>
-
-      <div class="grid md:grid-cols-3 gap-5 mb-8">
-        <div class="reveal rounded-[1.75rem] border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900 p-6 shadow-soft">
-          <div class="text-sm text-brand-700 dark:text-brand-300 font-black mb-2">تشخيص واضح</div>
-          <h3 class="text-xl font-black mb-2">كشف العطل قبل الشغل</h3>
-          <p class="text-slate-600 dark:text-slate-400 leading-7">تحديد سبب المشكلة وتوضيح المطلوب قبل بدء الإصلاح أو تغيير القطع.</p>
-        </div>
-        <div class="reveal rounded-[1.75rem] border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900 p-6 shadow-soft">
-          <div class="text-sm text-brand-700 dark:text-brand-300 font-black mb-2">تنظيف وإصلاح</div>
-          <h3 class="text-xl font-black mb-2">غسيل وصيانة دورية</h3>
-          <p class="text-slate-600 dark:text-slate-400 leading-7">تنظيف الفلاتر والمبخر والمكثف وفحص الفريون والتصريف والأداء العام.</p>
-        </div>
-        <div class="reveal rounded-[1.75rem] border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900 p-6 shadow-soft">
-          <div class="text-sm text-brand-700 dark:text-brand-300 font-black mb-2">توثيق بصور</div>
-          <h3 class="text-xl font-black mb-2">قبل وبعد من الموقع</h3>
-          <p class="text-slate-600 dark:text-slate-400 leading-7">صور حقيقية للحالة قبل الصيانة وبعد الانتهاء لدعم الثقة والمتابعة.</p>
-        </div>
-      </div>
-
-      <div id="maintenanceGallery" class="grid lg:grid-cols-3 gap-6"></div>
-
-      <div class="mt-8 flex flex-wrap justify-center gap-3">
-        <a href="https://wa.me/201013283466?text=السلام%20عليكم%20عايز%20أحجز%20صيانة%20تكييف" target="_blank" class="rounded-2xl bg-emerald-500 hover:bg-emerald-600 text-white px-6 py-4 font-black shadow-soft">احجز صيانة واتساب</a>
-        <a href="tel:01013283466" class="rounded-2xl bg-slate-900 dark:bg-white dark:text-slate-900 text-white px-6 py-4 font-black shadow-soft">اتصل بالصيانة</a>
-      </div>
-    </div>
-  </section>
-
   <section id="projects" class="py-16 bg-white dark:bg-slate-950">
     <div class="container mx-auto px-4">
       <div class="text-center max-w-3xl mx-auto mb-10 reveal">
@@ -1174,8 +534,6 @@
           <div class="text-sm text-slate-500 mt-2">تجهيز وتمديد مواسير بأطوال معتمدة</div>
         </div>
       </div>
-
-      <div id="publishedWorksGrid" class="grid lg:grid-cols-3 gap-6 mb-8"></div>
 
       <div class="grid lg:grid-cols-3 gap-6 mb-8">
         <div class="reveal rounded-[2rem] overflow-hidden border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950 shadow-soft card-hover">
@@ -1314,7 +672,6 @@
         <h2 class="section-title text-3xl md:text-4xl font-black">معرض مشروعات إضافي</h2>
         <p class="text-slate-600 dark:text-slate-400 mt-4 text-lg leading-8">صور حقيقية من تنفيذات Fast Group في التهوية والدكت والتأسيسات والمشروعات السكنية والصناعية.</p>
       </div>
-      <div id="moreProjectsManagedGrid" class="grid sm:grid-cols-2 xl:grid-cols-3 gap-5 text-center"></div>
       <div class="grid sm:grid-cols-2 xl:grid-cols-3 gap-5 text-center">
 
         <div class="rounded-[1.5rem] overflow-hidden border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950 shadow-soft card-hover">
@@ -1590,7 +947,6 @@
             <a href="#products">المنتجات</a>
             <a href="#calculator">حاسبة الحصان</a>
             <a href="#business">خدماتنا</a>
-            <a href="#maintenance">الصيانة</a>
             <a href="#contact">تواصل معنا</a>
           </div>
         </div>
@@ -1660,36 +1016,6 @@
     </div>
   </div>
 
-  <div id="directReviewModal" class="hidden fixed inset-0 bg-slate-950/75 z-[145] p-4 items-center justify-center">
-    <div class="max-w-lg w-full rounded-[2rem] bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800 shadow-strong p-6">
-      <div class="flex items-start justify-between gap-4 mb-5">
-        <div>
-          <div class="font-black text-2xl">قيّم تجربتك مع Fast Group</div>
-          <div class="text-sm text-slate-500 mt-1">رأيك هيظهر في قسم تقييمات العملاء بعد الإرسال.</div>
-        </div>
-        <button onclick="closeDirectReviewModal()" class="w-10 h-10 rounded-xl bg-slate-100 dark:bg-slate-900 shrink-0">✕</button>
-      </div>
-      <div class="grid gap-4">
-        <input id="directReviewName" type="text" placeholder="اسم العميل" class="w-full rounded-2xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900 px-4 py-3 outline-none">
-        <div>
-          <label class="block font-bold text-sm mb-2">التقييم</label>
-          <div id="directStarPicker" class="flex gap-2 text-4xl cursor-pointer select-none justify-center" aria-label="اختيار التقييم">
-            <button type="button" class="direct-star-btn" data-star="1">☆</button>
-            <button type="button" class="direct-star-btn" data-star="2">☆</button>
-            <button type="button" class="direct-star-btn" data-star="3">☆</button>
-            <button type="button" class="direct-star-btn" data-star="4">☆</button>
-            <button type="button" class="direct-star-btn" data-star="5">☆</button>
-          </div>
-        </div>
-        <textarea id="directReviewComment" rows="5" placeholder="اكتب رأيك في الخدمة أو التركيب" class="w-full rounded-2xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900 px-4 py-3 outline-none resize-none"></textarea>
-      </div>
-      <div class="flex gap-3 mt-5">
-        <button onclick="submitDirectReview()" class="flex-1 rounded-2xl bg-brand-600 hover:bg-brand-700 text-white px-5 py-3 font-black">إرسال التقييم</button>
-        <button onclick="closeDirectReviewModal()" class="rounded-2xl bg-slate-100 dark:bg-slate-900 px-5 py-3 font-black">إلغاء</button>
-      </div>
-    </div>
-  </div>
-
   <div id="adminLoginModal" class="hidden fixed inset-0 bg-slate-950/70 z-[140] p-4 items-center justify-center">
     <div class="max-w-md w-full rounded-[2rem] bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800 shadow-strong p-6">
       <div class="flex items-center justify-between mb-5">
@@ -1712,34 +1038,37 @@
   </div>
 
   <div id="adminPanel" class="hidden fixed inset-0 z-[150] bg-slate-950/70 p-2 md:p-4">
-    <div class="admin-panel-card h-full max-w-[96rem] mx-auto rounded-[2rem] bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800 shadow-strong overflow-hidden flex flex-col">
-      <div class="admin-panel-header flex items-center justify-between gap-4 px-5 py-4 border-b border-slate-200 dark:border-slate-800">
-        <div class="admin-panel-heading">
-          <div class="admin-panel-title font-black text-2xl">لوحة تحكم الأدمن</div>
-          <div class="admin-panel-subtitle text-sm text-slate-500">إدارة المنتجات وسابقة الأعمال والعملاء والفنيين والشغل والصيانة والحسابات</div>
+    <div class="h-full max-w-[96rem] mx-auto rounded-[2rem] bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800 shadow-strong overflow-hidden flex flex-col">
+      <div class="flex items-center justify-between gap-4 px-4 md:px-5 py-3 md:py-4 border-b border-slate-200 dark:border-slate-800 mobile-stack">
+        <div>
+          <div class="font-black text-2xl">لوحة تحكم الأدمن</div>
+          <div class="text-sm text-slate-500">إدارة المنتجات والعملاء والفنيين والشغل والحسابات</div>
         </div>
-        <div class="admin-panel-actions flex flex-wrap justify-end gap-2">
+        <div class="flex gap-2 w-full md:w-auto mobile-toolbar mobile-scroll">
           <button onclick="openAdminCredentialsModal()" data-owner-only="true" class="rounded-xl bg-amber-500 text-white px-4 py-2 font-black text-sm">إدارة الصلاحيات</button>
           <button onclick="triggerImportProducts()" data-admin-action-permission="products" class="rounded-xl bg-sky-500 text-white px-4 py-2 font-black text-sm">استيراد القائمة</button>
           <button onclick="exportProducts()" data-admin-action-permission="products" class="rounded-xl bg-emerald-500 text-white px-4 py-2 font-black text-sm">تصدير البيانات</button>
           <button onclick="exportCrmData()" data-admin-action-permission="customers" class="rounded-xl bg-teal-500 text-white px-4 py-2 font-black text-sm">تصدير العملاء</button>
-          <button onclick="configureSync()" class="rounded-xl bg-cyan-500 text-white px-4 py-2 font-black text-sm">إعداد التزامن</button>
-          <button onclick="copyReviewDirectLink()" class="rounded-xl bg-brand-600 text-white px-4 py-2 font-black text-sm">نسخ رابط التقييم</button>
+          <button onclick="location.href='#reviews';renderReviews()" class="rounded-xl bg-slate-700 text-white px-4 py-2 font-black text-sm">إدارة التقييمات</button>
           <button onclick="seedCrmDemo()" data-owner-only="true" class="rounded-xl bg-violet-500 text-white px-4 py-2 font-black text-sm">بيانات تجريبية</button>
           <button onclick="adminLogout()" class="rounded-xl bg-slate-900 text-white dark:bg-white dark:text-slate-900 px-4 py-2 font-black text-sm">خروج</button>
           <button onclick="closeAdminPanel()" class="rounded-xl bg-slate-100 dark:bg-slate-900 px-4 py-2 font-black text-sm">إغلاق</button>
         </div>
       </div>
+      <div class="admin-share-bar">
+        <label for="reviewsShareLink">رابط التقييمات</label>
+        <input id="reviewsShareLink" readonly dir="ltr" aria-label="رابط التقييمات">
+        <button type="button" onclick="copyReviewsLink()">نسخ الرابط</button>
+        <span id="syncStatus" role="status" aria-live="polite">جارٍ التحقق من الاتصال</span>
+        <button type="button" onclick="syncAllCloudState()">مزامنة الآن</button>
+      </div>
       <input id="importProductsInput" type="file" accept=".json,application/json" class="hidden" onchange="importProductsFile(event)">
 
-      <div class="admin-panel-tabs-wrap px-5 pt-4 border-b border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900">
-        <div class="admin-panel-tabs flex flex-wrap gap-2">
+      <div class="px-3 md:px-5 pt-3 md:pt-4 border-b border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900 overflow-x-auto mobile-scroll">
+        <div class="flex md:flex-wrap gap-2 min-w-max md:min-w-0">
           <button onclick="switchAdminView('products')" data-admin-view-tab="products" class="admin-view-tab rounded-2xl bg-brand-600 text-white px-4 py-2 font-black text-sm">المنتجات</button>
           <button onclick="switchAdminView('customers')" data-admin-view-tab="customers" class="admin-view-tab rounded-2xl bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800 px-4 py-2 font-black text-sm">العملاء وسجل العميل</button>
           <button onclick="switchAdminView('jobs')" data-admin-view-tab="jobs" class="admin-view-tab rounded-2xl bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800 px-4 py-2 font-black text-sm">الشغل المطلوب</button>
-          <button onclick="switchAdminView('maintenance')" data-admin-view-tab="maintenance" class="admin-view-tab rounded-2xl bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800 px-4 py-2 font-black text-sm">الصيانة</button>
-          <button onclick="switchAdminView('portfolio')" data-admin-view-tab="portfolio" class="admin-view-tab rounded-2xl bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800 px-4 py-2 font-black text-sm">سابقة الأعمال</button>
-          <button onclick="openPortfolioSection('more')" data-admin-action-permission="portfolio" class="rounded-2xl bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800 px-4 py-2 font-black text-sm">معرض المشروعات</button>
           <button onclick="switchAdminView('technicians')" data-admin-view-tab="technicians" class="admin-view-tab rounded-2xl bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800 px-4 py-2 font-black text-sm">الفنيين وسجل الفني</button>
           <button onclick="switchAdminView('inventory')" data-admin-view-tab="inventory" class="admin-view-tab rounded-2xl bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800 px-4 py-2 font-black text-sm">المخزون</button>
           <button onclick="switchAdminView('projects')" data-admin-view-tab="projects" class="admin-view-tab rounded-2xl bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800 px-4 py-2 font-black text-sm">المشاريع</button>
@@ -1882,6 +1211,17 @@
                 </select>
               </div>
               <input id="crmCustomerAddress" type="text" placeholder="العنوان التفصيلي" class="w-full rounded-2xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900 px-4 py-3 outline-none">
+              <select id="crmCustomerParent" class="w-full rounded-2xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900 px-4 py-3 outline-none">
+                <option value="">عميل مستقل (غير تابع لعميل آخر)</option>
+              </select>
+              <div class="grid md:grid-cols-2 gap-3">
+                <label class="rounded-2xl border border-dashed border-slate-300 dark:border-slate-700 p-3 text-sm font-bold cursor-pointer text-center">بطاقة العميل
+                  <input id="crmCustomerIdCard" type="file" accept="image/*,.pdf,application/pdf" capture="environment" class="hidden">
+                </label>
+                <label class="rounded-2xl border border-dashed border-slate-300 dark:border-slate-700 p-3 text-sm font-bold cursor-pointer text-center">فاتورة ضريبية
+                  <input id="crmCustomerTaxInvoice" type="file" accept="image/*,.pdf,application/pdf" capture="environment" class="hidden">
+                </label>
+              </div>
               <textarea id="crmCustomerNotes" rows="4" placeholder="ملاحظات داخلية" class="w-full rounded-2xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900 px-4 py-3 outline-none resize-none"></textarea>
               <button onclick="saveCustomer()" class="rounded-2xl bg-brand-600 hover:bg-brand-700 text-white px-5 py-3 font-black">حفظ العميل</button>
             </div>
@@ -1955,6 +1295,14 @@
               </div>
               <textarea id="crmJobDescription" rows="3" placeholder="تفاصيل المطلوب من الفريق" class="w-full rounded-2xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900 px-4 py-3 outline-none resize-none"></textarea>
               <textarea id="crmJobReport" rows="3" placeholder="تقرير الفني: عمل إيه عند العميل؟" class="w-full rounded-2xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900 px-4 py-3 outline-none resize-none"></textarea>
+              <div class="grid grid-cols-2 gap-3">
+                <label class="rounded-2xl border border-dashed border-slate-300 dark:border-slate-700 p-3 text-sm font-bold cursor-pointer text-center">📷 صورة قبل
+                  <input id="crmJobBeforePhoto" type="file" accept="image/*" capture="environment" class="hidden">
+                </label>
+                <label class="rounded-2xl border border-dashed border-slate-300 dark:border-slate-700 p-3 text-sm font-bold cursor-pointer text-center">📷 صورة بعد
+                  <input id="crmJobAfterPhoto" type="file" accept="image/*" capture="environment" class="hidden">
+                </label>
+              </div>
               <div class="rounded-2xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900 p-3">
                 <div class="flex items-center justify-between gap-3 mb-2">
                   <div>
@@ -1966,7 +1314,7 @@
                 <div id="jobLinesBuilder" class="grid gap-2"></div>
                 <div id="jobLinesTotal" class="mt-2 text-sm font-black text-brand-700 dark:text-brand-300">إجمالي البنود: 0 ج.م</div>
               </div>
-              <div class="rounded-2xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900 p-3">
+              <div data-financial-only="true" class="rounded-2xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900 p-3">
                 <div class="font-black text-sm mb-2">حساب الشغلانة</div>
                 <div class="grid md:grid-cols-2 gap-3">
                   <input id="crmJobRevenue" oninput="updateJobProfitPreview()" type="number" min="0" step="0.01" placeholder="المبلغ المحصل من العميل" class="w-full rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950 px-3 py-2 outline-none">
@@ -2000,143 +1348,6 @@
               </div>
             </div>
             <div id="crmJobsList" class="grid md:grid-cols-2 xl:grid-cols-3 gap-4"></div>
-          </div>
-        </div>
-      </div>
-
-      <div id="adminMaintenanceView" data-admin-view="maintenance" class="admin-view hidden flex-1 overflow-y-auto admin-scroll p-5">
-        <div class="rounded-[1.5rem] border border-sky-200 dark:border-sky-800 bg-sky-50 dark:bg-sky-900/20 p-4 mb-5">
-          <div class="font-black text-lg text-sky-800 dark:text-sky-200">صور الصيانة قبل وبعد</div>
-          <div class="text-sm text-slate-600 dark:text-slate-400 mt-1">أضف حالات صيانة موثقة بصورتين: قبل الشغل وبعد الانتهاء، وستظهر تلقائيًا في قسم الصيانة بالموقع.</div>
-        </div>
-
-        <div class="grid 2xl:grid-cols-[460px,1fr] gap-5">
-          <div class="rounded-[1.5rem] border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950 p-5">
-            <div class="flex items-center justify-between gap-3 mb-4">
-              <div>
-                <div id="maintenanceFormTitle" class="font-black text-xl">إضافة حالة صيانة</div>
-                <div class="text-sm text-slate-500">ارفع صورة قبل وصورة بعد من الجهاز.</div>
-              </div>
-              <button onclick="resetMaintenanceForm()" class="text-sm font-black text-brand-700 dark:text-brand-300">تفريغ</button>
-            </div>
-            <div class="grid gap-3">
-              <input type="hidden" id="maintenanceCaseId">
-              <input type="hidden" id="maintenanceBeforeImage">
-              <input type="hidden" id="maintenanceAfterImage">
-              <input id="maintenanceTitle" type="text" placeholder="عنوان الحالة: تنظيف وحدة داخلية" class="rounded-2xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900 px-4 py-3 outline-none">
-              <div class="grid md:grid-cols-2 gap-3">
-                <input id="maintenanceLocation" type="text" placeholder="المنطقة / العميل" class="rounded-2xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900 px-4 py-3 outline-none">
-                <input id="maintenanceDate" type="date" class="rounded-2xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900 px-4 py-3 outline-none">
-              </div>
-              <div class="grid md:grid-cols-2 gap-3">
-                <input id="maintenanceDevice" type="text" placeholder="نوع الجهاز / القدرة" class="rounded-2xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900 px-4 py-3 outline-none">
-                <select id="maintenanceStatus" class="rounded-2xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900 px-4 py-3 outline-none">
-                  <option value="تمت الصيانة">تمت الصيانة</option>
-                  <option value="تنظيف عميق">تنظيف عميق</option>
-                  <option value="إصلاح عطل">إصلاح عطل</option>
-                  <option value="تغيير قطع">تغيير قطع</option>
-                  <option value="متابعة دورية">متابعة دورية</option>
-                </select>
-              </div>
-              <textarea id="maintenanceDescription" rows="4" placeholder="وصف مختصر لما تم في الصيانة" class="rounded-2xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900 px-4 py-3 outline-none resize-none"></textarea>
-
-              <div class="grid md:grid-cols-2 gap-3">
-                <label class="rounded-2xl border-2 border-dashed border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-900 p-3 cursor-pointer">
-                  <div class="font-black text-sm mb-2">صورة قبل</div>
-                  <input id="maintenanceBeforeFile" type="file" accept="image/*" onchange="handleMaintenanceImageUpload(event, 'before')" class="w-full text-sm">
-                  <div id="maintenanceBeforeEmpty" class="mt-3 rounded-xl bg-white dark:bg-slate-950 h-32 flex items-center justify-center text-xs text-slate-500">لم يتم اختيار صورة</div>
-                  <img id="maintenanceBeforePreview" alt="صورة قبل الصيانة" class="hidden mt-3 w-full h-32 object-cover rounded-xl border border-slate-200 dark:border-slate-800">
-                </label>
-                <label class="rounded-2xl border-2 border-dashed border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-900 p-3 cursor-pointer">
-                  <div class="font-black text-sm mb-2">صورة بعد</div>
-                  <input id="maintenanceAfterFile" type="file" accept="image/*" onchange="handleMaintenanceImageUpload(event, 'after')" class="w-full text-sm">
-                  <div id="maintenanceAfterEmpty" class="mt-3 rounded-xl bg-white dark:bg-slate-950 h-32 flex items-center justify-center text-xs text-slate-500">لم يتم اختيار صورة</div>
-                  <img id="maintenanceAfterPreview" alt="صورة بعد الصيانة" class="hidden mt-3 w-full h-32 object-cover rounded-xl border border-slate-200 dark:border-slate-800">
-                </label>
-              </div>
-
-              <div class="grid grid-cols-2 gap-3 mt-2">
-                <button onclick="saveMaintenanceCase()" class="rounded-2xl bg-brand-600 hover:bg-brand-700 text-white px-5 py-3 font-black">حفظ الحالة</button>
-                <button onclick="resetMaintenanceForm()" class="rounded-2xl bg-slate-100 dark:bg-slate-900 px-5 py-3 font-black">إلغاء</button>
-              </div>
-            </div>
-          </div>
-
-          <div class="rounded-[1.5rem] border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950 p-5">
-            <div class="flex items-center justify-between gap-4 mb-4 flex-wrap">
-              <div>
-                <div class="font-black text-xl">حالات الصيانة المنشورة</div>
-                <div class="text-sm text-slate-500">تعديل أو حذف صور قبل/بعد المعروضة في الموقع.</div>
-              </div>
-              <input id="maintenanceSearch" oninput="renderMaintenanceAdmin()" type="text" placeholder="بحث في الصيانة..." class="w-full md:w-80 rounded-2xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900 px-4 py-3 outline-none">
-            </div>
-            <div id="maintenanceCasesList" class="grid md:grid-cols-2 xl:grid-cols-3 gap-4"></div>
-          </div>
-        </div>
-      </div>
-
-      <div id="adminPortfolioView" data-admin-view="portfolio" class="admin-view hidden flex-1 overflow-y-auto admin-scroll p-5">
-        <div class="admin-inventory-intro rounded-[1.5rem] border border-cyan-200 dark:border-cyan-800 bg-cyan-50 dark:bg-cyan-900/20 p-4 mb-5">
-          <div class="font-black text-lg text-cyan-800 dark:text-cyan-200">إدارة سابقة الأعمال والمشاريع المعروضة</div>
-          <div class="text-sm text-slate-600 dark:text-slate-400 mt-1">عدّل كروت سابقة الأعمال ومعرض المشروعات في الموقع: الصورة، العنوان، التصنيف، والوصف.</div>
-        </div>
-
-        <div class="grid 2xl:grid-cols-[460px,1fr] gap-5">
-          <div class="rounded-[1.5rem] border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950 p-5">
-            <div class="flex items-center justify-between gap-3 mb-4">
-              <div>
-                <div id="portfolioFormTitle" class="font-black text-xl">إضافة عمل / مشروع</div>
-                <div class="text-sm text-slate-500">اختار مكان ظهور الكارت وارفع صورة أو استخدم رابط صورة.</div>
-              </div>
-              <div class="flex flex-wrap gap-2">
-                <button onclick="startPortfolioItem('featured')" class="rounded-xl bg-slate-100 dark:bg-slate-900 px-3 py-2 text-xs font-black">+ سابقة</button>
-                <button onclick="startPortfolioItem('more')" class="rounded-xl bg-brand-600 text-white px-3 py-2 text-xs font-black">+ معرض</button>
-                <button onclick="resetPortfolioForm()" class="rounded-xl bg-slate-100 dark:bg-slate-900 px-3 py-2 text-xs font-black">تفريغ</button>
-              </div>
-            </div>
-            <div class="grid gap-3">
-              <input type="hidden" id="portfolioItemId">
-              <input type="hidden" id="portfolioImage">
-              <input id="portfolioTitle" type="text" placeholder="عنوان الكارت" class="rounded-2xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900 px-4 py-3 outline-none">
-              <input id="portfolioLabel" type="text" placeholder="تصنيف صغير: مشروع صناعي • HVAC" class="rounded-2xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900 px-4 py-3 outline-none">
-              <div class="grid md:grid-cols-2 gap-3">
-                <select id="portfolioSection" class="rounded-2xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900 px-4 py-3 outline-none">
-                  <option value="featured">سابقة الأعمال الرئيسية</option>
-                  <option value="more">معرض مشروعات إضافي</option>
-                </select>
-                <input id="portfolioOrder" type="number" min="0" step="1" placeholder="ترتيب الظهور" class="rounded-2xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900 px-4 py-3 outline-none">
-              </div>
-              <textarea id="portfolioDescription" rows="4" placeholder="وصف الكارت أو الكلام اللي يظهر تحت العنوان" class="rounded-2xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900 px-4 py-3 outline-none resize-none"></textarea>
-              <input id="portfolioImageUrl" type="url" placeholder="رابط صورة اختياري https://..." oninput="setPortfolioImageFromUrl()" class="rounded-2xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900 px-4 py-3 outline-none">
-              <label class="rounded-2xl border-2 border-dashed border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-900 p-3 cursor-pointer">
-                <div class="font-black text-sm mb-2">رفع صورة من الجهاز</div>
-                <input id="portfolioImageFile" type="file" accept="image/*" onchange="handlePortfolioImageUpload(event)" class="w-full text-sm">
-                <div id="portfolioImageEmpty" class="mt-3 rounded-xl bg-white dark:bg-slate-950 h-40 flex items-center justify-center text-xs text-slate-500">لم يتم اختيار صورة</div>
-                <img id="portfolioImagePreview" alt="صورة المشروع" class="hidden mt-3 w-full h-40 object-cover rounded-xl border border-slate-200 dark:border-slate-800">
-              </label>
-              <div class="grid grid-cols-2 gap-3 mt-2">
-                <button onclick="savePortfolioItem()" class="rounded-2xl bg-brand-600 hover:bg-brand-700 text-white px-5 py-3 font-black">حفظ الكارت</button>
-                <button onclick="resetPortfolioForm()" class="rounded-2xl bg-slate-100 dark:bg-slate-900 px-5 py-3 font-black">إلغاء</button>
-              </div>
-            </div>
-          </div>
-
-          <div class="rounded-[1.5rem] border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950 p-5">
-            <div class="flex items-center justify-between gap-4 mb-4 flex-wrap">
-              <div>
-                <div class="font-black text-xl">الكروت المنشورة</div>
-                <div class="text-sm text-slate-500">أي تعديل هنا يظهر في سابقة الأعمال ومعرض المشروعات.</div>
-              </div>
-              <div class="flex gap-2 w-full md:w-auto">
-                <select id="portfolioFilter" onchange="renderPortfolioAdmin()" class="rounded-2xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900 px-4 py-3 outline-none">
-                  <option value="all">كل الأماكن</option>
-                  <option value="featured">سابقة الأعمال</option>
-                  <option value="more">معرض إضافي</option>
-                </select>
-                <input id="portfolioSearch" oninput="renderPortfolioAdmin()" type="text" placeholder="بحث..." class="w-full md:w-64 rounded-2xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900 px-4 py-3 outline-none">
-              </div>
-            </div>
-            <div id="portfolioItemsList" class="grid md:grid-cols-2 xl:grid-cols-3 gap-4"></div>
           </div>
         </div>
       </div>
@@ -2192,66 +1403,68 @@
         </div>
       </div>
 
-      <div id="adminInventoryView" data-admin-view="inventory" class="admin-view hidden flex-1 overflow-y-auto admin-scroll p-5">
+            <div id="adminInventoryView" data-admin-view="inventory" class="admin-view hidden flex-1 overflow-y-auto admin-scroll p-5">
         <div class="rounded-[1.5rem] border border-cyan-200 dark:border-cyan-800 bg-cyan-50 dark:bg-cyan-900/20 p-4 mb-5">
-          <div class="font-black text-lg text-cyan-800 dark:text-cyan-200">مخزون الأجهزة</div>
-          <div class="text-sm text-slate-600 dark:text-slate-400 mt-1">سجل اسم الجهاز وسعره وعدده وملاحظاته، واللوحة تجمع قيمة كل جهاز مع باقي المخزون بالكامل.</div>
+          <div class="font-black text-lg text-cyan-800 dark:text-cyan-200">المخزن</div>
+          <div class="text-sm text-slate-600 dark:text-slate-400 mt-1">سجل بسيط: اسم الصنف، العدد، سعر الوحدة، والإجمالي يتحسب تلقائيًا.</div>
         </div>
 
-        <div class="admin-inventory-summary grid md:grid-cols-2 xl:grid-cols-4 gap-4 mb-5">
-          <div class="admin-inventory-stat rounded-[1.5rem] border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950 p-5">
-            <div class="text-sm text-slate-500">قيمة المخزون الكامل</div>
+        <div class="grid md:grid-cols-2 xl:grid-cols-4 gap-4 mb-5">
+          <div class="rounded-[1.5rem] border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950 p-5">
+            <div class="text-sm text-slate-500">قيمة المخزن</div>
             <div id="inventoryTotalValue" class="font-black text-3xl mt-2 text-brand-700 dark:text-brand-300">0 ج.م</div>
           </div>
-          <div class="admin-inventory-stat rounded-[1.5rem] border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950 p-5">
-            <div class="text-sm text-slate-500">عدد الأجهزة المسجلة</div>
+          <div class="rounded-[1.5rem] border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950 p-5">
+            <div class="text-sm text-slate-500">الأصناف</div>
             <div id="inventoryItemsCount" class="font-black text-3xl mt-2">0</div>
           </div>
-          <div class="admin-inventory-stat rounded-[1.5rem] border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950 p-5">
+          <div class="rounded-[1.5rem] border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950 p-5">
             <div class="text-sm text-slate-500">إجمالي العدد</div>
-            <div id="inventoryTotalQty" class="font-black text-3xl mt-2">0</div>
+            <div id="inventoryLowStockCount" class="font-black text-3xl mt-2 text-brand-700 dark:text-brand-300">0</div>
           </div>
-          <div class="admin-inventory-stat rounded-[1.5rem] border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950 p-5">
-            <div class="text-sm text-slate-500">بنود بها ملاحظات</div>
-            <div id="inventoryNotesCount" class="font-black text-3xl mt-2">0</div>
+          <div class="rounded-[1.5rem] border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950 p-5">
+            <div class="text-sm text-slate-500">متوسط سعر الوحدة</div>
+            <div id="inventoryMovesCount" class="font-black text-3xl mt-2">0 ج.م</div>
           </div>
         </div>
 
-        <div class="admin-inventory-layout grid xl:grid-cols-[420px,1fr] gap-5">
-          <div class="admin-inventory-card rounded-[1.5rem] border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950 p-5">
+        <div class="grid xl:grid-cols-[420px,1fr] gap-5">
+          <div class="rounded-[1.5rem] border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950 p-5">
             <div class="flex items-center justify-between gap-3 mb-4">
               <div>
-                <div class="font-black text-xl">إضافة جهاز للمخزون</div>
-                <div class="text-sm text-slate-500">اكتب اسم الجهاز، سعره، العدد، وأي ملاحظة مهمة.</div>
+                <div class="font-black text-xl">صنف في المخزن</div>
+                <div class="text-sm text-slate-500">مثال: 4 أجهزة × 20000 = 80000 ج.م.</div>
               </div>
               <button onclick="resetInventoryItemForm()" class="text-sm font-black text-brand-700 dark:text-brand-300">تفريغ</button>
             </div>
             <div class="grid gap-3">
               <input type="hidden" id="inventoryItemId">
-              <input id="inventoryItemName" type="text" placeholder="اسم الجهاز" class="rounded-2xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900 px-4 py-3 outline-none">
-              <div class="grid sm:grid-cols-2 gap-3">
-                <input id="inventoryItemCost" type="number" min="0" step="0.01" placeholder="سعر الجهاز" class="rounded-2xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900 px-4 py-3 outline-none">
-                <input id="inventoryItemOpeningQty" type="number" min="0" step="1" placeholder="العدد" class="rounded-2xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900 px-4 py-3 outline-none">
+              <input id="inventoryItemName" type="text" placeholder="اسم الصنف" class="rounded-2xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900 px-4 py-3 outline-none">
+              <div class="grid grid-cols-2 gap-3">
+                <input id="inventoryItemQty" oninput="updateInventoryLineTotalPreview()" type="number" min="0" step="0.01" placeholder="العدد" class="rounded-2xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900 px-4 py-3 outline-none">
+                <input id="inventoryItemUnitPrice" oninput="updateInventoryLineTotalPreview()" type="number" min="0" step="0.01" placeholder="سعر الوحدة" class="rounded-2xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900 px-4 py-3 outline-none">
               </div>
-              <textarea id="inventoryItemNotes" rows="4" placeholder="ملاحظات" class="rounded-2xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900 px-4 py-3 outline-none resize-none"></textarea>
-              <button onclick="saveInventoryItem()" class="rounded-2xl bg-brand-600 hover:bg-brand-700 text-white px-5 py-3 font-black">حفظ الجهاز</button>
+              <div id="inventoryLineTotalPreview" class="rounded-2xl bg-slate-100 dark:bg-slate-900 px-4 py-3 font-black text-brand-700 dark:text-brand-300">الإجمالي: 0 ج.م</div>
+              <div class="grid grid-cols-2 gap-3">
+                <button onclick="saveInventoryItem()" class="rounded-2xl bg-brand-600 hover:bg-brand-700 text-white px-5 py-3 font-black">حفظ</button>
+                <button onclick="clearInventory()" class="rounded-2xl bg-red-500 hover:bg-red-600 text-white px-5 py-3 font-black">مسح المخزن</button>
+              </div>
             </div>
           </div>
 
-          <div class="admin-inventory-card rounded-[1.5rem] border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950 p-5">
+          <div class="rounded-[1.5rem] border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950 p-5">
             <div class="flex items-center justify-between gap-4 mb-4 flex-wrap">
               <div>
-                <div class="font-black text-xl">المخزون الحالي</div>
-                <div class="text-sm text-slate-500">كل جهاز يظهر بسعره وعدده وقيمته داخل المخزون الكامل.</div>
+                <div class="font-black text-xl">الأصناف الحالية</div>
+                <div class="text-sm text-slate-500">كل صنف يظهر بعدده وسعر الوحدة والإجمالي.</div>
               </div>
-              <input id="inventorySearch" oninput="renderInventory()" type="text" placeholder="بحث باسم الجهاز أو الملاحظة..." class="w-full md:w-80 rounded-2xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900 px-4 py-3 outline-none">
+              <input id="inventorySearch" oninput="renderInventory()" type="text" placeholder="بحث في المخزن..." class="w-full md:w-72 rounded-2xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900 px-4 py-3 outline-none">
             </div>
-            <div id="inventoryItemsList" class="admin-inventory-list grid gap-3"></div>
+            <div id="inventoryItemsList" class="grid md:grid-cols-2 xl:grid-cols-3 gap-4"></div>
           </div>
         </div>
       </div>
-
-      <div id="adminProjectsView" data-admin-view="projects" class="admin-view hidden flex-1 overflow-y-auto admin-scroll p-5">
+<div id="adminProjectsView" data-admin-view="projects" class="admin-view hidden flex-1 overflow-y-auto admin-scroll p-5">
         <div class="rounded-[1.5rem] border border-violet-200 dark:border-violet-800 bg-violet-50 dark:bg-violet-900/20 p-4 mb-5">
           <div class="font-black text-lg text-violet-800 dark:text-violet-200">المشاريع والمقايسات</div>
           <div class="text-sm text-slate-600 dark:text-slate-400 mt-1">تابع مشاريع التركيب والدكت والصيانة الكبيرة، واربط كل شغلانة ومصروف ومخزون بمشروع محدد.</div>
@@ -2458,6 +1671,7 @@
             <input id="acUsername" type="text" placeholder="اسم المستخدم" class="w-full rounded-2xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900 px-4 py-3 outline-none">
             <input id="acNewPass" type="password" placeholder="كلمة المرور" autocomplete="new-password" class="w-full rounded-2xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900 px-4 py-3 outline-none">
             <input id="acConfirmPass" type="password" placeholder="تأكيد كلمة المرور" autocomplete="new-password" class="w-full rounded-2xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900 px-4 py-3 outline-none">
+            <select id="acTechnicianLink" class="w-full rounded-2xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900 px-4 py-3 outline-none"><option value="">غير مربوط بفني (إدارة)</option></select>
             <div id="acPermissionChecks" class="grid sm:grid-cols-2 gap-2"></div>
             <div class="flex gap-2">
               <button onclick="setNewUserPermissions(true)" class="flex-1 rounded-2xl bg-slate-100 dark:bg-slate-900 px-4 py-3 font-black text-sm">كل الصلاحيات</button>
@@ -2483,7 +1697,6 @@
 
   <div id="toast" class="hidden fixed top-20 left-1/2 -translate-x-1/2 z-[160] rounded-2xl bg-slate-900 text-white px-5 py-3 shadow-strong font-black"></div>
 
-<script src="sync-config.js"></script>
 <script>
 const OWNER_USERNAME = 'mustafa259';
 const DEFAULT_ADMIN = { username: OWNER_USERNAME, role: 'owner', permissions: ['all'] };
@@ -2501,359 +1714,199 @@ const STORAGE_KEYS = {
   adminCreds: 'fg_admin_creds_v1',
   crm: 'fg_admin_crm_v1',
   auditLog: 'fg_audit_log_v1',
-  productDeletes: 'fg_product_deletes_v1',
   currentAdmin: 'fg_current_admin_v1'
 };
-const SYNC_STORAGE_KEYS = {
-  endpoint: 'fg_sync_endpoint_v1',
-  adminKey: 'fg_sync_admin_key_v1',
-  lastPull: 'fg_sync_last_pull_v1',
-  lastPush: 'fg_sync_last_push_v1'
-};
-const DEFAULT_CRM_DATA = {
-  customers: [],
-  technicians: [],
-  jobs: [],
-  purchases: [],
-  expenses: [],
-  inventory: [],
-  inventoryDeletes: [],
-  stockMoves: [],
-  projects: [],
-  maintenanceGallery: [],
-  publicWorks: [],
-  publicWorkDeletes: [],
-  crmDeletes: {
-    customers: [],
-    technicians: [],
-    jobs: [],
-    purchases: [],
-    expenses: [],
-    inventory: [],
-    stockMoves: [],
-    projects: [],
-    maintenanceGallery: [],
-    publicWorks: []
+
+const SUPABASE_SYNC = {
+  enabled: true,
+  url: 'https://uylekljtflhpsrsynvdt.supabase.co',
+  anonKey: 'sb_publishable_QB6K7VIQw9Qj1w92FdLwUw_YqZ7Mq3_',
+  table: 'site_state',
+  pollMs: 12000,
+  keys: {
+    products: 'products',
+    crm: 'crm',
+    reviews: 'reviews',
+    adminCreds: 'adminCreds',
+    auditLog: 'auditLog'
   }
 };
-const CRM_DELETE_COLLECTIONS = Object.keys(DEFAULT_CRM_DATA.crmDeletes);
-let syncSaveTimer = null;
-let syncSaveInFlight = false;
-let syncSavePending = false;
-let syncBootstrapped = false;
+let cloudSyncMeta = {};
+let cloudSyncTimers = {};
+let cloudSyncSaving = {};
+let cloudSyncApplying = false;
+let cloudSyncStarted = false;
+let adminSyncReady = Promise.resolve();
 
-function cloneDefaultCrmData(){
-  return structuredClone(DEFAULT_CRM_DATA);
+function cloudSyncEnabled(){
+  return !!(SUPABASE_SYNC.enabled && SUPABASE_SYNC.url && SUPABASE_SYNC.anonKey && window.fetch);
 }
-
-function syncEndpoint(){
-  const configured = window.FG_SYNC_CONFIG?.endpoint || localStorage.getItem(SYNC_STORAGE_KEYS.endpoint) || '';
-  return String(configured).trim().replace(/\/+$/, '');
-}
-
-function syncAdminKey(){
-  return localStorage.getItem(SYNC_STORAGE_KEYS.adminKey) || window.FG_SYNC_CONFIG?.adminKey || '';
-}
-
-function syncEnabled(){
-  return Boolean(syncEndpoint());
-}
-
-function loadProductDeletes(){
-  try {
-    const parsed = JSON.parse(localStorage.getItem(STORAGE_KEYS.productDeletes) || '[]');
-    return Array.isArray(parsed) ? parsed.map(String).filter(Boolean) : [];
-  } catch {
-    return [];
-  }
-}
-
-function saveProductDeletes(list){
-  localStorage.setItem(STORAGE_KEYS.productDeletes, JSON.stringify([...new Set(list.map(String).filter(Boolean))]));
-}
-
-function markProductDeleted(id){
-  if(!id) return;
-  saveProductDeletes([...loadProductDeletes(), id]);
-}
-
-function uniqueStrings(list = []){
-  return [...new Set((Array.isArray(list) ? list : []).map(String).filter(Boolean))];
-}
-
-function normalizeCrmDeletes(input = {}){
-  const deletes = {};
-  CRM_DELETE_COLLECTIONS.forEach(key => {
-    deletes[key] = uniqueStrings(input?.[key]);
-  });
-  return deletes;
-}
-
-function mergeCrmDeletes(...sources){
-  const merged = normalizeCrmDeletes();
-  sources.forEach(source => {
-    const normalized = normalizeCrmDeletes(source);
-    CRM_DELETE_COLLECTIONS.forEach(key => {
-      merged[key] = uniqueStrings([...merged[key], ...normalized[key]]);
-    });
-  });
-  return merged;
-}
-
-function markCrmDeleted(collection, id){
-  if(!CRM_DELETE_COLLECTIONS.includes(collection) || !id) return;
-  crmData.crmDeletes = mergeCrmDeletes(crmData.crmDeletes, { [collection]: [id] });
-  if(collection === 'inventory') crmData.inventoryDeletes = uniqueStrings([...(crmData.inventoryDeletes || []), id]);
-  if(collection === 'publicWorks') crmData.publicWorkDeletes = uniqueStrings([...(crmData.publicWorkDeletes || []), id]);
-}
-
-function applyCrmDeleteRules(data = crmData){
-  const deletes = mergeCrmDeletes(data.crmDeletes, {
-    inventory: data.inventoryDeletes || [],
-    publicWorks: data.publicWorkDeletes || []
-  });
-  const deleted = Object.fromEntries(CRM_DELETE_COLLECTIONS.map(key => [key, new Set(deletes[key])]));
-  const cleaned = { ...cloneDefaultCrmData(), ...data, crmDeletes: deletes };
-
-  cleaned.customers = (cleaned.customers || []).filter(item => item?.id && !deleted.customers.has(String(item.id)));
-  cleaned.technicians = (cleaned.technicians || []).filter(item => item?.id && !deleted.technicians.has(String(item.id)));
-  cleaned.jobs = (cleaned.jobs || []).filter(item =>
-    item?.id
-    && !deleted.jobs.has(String(item.id))
-    && !deleted.customers.has(String(item.customerId))
-  ).map(job => {
-    const next = { ...job };
-    if(deleted.technicians.has(String(next.technicianId))) next.technicianId = '';
-    if(deleted.projects.has(String(next.projectId))) next.projectId = '';
-    if(Array.isArray(next.assistants)) next.assistants = next.assistants.filter(a => !deleted.technicians.has(String(a.techId)));
-    next.assistantIds = (next.assistantIds || []).filter(id => !deleted.technicians.has(String(id)));
-    return next;
-  });
-  cleaned.purchases = (cleaned.purchases || []).filter(item =>
-    item?.id
-    && !deleted.purchases.has(String(item.id))
-    && !deleted.customers.has(String(item.customerId))
-  );
-  cleaned.expenses = (cleaned.expenses || []).filter(item =>
-    item?.id
-    && !deleted.expenses.has(String(item.id))
-    && !deleted.customers.has(String(item.customerId))
-    && !deleted.jobs.has(String(item.jobId))
-  ).map(expense => deleted.projects.has(String(expense.projectId)) ? { ...expense, projectId: '' } : expense);
-  cleaned.inventory = (cleaned.inventory || []).filter(item => item?.id && !deleted.inventory.has(String(item.id)));
-  cleaned.stockMoves = (cleaned.stockMoves || []).filter(item =>
-    item?.id
-    && !deleted.stockMoves.has(String(item.id))
-    && !deleted.inventory.has(String(item.itemId))
-    && !deleted.jobs.has(String(item.jobId))
-  ).map(move => deleted.projects.has(String(move.projectId)) ? { ...move, projectId: '' } : move);
-  cleaned.projects = (cleaned.projects || []).filter(item => item?.id && !deleted.projects.has(String(item.id)));
-  cleaned.maintenanceGallery = (cleaned.maintenanceGallery || []).filter(item => item?.id && !deleted.maintenanceGallery.has(String(item.id)));
-  cleaned.publicWorks = (cleaned.publicWorks || []).filter(item => item?.id && !deleted.publicWorks.has(String(item.id)));
-  cleaned.inventoryDeletes = uniqueStrings([...deletes.inventory, ...(cleaned.inventoryDeletes || [])]);
-  cleaned.publicWorkDeletes = uniqueStrings([...deletes.publicWorks, ...(cleaned.publicWorkDeletes || [])]);
-  return cleaned;
-}
-
-function activeProductsList(list = products){
-  const deleted = new Set(loadProductDeletes());
-  return Array.isArray(list) ? list.filter(product => product?.id && !deleted.has(String(product.id))) : [];
-}
-
-function markInventoryDeleted(id){
-  if(!id) return;
-  markCrmDeleted('inventory', id);
-}
-
-function activeInventoryList(list = crmData.inventory){
-  const deleted = new Set(mergeCrmDeletes(crmData.crmDeletes, { inventory: crmData.inventoryDeletes || [] }).inventory);
-  return Array.isArray(list) ? list.filter(item => item?.id && !deleted.has(String(item.id))) : [];
-}
-
-function buildSiteState(){
+function cloudBaseUrl(){ return String(SUPABASE_SYNC.url || '').replace(/\/+$/, ''); }
+function cloudStateKey(name){ return SUPABASE_SYNC.keys?.[name] || name; }
+function cloudHeaders(extra = {}){
   return {
-    version: 1,
-    updatedAt: new Date().toISOString(),
-    products: activeProductsList(products),
-    productDeletes: loadProductDeletes(),
-    crmData,
-    reviews: loadReviews(),
-    auditLog: loadAuditLog()
+    apikey: SUPABASE_SYNC.anonKey,
+    Authorization: `Bearer ${SUPABASE_SYNC.anonKey}`,
+    'Content-Type': 'application/json',
+    ...extra
   };
 }
-
-function normalizeRemoteCrmData(parsed = {}){
-  return {
-    customers: Array.isArray(parsed.customers) ? parsed.customers : [],
-    technicians: Array.isArray(parsed.technicians) ? parsed.technicians : [],
-    jobs: Array.isArray(parsed.jobs) ? parsed.jobs : [],
-    purchases: Array.isArray(parsed.purchases) ? parsed.purchases : [],
-    expenses: Array.isArray(parsed.expenses) ? parsed.expenses : [],
-    inventory: Array.isArray(parsed.inventory) ? parsed.inventory : [],
-    inventoryDeletes: Array.isArray(parsed.inventoryDeletes) ? parsed.inventoryDeletes : [],
-    stockMoves: Array.isArray(parsed.stockMoves) ? parsed.stockMoves : [],
-    projects: Array.isArray(parsed.projects) ? parsed.projects : [],
-    maintenanceGallery: Array.isArray(parsed.maintenanceGallery) ? parsed.maintenanceGallery : [],
-    publicWorks: Array.isArray(parsed.publicWorks) ? parsed.publicWorks : [],
-    publicWorkDeletes: Array.isArray(parsed.publicWorkDeletes) ? parsed.publicWorkDeletes : [],
-    crmDeletes: mergeCrmDeletes(parsed.crmDeletes, {
-      inventory: parsed.inventoryDeletes || [],
-      publicWorks: parsed.publicWorkDeletes || []
-    })
-  };
+async function cloudRequest(path, options = {}){
+  if(!cloudSyncEnabled()) throw new Error('Cloud sync disabled');
+  const res = await fetch(`${cloudBaseUrl()}/rest/v1/${path}`, {
+    ...options,
+    headers: cloudHeaders(options.headers || {})
+  });
+  if(!res.ok){
+    const msg = await res.text().catch(() => '');
+    throw new Error(`Supabase ${res.status}: ${msg}`);
+  }
+  if(res.status === 204) return null;
+  const body = await res.text();
+  return body ? JSON.parse(body) : null;
 }
-
-function applyRemoteState(rawState){
-  const state = rawState?.state || rawState;
-  if(!state || typeof state !== 'object') return false;
-  let changed = false;
-  if(Array.isArray(state.productDeletes)){
-    saveProductDeletes([...loadProductDeletes(), ...state.productDeletes]);
-    changed = true;
-  }
-  if(Array.isArray(state.products)){
-    products = activeProductsList(state.products);
-    localStorage.setItem(STORAGE_KEYS.products, JSON.stringify(products));
-    changed = true;
-  }
-  const remoteCrm = state.crmData || state.crm;
-  const remoteCrmHasData = remoteCrm && typeof remoteCrm === 'object'
-    && Object.values(remoteCrm).some(value => Array.isArray(value) && value.length);
-  if(remoteCrmHasData){
-    const mergedDeletes = mergeCrmDeletes(
-      crmData.crmDeletes,
-      { inventory: crmData.inventoryDeletes || [], publicWorks: crmData.publicWorkDeletes || [] },
-      remoteCrm.crmDeletes,
-      { inventory: remoteCrm.inventoryDeletes || [], publicWorks: remoteCrm.publicWorkDeletes || [] }
-    );
-    crmData = applyCrmDeleteRules(normalizeRemoteCrmData({ ...remoteCrm, crmDeletes: mergedDeletes }));
-    localStorage.setItem(STORAGE_KEYS.crm, JSON.stringify(crmData));
-    selectedCrmCustomerId = crmData.customers[0]?.id || null;
-    selectedCrmTechId = crmData.technicians[0]?.id || null;
-    changed = true;
-  }
-  if(Array.isArray(state.reviews)){
-    localStorage.setItem(STORAGE_KEYS.reviews, JSON.stringify(state.reviews));
-    changed = true;
-  }
-  if(Array.isArray(state.auditLog)){
-    localStorage.setItem(STORAGE_KEYS.auditLog, JSON.stringify(state.auditLog));
-    changed = true;
-  }
-  return changed;
+async function cloudGetState(name){
+  const table = encodeURIComponent(SUPABASE_SYNC.table);
+  const key = encodeURIComponent(cloudStateKey(name));
+  const rows = await cloudRequest(`${table}?key=eq.${key}&select=value,updated_at&limit=1`, { method: 'GET' });
+  return Array.isArray(rows) && rows.length ? rows[0] : null;
 }
-
-function refreshAfterSync(){
-  try { applyFilters(); } catch {}
-  try { renderReviews(); } catch {}
-  try { renderPublicWorks(); } catch {}
-  try { renderMaintenanceGallery(); } catch {}
-  try { renderAdminProducts(); } catch {}
-  try { renderCrm(); } catch {}
+async function cloudUpsertState(name, value){
+  const table = encodeURIComponent(SUPABASE_SYNC.table);
+  const updatedAt = new Date().toISOString();
+  await cloudRequest(`${table}?on_conflict=key`, {
+    method: 'POST',
+    headers: { Prefer: 'resolution=merge-duplicates,return=minimal' },
+    body: JSON.stringify({ key: cloudStateKey(name), value, updated_at: updatedAt })
+  });
+  cloudSyncMeta[name] = updatedAt;
+  return updatedAt;
 }
-
-async function pullRemoteState({ silent = true } = {}){
-  if(!syncEnabled()) return false;
-  try {
-    const res = await fetch(syncEndpoint(), { method: 'GET', cache: 'no-store' });
-    if(!res.ok) throw new Error(`sync-get-${res.status}`);
-    const payload = await res.json();
-    if(payload?.exists === false) return false;
-    const changed = applyRemoteState(payload);
-    localStorage.setItem(SYNC_STORAGE_KEYS.lastPull, new Date().toISOString());
-    if(changed) refreshAfterSync();
+function cloneForCloud(value){
+  return JSON.parse(JSON.stringify(value ?? null));
+}
+function crmCloudSnapshot(value){
+  const safe = cloneForCloud(value || {});
+  (safe.customers || []).forEach(c => { delete c.idCard; delete c.taxInvoice; });
+  (safe.jobs || []).forEach(j => { delete j.beforePhoto; delete j.afterPhoto; });
+  (safe.purchases || []).forEach(p => { delete p.photo; });
+  return safe;
+}
+function mergeLocalPrivateAssets(incoming){
+  const next = cloneForCloud(incoming || {});
+  const customerMap = new Map((crmData?.customers || []).map(item => [item.id, item]));
+  const jobMap = new Map((crmData?.jobs || []).map(item => [item.id, item]));
+  const purchaseMap = new Map((crmData?.purchases || []).map(item => [item.id, item]));
+  (next.customers || []).forEach(item => { const local = customerMap.get(item.id); if(local?.idCard) item.idCard = local.idCard; if(local?.taxInvoice) item.taxInvoice = local.taxInvoice; });
+  (next.jobs || []).forEach(item => { const local = jobMap.get(item.id); if(local?.beforePhoto) item.beforePhoto = local.beforePhoto; if(local?.afterPhoto) item.afterPhoto = local.afterPhoto; });
+  (next.purchases || []).forEach(item => { const local = purchaseMap.get(item.id); if(local?.photo) item.photo = local.photo; });
+  return next;
+}
+function readLocalCloudState(name){
+  if(name === 'products') return products;
+  if(name === 'crm') return crmData;
+  if(name === 'reviews') return loadReviews();
+  if(name === 'adminCreds'){
+    try { return JSON.parse(localStorage.getItem(STORAGE_KEYS.adminCreds) || '[]'); } catch { return []; }
+  }
+  if(name === 'auditLog') return loadAuditLog();
+  return null;
+}
+function queueCloudSave(name, value = readLocalCloudState(name)){
+  if(cloudSyncApplying || !cloudSyncStarted || !cloudSyncEnabled()) return;
+  clearTimeout(cloudSyncTimers[name]);
+  const snapshot = name === 'crm' ? crmCloudSnapshot(value) : cloneForCloud(value);
+  cloudSyncTimers[name] = setTimeout(() => saveCloudState(name, snapshot), 500);
+}
+async function saveCloudState(name, value = readLocalCloudState(name)){
+  if(!cloudSyncEnabled() || cloudSyncSaving[name]) return false;
+  cloudSyncSaving[name] = true;
+  try{
+    await cloudUpsertState(name, name === 'crm' ? crmCloudSnapshot(value) : cloneForCloud(value));
     return true;
-  } catch {
-    if(!silent) toast('تعذر سحب بيانات التزامن');
-    return false;
-  }
-}
-
-function queueRemoteStateSave(){
-  if(!syncEnabled() || !syncAdminKey()) return;
-  clearTimeout(syncSaveTimer);
-  syncSaveTimer = setTimeout(pushRemoteState, 800);
-}
-
-async function pushRemoteState(){
-  if(!syncEnabled() || !syncAdminKey()) return false;
-  if(syncSaveInFlight){
-    syncSavePending = true;
-    return false;
-  }
-  syncSaveInFlight = true;
-  try {
-    const res = await fetch(syncEndpoint(), {
-      method: 'PUT',
-      headers: {
-        'content-type': 'application/json',
-        'x-admin-key': syncAdminKey()
-      },
-      body: JSON.stringify({ state: buildSiteState() })
-    });
-    if(!res.ok) throw new Error(`sync-put-${res.status}`);
-    const payload = await res.json().catch(() => null);
-    if(payload) applyRemoteState(payload);
-    localStorage.setItem(SYNC_STORAGE_KEYS.lastPush, new Date().toISOString());
-    return true;
-  } catch {
-    toast('اتحفظ محليًا لكن التزامن فشل');
+  } catch(err){
+    console.warn('Cloud save failed:', name, err);
+    try { if(isAdminLoggedIn()) toast('اتحفظ محليًا فقط - فشل التزامن'); } catch {}
     return false;
   } finally {
-    syncSaveInFlight = false;
-    if(syncSavePending){
-      syncSavePending = false;
-      queueRemoteStateSave();
-    }
+    cloudSyncSaving[name] = false;
   }
 }
-
-async function sendReviewToRemote(review){
-  if(!syncEnabled()) return false;
-  try {
-    const res = await fetch(`${syncEndpoint()}/reviews`, {
-      method: 'POST',
-      headers: { 'content-type': 'application/json' },
-      body: JSON.stringify({ review })
-    });
-    if(!res.ok) throw new Error(`sync-review-${res.status}`);
-    const payload = await res.json().catch(() => null);
-    if(payload) applyRemoteState(payload);
-    refreshAfterSync();
+function cloudValueIsUsable(name, value){
+  if(name === 'products') return Array.isArray(value) && value.length > 0;
+  if(name === 'adminCreds') return Array.isArray(value) && value.length > 0;
+  if(name === 'reviews' || name === 'auditLog') return Array.isArray(value);
+  if(name === 'crm') return value && typeof value === 'object';
+  return value !== undefined;
+}
+function applyCloudState(name, value, updatedAt = ''){
+  if(!cloudValueIsUsable(name, value)) return false;
+  cloudSyncApplying = true;
+  try{
+    if(name === 'products'){
+      products = normalizeProductsList(value);
+      localStorage.setItem(STORAGE_KEYS.products, JSON.stringify(products));
+      try { applyFilters(); renderAdminProducts(); renderCompare(); } catch {}
+    } else if(name === 'crm'){
+      crmData = normalizeCrmData(mergeLocalPrivateAssets(value));
+      localStorage.setItem(STORAGE_KEYS.crm, JSON.stringify(crmData));
+      selectedCrmCustomerId = crmData.customers[0]?.id || null;
+      selectedCrmTechId = crmData.technicians[0]?.id || null;
+      try { renderCrm(); } catch {}
+    } else if(name === 'reviews'){
+      localStorage.setItem(STORAGE_KEYS.reviews, JSON.stringify(value));
+      try { renderReviews(); } catch {}
+    } else if(name === 'adminCreds'){
+      const cleaned = sanitizeAdminAccounts(value).map(serializeAdminAccount);
+      localStorage.setItem(STORAGE_KEYS.adminCreds, JSON.stringify(cleaned));
+      try { syncAdminPermissionsUI(); } catch {}
+    } else if(name === 'auditLog'){
+      localStorage.setItem(STORAGE_KEYS.auditLog, JSON.stringify(value));
+      try { renderAuditLog(); } catch {}
+    }
+    cloudSyncMeta[name] = updatedAt || cloudSyncMeta[name] || '';
     return true;
-  } catch {
+  } finally {
+    cloudSyncApplying = false;
+  }
+}
+async function pullCloudState(name){
+  if(!cloudSyncEnabled()) return false;
+  try{
+    const row = await cloudGetState(name);
+    if(!row){
+      await saveCloudState(name);
+      return false;
+    }
+    if(row.updated_at && row.updated_at === cloudSyncMeta[name]) return false;
+    if(!cloudValueIsUsable(name, row.value)){
+      await saveCloudState(name);
+      return false;
+    }
+    return applyCloudState(name, row.value, row.updated_at || '');
+  } catch(err){
+    console.warn('Cloud pull failed:', name, err);
     return false;
   }
 }
-
-async function configureSync(){
-  if(!isAdminLoggedIn()){
-    toast('سجل دخول الأدمن أولًا');
-    return;
+async function syncAllCloudState(){
+  for(const name of ['products','crm','reviews','adminCreds','auditLog']){
+    await pullCloudState(name);
   }
-  const endpoint = prompt('رابط التزامن / Worker URL', syncEndpoint());
-  if(endpoint === null) return;
-  const cleanEndpoint = endpoint.trim().replace(/\/+$/, '');
-  if(cleanEndpoint) localStorage.setItem(SYNC_STORAGE_KEYS.endpoint, cleanEndpoint);
-  else localStorage.removeItem(SYNC_STORAGE_KEYS.endpoint);
-
-  const key = prompt('مفتاح الأدمن للتزامن', syncAdminKey());
-  if(key === null) return;
-  const cleanKey = key.trim();
-  if(cleanKey) localStorage.setItem(SYNC_STORAGE_KEYS.adminKey, cleanKey);
-  else localStorage.removeItem(SYNC_STORAGE_KEYS.adminKey);
-
-  const pulled = await pullRemoteState({ silent: false });
-  if(!pulled && cleanEndpoint && cleanKey) await pushRemoteState();
-  toast(syncEnabled() ? 'تم حفظ إعداد التزامن' : 'تم إيقاف التزامن');
 }
-
+function startCloudSync(){
+  if(!cloudSyncEnabled()) return;
+  cloudSyncStarted = true;
+  syncAllCloudState();
+  setInterval(syncAllCloudState, Number(SUPABASE_SYNC.pollMs) || 12000);
+  document.addEventListener('visibilitychange', () => {
+    if(!document.hidden) syncAllCloudState();
+  });
+}
 const ADMIN_PERMISSION_LABELS = {
   products: 'المنتجات',
   customers: 'العملاء وسجل العميل',
   jobs: 'الشغل المطلوب',
-  maintenance: 'الصيانة',
-  portfolio: 'سابقة الأعمال',
   technicians: 'الفنيين وسجل الفني',
   inventory: 'المخزون',
   projects: 'المشاريع',
@@ -2872,10 +1925,13 @@ function logAudit(action, details = ''){
     details,
     at: new Date().toISOString()
   });
-  localStorage.setItem(STORAGE_KEYS.auditLog, JSON.stringify(log));
-  queueRemoteStateSave();
+  saveAuditLog(log);
 }
 
+function saveAuditLog(list){
+  localStorage.setItem(STORAGE_KEYS.auditLog, JSON.stringify(Array.isArray(list) ? list : []));
+  queueCloudSave('auditLog', list);
+}
 function loadAuditLog(){
   try { return JSON.parse(localStorage.getItem(STORAGE_KEYS.auditLog) || '[]'); } catch { return []; }
 }
@@ -2970,7 +2026,7 @@ const images = {
   mideaWallMission: 'https://carrier-egy.com/cdn/shop/files/5494c874-4426-401a-a807-499ab508a97f_b75435d8-fc66-4d57-b543-c10213a7e325.jpg?v=1759142894&width=900'
 };
 
-// قائمة نهائية من ملف الأسعار (Carrier + Midea) بتاريخ 7 يونيو 2026 - أسعار End User Guide.
+// قائمة ملف الأسعار الرسمي (Carrier + Midea) بتاريخ 8 سبتمبر 2026.
 const PRICE_LIST_MODELS = [
   '53KHEFT12DN8-708F',
   '53KHEFT18DN8-708F',
@@ -2994,6 +2050,12 @@ const PRICE_LIST_MODELS = [
   '53QHEFT12N8-708F',
   '53QHEFT18N8-708F',
   '53QHEFT24N8-708F',
+  '53QDMA7T18DN8-728',
+  '53QDMA7T24DN8-728',
+  '53QDMA7T30DN8-728',
+  '53QDMA7T36DN8-728',
+  '53QDMA7T48DN8-528',
+  '53QDMA7T60DN8-528',
   '53QDMA6T18DN-728',
   '53QDMA6T24DN-728',
   '53QDMA6T36DN-728',
@@ -3058,6 +2120,12 @@ const END_USER_PRICE_MAP = {
   '53QHEFT12N8-708F': 28630,
   '53QHEFT18N8-708F': 41345,
   '53QHEFT24N8-708F': 49015,
+  '53QDMA7T18DN8-728': 64300,
+  '53QDMA7T24DN8-728': 74085,
+  '53QDMA7T30DN8-728': 95080,
+  '53QDMA7T36DN8-728': 109270,
+  '53QDMA7T48DN8-528': 143050,
+  '53QDMA7T60DN8-528': 157860,
   '53QDMA6T18DN-728': 64300,
   '53QDMA6T24DN-728': 74085,
   '53QDMA6T36DN-728': 109270,
@@ -3097,6 +2165,33 @@ const END_USER_PRICE_MAP = {
   'M1SCT-24HRNF-Q8': 45535,
   'M1SABT-30HRNF-Q8': 70235,
   'M1SABT-36HRNF-Q8': 80690,
+};
+
+const DEALER_PRICE_MAP = {
+  '53KHEFT12DN8-708F':27550,'53KHEFT18DN8-708F':41125,'53KHEFT24DN8-708F':46695,
+  '53QHEFT12DN8-708F':30040,'53QHEFT18DN8-708F':44470,'53QHEFT24DN8-708F':50495,
+  '53QHABT30DN-708F':79550,'53QHABT36DN-708F':91400,
+  '53KHCT12N-708':24165,'53KHCT18N-708':34335,'53KHCT24N-708':41140,
+  '53QHCT12N-708F':26220,'53QHCT18N-708F':37495,'53QHCT24N-708F':44385,
+  '53QHABT30N-708F':70800,'53QHABT36N-708F':81330,
+  '53KHEFT12N8-708F':24165,'53KHEFT18N8-708F':34950,'53KHEFT24N8-708F':41955,
+  '53QHEFT12N8-708F':26220,'53QHEFT18N8-708F':38105,'53QHEFT24N8-708F':45200,
+  '53QDMA7T18DN8-728':57135,'53QDMA7T24DN8-728':65820,'53QDMA7T30DN8-728':84515,
+  '53QDMA7T36DN8-728':97090,'53QDMA7T48DN8-528':127100,'53QDMA7T60DN8-528':140265,
+  '53QDMA6T18DN-728':57135,'53QDMA6T24DN-728':65820,'53QDMA6T36DN-728':97090,
+  '53QDHTGT48DN-528':127100,'53QDHTGT60DN-528':140265,
+  '53QDMA6T12N-728':36400,'53QDMA6T18N-728':47635,'53QDMA6T24N-728':57230,
+  '53QDMA6T30N-728':73480,'53QDMA6T36N-728':84495,'53QDMA6T48N-528':110520,'53QDMA6T60N-528':122005,
+  '53QCDT36DN-708':119070,'53QCDT48DN-508':130940,'53QFGDT60DN-508':151455,
+  '53QFMT36N-708':103825,'53KFGDT60N-508':131840,
+  'M1SEFT-12CRDN8F-Q8':24955,'M1SEFT-18CRDN8F-Q8':37110,'M1SEFT-24CRDN8F-Q8':42185,
+  'M1SEFT-12HRDN8F-Q8':27275,'M1SEFT-18HRDN8F-Q8':40175,'M1SEFT-24HRDN8F-Q8':45645,
+  'M1SABT-30HRDNF-Q8':72665,'M1SABT-36HRDNF-Q8':83510,
+  'M1SEFT-12CRN8F-Q8':21305,'M1SEFT-18CRN8F-Q8':32295,'M1SEFT-24CRN8F-Q8':39660,
+  'M1SEFT-12HRN8F-Q8':23170,'M1SEFT-18HRN8F-Q8':35520,'M1SEFT-24HRN8F-Q8':42580,
+  'M1SCT-12CRN-Q8':21305,'M1SCT-18CRN-Q8':31685,'M1SCT-24CRN-Q8':38845,
+  'M1SCT-12HRNF-Q8':23170,'M1SCT-18HRNF-Q8':34905,'M1SCT-24HRNF-Q8':41760,
+  'M1SABT-30HRNF-Q8':64795,'M1SABT-36HRNF-Q8':74480
 };
 
 const HP_MAP = {12:1.5,18:2.25,24:3,30:4,36:5,48:6,60:7.5};
@@ -3141,6 +2236,7 @@ function inferName(model){
     if(model.includes('KHEFT') || model.includes('QHEFT')) return model.includes('DN8') ? 'XCOOL Inverter' : 'XCOOL';
     if(model.includes('QHABT') && model.includes('DN')) return 'Optimax Inverter';
     if((model.includes('KHCT') || model.includes('QHCT') || model.includes('QHABT')) && !model.includes('DN')) return 'Optimax Pro';
+    if(model.includes('QDMA7T') && model.includes('DN')) return 'Climax Inverter';
     if((model.includes('QDMA') || model.includes('QDHTGT')) && model.includes('DN')) return 'ClassiCool Inverter';
     if(model.includes('QDMA') && !model.includes('DN')) return 'ClassiCool Pro';
     if(model.includes('QCDT')) return 'DECOR Inverter';
@@ -3226,6 +2322,7 @@ function buildDefaultProductsFromPriceList(){
       type,
       category,
       price: END_USER_PRICE_MAP[model],
+      dealerPrice: DEALER_PRICE_MAP[model] || 0,
       originalPrice: null,
       img: gallery[0],
       gallery,
@@ -3240,50 +2337,79 @@ function buildDefaultProductsFromPriceList(){
 
 const defaultProducts = buildDefaultProductsFromPriceList();
 
+function deepClone(value){
+  if(typeof structuredClone === 'function') return structuredClone(value);
+  return JSON.parse(JSON.stringify(value));
+}
+
+function cloneDefaultProducts(){
+  return deepClone(defaultProducts);
+}
+
+function normalizeProductsList(value){
+  return Array.isArray(value) && value.length ? value : cloneDefaultProducts();
+}
+
 let products = [];
 let selectedStars = 5;
-let directSelectedStars = 5;
 let currentHP = 'all';
 let currentSort = 'popular';
 let compareList = [];
-let crmData = cloneDefaultCrmData();
+let crmData = { customers: [], technicians: [], jobs: [], purchases: [], expenses: [], inventory: [], stockMoves: [], projects: [] };
 let selectedCrmCustomerId = null;
 let selectedCrmTechId = null;
-let defaultPublicWorks = [];
 
 function loadProducts(){
-  const stored = localStorage.getItem(STORAGE_KEYS.products);
-  products = stored ? JSON.parse(stored) : structuredClone(defaultProducts);
+  try{
+    const stored = localStorage.getItem(STORAGE_KEYS.products);
+    products = stored ? normalizeProductsList(JSON.parse(stored)) : cloneDefaultProducts();
+  } catch(err){
+    console.warn('Failed to load local products. Using defaults.', err);
+    products = cloneDefaultProducts();
+  }
+  localStorage.setItem(STORAGE_KEYS.products, JSON.stringify(products));
 }
 
 function saveProductsToStorage(){
-  products = activeProductsList(products);
+  products = normalizeProductsList(products);
   localStorage.setItem(STORAGE_KEYS.products, JSON.stringify(products));
-  queueRemoteStateSave();
+  queueCloudSave('products', products);
+}
+function emptyCrmData(){
+  return { customers: [], technicians: [], jobs: [], purchases: [], expenses: [], inventory: [], stockMoves: [], projects: [] };
+}
+
+function normalizeCrmData(input){
+  const parsed = input && typeof input === 'object' ? input : {};
+  return {
+    customers: Array.isArray(parsed.customers) ? parsed.customers : [],
+    technicians: Array.isArray(parsed.technicians) ? parsed.technicians : [],
+    jobs: Array.isArray(parsed.jobs) ? parsed.jobs : [],
+    purchases: Array.isArray(parsed.purchases) ? parsed.purchases : [],
+    expenses: Array.isArray(parsed.expenses) ? parsed.expenses : [],
+    inventory: Array.isArray(parsed.inventory) ? parsed.inventory : [],
+    stockMoves: Array.isArray(parsed.stockMoves) ? parsed.stockMoves : [],
+    projects: Array.isArray(parsed.projects) ? parsed.projects : []
+  };
 }
 
 function loadCrmData(){
   const raw = localStorage.getItem(STORAGE_KEYS.crm);
   if(!raw){
-    crmData = cloneDefaultCrmData();
+    crmData = emptyCrmData();
   } else {
-    try {
-      const parsed = JSON.parse(raw);
-      crmData = normalizeRemoteCrmData(parsed);
-    } catch {
-      crmData = cloneDefaultCrmData();
-    }
+    try { crmData = normalizeCrmData(JSON.parse(raw)); }
+    catch { crmData = emptyCrmData(); }
   }
   selectedCrmCustomerId = crmData.customers[0]?.id || null;
   selectedCrmTechId = crmData.technicians[0]?.id || null;
 }
 
 function saveCrmData(){
-  crmData = applyCrmDeleteRules(crmData);
+  crmData = normalizeCrmData(crmData);
   localStorage.setItem(STORAGE_KEYS.crm, JSON.stringify(crmData));
-  queueRemoteStateSave();
+  queueCloudSave('crm', crmData);
 }
-
 async function ensureCrmSecrets(){
   let changed = false;
   for(const tech of crmData.technicians){
@@ -3322,6 +2448,33 @@ function moneyValue(value){
   return Number.isFinite(n) ? n : 0;
 }
 function formatMoney(value){ return `${formatPrice(moneyValue(value))} ج.م`; }
+function dataUrlFromFile(file){
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.onload = () => resolve(String(reader.result || ''));
+    reader.onerror = reject;
+    reader.readAsDataURL(file);
+  });
+}
+async function storedAssetFromFile(file, maxWidth = 1280){
+  if(!file) return null;
+  if(file.size > 8 * 1024 * 1024) throw new Error('الملف أكبر من 8 ميجا');
+  if(!file.type.startsWith('image/')) return { name:file.name, type:file.type, data:await dataUrlFromFile(file) };
+  const source = await dataUrlFromFile(file);
+  const image = new Image();
+  await new Promise((resolve, reject) => { image.onload = resolve; image.onerror = reject; image.src = source; });
+  const scale = Math.min(1, maxWidth / Math.max(image.width, image.height));
+  const canvas = document.createElement('canvas');
+  canvas.width = Math.max(1, Math.round(image.width * scale));
+  canvas.height = Math.max(1, Math.round(image.height * scale));
+  canvas.getContext('2d').drawImage(image, 0, 0, canvas.width, canvas.height);
+  return { name:file.name, type:'image/jpeg', data:canvas.toDataURL('image/jpeg', .76) };
+}
+function renderStoredAsset(asset, label){
+  if(!asset?.data) return '';
+  if(String(asset.type || '').startsWith('image/')) return `<a href="${asset.data}" target="_blank" class="block"><img src="${asset.data}" alt="${escapeHtml(label)}" class="photo-thumb"><span class="block text-xs text-center mt-1">${escapeHtml(label)}</span></a>`;
+  return `<a href="${asset.data}" download="${escapeHtml(asset.name || label)}" class="rounded-xl bg-slate-100 dark:bg-slate-900 px-3 py-2 text-sm font-bold">${escapeHtml(label)} - تحميل الملف</a>`;
+}
 function setText(id, value){
   const el = document.getElementById(id);
   if(el) el.textContent = value;
@@ -3378,24 +2531,22 @@ function stockMoveSign(type){
 function stockMoveQty(move){ return moneyValue(move?.quantity ?? move?.qty); }
 function stockMoveUnitCost(move){
   const item = inventoryItemById(move?.itemId);
-  return moneyValue(move?.unitCost || item?.price || item?.unitCost || item?.cost);
+  return moneyValue(move?.unitCost || item?.unitPrice || item?.unitCost || item?.cost);
 }
 function stockMoveValue(move){ return stockMoveQty(move) * stockMoveUnitCost(move); }
-function inventoryItemPrice(item){
-  return moneyValue(item?.price ?? item?.unitCost ?? item?.cost);
-}
-function inventoryItemQuantity(item){
+function inventoryBalance(itemId){
+  const item = inventoryItemById(itemId);
   if(!item) return 0;
-  if(item.quantity !== undefined && item.quantity !== null && item.quantity !== '') return moneyValue(item.quantity);
-  const opening = moneyValue(item?.openingQty);
-  return (crmData.stockMoves || []).filter(move => move.itemId === item.id)
+  if(item.qty !== undefined || item.quantity !== undefined) return moneyValue(item.qty ?? item.quantity);
+  const opening = moneyValue(item.openingQty);
+  return (crmData.stockMoves || []).filter(move => move.itemId === itemId)
     .reduce((sum, move) => sum + (stockMoveSign(move.type) * stockMoveQty(move)), opening);
 }
-function inventoryBalance(itemId){
-  return inventoryItemQuantity(inventoryItemById(itemId));
+function inventoryUnitPrice(item){
+  return moneyValue(item?.unitPrice ?? item?.unitCost ?? item?.cost);
 }
 function inventoryItemValue(item){
-  return inventoryItemQuantity(item) * inventoryItemPrice(item);
+  return inventoryBalance(item.id) * inventoryUnitPrice(item);
 }
 function projectJobs(projectId){
   return crmData.jobs.filter(job => job.projectId === projectId);
@@ -3542,16 +2693,16 @@ function publicPriceMarkup(p){
     const discountPercent = Math.round((1 - (Number(p.price) / Number(p.originalPrice))) * 100);
     return `
       <div class="flex items-center gap-2 flex-wrap">
-        <div class="product-old-price text-lg text-slate-400 line-through font-black">${formatPrice(p.originalPrice)}</div>
-        <div class="product-discount-pill rounded-full bg-red-50 text-red-600 dark:bg-red-900/20 dark:text-red-300 px-2 py-1 text-xs font-black">خصم ${discountPercent}%</div>
+        <div class="text-lg text-slate-400 line-through font-black">${formatPrice(p.originalPrice)}</div>
+        <div class="rounded-full bg-red-50 text-red-600 dark:bg-red-900/20 dark:text-red-300 px-2 py-1 text-xs font-black">خصم ${discountPercent}%</div>
       </div>
-      <div class="product-price-value text-3xl font-black text-brand-700 dark:text-brand-300">${formatPrice(p.price)}</div>
-      <div class="product-price-unit text-xs text-slate-500">جنيه مصري</div>
+      <div class="text-3xl font-black text-brand-700 dark:text-brand-300">${formatPrice(p.price)}</div>
+      <div class="text-xs text-slate-500">جنيه مصري</div>
     `;
   }
   return `
-    <div class="product-price-value text-3xl font-black text-brand-700 dark:text-brand-300">${formatPrice(p.price)}</div>
-    <div class="product-price-unit text-xs text-slate-500">جنيه مصري</div>
+    <div class="text-3xl font-black text-brand-700 dark:text-brand-300">${formatPrice(p.price)}</div>
+    <div class="text-xs text-slate-500">جنيه مصري</div>
   `;
 }
 
@@ -3563,26 +2714,6 @@ function toggleTheme(){
 
 function toggleMobileMenu(){ document.getElementById('mobileMenu').classList.toggle('hidden'); }
 function updatePriceLabel(){ document.getElementById('priceLabel').textContent = formatPrice(document.getElementById('priceRange').value); }
-
-function isMobileLayout(){
-  return window.matchMedia('(max-width: 640px)').matches;
-}
-
-function syncMobileProductPosition(){
-  const topSection = document.getElementById('top');
-  const productsSection = document.getElementById('products');
-  const businessSection = document.getElementById('business');
-  if(!topSection || !productsSection || !businessSection) return;
-  if(isMobileLayout()){
-    if(topSection.nextElementSibling !== productsSection){
-      topSection.insertAdjacentElement('afterend', productsSection);
-    }
-    return;
-  }
-  if(businessSection.previousElementSibling !== productsSection){
-    businessSection.parentNode.insertBefore(productsSection, businessSection);
-  }
-}
 
 function setHPFilter(hp, btn){
   currentHP = hp;
@@ -3654,41 +2785,41 @@ function renderProducts(list){
   grid.innerHTML = list.map((p) => {
     const cardImg = Array.isArray(p.gallery) && p.gallery.length ? p.gallery[0] : p.img;
     return `
-    <article class="product-card reveal rounded-[2rem] overflow-hidden border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950 shadow-soft card-hover">
-      <div class="product-media relative p-5 bg-gradient-to-br from-slate-50 to-slate-100 dark:from-slate-900 dark:to-slate-950">
-        <div class="product-badge-wrap absolute top-4 left-4 flex gap-2">${productBadge(p)}</div>
-        <img loading="lazy" src="${escapeHtml(cardImg)}" alt="${escapeHtml(p.name)}" class="product-image w-full h-44 object-contain mt-6" onerror="setIndoorFallback(this)">
-        <div class="product-hp-badge absolute bottom-4 right-4 rounded-xl bg-white/90 dark:bg-slate-950/90 px-3 py-1.5 text-xs font-black shadow-soft">${escapeHtml(p.hp)} حصان</div>
+    <article class="reveal rounded-[2rem] overflow-hidden border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950 shadow-soft card-hover">
+      <div class="relative p-5 bg-gradient-to-br from-slate-50 to-slate-100 dark:from-slate-900 dark:to-slate-950">
+        <div class="absolute top-4 left-4 flex gap-2">${productBadge(p)}</div>
+        <img loading="lazy" src="${escapeHtml(cardImg)}" alt="${escapeHtml(p.name)}" class="w-full h-44 object-contain mt-6" onerror="setIndoorFallback(this)">
+        <div class="absolute bottom-4 right-4 rounded-xl bg-white/90 dark:bg-slate-950/90 px-3 py-1.5 text-xs font-black shadow-soft">${escapeHtml(p.hp)} حصان</div>
       </div>
-      <div class="product-body p-5">
-        <div class="product-tags flex items-center gap-2 flex-wrap mb-3">
+      <div class="p-5">
+        <div class="flex items-center gap-2 flex-wrap mb-3">
           <span class="px-2.5 py-1 rounded-lg text-[11px] font-black ${p.brand==='Carrier'?'bg-blue-50 text-blue-700 dark:bg-blue-900/20 dark:text-blue-300':'bg-cyan-50 text-cyan-700 dark:bg-cyan-900/20 dark:text-cyan-300'}">${escapeHtml(p.brand)}</span>
           <span class="px-2.5 py-1 rounded-lg text-[11px] font-black bg-slate-100 text-slate-700 dark:bg-slate-900 dark:text-slate-300">${p.type==='Inverter'?'إنفرتر':'عادي'}</span>
           <span class="px-2.5 py-1 rounded-lg text-[11px] font-black bg-slate-100 text-slate-700 dark:bg-slate-900 dark:text-slate-300">${categoryName(p.category)}</span>
         </div>
-        <h3 class="product-title font-black text-xl line-clamp-2 min-h-[60px]">${escapeHtml(p.name)}</h3>
-        <div class="product-model text-sm text-slate-500 mt-2">${escapeHtml(p.model)}</div>
-        <div class="product-specs grid grid-cols-2 gap-3 mt-4 text-sm">
-          <div class="product-spec-card rounded-2xl bg-slate-50 dark:bg-slate-900 p-3">
+        <h3 class="font-black text-xl line-clamp-2 min-h-[60px]">${escapeHtml(p.name)}</h3>
+        <div class="text-sm text-slate-500 mt-2">${escapeHtml(p.model)}</div>
+        <div class="grid grid-cols-2 gap-3 mt-4 text-sm">
+          <div class="rounded-2xl bg-slate-50 dark:bg-slate-900 p-3">
             <div class="text-slate-500 mb-1">أنسب مساحة</div>
             <div class="font-black">${escapeHtml(p.area)}</div>
           </div>
-          <div class="product-spec-card rounded-2xl bg-slate-50 dark:bg-slate-900 p-3">
+          <div class="rounded-2xl bg-slate-50 dark:bg-slate-900 p-3">
             <div class="text-slate-500 mb-1">الغاز</div>
             <div class="font-black">${escapeHtml(p.refrigerant)}</div>
           </div>
         </div>
-        <ul class="product-features mt-4 grid gap-2 text-sm text-slate-600 dark:text-slate-400">
+        <ul class="mt-4 grid gap-2 text-sm text-slate-600 dark:text-slate-400">
           ${(p.features || []).slice(0,3).map(f => `<li class="flex items-center gap-2"><span class="text-emerald-500">●</span><span>${escapeHtml(f)}</span></li>`).join('')}
         </ul>
-        <div class="product-price-row flex items-end justify-between gap-4 mt-5">
-          <div class="product-price min-w-0">
-            <div class="product-price-label text-xs text-slate-500 mb-1">سعر المستهلك</div>
+        <div class="flex items-end justify-between gap-4 mt-5">
+          <div>
+            <div class="text-xs text-slate-500 mb-1">سعر المستهلك</div>
             ${publicPriceMarkup(p)}
           </div>
-          <button onclick="addToCompare('${escapeJs(p.id)}')" class="product-compare-btn rounded-xl border border-slate-200 dark:border-slate-800 px-4 py-3 text-sm font-black bg-slate-50 dark:bg-slate-900">قارن</button>
+          <button onclick="addToCompare('${escapeJs(p.id)}')" class="rounded-xl border border-slate-200 dark:border-slate-800 px-4 py-3 text-sm font-black bg-slate-50 dark:bg-slate-900">قارن</button>
         </div>
-        <div class="product-actions grid grid-cols-2 gap-3 mt-5">
+        <div class="grid grid-cols-2 gap-3 mt-5">
           <button onclick="openProductModal('${escapeJs(p.id)}')" class="rounded-2xl bg-slate-900 text-white dark:bg-white dark:text-slate-900 px-4 py-3 font-black">تفاصيل</button>
           <a href="${waLink(`السلام عليكم، أريد الاستفسار عن:\n${p.name}\nالموديل: ${p.model}\nالسعر الحالي: ${formatPrice(p.price)} ج.م`)}" target="_blank" class="rounded-2xl bg-emerald-500 text-white px-4 py-3 font-black text-center">واتساب</a>
         </div>
@@ -4106,7 +3237,8 @@ function serializeAdminAccount(account){
   const out = {
     username: account.username,
     role: account.role,
-    permissions: account.permissions
+    permissions: account.permissions,
+    technicianId: account.technicianId || ''
   };
   copySecretFields(account, out, 'password');
   purgeExposedSecurityFields(out);
@@ -4121,7 +3253,8 @@ function normalizeAdminAccount(account){
   const normalized = {
     username: isOwner ? OWNER_USERNAME : username,
     role: isOwner ? 'owner' : 'user',
-    permissions: isOwner ? ['all'] : normalizePermissions(account.permissions || [])
+    permissions: isOwner ? ['all'] : normalizePermissions(account.permissions || []),
+    technicianId: isOwner ? '' : String(account.technicianId || '')
   };
   copySecretFields(account, normalized, 'password');
   const legacyPassword = typeof account.password === 'string' ? account.password : '';
@@ -4155,6 +3288,12 @@ function currentAdminAccount(){
   return findAdminAccount(currentAdminUser);
 }
 
+function currentLinkedTechnicianId(){ return currentAdminAccount()?.technicianId || ''; }
+function canAccessJobRecord(job){
+  const linkedId = currentLinkedTechnicianId();
+  return !linkedId || job?.technicianId === linkedId || (job?.assistantIds || []).includes(linkedId) || (job?.assistants || []).some(a => a.techId === linkedId);
+}
+
 function canAccessAdmin(permission){
   const account = currentAdminAccount();
   if(sessionStorage.getItem(STORAGE_KEYS.auth) !== 'true' || !hasSecretRecord(account, 'password')) return false;
@@ -4171,7 +3310,7 @@ function requireAdminAccess(permission){
 
 function sanitizeAdminAccounts(input){
   const list = Array.isArray(input) ? input : [input];
-  const byUsername = new Map([[OWNER_USERNAME.toLowerCase(), structuredClone(DEFAULT_ADMIN)]]);
+  const byUsername = new Map([[OWNER_USERNAME.toLowerCase(), deepClone(DEFAULT_ADMIN)]]);
   list.forEach(item => {
     const account = normalizeAdminAccount(item);
     if(!account) return;
@@ -4187,18 +3326,19 @@ function sanitizeAdminAccounts(input){
 
 function getAdminAccounts(){
   const raw = localStorage.getItem(STORAGE_KEYS.adminCreds);
-  if(!raw) return [structuredClone(DEFAULT_ADMIN)];
+  if(!raw) return [deepClone(DEFAULT_ADMIN)];
   try{
     const parsed = JSON.parse(raw);
     const cleaned = sanitizeAdminAccounts(parsed);
     if(cleaned.length) return cleaned;
   } catch {}
-  return [structuredClone(DEFAULT_ADMIN)];
+  return [deepClone(DEFAULT_ADMIN)];
 }
 
 function saveAdminAccounts(accounts){
   const cleaned = sanitizeAdminAccounts(accounts);
   localStorage.setItem(STORAGE_KEYS.adminCreds, JSON.stringify(cleaned.map(serializeAdminAccount)));
+  queueCloudSave('adminCreds', cleaned.map(serializeAdminAccount));
 }
 
 function findAdminAccount(username){
@@ -4237,6 +3377,7 @@ function clearAdminSession(){
 }
 
 async function ensureAdminCredentials(){
+  if(cloudSyncEnabled() && !adminCloudChecked && ownerPasswordMissing()) return;
   const accounts = getAdminAccounts();
   let changed = !!localStorage.getItem(STORAGE_KEYS.auth) || !!localStorage.getItem(STORAGE_KEYS.currentAdmin);
   localStorage.removeItem(STORAGE_KEYS.auth);
@@ -4253,7 +3394,7 @@ async function ensureAdminCredentials(){
 
 async function setOwnerPassword(password){
   const accounts = getAdminAccounts();
-  const owner = accounts.find(account => account.username.toLowerCase() === OWNER_USERNAME.toLowerCase()) || structuredClone(DEFAULT_ADMIN);
+  const owner = accounts.find(account => account.username.toLowerCase() === OWNER_USERNAME.toLowerCase()) || deepClone(DEFAULT_ADMIN);
   await setSecret(owner, 'password', password);
   const next = accounts.filter(account => account.username.toLowerCase() !== OWNER_USERNAME.toLowerCase());
   saveAdminAccounts([owner, ...next]);
@@ -4300,7 +3441,8 @@ function isAdminLoggedIn(){
     && hasSecretRecord(account, 'password')
     && (isOwnerAccount(account) || normalizePermissions(account.permissions).length > 0);
 }
-function openAdminLogin(){
+async function openAdminLogin(){
+  await adminSyncReady.catch(() => false);
   if(isAdminLoggedIn()) {
     openAdminPanel();
     return;
@@ -4402,6 +3544,15 @@ function syncAdminPermissionsUI(){
   document.querySelectorAll('[data-owner-only]').forEach(btn => {
     btn.hidden = !isAdminLoggedIn() || !isOwnerAccount();
   });
+  document.querySelectorAll('[data-financial-only]').forEach(el => {
+    el.hidden = !canAccessAdmin('accounting');
+  });
+  const linkedId = currentLinkedTechnicianId();
+  const techSelect = document.getElementById('crmJobTechnician');
+  if(techSelect){
+    techSelect.disabled = !!linkedId;
+    if(linkedId) techSelect.value = linkedId;
+  }
 }
 
 function openAdminCredentialsModal(){
@@ -4412,6 +3563,11 @@ function openAdminCredentialsModal(){
   document.getElementById('acUsername').value = '';
   document.getElementById('acNewPass').value = '';
   document.getElementById('acConfirmPass').value = '';
+  const techLink = document.getElementById('acTechnicianLink');
+  if(techLink){
+    techLink.innerHTML = '<option value="">غير مربوط بفني (إدارة)</option>' + crmData.technicians.map(t => `<option value="${escapeHtml(t.id)}">عامل/فني: ${escapeHtml(t.name)} - ${escapeHtml(t.role)}</option>`).join('');
+    techLink.value = '';
+  }
   renderNewUserPermissionChecks();
   renderAdminAccountsInModal();
   const modal = document.getElementById('adminCredentialsModal');
@@ -4490,13 +3646,14 @@ async function saveAdminCredentialsFromModal(){
 
   const accounts = getAdminAccounts();
   const permissions = normalizePermissions(readPermissionBoxes('new-user'));
-  const account = { username, role: 'user', permissions };
+  const account = { username, role: 'user', permissions, technicianId: document.getElementById('acTechnicianLink')?.value || '' };
   await setSecret(account, 'password', newPass);
   accounts.push(account);
   saveAdminAccounts(accounts);
   document.getElementById('acUsername').value = '';
   document.getElementById('acNewPass').value = '';
   document.getElementById('acConfirmPass').value = '';
+  document.getElementById('acTechnicianLink').value = '';
   renderNewUserPermissionChecks();
   renderAdminAccountsInModal();
   logAudit('إضافة مستخدم', `${username} — ${permissionText(permissions)}`);
@@ -4560,7 +3717,7 @@ function renderAdminAccountsInModal(){
       <div class="flex items-center justify-between gap-3">
         <div>
           <div class="font-bold">${escapeHtml(account.username)}</div>
-          <div class="text-xs text-slate-500">${owner ? 'المالك الوحيد' : permissionText(account.permissions)}</div>
+          <div class="text-xs text-slate-500">${owner ? 'المالك الوحيد' : permissionText(account.permissions)}${account.technicianId ? ` | مربوط بـ ${escapeHtml(crmTechById(account.technicianId)?.name || 'فني')}` : ''}</div>
         </div>
         ${owner ? '<span class="rounded-lg bg-emerald-100 text-emerald-700 px-3 py-1 text-xs font-black">مالك</span>' : `<button onclick="removeAdminAccount('${escapeJs(account.username)}')" class="rounded-lg px-3 py-1 text-xs font-black bg-red-500 text-white">حذف</button>`}
       </div>
@@ -4649,21 +3806,19 @@ function fillAdminForm(id){
   document.getElementById('apFeatures').value = (p.features || []).join(', ');
 }
 
-async function deleteProduct(id){
+function deleteProduct(id){
   if(!requireAdminAccess('products')) return;
   const p = products.find(x => x.id === id);
   if(!p) return;
-  if(!confirm(`حذ المنتج: ${p.name} ؟`)) return;
-  markProductDeleted(id);
+  if(!confirm(`حذف المنتج: ${p.name} ؟`)) return;
+  logAudit('مسح منتج', `${p.brand} ${p.name} — ${p.model}`);
   products = products.filter(x => x.id !== id);
   compareList = compareList.filter(x => x !== id);
   saveProductsToStorage();
-  logAudit('مسح منتج', `${p.brand} ${p.name} — ${p.model}`);
   renderAdminProducts();
   renderCompare();
   applyFilters();
-  toast('تم حذ المنتج');
-  if(syncEnabled() && syncAdminKey()) await pushRemoteState();
+  toast('تم حذف المنتج');
 }
 
 function renderAdminProducts(){
@@ -4685,7 +3840,7 @@ function renderAdminProducts(){
       <div class="mt-1 text-sm"><span class="font-bold">النوع:</span> ${escapeHtml(p.type)}</div>
       <div class="grid grid-cols-2 gap-2 mt-4">
         <button onclick="fillAdminForm('${escapeJs(p.id)}')" class="rounded-xl bg-brand-600 text-white px-4 py-2 font-black text-sm">تعديل</button>
-        <button onclick="deleteProduct('${escapeJs(p.id)}')" class="rounded-xl bg-red-500 text-white px-4 py-2 font-black text-sm">حذ</button>
+        <button onclick="deleteProduct('${escapeJs(p.id)}')" class="rounded-xl bg-red-500 text-white px-4 py-2 font-black text-sm">حذف</button>
       </div>
     </div>
   `).join('');
@@ -4751,555 +3906,14 @@ function crmTeamNames(job){
   return team;
 }
 
-function maintenanceCaseById(id){
-  return (crmData.maintenanceGallery || []).find(item => item.id === id);
-}
-
-function maintenanceImageIds(slot){
-  const isAfter = slot === 'after';
-  return {
-    field: isAfter ? 'maintenanceAfterImage' : 'maintenanceBeforeImage',
-    file: isAfter ? 'maintenanceAfterFile' : 'maintenanceBeforeFile',
-    empty: isAfter ? 'maintenanceAfterEmpty' : 'maintenanceBeforeEmpty',
-    preview: isAfter ? 'maintenanceAfterPreview' : 'maintenanceBeforePreview'
-  };
-}
-
-function setMaintenancePreview(slot, src = ''){
-  const ids = maintenanceImageIds(slot);
-  const field = document.getElementById(ids.field);
-  const empty = document.getElementById(ids.empty);
-  const preview = document.getElementById(ids.preview);
-  if(field) field.value = src || '';
-  if(preview){
-    preview.src = src || '';
-    preview.classList.toggle('hidden', !src);
-  }
-  if(empty) empty.classList.toggle('hidden', !!src);
-}
-
-function resizeMaintenanceImage(file){
-  return new Promise((resolve, reject) => {
-    if(!file || !file.type.startsWith('image/') || file.type === 'image/svg+xml'){
-      reject(new Error('invalid-image'));
-      return;
-    }
-    const reader = new FileReader();
-    reader.onerror = () => reject(new Error('read-failed'));
-    reader.onload = () => {
-      const img = new Image();
-      img.onerror = () => reject(new Error('decode-failed'));
-      img.onload = () => {
-        const maxSide = 1200;
-        const scale = Math.min(1, maxSide / Math.max(img.width, img.height));
-        const canvas = document.createElement('canvas');
-        canvas.width = Math.max(1, Math.round(img.width * scale));
-        canvas.height = Math.max(1, Math.round(img.height * scale));
-        const ctx = canvas.getContext('2d');
-        ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
-        resolve(canvas.toDataURL('image/jpeg', 0.78));
-      };
-      img.src = reader.result;
-    };
-    reader.readAsDataURL(file);
-  });
-}
-
-async function handleMaintenanceImageUpload(event, slot){
-  if(!requireAdminAccess('maintenance')) return;
-  const file = event.target.files?.[0];
-  if(!file) return;
-  try {
-    const dataUrl = await resizeMaintenanceImage(file);
-    setMaintenancePreview(slot, dataUrl);
-    toast(slot === 'after' ? 'تم تحميل صورة بعد الصيانة' : 'تم تحميل صورة قبل الصيانة');
-  } catch {
-    toast('اختار صورة JPG أو PNG صالحة');
-    event.target.value = '';
-  }
-}
-
-function resetMaintenanceForm(){
-  const ids = ['maintenanceCaseId','maintenanceTitle','maintenanceLocation','maintenanceDate','maintenanceDevice','maintenanceDescription'];
-  ids.forEach(id => {
-    const el = document.getElementById(id);
-    if(el) el.value = '';
-  });
-  const status = document.getElementById('maintenanceStatus');
-  if(status) status.value = 'تمت الصيانة';
-  const date = document.getElementById('maintenanceDate');
-  if(date) date.value = crmDate();
-  ['before','after'].forEach(slot => {
-    const idsForSlot = maintenanceImageIds(slot);
-    const file = document.getElementById(idsForSlot.file);
-    if(file) file.value = '';
-    setMaintenancePreview(slot, '');
-  });
-  const title = document.getElementById('maintenanceFormTitle');
-  if(title) title.textContent = 'إضافة حالة صيانة';
-}
-
-function collectMaintenanceForm(){
-  const title = document.getElementById('maintenanceTitle')?.value.trim() || '';
-  const beforeImage = document.getElementById('maintenanceBeforeImage')?.value || '';
-  const afterImage = document.getElementById('maintenanceAfterImage')?.value || '';
-  if(!title){
-    toast('اكتب عنوان حالة الصيانة');
-    return null;
-  }
-  if(!beforeImage || !afterImage){
-    toast('ارفع صورة قبل وصورة بعد');
-    return null;
-  }
-  const id = document.getElementById('maintenanceCaseId')?.value || crmId('maintenance');
-  const existing = maintenanceCaseById(id);
-  const now = new Date().toISOString();
-  return {
-    id,
-    title,
-    location: document.getElementById('maintenanceLocation')?.value.trim() || '',
-    date: document.getElementById('maintenanceDate')?.value || crmDate(),
-    device: document.getElementById('maintenanceDevice')?.value.trim() || '',
-    status: document.getElementById('maintenanceStatus')?.value || 'تمت الصيانة',
-    description: document.getElementById('maintenanceDescription')?.value.trim() || '',
-    beforeImage,
-    afterImage,
-    createdAt: existing?.createdAt || now,
-    updatedAt: now
-  };
-}
-
-function saveMaintenanceCase(){
-  if(!requireAdminAccess('maintenance')) return;
-  const item = collectMaintenanceForm();
-  if(!item) return;
-  if(!Array.isArray(crmData.maintenanceGallery)) crmData.maintenanceGallery = [];
-  const existing = maintenanceCaseById(item.id);
-  if(existing){
-    crmData.maintenanceGallery = crmData.maintenanceGallery.map(x => x.id === item.id ? item : x);
-    logAudit('تعديل حالة صيانة', item.title);
-  } else {
-    crmData.maintenanceGallery.unshift(item);
-    logAudit('إضافة حالة صيانة', item.title);
-  }
-  try {
-    saveCrmData();
-  } catch {
-    toast('حجم الصور كبير. جرّب صور أصغر أو أقل عددًا.');
-    return;
-  }
-  resetMaintenanceForm();
-  renderMaintenanceAdmin();
-  renderMaintenanceGallery();
-  toast(existing ? 'تم تعديل حالة الصيانة' : 'تم حفظ حالة الصيانة');
-}
-
-function fillMaintenanceForm(id){
-  if(!requireAdminAccess('maintenance')) return;
-  const item = maintenanceCaseById(id);
-  if(!item) return;
-  document.getElementById('maintenanceCaseId').value = item.id;
-  document.getElementById('maintenanceTitle').value = item.title || '';
-  document.getElementById('maintenanceLocation').value = item.location || '';
-  document.getElementById('maintenanceDate').value = item.date || crmDate();
-  document.getElementById('maintenanceDevice').value = item.device || '';
-  document.getElementById('maintenanceStatus').value = item.status || 'تمت الصيانة';
-  document.getElementById('maintenanceDescription').value = item.description || '';
-  setMaintenancePreview('before', item.beforeImage || '');
-  setMaintenancePreview('after', item.afterImage || '');
-  const title = document.getElementById('maintenanceFormTitle');
-  if(title) title.textContent = 'تعديل حالة صيانة';
-}
-
-function deleteMaintenanceCase(id){
-  if(!requireAdminAccess('maintenance')) return;
-  const item = maintenanceCaseById(id);
-  if(!item) return;
-  if(!confirm(`هتمسح حالة الصيانة: ${item.title} ؟`)) return;
-  markCrmDeleted('maintenanceGallery', id);
-  crmData.maintenanceGallery = (crmData.maintenanceGallery || []).filter(x => x.id !== id);
-  saveCrmData();
-  logAudit('مسح حالة صيانة', item.title);
-  resetMaintenanceForm();
-  renderMaintenanceAdmin();
-  renderMaintenanceGallery();
-  toast('تم مسح حالة الصيانة');
-}
-
-function maintenanceCaseSearchText(item){
-  return [item.title, item.location, item.device, item.status, item.description, item.date].join(' ').toLowerCase();
-}
-
-function renderMaintenanceAdmin(){
-  if(!canAccessAdmin('maintenance')) return;
-  const container = document.getElementById('maintenanceCasesList');
-  if(!container) return;
-  const q = document.getElementById('maintenanceSearch')?.value.trim().toLowerCase() || '';
-  const list = (crmData.maintenanceGallery || []).filter(item => !q || maintenanceCaseSearchText(item).includes(q));
-  if(!list.length){
-    container.innerHTML = `<div class="md:col-span-2 xl:col-span-3 rounded-2xl border border-dashed border-slate-300 dark:border-slate-700 p-6 text-center text-slate-500">لا توجد حالات صيانة محفوظة.</div>`;
-    return;
-  }
-  container.innerHTML = list.map(item => `
-    <div class="rounded-[1.5rem] border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900 p-4">
-      <div class="grid grid-cols-2 gap-2 mb-4">
-        <div>
-          <div class="text-xs font-black text-slate-500 mb-1">قبل</div>
-          <img src="${escapeHtml(item.beforeImage)}" alt="قبل الصيانة" class="w-full h-28 object-cover rounded-xl bg-white dark:bg-slate-950">
-        </div>
-        <div>
-          <div class="text-xs font-black text-slate-500 mb-1">بعد</div>
-          <img src="${escapeHtml(item.afterImage)}" alt="بعد الصيانة" class="w-full h-28 object-cover rounded-xl bg-white dark:bg-slate-950">
-        </div>
-      </div>
-      <div class="flex flex-wrap gap-2 mb-2">${crmPill(item.status || 'صيانة')}${item.date ? crmPill(item.date) : ''}</div>
-      <div class="font-black text-lg line-clamp-2">${escapeHtml(item.title || '')}</div>
-      <div class="text-sm text-slate-500 mt-1">${escapeHtml(item.location || item.device || '-')}</div>
-      <div class="grid grid-cols-2 gap-2 mt-4">
-        <button onclick="fillMaintenanceForm('${escapeJs(item.id)}')" class="rounded-xl bg-brand-600 text-white px-4 py-2 font-black text-sm">تعديل</button>
-        <button onclick="deleteMaintenanceCase('${escapeJs(item.id)}')" class="rounded-xl bg-red-500 text-white px-4 py-2 font-black text-sm">حذف</button>
-      </div>
-    </div>
-  `).join('');
-}
-
-function renderMaintenanceGallery(){
-  const container = document.getElementById('maintenanceGallery');
-  if(!container) return;
-  const list = (crmData.maintenanceGallery || [])
-    .slice()
-    .sort((a,b) => new Date(b.date || b.updatedAt || b.createdAt || 0) - new Date(a.date || a.updatedAt || a.createdAt || 0))
-    .slice(0, 6);
-  if(!list.length){
-    container.innerHTML = `
-      <div class="lg:col-span-3 rounded-[2rem] border border-dashed border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-900 p-8 text-center">
-        <div class="font-black text-2xl mb-2">صور الصيانة ستظهر هنا قريبًا</div>
-        <div class="text-slate-500">يمكن إضافة صور قبل وبعد من لوحة الأدمن لعرض حالات الصيانة الفعلية.</div>
-      </div>
-    `;
-    return;
-  }
-  container.innerHTML = list.map(item => `
-    <article class="reveal rounded-[2rem] overflow-hidden border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900 shadow-soft card-hover">
-      <div class="grid grid-cols-2">
-        <div class="relative bg-white dark:bg-slate-950">
-          <img src="${escapeHtml(item.beforeImage)}" alt="قبل الصيانة - ${escapeHtml(item.title || '')}" class="w-full h-52 object-cover">
-          <span class="absolute top-3 right-3 rounded-full bg-slate-950/80 text-white px-3 py-1 text-xs font-black">قبل</span>
-        </div>
-        <div class="relative bg-white dark:bg-slate-950">
-          <img src="${escapeHtml(item.afterImage)}" alt="بعد الصيانة - ${escapeHtml(item.title || '')}" class="w-full h-52 object-cover">
-          <span class="absolute top-3 right-3 rounded-full bg-emerald-500 text-white px-3 py-1 text-xs font-black">بعد</span>
-        </div>
-      </div>
-      <div class="p-5">
-        <div class="flex flex-wrap gap-2 mb-3">${crmPill(item.status || 'صيانة')}${item.date ? crmPill(item.date) : ''}</div>
-        <h3 class="text-xl font-black mb-2">${escapeHtml(item.title || '')}</h3>
-        <div class="text-sm text-slate-500 mb-3">${escapeHtml([item.location, item.device].filter(Boolean).join(' | ') || 'حالة صيانة موثقة')}</div>
-        ${item.description ? `<p class="text-slate-600 dark:text-slate-400 leading-7">${escapeHtml(item.description)}</p>` : ''}
-      </div>
-    </article>
-  `).join('');
-  initReveal();
-}
-
-function capturePublicWorksDefaults(){
-  if(defaultPublicWorks.length) return defaultPublicWorks;
-  const items = [];
-  const readCard = (card, section, index) => {
-    const img = card.querySelector('img');
-    const image = img?.getAttribute('src') || img?.src || '';
-    const title = card.querySelector('h3, .font-black.text-lg')?.textContent?.trim() || `مشروع ${index + 1}`;
-    const label = section === 'featured'
-      ? (card.querySelector('.text-xs.font-black')?.textContent?.trim() || 'سابقة أعمال')
-      : 'معرض مشروعات إضافي';
-    const description = section === 'featured'
-      ? (card.querySelector('p')?.textContent?.trim() || '')
-      : (card.querySelector('.text-sm.text-slate-500')?.textContent?.trim() || '');
-    return { id: `${section}_${index + 1}`, section, order: index + 1, title, label, description, image, isDefault: true };
-  };
-  document.querySelectorAll('#projects .card-hover').forEach((card, index) => {
-    if(!card.closest('#publishedWorksGrid')) items.push(readCard(card, 'featured', index));
-  });
-  document.querySelectorAll('#more-projects .card-hover').forEach((card, index) => {
-    if(!card.closest('#moreProjectsManagedGrid')) items.push(readCard(card, 'more', index));
-  });
-  defaultPublicWorks = items;
-  return defaultPublicWorks;
-}
-
-function hideStaticPublicWorkCards(){
-  document.querySelectorAll('#projects .card-hover, #more-projects .card-hover').forEach(card => {
-    if(card.closest('#publishedWorksGrid') || card.closest('#moreProjectsManagedGrid')) return;
-    const grid = card.closest('.grid');
-    if(grid) grid.hidden = true;
-  });
-}
-
-function publicWorkDefaultById(id){
-  return capturePublicWorksDefaults().find(item => item.id === id);
-}
-
-function getEffectivePublicWorks(){
-  const deleted = new Set(crmData.publicWorkDeletes || []);
-  const overrides = new Map((crmData.publicWorks || []).map(item => [item.id, item]));
-  const defaults = capturePublicWorksDefaults()
-    .filter(item => !deleted.has(item.id))
-    .map(item => {
-      const override = overrides.get(item.id) || {};
-      return { ...item, ...override, image: override.image || item.image, isDefault: true };
-    });
-  const defaultIds = new Set(defaultPublicWorks.map(item => item.id));
-  const custom = (crmData.publicWorks || [])
-    .filter(item => !defaultIds.has(item.id) && !deleted.has(item.id))
-    .map(item => ({ ...item, isDefault: false }));
-  return [...defaults, ...custom].sort((a,b) => {
-    const sectionRank = a.section === b.section ? 0 : a.section === 'featured' ? -1 : 1;
-    if(sectionRank) return sectionRank;
-    return moneyValue(a.order) - moneyValue(b.order);
-  });
-}
-
-function publicWorkById(id){
-  return getEffectivePublicWorks().find(item => item.id === id);
-}
-
-function setPortfolioPreview(src = ''){
-  const field = document.getElementById('portfolioImage');
-  const empty = document.getElementById('portfolioImageEmpty');
-  const preview = document.getElementById('portfolioImagePreview');
-  if(field) field.value = src || '';
-  if(preview){
-    preview.src = src || '';
-    preview.classList.toggle('hidden', !src);
-  }
-  if(empty) empty.classList.toggle('hidden', !!src);
-}
-
-function setPortfolioImageFromUrl(){
-  const url = document.getElementById('portfolioImageUrl')?.value.trim() || '';
-  if(url) setPortfolioPreview(url);
-}
-
-async function handlePortfolioImageUpload(event){
-  if(!requireAdminAccess('portfolio')) return;
-  const file = event.target.files?.[0];
-  if(!file) return;
-  try {
-    const dataUrl = await resizeMaintenanceImage(file);
-    const url = document.getElementById('portfolioImageUrl');
-    if(url) url.value = '';
-    setPortfolioPreview(dataUrl);
-    toast('تم تحميل صورة المشروع');
-  } catch {
-    toast('اختار صورة JPG أو PNG صالحة');
-    event.target.value = '';
-  }
-}
-
-function resetPortfolioForm(){
-  ['portfolioItemId','portfolioTitle','portfolioLabel','portfolioDescription','portfolioOrder','portfolioImageUrl'].forEach(id => {
-    const el = document.getElementById(id);
-    if(el) el.value = '';
-  });
-  const section = document.getElementById('portfolioSection');
-  if(section) section.value = 'featured';
-  const file = document.getElementById('portfolioImageFile');
-  if(file) file.value = '';
-  setPortfolioPreview('');
-  const title = document.getElementById('portfolioFormTitle');
-  if(title) title.textContent = 'إضافة عمل / مشروع';
-}
-
-function startPortfolioItem(section = 'featured'){
-  if(!requireAdminAccess('portfolio')) return;
-  resetPortfolioForm();
-  const sectionEl = document.getElementById('portfolioSection');
-  if(sectionEl) sectionEl.value = section;
-  const filter = document.getElementById('portfolioFilter');
-  if(filter) filter.value = section;
-  const title = document.getElementById('portfolioFormTitle');
-  if(title) title.textContent = section === 'more' ? 'إضافة مشروع في المعرض' : 'إضافة سابقة أعمال';
-  renderPortfolioAdmin();
-}
-
-function openPortfolioSection(section = 'all'){
-  if(!requireAdminAccess('portfolio')) return;
-  switchAdminView('portfolio');
-  const filter = document.getElementById('portfolioFilter');
-  if(filter) filter.value = section;
-  const sectionEl = document.getElementById('portfolioSection');
-  if(sectionEl && section !== 'all') sectionEl.value = section;
-  renderPortfolioAdmin();
-}
-
-function collectPortfolioForm(){
-  const id = document.getElementById('portfolioItemId')?.value || crmId('work');
-  const title = document.getElementById('portfolioTitle')?.value.trim() || '';
-  const section = document.getElementById('portfolioSection')?.value || 'featured';
-  const image = document.getElementById('portfolioImage')?.value || '';
-  if(!title){ toast('اكتب عنوان المشروع أو العمل'); return null; }
-  if(!image){ toast('اختار صورة للمشروع'); return null; }
-  const existingDefault = publicWorkDefaultById(id);
-  const now = new Date().toISOString();
-  const item = {
-    id,
-    section,
-    order: document.getElementById('portfolioOrder')?.value || String(getEffectivePublicWorks().length + 1),
-    title,
-    label: document.getElementById('portfolioLabel')?.value.trim() || (section === 'featured' ? 'سابقة أعمال' : 'معرض مشروعات إضافي'),
-    description: document.getElementById('portfolioDescription')?.value.trim() || '',
-    updatedAt: now
-  };
-  if(!existingDefault || image !== existingDefault.image) item.image = image;
-  if(!existingDefault) item.createdAt = now;
-  return item;
-}
-
-function savePortfolioItem(){
-  if(!requireAdminAccess('portfolio')) return;
-  const item = collectPortfolioForm();
-  if(!item) return;
-  if(!Array.isArray(crmData.publicWorks)) crmData.publicWorks = [];
-  if(!Array.isArray(crmData.publicWorkDeletes)) crmData.publicWorkDeletes = [];
-  crmData.publicWorkDeletes = crmData.publicWorkDeletes.filter(id => id !== item.id);
-  const exists = crmData.publicWorks.some(x => x.id === item.id);
-  crmData.publicWorks = exists
-    ? crmData.publicWorks.map(x => x.id === item.id ? { ...x, ...item } : x)
-    : [item, ...crmData.publicWorks];
-  try {
-    saveCrmData();
-  } catch {
-    toast('حجم الصورة كبير. جرّب صورة أصغر.');
-    return;
-  }
-  logAudit(exists || publicWorkDefaultById(item.id) ? 'تعديل سابقة أعمال' : 'إضافة سابقة أعمال', item.title);
-  resetPortfolioForm();
-  renderPortfolioAdmin();
-  renderPublicWorks();
-  toast('تم حفظ الكارت');
-}
-
-function fillPortfolioForm(id){
-  if(!requireAdminAccess('portfolio')) return;
-  const item = publicWorkById(id);
-  if(!item) return;
-  document.getElementById('portfolioItemId').value = item.id;
-  document.getElementById('portfolioTitle').value = item.title || '';
-  document.getElementById('portfolioLabel').value = item.label || '';
-  document.getElementById('portfolioSection').value = item.section || 'featured';
-  document.getElementById('portfolioOrder').value = item.order || '';
-  document.getElementById('portfolioDescription').value = item.description || '';
-  document.getElementById('portfolioImageUrl').value = item.image && !item.image.startsWith('data:') ? item.image : '';
-  setPortfolioPreview(item.image || '');
-  const title = document.getElementById('portfolioFormTitle');
-  if(title) title.textContent = 'تعديل عمل / مشروع';
-}
-
-function deletePortfolioItem(id){
-  if(!requireAdminAccess('portfolio')) return;
-  const item = publicWorkById(id);
-  if(!item) return;
-  if(!confirm(`هتمسح "${item.title}" من الموقع. هل متأكد؟`)) return;
-  if(!Array.isArray(crmData.publicWorkDeletes)) crmData.publicWorkDeletes = [];
-  markCrmDeleted('publicWorks', id);
-  if(publicWorkDefaultById(id) && !crmData.publicWorkDeletes.includes(id)) crmData.publicWorkDeletes.push(id);
-  crmData.publicWorks = (crmData.publicWorks || []).filter(x => x.id !== id);
-  saveCrmData();
-  logAudit('مسح سابقة أعمال', item.title);
-  resetPortfolioForm();
-  renderPortfolioAdmin();
-  renderPublicWorks();
-  toast('تم حذف الكارت');
-}
-
-function portfolioCardHTML(item, compact = false){
-  const image = item.image || 'https://placehold.co/1200x800?text=Fast+Group+Project';
-  if(compact){
-    return `
-      <div class="reveal rounded-[1.5rem] overflow-hidden border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950 shadow-soft card-hover">
-        <img src="${escapeHtml(image)}" alt="${escapeHtml(item.title || '')}" class="w-full h-56 object-cover" onerror="this.onerror=null;this.src='https://placehold.co/1200x800?text=Fast+Group+Project';">
-        <div class="p-4">
-          <div class="font-black text-lg">${escapeHtml(item.title || '')}</div>
-          <div class="text-sm text-slate-500 mt-1">${escapeHtml(item.description || item.label || 'تنفيذ فعلي ضمن أعمال Fast Group')}</div>
-        </div>
-      </div>
-    `;
-  }
-  return `
-    <div class="reveal rounded-[2rem] overflow-hidden border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950 shadow-soft card-hover">
-      <img src="${escapeHtml(image)}" alt="${escapeHtml(item.title || '')}" class="w-full h-64 object-cover" onerror="this.onerror=null;this.src='https://placehold.co/1200x800?text=Fast+Group+Project';">
-      <div class="p-6 border-t border-slate-200 dark:border-slate-800">
-        <div class="text-xs font-black text-brand-700 dark:text-brand-300 mb-2">${escapeHtml(item.label || 'سابقة أعمال')}</div>
-        <h3 class="font-black text-2xl mb-2">${escapeHtml(item.title || '')}</h3>
-        <p class="text-slate-600 dark:text-slate-400 leading-8">${escapeHtml(item.description || '')}</p>
-      </div>
-    </div>
-  `;
-}
-
-function renderPublicWorks(){
-  hideStaticPublicWorkCards();
-  const list = getEffectivePublicWorks();
-  const featured = list.filter(item => item.section !== 'more');
-  const more = list.filter(item => item.section === 'more');
-  const featuredGrid = document.getElementById('publishedWorksGrid');
-  const moreGrid = document.getElementById('moreProjectsManagedGrid');
-  if(featuredGrid){
-    featuredGrid.innerHTML = featured.length
-      ? featured.map(item => portfolioCardHTML(item, false)).join('')
-      : `<div class="lg:col-span-3 rounded-[2rem] border border-dashed border-slate-300 dark:border-slate-700 p-8 text-center text-slate-500">لا توجد سابقة أعمال منشورة.</div>`;
-  }
-  if(moreGrid){
-    moreGrid.innerHTML = more.length
-      ? more.map(item => portfolioCardHTML(item, true)).join('')
-      : `<div class="sm:col-span-2 xl:col-span-3 rounded-[2rem] border border-dashed border-slate-300 dark:border-slate-700 p-8 text-center text-slate-500">لا توجد مشروعات إضافية منشورة.</div>`;
-  }
-  initReveal();
-}
-
-function portfolioSearchText(item){
-  return [item.title, item.label, item.description, item.section].join(' ').toLowerCase();
-}
-
-function renderPortfolioAdmin(){
-  if(!canAccessAdmin('portfolio')) return;
-  const container = document.getElementById('portfolioItemsList');
-  if(!container) return;
-  const q = document.getElementById('portfolioSearch')?.value.trim().toLowerCase() || '';
-  const filter = document.getElementById('portfolioFilter')?.value || 'all';
-  const list = getEffectivePublicWorks().filter(item => {
-    return (filter === 'all' || item.section === filter) && (!q || portfolioSearchText(item).includes(q));
-  });
-  if(!list.length){
-    container.innerHTML = `<div class="md:col-span-2 xl:col-span-3 rounded-2xl border border-dashed border-slate-300 dark:border-slate-700 p-6 text-center text-slate-500">لا توجد كروت مطابقة.</div>`;
-    return;
-  }
-  container.innerHTML = list.map(item => `
-    <div class="rounded-[1.5rem] border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900 p-4">
-      <img src="${escapeHtml(item.image || '')}" alt="${escapeHtml(item.title || '')}" class="w-full h-32 object-cover rounded-2xl bg-white dark:bg-slate-950 mb-4" onerror="this.onerror=null;this.src='https://placehold.co/1200x800?text=Fast+Group+Project';">
-      <div class="flex flex-wrap gap-2 mb-2">${crmPill(item.section === 'more' ? 'معرض إضافي' : 'سابقة الأعمال')}${item.isDefault ? crmPill('افتراضي') : ''}</div>
-      <div class="font-black text-lg line-clamp-2">${escapeHtml(item.title || '')}</div>
-      <div class="text-sm text-slate-500 mt-1 line-clamp-2">${escapeHtml(item.label || item.description || '-')}</div>
-      <div class="grid grid-cols-2 gap-2 mt-4">
-        <button onclick="fillPortfolioForm('${escapeJs(item.id)}')" class="rounded-xl bg-brand-600 text-white px-4 py-2 font-black text-sm">تعديل</button>
-        <button onclick="deletePortfolioItem('${escapeJs(item.id)}')" class="rounded-xl bg-red-500 text-white px-4 py-2 font-black text-sm">حذف</button>
-      </div>
-    </div>
-  `).join('');
-}
-
 function renderCrm(){
   renderCrmSelects();
-  renderCustomers();
-  renderCustomerProfile();
-  renderJobs();
-  renderMaintenanceAdmin();
-  renderPortfolioAdmin();
-  renderTechnicians();
-  renderTechProfile();
-  renderInventory();
-  renderProjects();
-  renderAccounting();
+  if(canAccessAdmin('customers')){ renderCustomers(); renderCustomerProfile(); }
+  if(canAccessAdmin('jobs')) renderJobs();
+  if(canAccessAdmin('technicians')){ renderTechnicians(); renderTechProfile(); }
+  if(canAccessAdmin('inventory')) renderInventory();
+  if(canAccessAdmin('projects')) renderProjects();
+  if(canAccessAdmin('accounting')) renderAccounting();
 }
 
 function renderCrmSelects(){
@@ -5332,12 +3946,24 @@ function renderCrmSelects(){
   if(stockProjectEl) stockProjectEl.innerHTML = projects;
   const stockJobEl = document.getElementById('stockMoveJob');
   if(stockJobEl) stockJobEl.innerHTML = jobs;
+  const parentEl = document.getElementById('crmCustomerParent');
+  if(parentEl){
+    const currentId = document.getElementById('crmCustomerId')?.value || '';
+    const current = parentEl.value;
+    parentEl.innerHTML = '<option value="">عميل مستقل (غير تابع لعميل آخر)</option>' + crmData.customers
+      .filter(c => c.id !== currentId)
+      .map(c => `<option value="${escapeHtml(c.id)}">تابع لـ: ${escapeHtml(c.name)} - ${escapeHtml(c.phone)}</option>`).join('');
+    if(Array.from(parentEl.options).some(option => option.value === current)) parentEl.value = current;
+  }
   rebuildAssistantSelects();
 }
 
 function resetCustomerForm(){
   ['crmCustomerId','crmCustomerName','crmCustomerPhone','crmCustomerAltPhone','crmCustomerArea','crmCustomerAddress','crmCustomerNotes'].forEach(id => document.getElementById(id).value = '');
   document.getElementById('crmCustomerStatus').value = 'جديد';
+  document.getElementById('crmCustomerParent').value = '';
+  document.getElementById('crmCustomerIdCard').value = '';
+  document.getElementById('crmCustomerTaxInvoice').value = '';
 }
 
 function fillCustomerForm(id){
@@ -5351,13 +3977,21 @@ function fillCustomerForm(id){
   document.getElementById('crmCustomerAddress').value = c.address || '';
   document.getElementById('crmCustomerStatus').value = c.status || 'جديد';
   document.getElementById('crmCustomerNotes').value = c.notes || '';
+  renderCrmSelects();
+  document.getElementById('crmCustomerParent').value = c.parentCustomerId || '';
 }
 
-function saveCustomer(){
+async function saveCustomer(){
   if(!requireAdminAccess('customers')) return;
   const id = document.getElementById('crmCustomerId').value || crmId('customer');
   const existing = crmCustomerById(id);
   const now = new Date().toISOString();
+  let idCard = existing?.idCard || null;
+  let taxInvoice = existing?.taxInvoice || null;
+  try{
+    idCard = await storedAssetFromFile(document.getElementById('crmCustomerIdCard').files[0]) || idCard;
+    taxInvoice = await storedAssetFromFile(document.getElementById('crmCustomerTaxInvoice').files[0]) || taxInvoice;
+  } catch(err){ toast(err.message || 'تعذر قراءة المرفق'); return; }
   const customer = {
     id,
     name: document.getElementById('crmCustomerName').value.trim(),
@@ -5366,15 +4000,23 @@ function saveCustomer(){
     area: document.getElementById('crmCustomerArea').value.trim(),
     address: document.getElementById('crmCustomerAddress').value.trim(),
     status: document.getElementById('crmCustomerStatus').value,
+    parentCustomerId: document.getElementById('crmCustomerParent').value || '',
+    idCard,
+    taxInvoice,
     notes: document.getElementById('crmCustomerNotes').value.trim(),
     createdAt: existing?.createdAt || now,
     updatedAt: now
   };
   if(!customer.name || !customer.phone){ toast('اسم العميل ورقم الهاتف مطلوبين'); return; }
+  let priorJobs;
+  try { priorJobs = collectPriorJobs(id); } catch(err){ toast(err.message); return; }
   if(existing){ crmData.customers = crmData.customers.map(x => x.id === id ? customer : x); logAudit('تعديل عميل', `${customer.name} — ${customer.phone}`); }
   else { crmData.customers.unshift(customer); logAudit('إضافة عميل', `${customer.name} — ${customer.phone}`); }
   selectedCrmCustomerId = id;
+  crmData.jobs.push(...priorJobs);
   saveCrmData();
+  document.getElementById('crmCustomerId').value = id;
+  document.getElementById('priorJobsBuilder').replaceChildren();
   renderCrm();
   toast('تم حفظ العميل');
 }
@@ -5427,13 +4069,16 @@ function renderCustomerProfile(){
   const relatedExpenses = (crmData.expenses || []).filter(expense => expense.customerId === c.id || customerJobIds.has(expense.jobId));
   const doneJobs = jobs.filter(j => j.status === 'تم التنفيذ');
   const total = purchases.reduce((sum, p) => sum + Number(p.amount || 0), 0);
+  const currentSalesProfit = purchases.reduce((sum, p) => sum + moneyValue(p.currentProfit), 0);
+  const yearEndSalesProfit = purchases.reduce((sum, p) => sum + moneyValue(p.yearEndProfit), 0);
+  const parentCustomer = crmCustomerById(c.parentCustomerId);
   const customerRevenue = doneJobs.reduce((sum, job) => sum + jobRevenue(job), 0);
   const customerJobCosts = doneJobs.reduce((sum, job) => sum + jobDirectCost(job), 0);
   const customerExpenses = relatedExpenses.reduce((sum, expense) => sum + moneyValue(expense.amount), 0);
   const customerNet = customerRevenue - customerJobCosts - customerExpenses;
   const timeline = [
-    ...jobs.map(j => ({ date: j.updatedAt || j.dueDate || j.createdAt, title: `${j.type}: ${j.title}`, meta: `${crmTeamNames(j).join('، ')} | ${j.status} | إيراد ${formatMoney(jobRevenue(j))} | صافي ${formatMoney(jobNetProfit(j))}`, text: j.report || j.description || '-' })),
-    ...purchases.map(p => ({ date: p.date, title: `شراء: ${p.item}`, meta: `${p.quantity || 1} قطعة | ${formatPrice(p.amount)} ج.م | ${p.payment}`, text: p.warranty || '-' })),
+    ...jobs.map(j => ({ date: j.completedAt || j.dueDate || j.createdAt, title: `${j.type}: ${j.title}`, meta: `${crmTeamNames(j).join('، ')} | ${j.status} | إيراد ${formatMoney(jobRevenue(j))} | صافي ${formatMoney(jobNetProfit(j))}`, text: j.report || j.description || '-', assets:[j.beforePhoto && {asset:j.beforePhoto,label:'قبل'},j.afterPhoto && {asset:j.afterPhoto,label:'بعد'}].filter(Boolean) })),
+    ...purchases.map(p => ({ date: p.date, title: `شراء: ${p.item}`, meta: `${p.quantity || 1} قطعة | بيع ${formatMoney(p.amount)} | مكسب حالي ${formatMoney(p.currentProfit)} | آخر السنة ${formatMoney(p.yearEndProfit)} | ${p.payment}`, text: p.warranty || '-', asset:p.photo })),
     ...relatedExpenses.map(expense => ({ date: expenseAccountingDate(expense), title: `مصروف: ${expense.title}`, meta: `${expense.category || 'أخرى'} | ${formatMoney(expense.amount)}`, text: expense.notes || '-' })),
     ...(c.notes ? [{ date: c.updatedAt, title: 'ملاحظات داخلية', meta: c.status, text: c.notes }] : [])
   ].sort((a,b) => new Date(b.date || 0) - new Date(a.date || 0));
@@ -5443,6 +4088,7 @@ function renderCustomerProfile(){
         <div class="font-black text-2xl">${escapeHtml(c.name)}</div>
         <div class="text-slate-500 mt-1" dir="ltr">${escapeHtml(c.phone)}${c.altPhone ? ' / ' + escapeHtml(c.altPhone) : ''}</div>
         <div class="text-slate-500 mt-1">${escapeHtml(c.address || c.area || 'العنوان غير مسجل')}</div>
+        ${parentCustomer ? `<div class="text-brand-700 dark:text-brand-300 mt-1 font-bold">تابع للعميل: ${escapeHtml(parentCustomer.name)}</div>` : ''}
       </div>
       <div class="flex gap-2">${crmPill(c.status)}<button onclick="fillCustomerForm('${escapeJs(c.id)}')" class="rounded-xl bg-brand-600 text-white px-4 py-2 font-black text-sm">تعديل</button><button onclick="deleteCustomer('${escapeJs(c.id)}')" class="rounded-xl bg-red-500 hover:bg-red-600 text-white px-4 py-2 font-black text-sm">مسح</button></div>
     </div>
@@ -5452,18 +4098,29 @@ function renderCustomerProfile(){
       <div class="rounded-2xl bg-slate-50 dark:bg-slate-900 p-4"><div class="text-sm text-slate-500">المشتريات</div><div class="font-black text-2xl">${formatPrice(total)} ج.م</div></div>
       <div class="rounded-2xl bg-slate-50 dark:bg-slate-900 p-4"><div class="text-sm text-slate-500">صافي الربح</div><div class="font-black text-2xl ${profitClass(customerNet)}">${formatMoney(customerNet)}</div></div>
     </div>
+    <div class="grid md:grid-cols-2 gap-3 mb-5">
+      <div class="rounded-2xl bg-emerald-50 dark:bg-emerald-900/20 p-4"><div class="text-sm text-slate-500">مكسب الأجهزة الحالي</div><div class="font-black text-2xl text-emerald-700 dark:text-emerald-300">${formatMoney(currentSalesProfit)}</div></div>
+      <div class="rounded-2xl bg-sky-50 dark:bg-sky-900/20 p-4"><div class="text-sm text-slate-500">مكسب الأجهزة آخر السنة</div><div class="font-black text-2xl text-sky-700 dark:text-sky-300">${formatMoney(yearEndSalesProfit)}</div></div>
+    </div>
+    ${(c.idCard || c.taxInvoice) ? `<div class="mb-5"><div class="font-black text-lg mb-3">مستندات العميل</div><div class="grid grid-cols-2 md:grid-cols-4 gap-3">${renderStoredAsset(c.idCard,'بطاقة العميل')}${renderStoredAsset(c.taxInvoice,'الفاتورة الضريبية')}</div></div>` : ''}
     <div class="grid lg:grid-cols-[340px,1fr] gap-4">
       <div class="rounded-2xl border border-slate-200 dark:border-slate-800 p-4">
         <div class="font-black text-lg mb-3">إضافة مشتريات</div>
         <div class="grid gap-3">
           <input id="crmPurchaseDate" type="date" value="${crmDate()}" class="rounded-2xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900 px-4 py-3 outline-none">
-          <input id="crmPurchaseItem" type="text" placeholder="الصنف / الجهاز" class="rounded-2xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900 px-4 py-3 outline-none">
+          <select id="crmPurchaseModel" onchange="updatePurchasePricing()" class="rounded-2xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900 px-4 py-3 outline-none"><option value="">اختر موديل من قائمة الأسعار</option></select>
+          <input id="crmPurchaseItem" type="text" placeholder="أو اكتب الموديل / الخدمة يدويًا" oninput="updatePurchasePricingFromManual()" class="rounded-2xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900 px-4 py-3 outline-none">
           <div class="grid grid-cols-2 gap-3">
-            <input id="crmPurchaseQty" type="number" value="1" min="1" class="rounded-2xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900 px-4 py-3 outline-none">
-            <input id="crmPurchaseAmount" type="number" placeholder="القيمة" class="rounded-2xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900 px-4 py-3 outline-none">
+            <input id="crmPurchaseQty" type="number" value="1" min="1" oninput="updatePurchaseProfitPreview()" class="rounded-2xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900 px-4 py-3 outline-none">
+            <input id="crmPurchaseDealerPrice" type="number" placeholder="السعر التجاري" oninput="updatePurchaseProfitPreview()" class="rounded-2xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900 px-4 py-3 outline-none">
           </div>
+          <input id="crmPurchaseAmount" type="number" placeholder="سعر البيع للعميل" oninput="updatePurchaseProfitPreview()" class="rounded-2xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900 px-4 py-3 outline-none">
+          <div id="crmPurchaseProfitPreview" class="rounded-2xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-3 text-sm"></div>
           <select id="crmPurchasePayment" class="rounded-2xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900 px-4 py-3 outline-none"><option value="مدفوع">مدفوع</option><option value="جزئي">جزئي</option><option value="آجل">آجل</option></select>
           <input id="crmPurchaseWarranty" type="text" placeholder="الضمان / السيريال" class="rounded-2xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900 px-4 py-3 outline-none">
+          <label class="rounded-2xl border border-dashed border-slate-300 dark:border-slate-700 p-3 text-sm font-bold cursor-pointer text-center">صورة الجهاز أو الاستيكر
+            <input id="crmPurchasePhoto" type="file" accept="image/*" capture="environment" class="hidden">
+          </label>
           <button onclick="savePurchase()" class="rounded-2xl bg-brand-600 text-white px-5 py-3 font-black">حفظ المشتريات</button>
         </div>
       </div>
@@ -5473,25 +4130,94 @@ function renderCustomerProfile(){
       </div>
     </div>
   `;
+  populatePurchaseModels();
+  updatePurchaseProfitPreview();
 }
 
 function renderCrmTimelineItem(item){
-  return `<div class="rounded-2xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-4"><div class="font-black">${escapeHtml(item.title)}</div><div class="text-sm text-slate-500 mt-1">${escapeHtml((item.date || '').slice(0,10) || '-')} | ${escapeHtml(item.meta || '')}</div><div class="text-sm mt-2">${escapeHtml(item.text || '')}</div></div>`;
+  const assets = item.assets || (item.asset ? [{asset:item.asset,label:'صورة الجهاز'}] : []);
+  return `<div class="rounded-2xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-4"><div class="font-black">${escapeHtml(item.title)}</div><div class="text-sm text-slate-500 mt-1">${escapeHtml((item.date || '').slice(0,10) || '-')} | ${escapeHtml(item.meta || '')}</div><div class="text-sm mt-2">${escapeHtml(item.text || '')}</div>${assets.length ? `<div class="grid grid-cols-2 md:grid-cols-3 gap-3 mt-3">${assets.map(entry => renderStoredAsset(entry.asset,entry.label)).join('')}</div>` : ''}</div>`;
 }
 
-function savePurchase(){
+function catalogProduct(model){
+  const key = String(model || '').trim().toUpperCase();
+  return products.find(p => String(p.model || '').toUpperCase() === key) || defaultProducts.find(p => String(p.model || '').toUpperCase() === key) || null;
+}
+function saleDiscounts(brand){ return String(brand).toLowerCase() === 'midea' ? { current:4, yearEnd:8 } : { current:3, yearEnd:7 }; }
+function saleProfitValues(brand, dealerPrice, salePrice, quantity = 1){
+  const rates = saleDiscounts(brand);
+  const dealer = moneyValue(dealerPrice);
+  const sale = moneyValue(salePrice);
+  const qty = Math.max(1, moneyValue(quantity));
+  const currentCost = dealer * (1 - rates.current / 100) * qty;
+  const yearEndCost = dealer * (1 - rates.yearEnd / 100) * qty;
+  return { ...rates, currentCost, yearEndCost, currentProfit:(sale * qty) - currentCost, yearEndProfit:(sale * qty) - yearEndCost };
+}
+function populatePurchaseModels(){
+  const select = document.getElementById('crmPurchaseModel');
+  if(!select) return;
+  select.innerHTML = '<option value="">اختر موديل من قائمة الأسعار</option>' + defaultProducts.map(p => `<option value="${escapeHtml(p.model)}">${escapeHtml(p.brand)} - ${escapeHtml(p.model)} - تجاري ${formatMoney(p.dealerPrice)}</option>`).join('');
+}
+function updatePurchasePricing(){
+  const model = document.getElementById('crmPurchaseModel')?.value || '';
+  const product = catalogProduct(model);
+  if(product){
+    document.getElementById('crmPurchaseItem').value = product.model;
+    document.getElementById('crmPurchaseDealerPrice').value = product.dealerPrice || DEALER_PRICE_MAP[product.model] || '';
+    document.getElementById('crmPurchaseAmount').value = product.price || '';
+  }
+  updatePurchaseProfitPreview();
+}
+function updatePurchasePricingFromManual(){
+  const product = catalogProduct(document.getElementById('crmPurchaseItem')?.value);
+  if(product){
+    document.getElementById('crmPurchaseModel').value = product.model;
+    document.getElementById('crmPurchaseDealerPrice').value = product.dealerPrice || DEALER_PRICE_MAP[product.model] || '';
+  }
+  updatePurchaseProfitPreview();
+}
+function updatePurchaseProfitPreview(){
+  const el = document.getElementById('crmPurchaseProfitPreview');
+  if(!el) return;
+  const item = document.getElementById('crmPurchaseItem')?.value || document.getElementById('crmPurchaseModel')?.value || '';
+  const product = catalogProduct(item);
+  const brand = product?.brand || (String(item).toUpperCase().startsWith('M') ? 'Midea' : 'Carrier');
+  const values = saleProfitValues(brand, document.getElementById('crmPurchaseDealerPrice')?.value, document.getElementById('crmPurchaseAmount')?.value, document.getElementById('crmPurchaseQty')?.value);
+  el.innerHTML = `<div class="font-black mb-2">حساب ${escapeHtml(brand)}</div><div class="grid grid-cols-2 gap-2"><span>بعد خصم ${values.current}%: <b>${formatMoney(values.currentCost)}</b></span><span>مكسب حالي: <b class="${profitClass(values.currentProfit)}">${formatMoney(values.currentProfit)}</b></span><span>بعد خصم ${values.yearEnd}%: <b>${formatMoney(values.yearEndCost)}</b></span><span>مكسب آخر السنة: <b class="${profitClass(values.yearEndProfit)}">${formatMoney(values.yearEndProfit)}</b></span></div>`;
+}
+
+async function savePurchase(){
   if(!requireAdminAccess('customers')) return;
   const c = crmCustomerById(selectedCrmCustomerId);
   if(!c) return;
   const item = document.getElementById('crmPurchaseItem').value.trim();
   if(!item){ toast('اكتب الصنف أو الجهاز'); return; }
+  const product = catalogProduct(item);
+  const brand = product?.brand || (item.toUpperCase().startsWith('M') ? 'Midea' : 'Carrier');
+  const quantity = document.getElementById('crmPurchaseQty').value || '1';
+  const dealerPrice = document.getElementById('crmPurchaseDealerPrice').value || '0';
+  const amount = document.getElementById('crmPurchaseAmount').value || '0';
+  const profits = saleProfitValues(brand, dealerPrice, amount, quantity);
+  let photo = null;
+  try { photo = await storedAssetFromFile(document.getElementById('crmPurchasePhoto').files[0]); }
+  catch(err){ toast(err.message || 'تعذر قراءة صورة الجهاز'); return; }
   crmData.purchases.unshift({
     id: crmId('purchase'),
     customerId: c.id,
     date: document.getElementById('crmPurchaseDate').value || crmDate(),
     item,
-    quantity: document.getElementById('crmPurchaseQty').value || '1',
-    amount: document.getElementById('crmPurchaseAmount').value || '0',
+    model: product?.model || item,
+    brand,
+    quantity,
+    dealerPrice,
+    amount,
+    currentDiscount: profits.current,
+    yearEndDiscount: profits.yearEnd,
+    currentCost: profits.currentCost,
+    yearEndCost: profits.yearEndCost,
+    currentProfit: profits.currentProfit,
+    yearEndProfit: profits.yearEndProfit,
+    photo,
     payment: document.getElementById('crmPurchasePayment').value,
     warranty: document.getElementById('crmPurchaseWarranty').value.trim(),
     createdAt: new Date().toISOString()
@@ -5598,8 +4324,12 @@ function resetJobForm(){
   });
   document.getElementById('crmJobType').value = 'معاينة';
   document.getElementById('crmJobStatus').value = 'مطلوب';
+  const linkedId = currentLinkedTechnicianId();
+  if(linkedId) document.getElementById('crmJobTechnician').value = linkedId;
   document.getElementById('crmJobDueDate').value = crmDate();
   document.getElementById('assistantsBuilder').innerHTML = '';
+  document.getElementById('crmJobBeforePhoto').value = '';
+  document.getElementById('crmJobAfterPhoto').value = '';
   const linesBuilder = document.getElementById('jobLinesBuilder');
   if(linesBuilder) linesBuilder.innerHTML = '';
   addJobLine();
@@ -5610,6 +4340,7 @@ function fillJobForm(id){
   if(!requireAdminAccess('jobs')) return;
   const j = crmJobById(id);
   if(!j) return;
+  if(!canAccessJobRecord(j)){ toast('هذه الشغلانة غير مسندة لك'); return; }
   switchAdminView('jobs');
   document.getElementById('crmJobId').value = j.id;
   document.getElementById('crmJobCustomer').value = j.customerId;
@@ -5641,7 +4372,7 @@ function fillJobForm(id){
   list.forEach(a => addAssistantRow(a.techId, a.note));
 }
 
-function saveJob(){
+async function saveJob(){
   if(!requireAdminAccess('jobs')) return;
   if(!crmData.customers.length || !crmData.technicians.length){ toast('أضف عميل وفني أولًا'); return; }
   // collect dynamic assistants
@@ -5657,7 +4388,14 @@ function saveJob(){
   if(new Set(teamIds).size !== teamIds.length){ toast('لا يمكن اختيار نفس الشخص مرتين في نفس الشغلانة'); return; }
   const id = document.getElementById('crmJobId').value || crmId('job');
   const existing = crmJobById(id);
+  if(existing && !canAccessJobRecord(existing)){ toast('هذه الشغلانة غير مسندة لك'); return; }
   const now = new Date().toISOString();
+  let beforePhoto = existing?.beforePhoto || null;
+  let afterPhoto = existing?.afterPhoto || null;
+  try{
+    beforePhoto = await storedAssetFromFile(document.getElementById('crmJobBeforePhoto').files[0]) || beforePhoto;
+    afterPhoto = await storedAssetFromFile(document.getElementById('crmJobAfterPhoto').files[0]) || afterPhoto;
+  } catch(err){ toast(err.message || 'تعذر قراءة صور الشغل'); return; }
   const status = document.getElementById('crmJobStatus').value;
   const revenue = document.getElementById('crmJobRevenue').value;
   const materialCost = document.getElementById('crmJobMaterialCost').value;
@@ -5667,7 +4405,7 @@ function saveJob(){
     id,
     customerId: document.getElementById('crmJobCustomer').value,
     projectId: document.getElementById('crmJobProject').value,
-    technicianId: document.getElementById('crmJobTechnician').value,
+    technicianId: currentLinkedTechnicianId() || document.getElementById('crmJobTechnician').value,
     assistants,
     assistantIds,
     title: document.getElementById('crmJobTitle').value.trim(),
@@ -5676,11 +4414,14 @@ function saveJob(){
     status,
     description: document.getElementById('crmJobDescription').value.trim(),
     report: document.getElementById('crmJobReport').value.trim(),
+    beforePhoto,
+    afterPhoto,
     lines: collectJobLines(),
     revenue,
     materialCost,
     laborCost,
     otherCost,
+    extraCosts: collectExtraJobCosts(),
     cost: revenue,
     createdAt: existing?.createdAt || now,
     updatedAt: now,
@@ -5719,6 +4460,7 @@ function renderJobs(){
   const status = document.getElementById('crmJobFilter')?.value || 'all';
   const todayStr = crmDate();
   const list = crmData.jobs.filter(j => {
+    if(!canAccessJobRecord(j)) return false;
     const customer = crmCustomerById(j.customerId);
     const haystack = [j.title,j.type,j.status,customer?.name,customer?.phone,...crmTeamNames(j)].join(' ').toLowerCase();
     const matchSearch = (!q || haystack.includes(q));
@@ -5957,7 +4699,6 @@ function deleteExpense(id){
   const expense = (crmData.expenses || []).find(item => item.id === id);
   if(!expense) return;
   if(!confirm(`هتمسح مصروف "${expense.title}" بقيمة ${formatMoney(expense.amount)}. هل متأكد؟`)) return;
-  markCrmDeleted('expenses', id);
   crmData.expenses = crmData.expenses.filter(item => item.id !== id);
   saveCrmData();
   logAudit('مسح مصروف', `${expense.title} — ${formatMoney(expense.amount)}`);
@@ -5965,197 +4706,148 @@ function deleteExpense(id){
   toast('تم مسح المصروف');
 }
 
+function updateInventoryLineTotalPreview(){
+  const qty = moneyValue(document.getElementById('inventoryItemQty')?.value);
+  const price = moneyValue(document.getElementById('inventoryItemUnitPrice')?.value);
+  setText('inventoryLineTotalPreview', `الإجمالي: ${formatMoney(qty * price)}`);
+}
+
 function resetInventoryItemForm(){
-  ['inventoryItemId','inventoryItemName','inventoryItemSku','inventoryItemUnit','inventoryItemMinQty','inventoryItemCost','inventoryItemOpeningQty','inventoryItemNotes'].forEach(id => {
+  ['inventoryItemId','inventoryItemName','inventoryItemQty','inventoryItemUnitPrice'].forEach(id => {
     const el = document.getElementById(id);
     if(el) el.value = '';
   });
-  const category = document.getElementById('inventoryItemCategory');
-  if(category) category.value = 'فريون';
-  const moveDate = document.getElementById('stockMoveDate');
-  if(moveDate && !moveDate.value) moveDate.value = crmDate();
+  updateInventoryLineTotalPreview();
 }
 
 function fillInventoryItemForm(id){
   if(!requireAdminAccess('inventory')) return;
   const item = inventoryItemById(id);
   if(!item) return;
-  const setValue = (fieldId, value) => {
-    const field = document.getElementById(fieldId);
-    if(field) field.value = value ?? '';
-  };
-  setValue('inventoryItemId', item.id);
-  setValue('inventoryItemName', item.name || '');
-  setValue('inventoryItemSku', item.sku || '');
-  setValue('inventoryItemCategory', item.category || 'أجهزة');
-  setValue('inventoryItemUnit', item.unit || 'جهاز');
-  setValue('inventoryItemMinQty', item.minQty || '');
-  setValue('inventoryItemCost', String(inventoryItemPrice(item)));
-  setValue('inventoryItemOpeningQty', String(inventoryItemQuantity(item)));
-  setValue('inventoryItemNotes', item.notes || '');
+  document.getElementById('inventoryItemId').value = item.id;
+  document.getElementById('inventoryItemName').value = item.name || '';
+  document.getElementById('inventoryItemQty').value = inventoryBalance(item.id) || '';
+  document.getElementById('inventoryItemUnitPrice').value = inventoryUnitPrice(item) || '';
+  updateInventoryLineTotalPreview();
 }
 
 function saveInventoryItem(){
   if(!requireAdminAccess('inventory')) return;
-  const id = document.getElementById('inventoryItemId')?.value || crmId('item');
+  const id = document.getElementById('inventoryItemId').value || crmId('item');
   const existing = inventoryItemById(id);
+  const name = document.getElementById('inventoryItemName').value.trim();
+  const qty = moneyValue(document.getElementById('inventoryItemQty').value);
+  const unitPrice = moneyValue(document.getElementById('inventoryItemUnitPrice').value);
+  if(!name){ toast('اكتب اسم الصنف'); return; }
+  if(qty < 0 || unitPrice < 0){ toast('العدد والسعر لا يمكن أن يكونا بالسالب'); return; }
   const now = new Date().toISOString();
-  const name = document.getElementById('inventoryItemName')?.value.trim() || '';
-  const unitPrice = moneyValue(document.getElementById('inventoryItemCost')?.value);
-  const quantity = moneyValue(document.getElementById('inventoryItemOpeningQty')?.value);
   const item = {
-    ...(existing || {}),
     id,
     name,
-    sku: existing?.sku || '',
-    category: existing?.category || 'أجهزة',
-    unit: existing?.unit || 'جهاز',
-    minQty: existing?.minQty || '0',
-    price: String(unitPrice),
+    qty: String(qty),
+    quantity: String(qty),
+    unitPrice: String(unitPrice),
     unitCost: String(unitPrice),
     cost: String(unitPrice),
-    quantity: String(quantity),
-    openingQty: String(quantity),
-    notes: document.getElementById('inventoryItemNotes')?.value.trim() || '',
+    openingQty: String(qty),
+    unit: existing?.unit || 'قطعة',
+    sku: existing?.sku || '',
+    category: existing?.category || 'مخزن',
+    notes: existing?.notes || '',
     createdAt: existing?.createdAt || now,
     updatedAt: now
   };
-  if(!item.name){ toast('اكتب اسم الجهاز'); return; }
   if(!Array.isArray(crmData.inventory)) crmData.inventory = [];
-  crmData.inventoryDeletes = uniqueStrings(crmData.inventoryDeletes).filter(deletedId => deletedId !== String(id));
   if(existing){
     crmData.inventory = crmData.inventory.map(x => x.id === id ? item : x);
-    logAudit('تعديل جهاز مخزون', `${item.name} — ${formatMoney(inventoryItemValue(item))}`);
+    logAudit('تعديل صنف مخزن', `${item.name} - ${qty} × ${formatMoney(unitPrice)}`);
   } else {
     crmData.inventory.unshift(item);
-    logAudit('إضافة جهاز مخزون', `${item.name} — ${formatMoney(inventoryItemValue(item))}`);
+    logAudit('إضافة صنف مخزن', `${item.name} - ${qty} × ${formatMoney(unitPrice)}`);
   }
   saveCrmData();
   resetInventoryItemForm();
   renderCrm();
-  toast('تم حفظ الجهاز في المخزون');
+  toast('تم حفظ الصنف');
 }
 
 function deleteInventoryItem(id){
   if(!requireAdminAccess('inventory')) return;
   const item = inventoryItemById(id);
   if(!item) return;
-  if(!confirm(`هتمسح "${item.name}" من المخزون. هل متأكد؟`)) return;
-  markInventoryDeleted(id);
+  if(!confirm(`هتمسح "${item.name}" من المخزن. هل متأكد؟`)) return;
   crmData.inventory = (crmData.inventory || []).filter(x => x.id !== id);
   crmData.stockMoves = (crmData.stockMoves || []).filter(move => move.itemId !== id);
   saveCrmData();
-  logAudit('مسح جهاز مخزون', item.name);
+  logAudit('مسح صنف مخزن', `${item.name} - ${formatMoney(inventoryItemValue(item))}`);
   renderCrm();
-  toast('تم مسح الجهاز من المخزون');
+  toast('تم مسح الصنف');
+}
+
+function clearInventory(){
+  if(!requireAdminAccess('inventory')) return;
+  const count = (crmData.inventory || []).length;
+  if(!count){ toast('المخزن فاضي بالفعل'); return; }
+  if(!confirm(`هتمسح كل المخزن (${count} صنف). هل متأكد؟`)) return;
+  crmData.inventory = [];
+  crmData.stockMoves = [];
+  saveCrmData();
+  logAudit('مسح المخزن بالكامل', `${count} صنف`);
+  resetInventoryItemForm();
+  renderCrm();
+  toast('تم مسح المخزن');
 }
 
 function saveStockMove(){
-  if(!requireAdminAccess('inventory')) return;
-  const itemId = document.getElementById('stockMoveItem').value;
-  const item = inventoryItemById(itemId);
-  const qty = moneyValue(document.getElementById('stockMoveQty').value);
-  if(!item){ toast('اختار صنف المخزون'); return; }
-  if(qty <= 0){ toast('اكتب كمية الحركة'); return; }
-  const move = {
-    id: crmId('move'),
-    date: document.getElementById('stockMoveDate').value || crmDate(),
-    itemId,
-    type: document.getElementById('stockMoveType').value,
-    quantity: String(qty),
-    qty: String(qty),
-    unitCost: document.getElementById('stockMoveUnitCost').value || item.unitCost || item.cost || '0',
-    projectId: document.getElementById('stockMoveProject').value,
-    jobId: document.getElementById('stockMoveJob').value,
-    notes: document.getElementById('stockMoveNotes').value.trim(),
-    createdAt: new Date().toISOString()
-  };
-  if(!Array.isArray(crmData.stockMoves)) crmData.stockMoves = [];
-  crmData.stockMoves.unshift(move);
-  saveCrmData();
-  logAudit('إضافة حركة مخزون', `${item.name} — ${move.type} — ${qty} ${item.unit || ''}`);
-  ['stockMoveQty','stockMoveUnitCost','stockMoveNotes'].forEach(id => {
-    const el = document.getElementById(id);
-    if(el) el.value = '';
-  });
-  renderCrm();
-  toast('تم حفظ حركة المخزون');
+  toast('المخزن اتبسط: عدل العدد وسعر الوحدة من كارت الصنف مباشرة');
 }
 
 function deleteStockMove(id){
   if(!requireAdminAccess('inventory')) return;
-  const move = (crmData.stockMoves || []).find(x => x.id === id);
-  if(!move) return;
-  const item = inventoryItemById(move.itemId);
-  if(!confirm(`هتمسح حركة مخزون "${item?.name || '-'}". هل متأكد؟`)) return;
-  markCrmDeleted('stockMoves', id);
   crmData.stockMoves = (crmData.stockMoves || []).filter(x => x.id !== id);
   saveCrmData();
-  logAudit('مسح حركة مخزون', `${item?.name || '-'} — ${stockMoveQty(move)}`);
   renderCrm();
-  toast('تم مسح حركة المخزون');
 }
 
 function renderInventory(){
   if(!canAccessAdmin('inventory')) return;
   const items = crmData.inventory || [];
   const q = document.getElementById('inventorySearch')?.value?.trim().toLowerCase() || '';
-  const filtered = items.filter(item => [item.name,item.notes].join(' ').toLowerCase().includes(q));
+  const filtered = items.filter(item => [item.name,item.sku,item.category,item.notes].join(' ').toLowerCase().includes(q));
   const totalValue = items.reduce((sum, item) => sum + inventoryItemValue(item), 0);
-  const totalQty = items.reduce((sum, item) => sum + inventoryItemQuantity(item), 0);
-  const notesCount = items.filter(item => (item.notes || '').trim()).length;
+  const totalQty = items.reduce((sum, item) => sum + inventoryBalance(item.id), 0);
+  const avgUnitPrice = totalQty > 0 ? totalValue / totalQty : 0;
   setText('inventoryTotalValue', formatMoney(totalValue));
   setText('inventoryItemsCount', String(items.length));
-  setText('inventoryTotalQty', formatPrice(totalQty));
-  setText('inventoryNotesCount', String(notesCount));
-  const moveDate = document.getElementById('stockMoveDate');
-  if(moveDate && !moveDate.value) moveDate.value = crmDate();
+  setText('inventoryLowStockCount', formatPrice(totalQty));
+  setText('inventoryMovesCount', formatMoney(avgUnitPrice));
+  updateInventoryLineTotalPreview();
 
   const list = document.getElementById('inventoryItemsList');
-  if(list){
-    if(!filtered.length){
-      list.innerHTML = `<div class="rounded-2xl border border-dashed border-slate-300 dark:border-slate-700 p-6 text-center text-slate-500">لا يوجد أجهزة في المخزون.</div>`;
-    } else {
-      list.innerHTML = filtered.map(item => {
-        const quantity = inventoryItemQuantity(item);
-        const price = inventoryItemPrice(item);
-        const value = inventoryItemValue(item);
-        const note = (item.notes || '').trim();
-        return `
-          <div class="rounded-[1.5rem] border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900 p-4">
-            <div class="flex flex-wrap items-start justify-between gap-3">
-              <div class="min-w-[180px] flex-1">
-                <div class="font-black text-lg">${escapeHtml(item.name)}</div>
-                <div class="text-xs text-slate-500 mt-1">${note ? escapeHtml(note) : 'بدون ملاحظات'}</div>
-              </div>
-              <div class="rounded-2xl bg-brand-50 dark:bg-brand-900/20 text-brand-700 dark:text-brand-300 px-4 py-3 text-center">
-                <div class="text-[11px] font-bold">إجمالي الجهاز</div>
-                <div class="font-black text-lg mt-1">${formatMoney(value)}</div>
-              </div>
-            </div>
-            <div class="grid sm:grid-cols-3 gap-2 mt-3">
-              <div class="rounded-xl bg-white dark:bg-slate-950 p-3">
-                <div class="text-xs text-slate-500">سعر الجهاز</div>
-                <div class="font-black">${formatMoney(price)}</div>
-              </div>
-              <div class="rounded-xl bg-white dark:bg-slate-950 p-3">
-                <div class="text-xs text-slate-500">العدد</div>
-                <div class="font-black">${formatPrice(quantity)}</div>
-              </div>
-              <div class="rounded-xl bg-white dark:bg-slate-950 p-3">
-                <div class="text-xs text-slate-500">القيمة</div>
-                <div class="font-black">${formatMoney(value)}</div>
-              </div>
-            </div>
-            <div class="mt-4 flex flex-wrap gap-2">
-              <button onclick="fillInventoryItemForm('${escapeJs(item.id)}')" class="rounded-xl bg-brand-600 text-white px-4 py-2 font-black text-sm">تعديل</button>
-              <button onclick="deleteInventoryItem('${escapeJs(item.id)}')" class="rounded-xl bg-red-500 hover:bg-red-600 text-white px-4 py-2 font-black text-sm">مسح</button>
-            </div>
-          </div>
-        `;
-      }).join('');
-    }
+  if(!list) return;
+  if(!filtered.length){
+    list.innerHTML = `<div class="md:col-span-2 xl:col-span-3 rounded-2xl border border-dashed border-slate-300 dark:border-slate-700 p-6 text-center text-slate-500">لا يوجد أصناف في المخزن.</div>`;
+    return;
   }
+  list.innerHTML = filtered.map(item => {
+    const qty = inventoryBalance(item.id);
+    const price = inventoryUnitPrice(item);
+    const total = qty * price;
+    return `
+      <div class="rounded-[1.5rem] border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900 p-4">
+        <div class="font-black text-lg">${escapeHtml(item.name)}</div>
+        <div class="grid grid-cols-3 gap-2 mt-3 text-sm">
+          <div class="rounded-xl bg-white dark:bg-slate-950 p-3"><div class="text-xs text-slate-500">العدد</div><div class="font-black">${formatPrice(qty)}</div></div>
+          <div class="rounded-xl bg-white dark:bg-slate-950 p-3"><div class="text-xs text-slate-500">سعر الوحدة</div><div class="font-black">${formatMoney(price)}</div></div>
+          <div class="rounded-xl bg-white dark:bg-slate-950 p-3"><div class="text-xs text-slate-500">الإجمالي</div><div class="font-black">${formatMoney(total)}</div></div>
+        </div>
+        <div class="grid grid-cols-2 gap-2 mt-4">
+          <button onclick="fillInventoryItemForm('${escapeJs(item.id)}')" class="rounded-xl bg-brand-600 text-white px-4 py-2 font-black text-sm">تعديل</button>
+          <button onclick="deleteInventoryItem('${escapeJs(item.id)}')" class="rounded-xl bg-red-500 hover:bg-red-600 text-white px-4 py-2 font-black text-sm">مسح</button>
+        </div>
+      </div>
+    `;
+  }).join('');
 }
 
 function resetProjectForm(){
@@ -6282,7 +4974,6 @@ function deleteProject(id){
   if(!project) return;
   const linkedJobs = crmData.jobs.filter(job => job.projectId === id).length;
   if(!confirm(`هتمسح المشروع "${project.name}" وسيتم فك ربط ${linkedJobs} شغلانة منه. هل متأكد؟`)) return;
-  markCrmDeleted('projects', id);
   crmData.projects = (crmData.projects || []).filter(x => x.id !== id);
   crmData.jobs = crmData.jobs.map(job => job.projectId === id ? { ...job, projectId: '' } : job);
   crmData.stockMoves = (crmData.stockMoves || []).map(move => move.projectId === id ? { ...move, projectId: '' } : move);
@@ -6460,10 +5151,6 @@ function deleteCustomer(id){
     : `هتمسح العميل "${c.name}". هل متأكد؟`;
   if(!confirm(msg)) return;
   logAudit('مسح عميل', `${c.name} — ${c.phone}${jobCount ? ` (+ ${jobCount} شغلانة)` : ''}`);
-  markCrmDeleted('customers', id);
-  crmData.jobs.filter(j => j.customerId === id).forEach(job => markCrmDeleted('jobs', job.id));
-  crmData.purchases.filter(p => p.customerId === id).forEach(purchase => markCrmDeleted('purchases', purchase.id));
-  (crmData.expenses || []).filter(expense => expense.customerId === id || customerJobIds.has(expense.jobId)).forEach(expense => markCrmDeleted('expenses', expense.id));
   crmData.customers = crmData.customers.filter(x => x.id !== id);
   crmData.jobs = crmData.jobs.filter(j => j.customerId !== id);
   crmData.purchases = crmData.purchases.filter(p => p.customerId !== id);
@@ -6484,7 +5171,6 @@ function deleteTechnician(id){
     : `هتمسح الفني "${t.name}". هل متأكد؟`;
   if(!confirm(msg)) return;
   logAudit('مسح فني', `${t.name} — ${t.role}${jobCount ? ` (${jobCount} شغلانة)` : ''}`);
-  markCrmDeleted('technicians', id);
   crmData.technicians = crmData.technicians.filter(x => x.id !== id);
   crmData.jobs = crmData.jobs.map(j => {
     if(j.technicianId === id) j.technicianId = '';
@@ -6735,22 +5421,43 @@ function loadReviews(){
 }
 
 function saveReviews(list){
-  localStorage.setItem(STORAGE_KEYS.reviews, JSON.stringify(list));
+  localStorage.setItem(STORAGE_KEYS.reviews, JSON.stringify(Array.isArray(list) ? list : []));
+  queueCloudSave('reviews', list);
 }
 
-function normalizeReviewStars(value){
-  const stars = Math.round(Number(value));
-  if(!Number.isFinite(stars)) return 5;
-  return Math.min(5, Math.max(1, stars));
+function reviewKey(review, index){
+  return String(review?.id || index);
+}
+
+function deleteReview(key){
+  if(!isAdminLoggedIn()){
+    openAdminLogin();
+    return;
+  }
+  const reviews = loadReviews();
+  const index = reviews.findIndex((review, idx) => reviewKey(review, idx) === String(key));
+  if(index < 0){ toast('التقييم غير موجود'); return; }
+  const review = reviews[index];
+  if(!confirm(`هتمسح تقييم "${review.name || 'عميل'}" فقط. هل متأكد؟`)) return;
+  reviews.splice(index, 1);
+  saveReviews(reviews);
+  logAudit('مسح تقييم', `${review.name || 'عميل'} - ${review.stars || 0} نجوم`);
+  renderReviews();
+  toast('تم مسح التقييم');
+}
+
+function clearReviews(){
+  toast('اختار تقييم محدد واضغط مسح من كارت التقييم');
+  renderReviews();
 }
 
 function renderStars(n){
-  const stars = normalizeReviewStars(n);
-  return `<span class="text-amber-400 text-xl">${'★'.repeat(stars)}${'☆'.repeat(5-stars)}</span>`;
+  return `<span class="text-amber-400 text-xl">${'★'.repeat(n)}${'☆'.repeat(5-n)}</span>`;
 }
 
 function renderReviews(){
-  const reviews = loadReviews().slice().reverse();
+  const sourceReviews = loadReviews();
+  const reviews = sourceReviews.map((review, index) => ({ ...review, __key: reviewKey(review, index) })).reverse();
   const list = document.getElementById('reviewsList');
   const countEl = document.getElementById('reviewsCount');
   const avgEl = document.getElementById('avgRating');
@@ -6768,6 +5475,7 @@ function renderReviews(){
     `;
     return;
   }
+  const adminActions = isAdminLoggedIn();
   list.innerHTML = reviews.map(r => `
     <div class="rounded-[1.5rem] bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800 p-5 shadow-soft">
       <div class="flex items-center justify-between gap-3 mb-3">
@@ -6775,11 +5483,13 @@ function renderReviews(){
         <div>${renderStars(Number(r.stars || 5))}</div>
       </div>
       <p class="text-slate-600 dark:text-slate-400 leading-8">${escapeHtml(r.comment || '')}</p>
-      <div class="text-xs text-slate-400 mt-3">${escapeHtml(r.date || '')}</div>
+      <div class="flex items-center justify-between gap-3 mt-3">
+        <div class="text-xs text-slate-400">${escapeHtml(r.date || '')}</div>
+        ${adminActions ? `<button onclick="deleteReview('${escapeJs(r.__key)}')" class="rounded-xl bg-red-500 hover:bg-red-600 text-white px-3 py-1.5 font-black text-xs">مسح</button>` : ''}
+      </div>
     </div>
   `).join('');
 }
-
 function updateStarPicker(){
   document.querySelectorAll('.star-btn').forEach(btn => {
     const star = Number(btn.dataset.star);
@@ -6791,142 +5501,39 @@ function updateStarPicker(){
 function initStarPicker(){
   document.querySelectorAll('.star-btn').forEach(btn => {
     btn.addEventListener('click', () => {
-      selectedStars = normalizeReviewStars(btn.dataset.star);
+      selectedStars = Number(btn.dataset.star);
       updateStarPicker();
     });
   });
   updateStarPicker();
 }
 
-function updateDirectStarPicker(){
-  document.querySelectorAll('.direct-star-btn').forEach(btn => {
-    const star = Number(btn.dataset.star);
-    const active = star <= directSelectedStars;
-    btn.textContent = active ? '★' : '☆';
-    btn.style.color = active ? '#f59e0b' : '#94a3b8';
-    btn.setAttribute('aria-pressed', active ? 'true' : 'false');
-  });
-}
-
-function initDirectReviewPicker(){
-  document.querySelectorAll('.direct-star-btn').forEach(btn => {
-    btn.addEventListener('click', () => {
-      directSelectedStars = normalizeReviewStars(btn.dataset.star);
-      updateDirectStarPicker();
-    });
-  });
-  updateDirectStarPicker();
-}
-
-async function addReviewRecord({ name = 'عميل', stars = 5, comment = '' } = {}){
-  const cleanName = String(name || '').trim() || 'عميل';
-  const cleanComment = String(comment || '').trim();
-  if(!cleanComment){
+function submitReview(){
+  const name = document.getElementById('reviewName').value.trim() || 'عميل';
+  const comment = document.getElementById('reviewComment').value.trim();
+  if(!comment){
     toast('اكتب تعليق التقييم');
-    return false;
+    return;
   }
   const reviews = loadReviews();
-  const review = {
-    name: cleanName,
-    stars: normalizeReviewStars(stars),
-    comment: cleanComment,
-    date: new Date().toISOString().slice(0,10)
-  };
-  reviews.push(review);
-  saveReviews(reviews);
-  renderReviews();
-  const synced = await sendReviewToRemote(review);
-  if(!synced && syncEnabled()) toast('التقييم اتحفظ محليًا لكن تزامنه فشل');
-  return true;
-}
-
-async function submitReview(){
-  const saved = await addReviewRecord({
-    name: document.getElementById('reviewName').value,
+  reviews.push({
+    id: 'review_' + Date.now() + '_' + Math.random().toString(36).slice(2, 8),
+    name,
     stars: selectedStars,
-    comment: document.getElementById('reviewComment').value
+    comment,
+    date: new Date().toISOString().slice(0,10)
   });
-  if(!saved) return;
+  saveReviews(reviews);
   document.getElementById('reviewName').value = '';
   document.getElementById('reviewComment').value = '';
   selectedStars = 5;
   updateStarPicker();
+  renderReviews();
   toast('تم إضافة التقييم');
-}
-
-async function submitDirectReview(){
-  const saved = await addReviewRecord({
-    name: document.getElementById('directReviewName').value,
-    stars: directSelectedStars,
-    comment: document.getElementById('directReviewComment').value
-  });
-  if(!saved) return;
-  document.getElementById('directReviewName').value = '';
-  document.getElementById('directReviewComment').value = '';
-  directSelectedStars = 5;
-  updateDirectStarPicker();
-  closeDirectReviewModal();
-  toast('تم إرسال التقييم');
-}
-
-function reviewDirectUrl(){
-  const url = new URL(window.location.href);
-  url.searchParams.set('review', '1');
-  url.hash = '';
-  return url.href;
-}
-
-async function copyReviewDirectLink(){
-  const link = reviewDirectUrl();
-  try {
-    await navigator.clipboard.writeText(link);
-    toast('تم نسخ رابط التقييم');
-  } catch {
-    window.prompt('انسخ رابط التقييم', link);
-  }
-}
-
-function shouldOpenDirectReview(){
-  const params = new URLSearchParams(window.location.search);
-  const hash = String(window.location.hash || '').replace('#', '').toLowerCase();
-  return params.get('review') === '1'
-    || params.get('rate') === '1'
-    || params.get('rating') === '1'
-    || ['review', 'rate', 'rating', 'direct-review'].includes(hash);
-}
-
-function openDirectReviewModal(){
-  const modal = document.getElementById('directReviewModal');
-  if(!modal) return;
-  const params = new URLSearchParams(window.location.search);
-  const nameFromLink = params.get('name') || params.get('customer') || '';
-  const starsFromLink = params.get('stars') || params.get('rating') || 5;
-  const nameInput = document.getElementById('directReviewName');
-  if(nameInput && nameFromLink && !nameInput.value.trim()) nameInput.value = nameFromLink;
-  directSelectedStars = normalizeReviewStars(starsFromLink);
-  updateDirectStarPicker();
-  modal.classList.remove('hidden');
-  modal.classList.add('flex');
-  document.body.style.overflow = 'hidden';
-  setTimeout(() => document.getElementById('directReviewComment')?.focus(), 80);
-}
-
-function closeDirectReviewModal(){
-  const modal = document.getElementById('directReviewModal');
-  if(!modal) return;
-  modal.classList.add('hidden');
-  modal.classList.remove('flex');
-  const blockingModalOpen = document.querySelector('#productModal:not(.hidden), #quoteModal:not(.hidden), #adminLoginModal:not(.hidden), #adminPanel:not(.hidden), #adminCredentialsModal:not(.hidden)');
-  if(!blockingModalOpen) document.body.style.overflow = '';
-}
-
-function initDirectReviewLink(){
-  if(shouldOpenDirectReview()) setTimeout(openDirectReviewModal, 120);
 }
 
 document.getElementById('productModal').addEventListener('click', function(e){ if(e.target.id === 'productModal') closeProductModal(); });
 document.getElementById('quoteModal').addEventListener('click', function(e){ if(e.target.id === 'quoteModal') closeQuoteModal(); });
-document.getElementById('directReviewModal').addEventListener('click', function(e){ if(e.target.id === 'directReviewModal') closeDirectReviewModal(); });
 document.getElementById('adminLoginModal').addEventListener('click', function(e){ if(e.target.id === 'adminLoginModal') closeAdminLogin(); });
 document.getElementById('adminPanel').addEventListener('click', function(e){ if(e.target.id === 'adminPanel') closeAdminPanel(); });
 document.getElementById('adminCredentialsModal').addEventListener('click', function(e){ if(e.target.id === 'adminCredentialsModal') closeAdminCredentialsModal(); });
@@ -6935,27 +5542,19 @@ document.addEventListener('keydown', function(e){
     openAdminLogin();
     return;
   }
-  if(e.key === 'Escape'){ closeProductModal(); closeQuoteModal(); closeDirectReviewModal(); closeAdminLogin(); closeAdminCredentialsModal(); closeAdminPanel(); toggleCompareDrawer(false); }
-});
-
-let mobileLayoutResizeTimer = null;
-window.addEventListener('resize', () => {
-  clearTimeout(mobileLayoutResizeTimer);
-  mobileLayoutResizeTimer = setTimeout(syncMobileProductPosition, 120);
-});
-
-window.addEventListener('focus', () => {
-  pullRemoteState({ silent: true });
+  if(e.key === 'Escape'){ closeProductModal(); closeQuoteModal(); closeAdminLogin(); closeAdminCredentialsModal(); closeAdminPanel(); toggleCompareDrawer(false); }
 });
 
 window.addEventListener('load', async () => {
-  await ensureAdminCredentials();
   if(localStorage.getItem('fg-theme') === 'dark') document.documentElement.classList.add('dark');
   loadProducts();
   loadCrmData();
-  await pullRemoteState({ silent: true });
-  await ensureCrmSecrets();
-  syncMobileProductPosition();
+  cloudSyncStarted = true;
+  adminSyncReady = pullCloudState('adminCreds');
+  await adminSyncReady;
+  try { await ensureAdminCredentials(); } catch { showSyncState('افتح الموقع عبر HTTPS لتفعيل تسجيل الدخول'); }
+  await Promise.all([pullCloudState('products'),pullCloudState('crm')]);
+  try { await ensureCrmSecrets(); } catch { /* Rendering remains available on unsupported origins. */ }
   updatePriceLabel();
   applyFilters();
   calculateHP();
@@ -6964,20 +5563,20 @@ window.addEventListener('load', async () => {
   renderCompare();
   resetAdminForm();
   resetJobForm();
-  resetMaintenanceForm();
-  resetPortfolioForm();
-  renderMaintenanceGallery();
-  capturePublicWorksDefaults();
-  repairProjectImages();
-  renderPublicWorks();
   initStarPicker();
-  initDirectReviewPicker();
   renderReviews();
-  initDirectReviewLink();
-  syncBootstrapped = true;
-  setInterval(() => pullRemoteState({ silent: true }), 30000);
+  repairProjectImages();
+  startCloudSync();
+  if(!window.Capacitor?.isNativePlatform() && 'serviceWorker' in navigator && location.protocol === 'https:'){
+    navigator.serviceWorker.register('./service-worker.js').catch(err => console.warn('Service worker:', err));
+  }
 });
 </script>
+<script src="catalog-workflows.js"></script>
+<script src="reliability.js"></script>
+<script src="mobile-config.js"></script>
+<script src="compact.js"></script>
+
 </body>
 </html>
 

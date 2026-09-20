@@ -1,0 +1,20 @@
+{
+  "name": "Fast Group للتكييف",
+  "short_name": "Fast Group",
+  "description": "متجر Fast Group ونظام إدارة العملاء والزيارات",
+  "lang": "ar",
+  "dir": "rtl",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#081120",
+  "theme_color": "#0f172a",
+  "icons": [
+    {
+      "src": "fast-group-icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
