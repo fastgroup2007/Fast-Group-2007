@@ -2,7 +2,7 @@
  * Private documents remain on this browser, as in the previous release.
  * Cloud changes use a three-way merge and optimistic compare-and-swap.
  */
-let fgDb, durableCrm, crmBaseline, durablePendingWrite=Promise.resolve();
+let fgDb, durableCrm, crmBaseline, durablePendingWrite=Promise.resolve(),dbWriteTail=Promise.resolve();
 let crmDurableReady=false,crmMutationVersion=0;
 function openFgDb(){
   return new Promise((resolve,reject)=>{
@@ -19,11 +19,13 @@ function durableRead(key){
   });
 }
 function durableWrite(entries){
-  return new Promise((resolve,reject)=>{
+  const operation=dbWriteTail.catch(()=>{}).then(()=>new Promise((resolve,reject)=>{
     const tx=fgDb.transaction('state','readwrite');
-    for(const [key,value] of Object.entries(entries)) tx.objectStore('state').put(value,key);
+    const values=typeof entries==='function'?entries():entries;
+    for(const [key,value] of Object.entries(values)) tx.objectStore('state').put(value,key);
     tx.oncomplete=resolve;tx.onerror=()=>reject(tx.error);tx.onabort=()=>reject(tx.error||new Error('Storage aborted'));
-  });
+  }));
+  dbWriteTail=operation;return operation;
 }
 async function initializeDurableCrm(){
   try{
@@ -72,8 +74,9 @@ mergeLocalPrivateAssets=function(incoming){
 };
 persistPendingSync=function(){
   if(!fgDb) return;
-  const snapshot=cloneForCloud(pendingSync);
-  durablePendingWrite=durablePendingWrite.catch(()=>{}).then(()=>durableWrite({pending:snapshot}));
+  // Read the outbox when this queued transaction starts, so an audit write cannot
+  // restore an older snapshot over a newer, atomically committed CRM save.
+  durablePendingWrite=durableWrite(()=>({pending:cloneForCloud(pendingSync)}));
   durablePendingWrite.catch(()=>showSyncState('مساحة الحفظ غير متاحة — صدّر نسخة احتياطية قبل إغلاق الصفحة'));
   return durablePendingWrite;
 };
