@@ -2380,7 +2380,7 @@ function emptyCrmData(){
 }
 
 function normalizeCrmData(input){
-  const parsed = input && typeof input === 'object' ? input : {};
+  const parsed = applyCrmRecordCorrections(input && typeof input === 'object' ? input : {});
   return {
     ...parsed,
     receipts: Array.isArray(parsed.receipts) ? parsed.receipts : [],
@@ -5593,6 +5593,7 @@ window.addEventListener('load', async () => {
 <script src="catalog-workflows.js"></script>
 <script src="reliability.js"></script>
 <script src="crm-merge.js"></script>
+<script src="crm-record-corrections.js"></script>
 <script src="durable-crm.js"></script>
 <script src="inventory-pricing.js"></script>
 <script src="crm-upgrade.js"></script>

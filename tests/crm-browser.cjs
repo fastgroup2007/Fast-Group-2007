@@ -34,7 +34,7 @@ async function main(){
  await context.addInitScript(({accounts,base})=>{
    if(!localStorage.getItem('testSeed')){
      localStorage.setItem('testSeed','1');localStorage.setItem('fg_admin_creds_v1',JSON.stringify(accounts));
-     const legacy=JSON.parse(JSON.stringify(base));legacy.customers[0].idCard={name:'old.png',type:'image/png',data:'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+aF9sAAAAASUVORK5CYII='};
+     const legacy=JSON.parse(JSON.stringify(base));legacy.inventory.push({id:'stale-local-stock',name:'Superseded',qty:'10'});legacy.technicians.push({id:'stale-local-tech',name:'Superseded Tech'});legacy.customers[0].idCard={name:'old.png',type:'image/png',data:'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+aF9sAAAAASUVORK5CYII='};
      localStorage.setItem('fg_admin_crm_v1',JSON.stringify(legacy));
    }
    sessionStorage.setItem('fg_admin_auth_v3','true');sessionStorage.setItem('fg_current_admin_v1','employee');
@@ -45,7 +45,7 @@ async function main(){
  assert.equal(await page.evaluate(()=>canAccessAdmin('customers')),true);
  await page.evaluate(()=>{openAdminPanel();switchAdminView('customers');});
  assert.equal(await page.evaluate(()=>crmData.customers.find(c=>c.id==='c').idCard.name),'old.png');
- assert.equal(await page.evaluate(()=>inventoryBalance('stock')),77);ok('Upgrade retains legacy customer document and 77 stock units');
+ assert.equal(await page.evaluate(()=>inventoryBalance('stock')),77);assert.equal(await page.evaluate(()=>crmData.inventory.some(x=>x.id==='stale-local-stock')||crmData.technicians.some(x=>x.id==='stale-local-tech')),false);ok('Initial sync keeps authoritative stock and technicians without resurrecting old local IDs');ok('Upgrade retains legacy customer document and 77 stock units');
  // A non-admin employee saves with localStorage writes blocked, reproducing phone quota failures.
  await page.evaluate(()=>{const original=Storage.prototype.setItem;Storage.prototype.setItem=function(k,v){if(k==='fg_admin_crm_v1'||k==='fg_pending_sync_v5'||k==='fg_audit_log_v1')throw new DOMException('Quota','QuotaExceededError');return original.call(this,k,v);};resetCustomerForm();});
  await page.fill('#crmCustomerName','عميل الموبايل');await page.fill('#crmCustomerPhone','01000000001');

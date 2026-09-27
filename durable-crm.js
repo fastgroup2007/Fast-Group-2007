@@ -102,9 +102,14 @@ const previousApplyCloudState=applyCloudState;
 applyCloudState=async function(name,value,updatedAt=''){
   if(name!=='crm') return previousApplyCloudState(name,value,updatedAt);
   if(pendingSync.crm || cloudSyncSaving.crm) return false;
-  // On upgrade, retain legacy-only records instead of replacing them with the server snapshot.
+  // Local backups may contain superseded stock/staff IDs. Their initial cloud lists are authoritative;
+  // keep the original local snapshot in IndexedDB for recovery, not as live stock/staff.
   const migrated=crmBaseline?value:mergeCrmChanges({},value,crmCloudSnapshot(crmData));
-  const next=normalizeCrmData(mergeLocalPrivateAssets(migrated));
+  if(!crmBaseline){
+    migrated.inventory=value.inventory||[];
+    migrated.technicians=value.technicians||[];
+  }
+  const next=normalizeCrmData(mergeLocalPrivateAssets(applyCrmRecordCorrections(migrated,value)));
   const version=crmMutationVersion;
   await durableWrite({crm:next,crmBaseline:value});
   if(pendingSync.crm || cloudSyncSaving.crm || crmMutationVersion!==version) return false;
@@ -120,7 +125,7 @@ cloudUpsertState=async function(name,value){
   for(let attempt=0;attempt<5;attempt++){
     const remote=await cloudGetState('crm');
     if(!remote || !remote.value || !remote.updated_at) throw new Error('تعذر قراءة النسخة الحالية؛ لن يتم استبدال البيانات');
-    const merged=mergeCrmChanges(base,value,remote.value);
+    const merged=mergeCrmWithCorrections(base,value,remote.value);
     const updatedAt=new Date(Math.max(Date.now(),Date.parse(remote.updated_at)+1)).toISOString();
     const rows=await cloudRequest(`${encodeURIComponent(SUPABASE_SYNC.table)}?key=eq.${encodeURIComponent(cloudStateKey('crm'))}&updated_at=eq.${encodeURIComponent(remote.updated_at)}`,{
       method:'PATCH',headers:{Prefer:'return=representation'},body:JSON.stringify({value:merged,updated_at:updatedAt})
@@ -128,7 +133,7 @@ cloudUpsertState=async function(name,value){
     if(!Array.isArray(rows)||rows.length!==1) continue;
     const latest=pendingSync.crm;
     const newer=latest && JSON.stringify(latest.value)!==JSON.stringify(value);
-    const combined=mergeCrmChanges(value,crmCloudSnapshot(crmData),merged);
+    const combined=mergeCrmWithCorrections(value,crmCloudSnapshot(crmData),merged);
     const next=normalizeCrmData(mergeLocalPrivateAssets(combined));
     if(newer) pendingSync.crm={...latest,value:combined,base:merged};
     crmData=next;durableCrm=next;crmBaseline=merged;cloudSyncMeta.crm=updatedAt;
