@@ -96,15 +96,15 @@ document.querySelector('#crmJobFilter option[value="تم التنفيذ"]')?.rem
 
 const priceOptions='<option value="0">السعر التجاري</option>'+[3,4,7,8].map(x=>`<option value="${x}">خصم ${x}% من التجاري</option>`).join('');
 const priceField=document.getElementById('inventoryItemUnitPrice');
-const priceMode=document.createElement('label');priceMode.className='fg-upgrade';priceMode.innerHTML=`طريقة حساب السعر<select id="inventoryPriceRate" onchange="updateInventoryLineTotalPreview()">${priceOptions}</select><small>الخانة أعلاه هي السعر التجاري. الأصناف القديمة تحتفظ بسعرها حتى تعدّلها.</small>`;priceField.after(priceMode);
+const priceMode=document.createElement('label');priceMode.className='fg-upgrade';priceMode.innerHTML=`طريقة حساب السعر<select id="inventoryPriceRate" onchange="updateInventoryLineTotalPreview()">${priceOptions}</select><small>السعر التجاري قبل الخصم، والنسبة تُحسب منه مرة واحدة. صافي السعر المسجل يظهر أسفل النموذج.</small>`;priceField.after(priceMode);
 priceField.placeholder='السعر التجاري للوحدة';
 function discountedInventoryPrice(base,rate){return Math.round(Number(base)*(1-Number(rate)/100)*100)/100;}
 updateInventoryLineTotalPreview=function(){
   const qty=moneyValue(document.getElementById('inventoryItemQty')?.value),base=moneyValue(priceField.value),rate=Number(document.getElementById('inventoryPriceRate').value);
-  const price=discountedInventoryPrice(base,rate);setText('inventoryLineTotalPreview',`سعر الوحدة: ${formatMoney(price)} | الإجمالي: ${formatMoney(qty*price)}`);
+  const price=discountedInventoryPrice(base,rate);setText('inventoryLineTotalPreview',`السعر الصافي بعد الخصم: ${formatMoney(price)} | الإجمالي: ${formatMoney(qty*price)}`);
 };
 const beforeFillInventory=fillInventoryItemForm,beforeResetInventory=resetInventoryItemForm;
-fillInventoryItemForm=function(id){beforeFillInventory(id);const item=inventoryItemById(id);if(!item||!canAccessAdmin('inventory'))return;priceField.value=item.dealerPrice??inventoryUnitPrice(item);document.getElementById('inventoryPriceRate').value=String(item.priceRate||0);updateInventoryLineTotalPreview();};
+fillInventoryItemForm=function(id){beforeFillInventory(id);const item=inventoryItemById(id);if(!item||!canAccessAdmin('inventory'))return;const pricing=resolveInventoryPricing(item,DEALER_PRICE_MAP);priceField.value=pricing.dealerPrice;document.getElementById('inventoryPriceRate').value=String(pricing.priceRate);updateInventoryLineTotalPreview();};
 resetInventoryItemForm=function(){document.getElementById('inventoryPriceRate').value='0';beforeResetInventory();};
 // Calculate at the source form save, leaving all untouched stock prices intact.
 const beforeInventoryPriceSave=saveInventoryItem;
@@ -131,7 +131,7 @@ enhanceModelInput(document.getElementById('receiptModel'));
 document.getElementById('receiptForm').addEventListener('submit',e=>{e.preventDefault();saveReceipt();});
 document.getElementById('receiptItem').addEventListener('change',e=>{
   const item=inventoryItemById(e.target.value);if(!item)return;
-  document.getElementById('receiptModel').value=item.name;document.getElementById('receiptPrice').value=item.dealerPrice??inventoryUnitPrice(item);document.getElementById('receiptRate').value=String(item.priceRate||0);
+  const pricing=resolveInventoryPricing(item,DEALER_PRICE_MAP);document.getElementById('receiptModel').value=item.name;document.getElementById('receiptPrice').value=pricing.dealerPrice;document.getElementById('receiptRate').value=String(pricing.priceRate);
 });
 function renderReceipts(){
   if(!canAccessAdmin('inventory'))return;
@@ -185,3 +185,9 @@ const beforeUpgradeRenderCrm=renderCrm;
 renderCrm=function(){beforeUpgradeRenderCrm();renderCompletedJobs();renderReceipts();};
 const backup=document.createElement('div');backup.className='fg-upgrade fg-backup';backup.innerHTML='<p>الصور والمستندات محفوظة على هذا الجهاز. احتفظ بنسخة احتياطية قبل تغيير الجهاز أو مسح بيانات المتصفح. لا يوجد حد لعدد الصور؛ المساحة المتاحة وحجم الملف هما الحد.</p><button type="button" onclick="exportFullCrmBackup()">تنزيل نسخة احتياطية بالصور</button>';
 document.getElementById('crmCustomerNotes').after(backup);
+
+function inventoryPricingDetails(item){
+  const pricing=resolveInventoryPricing(item,DEALER_PRICE_MAP);
+  if(pricing.basis==='unverified') return '<p class="text-xs text-slate-500 mt-2">سعر مسجل يدويًا — راجع السعر التجاري قبل تغيير نسبة الخصم.</p>';
+  return `<p class="text-sm mt-2">السعر التجاري: <strong>${formatMoney(pricing.dealerPrice)}</strong> | ${pricing.priceRate ? `خصم ${pricing.priceRate}%` : 'بدون خصم'}</p>`;
+}

@@ -119,18 +119,32 @@ function addPriorJob(){
   document.getElementById('priorJobsBuilder').append(row); enhanceModelInput(row.querySelector('.prior-model'));
 }
 async function collectPriorJobs(customerId){
-  return Promise.all([...document.querySelectorAll('.prior-job')].map(async row=>{
+  const drafts=[];
+  const rows=[...document.querySelectorAll('#priorJobsBuilder .prior-job')];
+  for(const [index,row] of rows.entries()){
     const get=s=>row.querySelector(s).value.trim();
-    const date=get('.prior-date'), title=get('.prior-model');
+    const date=get('.prior-date'),title=get('.prior-model'),technicianName=get('.prior-technician'),report=get('.prior-report');
+    const photoInput=row.querySelector('.prior-photos');
+    const files=selectedAssetFiles.get(photoInput)||Array.from(photoInput.files);
+    // A spare, untouched optional row must never prevent saving a customer.
+    if(!date&&!title&&!technicianName&&!report&&!get('.prior-custom')&&!files.length&&get('.prior-qty')==='1'&&Number(get('.prior-sale'))===0)continue;
+    const prefix=`الشغل السابق رقم ${index+1}: `;
     const type=get('.prior-type')==='أخرى'?get('.prior-custom'):get('.prior-type');
-    const qty=Number(get('.prior-qty')), price=Number(get('.prior-sale'));
-    if(!date || !title || !type || !(qty>=1) || !(price>=0)) throw new Error('أكمل تاريخ ونوع وتفاصيل الشغل السابق والعدد والسعر');
-    const isDevice=row.dataset.model===title;
+    const qty=Number(get('.prior-qty')),price=Number(get('.prior-sale'));
+    if(!date)throw crmFieldError(row.querySelector('.prior-date'),prefix+'أكمل تاريخ التنفيذ');
+    if(!title)throw crmFieldError(row.querySelector('.prior-model'),prefix+'اكتب الجهاز أو تفاصيل الخدمة');
+    if(!type)throw crmFieldError(row.querySelector('.prior-custom'),prefix+'اكتب نوع الخدمة');
+    if(!Number.isFinite(qty)||qty<1)throw crmFieldError(row.querySelector('.prior-qty'),prefix+'العدد يجب أن يكون 1 أو أكثر');
+    if(!Number.isFinite(price)||price<0)throw crmFieldError(row.querySelector('.prior-sale'),prefix+'اكتب سعرًا صحيحًا غير سالب');
     const line={title,qty,unitPrice:price,total:qty*price};
-    if(isDevice) Object.assign(line,{model:title,brand:row.dataset.brand,dealerPrice:Number(row.dataset.dealer),deviceCost:deviceCost({brand:row.dataset.brand,dealerPrice:row.dataset.dealer})});
-    return {id:crmId('job'),customerId,title,type,dueDate:date,completedAt:date+'T12:00:00',historical:true,status:'تم التنفيذ',technicianId:currentLinkedTechnicianId() || '',technicianName:get('.prior-technician'),devicePhotos:await storedAssetsFromInput(row.querySelector('.prior-photos')),assistants:[],lines:[line],revenue:qty*price,materialCost:0,laborCost:0,otherCost:0,report:get('.prior-report'),createdAt:new Date().toISOString(),updatedAt:new Date().toISOString()};
-  }));
+    if(row.dataset.model===title)Object.assign(line,{model:title,brand:row.dataset.brand,dealerPrice:Number(row.dataset.dealer),deviceCost:deviceCost({brand:row.dataset.brand,dealerPrice:row.dataset.dealer})});
+    drafts.push({photoInput,record:{id:crmId('job'),customerId,title,type,dueDate:date,completedAt:date+'T12:00:00',historical:true,status:'تم التنفيذ',technicianId:currentLinkedTechnicianId()||'',technicianName,assistants:[],lines:[line],revenue:qty*price,materialCost:0,laborCost:0,otherCost:0,report,createdAt:new Date().toISOString(),updatedAt:new Date().toISOString()}});
+  }
+  const result=[];
+  for(const draft of drafts)result.push({...draft.record,devicePhotos:await storedAssetsFromInput(draft.photoInput)});
+  return result;
 }
+
 function enhanceAllCatalogFields(){
   document.querySelectorAll('#inventoryItemName,#apModel,#crmPurchaseItem,.job-line-title,.project-line-title').forEach(enhanceModelInput);
   const select=document.getElementById('crmPurchaseModel'); if(select) select.hidden=false;

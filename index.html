@@ -4011,7 +4011,8 @@ async function saveCustomer(){
     createdAt: existing?.createdAt || now,
     updatedAt: now
   };
-  if(!customer.name || !customer.phone){ toast('اسم العميل ورقم الهاتف مطلوبين'); return; }
+  if(!customer.name){ toast(crmFieldError(document.getElementById('crmCustomerName'),'اكتب اسم العميل').message); return; }
+  if(!customer.phone){ toast(crmFieldError(document.getElementById('crmCustomerPhone'),'اكتب رقم هاتف العميل').message); return; }
   let priorJobs;
   try { priorJobs = await collectPriorJobs(id); } catch(err){ toast(err.message); return; }
   if(existing){ crmData.customers = crmData.customers.map(x => x.id === id ? customer : x); logAudit('تعديل عميل', `${customer.name} — ${customer.phone}`); }
@@ -4024,6 +4025,7 @@ async function saveCustomer(){
   document.getElementById('priorJobsBuilder').replaceChildren();
   renderCrm();
   toast('تم حفظ العميل');
+  return id;
 }
 
 function renderCustomers(){
@@ -4433,7 +4435,8 @@ async function saveJob(){
     updatedAt: now,
     completedAt: status === 'تم التنفيذ' ? (existing?.completedAt || now) : ''
   };
-  if(!job.customerId || !job.title){ toast('اختار العميل واكتب عنوان الشغل'); return; }
+  if(!job.customerId){ toast(crmFieldError(document.getElementById('crmJobCustomer'),'اختار العميل للشغل').message); return; }
+  if(!job.title){ toast(crmFieldError(document.getElementById('crmJobTitle'),'اكتب عنوان الشغل').message); return; }
   if(job.status === 'تم التنفيذ' && !job.technicianId && !job.technicianName){ toast('حدد الفني قبل تسجيل الشغل كمنفذ'); return; }
   if(existing){ crmData.jobs = crmData.jobs.map(x => x.id === id ? job : x); logAudit('تعديل شغل', `${job.title} — ${crmCustomerById(job.customerId)?.name || '-'} | ${job.status}`); }
   else { crmData.jobs.unshift(job); logAudit('إضافة شغل', `${job.title} — ${crmCustomerById(job.customerId)?.name || '-'} | ${job.type}`); }
@@ -4444,6 +4447,7 @@ async function saveJob(){
   clearSelectedAssets('crmJobBeforePhoto','crmJobAfterPhoto');
   renderCrm();
   toast('تم حفظ الشغل');
+  return id;
 }
 
 let todayFilterActive = false;
@@ -4848,9 +4852,10 @@ function renderInventory(){
     return `
       <div class="rounded-[1.5rem] border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900 p-4">
         <div class="font-black text-lg">${escapeHtml(item.name)}</div>
+        ${inventoryPricingDetails(item)}
         <div class="grid grid-cols-3 gap-2 mt-3 text-sm">
           <div class="rounded-xl bg-white dark:bg-slate-950 p-3"><div class="text-xs text-slate-500">العدد</div><div class="font-black">${formatPrice(qty)}</div></div>
-          <div class="rounded-xl bg-white dark:bg-slate-950 p-3"><div class="text-xs text-slate-500">سعر الوحدة</div><div class="font-black">${formatMoney(price)}</div></div>
+          <div class="rounded-xl bg-white dark:bg-slate-950 p-3"><div class="text-xs text-slate-500">السعر الصافي</div><div class="font-black">${formatMoney(price)}</div></div>
           <div class="rounded-xl bg-white dark:bg-slate-950 p-3"><div class="text-xs text-slate-500">الإجمالي</div><div class="font-black">${formatMoney(total)}</div></div>
         </div>
         <div class="grid grid-cols-2 gap-2 mt-4">
@@ -5575,7 +5580,7 @@ window.addEventListener('load', async () => {
   initProgressBar();
   renderCompare();
   resetAdminForm();
-  resetJobForm();
+  if(!dirtyCrmViews.has('jobs')) resetJobForm();
   initStarPicker();
   renderReviews();
   repairProjectImages();
@@ -5589,7 +5594,9 @@ window.addEventListener('load', async () => {
 <script src="reliability.js"></script>
 <script src="crm-merge.js"></script>
 <script src="durable-crm.js"></script>
+<script src="inventory-pricing.js"></script>
 <script src="crm-upgrade.js"></script>
+<script src="crm-form-stability.js"></script>
 <link rel="stylesheet" href="crm-upgrade.css">
 <script src="mobile-config.js"></script>
 <script src="compact.js"></script>

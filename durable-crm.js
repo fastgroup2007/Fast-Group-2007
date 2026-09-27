@@ -110,7 +110,7 @@ applyCloudState=async function(name,value,updatedAt=''){
   if(pendingSync.crm || cloudSyncSaving.crm || crmMutationVersion!==version) return false;
   crmData=next;durableCrm=next;crmBaseline=cloneForCloud(value);cloudSyncMeta.crm=updatedAt;
   if(JSON.stringify(crmCloudSnapshot(next))!==JSON.stringify(value)) await saveCrmData();
-  try{renderCrm();}catch{}
+  try{refreshCrmFromCloud();}catch{}
   return true;
 };
 const previousCloudUpsertState=cloudUpsertState;
@@ -133,7 +133,7 @@ cloudUpsertState=async function(name,value){
     if(newer) pendingSync.crm={...latest,value:combined,base:merged};
     crmData=next;durableCrm=next;crmBaseline=merged;cloudSyncMeta.crm=updatedAt;
     await durableWrite({crm:next,crmBaseline:merged,pending:cloneForCloud(pendingSync)});
-    try{renderCrm();}catch{}
+    try{refreshCrmFromCloud();}catch{}
     return updatedAt;
   }
   throw new Error('توجد تعديلات متزامنة؛ ستتم إعادة المحاولة تلقائيًا');
