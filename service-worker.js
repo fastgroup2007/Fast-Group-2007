@@ -1,5 +1,5 @@
-const CACHE_NAME = 'fast-group-laptop-v6';
-const APP_SHELL = ['./', 'index.html', 'app.css', 'compact.css', 'compact.js', 'mobile-config.js', 'catalog-workflows.js', 'reliability.js', 'manifest.webmanifest', 'fast-group-icon.svg', 'device-placeholder.svg'].map(path=>new URL(path,self.registration.scope).href);
+const CACHE_NAME = 'fast-group-crm-v7';
+const APP_SHELL = ['./', 'index.html', 'app.css', 'compact.css', 'compact.js', 'mobile-config.js', 'catalog-workflows.js', 'reliability.js', 'crm-merge.js', 'durable-crm.js', 'crm-upgrade.js', 'crm-upgrade.css', 'manifest.webmanifest', 'fast-group-icon.svg', 'device-placeholder.svg'].map(path=>new URL(path,self.registration.scope).href);
 
 self.addEventListener('install', event => {
   event.waitUntil(caches.open(CACHE_NAME).then(cache => cache.addAll(APP_SHELL)).then(() => self.skipWaiting()));

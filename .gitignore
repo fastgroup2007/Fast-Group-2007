@@ -1,0 +1,5 @@
+*backup*.json
+test-results.json
+mobile-receipts.png
+desktop-completed.png
+node_modules/

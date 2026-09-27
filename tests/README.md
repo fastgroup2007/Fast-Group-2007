@@ -1,0 +1,1 @@
+Run a local server on port 8765 from the repository root, install Playwright in your test environment, then run `node tests/crm-browser.cjs`. The test mocks all Supabase requests and uses synthetic records only. It does not connect to production. Set PLAYWRIGHT_CHANNEL for your installed browser. Screenshots and test-results.json are written to the current directory.

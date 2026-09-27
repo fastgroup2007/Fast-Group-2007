@@ -112,14 +112,14 @@ addJobLine=function(line={}){
 function addPriorJob(){
   const row=document.createElement('div'); row.className='prior-job';
   row.style.cssText='display:grid;gap:10px;padding:12px;border:1px solid #64748b;border-radius:14px;margin-top:10px';
-  row.innerHTML=`<label>تاريخ التنفيذ <input class="prior-date" type="date" required></label><select class="prior-type"><option>تركيب</option><option>صيانة</option><option>معاينة</option><option>بيع جهاز</option><option>أخرى</option></select><input class="prior-custom" placeholder="اكتب نوع الخدمة" hidden><input class="prior-model" placeholder="الجهاز / الخدمة"><label>العدد <input class="prior-qty" type="number" min="1" value="1"></label><label>سعر البيع للوحدة <input class="prior-sale" type="number" min="0" step="0.01" value="0"></label><textarea class="prior-report" placeholder="الفني الذي زار العميل وتفاصيل الشغل السابق"></textarea><button type="button">حذف هذا السجل</button>`;
+  row.innerHTML=`<label>تاريخ التنفيذ <input class="prior-date" type="date" required></label><select class="prior-type"><option>تركيب</option><option>صيانة</option><option>معاينة</option><option>بيع جهاز</option><option>أخرى</option></select><input class="prior-custom" placeholder="اكتب نوع الخدمة" hidden><input class="prior-model" placeholder="الجهاز / الخدمة"><label>العدد <input class="prior-qty" type="number" min="1" value="1"></label><label>سعر البيع للوحدة <input class="prior-sale" type="number" min="0" step="0.01" value="0"></label><label>الفني الذي نفذ الشغل <input class="prior-technician" placeholder="اسم الفني"></label><label>صور الجهاز / الاستيكر <input class="prior-photos" type="file" accept="image/*" multiple></label><textarea class="prior-report" placeholder="الفني الذي زار العميل وتفاصيل الشغل السابق"></textarea><button type="button">حذف هذا السجل</button>`;
   row.querySelector('button').onclick=()=>row.remove();
   row.querySelector('select').onchange=e=>{ row.querySelector('.prior-custom').hidden=e.target.value!=='أخرى'; };
   row.querySelectorAll('input,select,textarea').forEach(el=>{ el.style.cssText='width:100%;padding:10px;border-radius:10px;background:#0f172a;color:white;border:1px solid #64748b'; });
   document.getElementById('priorJobsBuilder').append(row); enhanceModelInput(row.querySelector('.prior-model'));
 }
-function collectPriorJobs(customerId){
-  return [...document.querySelectorAll('.prior-job')].map(row=>{
+async function collectPriorJobs(customerId){
+  return Promise.all([...document.querySelectorAll('.prior-job')].map(async row=>{
     const get=s=>row.querySelector(s).value.trim();
     const date=get('.prior-date'), title=get('.prior-model');
     const type=get('.prior-type')==='أخرى'?get('.prior-custom'):get('.prior-type');
@@ -128,8 +128,8 @@ function collectPriorJobs(customerId){
     const isDevice=row.dataset.model===title;
     const line={title,qty,unitPrice:price,total:qty*price};
     if(isDevice) Object.assign(line,{model:title,brand:row.dataset.brand,dealerPrice:Number(row.dataset.dealer),deviceCost:deviceCost({brand:row.dataset.brand,dealerPrice:row.dataset.dealer})});
-    return {id:crmId('job'),customerId,title,type,dueDate:date,completedAt:date+'T12:00:00',historical:true,status:'تم التنفيذ',technicianId:'',assistants:[],lines:[line],revenue:qty*price,materialCost:0,laborCost:0,otherCost:0,report:get('.prior-report'),createdAt:new Date().toISOString()};
-  });
+    return {id:crmId('job'),customerId,title,type,dueDate:date,completedAt:date+'T12:00:00',historical:true,status:'تم التنفيذ',technicianId:currentLinkedTechnicianId() || '',technicianName:get('.prior-technician'),devicePhotos:await storedAssetsFromInput(row.querySelector('.prior-photos')),assistants:[],lines:[line],revenue:qty*price,materialCost:0,laborCost:0,otherCost:0,report:get('.prior-report'),createdAt:new Date().toISOString(),updatedAt:new Date().toISOString()};
+  }));
 }
 function enhanceAllCatalogFields(){
   document.querySelectorAll('#inventoryItemName,#apModel,#crmPurchaseItem,.job-line-title,.project-line-title').forEach(enhanceModelInput);

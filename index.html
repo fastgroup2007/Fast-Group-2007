@@ -1216,10 +1216,10 @@
               </select>
               <div class="grid md:grid-cols-2 gap-3">
                 <label class="rounded-2xl border border-dashed border-slate-300 dark:border-slate-700 p-3 text-sm font-bold cursor-pointer text-center">بطاقة العميل
-                  <input id="crmCustomerIdCard" type="file" accept="image/*,.pdf,application/pdf" capture="environment" class="hidden">
+                  <input id="crmCustomerIdCard" type="file" accept="image/*,.pdf,application/pdf" multiple class="hidden">
                 </label>
                 <label class="rounded-2xl border border-dashed border-slate-300 dark:border-slate-700 p-3 text-sm font-bold cursor-pointer text-center">فاتورة ضريبية
-                  <input id="crmCustomerTaxInvoice" type="file" accept="image/*,.pdf,application/pdf" capture="environment" class="hidden">
+                  <input id="crmCustomerTaxInvoice" type="file" accept="image/*,.pdf,application/pdf" multiple class="hidden">
                 </label>
               </div>
               <textarea id="crmCustomerNotes" rows="4" placeholder="ملاحظات داخلية" class="w-full rounded-2xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900 px-4 py-3 outline-none resize-none"></textarea>
@@ -1297,10 +1297,10 @@
               <textarea id="crmJobReport" rows="3" placeholder="تقرير الفني: عمل إيه عند العميل؟" class="w-full rounded-2xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900 px-4 py-3 outline-none resize-none"></textarea>
               <div class="grid grid-cols-2 gap-3">
                 <label class="rounded-2xl border border-dashed border-slate-300 dark:border-slate-700 p-3 text-sm font-bold cursor-pointer text-center">📷 صورة قبل
-                  <input id="crmJobBeforePhoto" type="file" accept="image/*" capture="environment" class="hidden">
+                  <input id="crmJobBeforePhoto" type="file" accept="image/*" multiple class="hidden">
                 </label>
                 <label class="rounded-2xl border border-dashed border-slate-300 dark:border-slate-700 p-3 text-sm font-bold cursor-pointer text-center">📷 صورة بعد
-                  <input id="crmJobAfterPhoto" type="file" accept="image/*" capture="environment" class="hidden">
+                  <input id="crmJobAfterPhoto" type="file" accept="image/*" multiple class="hidden">
                 </label>
               </div>
               <div class="rounded-2xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900 p-3">
@@ -1845,7 +1845,7 @@ function applyCloudState(name, value, updatedAt = ''){
   try{
     if(name === 'products'){
       products = normalizeProductsList(value);
-      localStorage.setItem(STORAGE_KEYS.products, JSON.stringify(products));
+      try { localStorage.setItem(STORAGE_KEYS.products, JSON.stringify(products)); } catch { /* Keep loaded catalog usable when browser storage is full. */ }
       try { applyFilters(); renderAdminProducts(); renderCompare(); } catch {}
     } else if(name === 'crm'){
       crmData = normalizeCrmData(mergeLocalPrivateAssets(value));
@@ -2367,12 +2367,12 @@ function loadProducts(){
     console.warn('Failed to load local products. Using defaults.', err);
     products = cloneDefaultProducts();
   }
-  localStorage.setItem(STORAGE_KEYS.products, JSON.stringify(products));
+  try { localStorage.setItem(STORAGE_KEYS.products, JSON.stringify(products)); } catch { /* Keep loaded catalog usable when browser storage is full. */ }
 }
 
 function saveProductsToStorage(){
   products = normalizeProductsList(products);
-  localStorage.setItem(STORAGE_KEYS.products, JSON.stringify(products));
+  try { localStorage.setItem(STORAGE_KEYS.products, JSON.stringify(products)); } catch { /* Keep loaded catalog usable when browser storage is full. */ }
   queueCloudSave('products', products);
 }
 function emptyCrmData(){
@@ -2382,6 +2382,8 @@ function emptyCrmData(){
 function normalizeCrmData(input){
   const parsed = input && typeof input === 'object' ? input : {};
   return {
+    ...parsed,
+    receipts: Array.isArray(parsed.receipts) ? parsed.receipts : [],
     customers: Array.isArray(parsed.customers) ? parsed.customers : [],
     technicians: Array.isArray(parsed.technicians) ? parsed.technicians : [],
     jobs: Array.isArray(parsed.jobs) ? parsed.jobs : [],
@@ -2435,7 +2437,7 @@ async function ensureCrmSecrets(){
       }
     });
   });
-  if(changed) saveCrmData();
+  if(changed) await saveCrmData();
 }
 
 function secretStatusText(target, prefix){
@@ -3892,6 +3894,7 @@ function crmTeamNames(job){
   const team = [];
   const main = crmTechById(job.technicianId);
   if(main) team.push(`${main.name} (فني)`);
+  else if(job.technicianName) team.push(job.technicianName);
   if(job.assistants && job.assistants.length){
     job.assistants.forEach((a, index) => {
       const t = crmTechById(a.techId);
@@ -3921,7 +3924,7 @@ function renderCrmSelects(){
     ? crmData.customers.map(c => `<option value="${escapeHtml(c.id)}">${escapeHtml(c.name)} - ${escapeHtml(c.phone)}</option>`).join('')
     : '<option value="">أضف عميل أولًا</option>';
   const techs = crmData.technicians.length
-    ? crmData.technicians.map(t => `<option value="${escapeHtml(t.id)}">${escapeHtml(t.name)} - ${escapeHtml(t.role)}</option>`).join('')
+    ? '<option value="">يُحدد الفني لاحقًا</option>' + crmData.technicians.map(t => `<option value="${escapeHtml(t.id)}">${escapeHtml(t.name)} - ${escapeHtml(t.role)}</option>`).join('')
     : '<option value="">أضف فني أولًا</option>';
   const projects = (crmData.projects || []).length
     ? '<option value="">بدون مشروع</option>' + crmData.projects.map(p => `<option value="${escapeHtml(p.id)}">${escapeHtml(p.name)} - ${escapeHtml(crmCustomerById(p.customerId)?.name || 'بدون عميل')}</option>`).join('')
@@ -3989,10 +3992,11 @@ async function saveCustomer(){
   let idCard = existing?.idCard || null;
   let taxInvoice = existing?.taxInvoice || null;
   try{
-    idCard = await storedAssetFromFile(document.getElementById('crmCustomerIdCard').files[0]) || idCard;
-    taxInvoice = await storedAssetFromFile(document.getElementById('crmCustomerTaxInvoice').files[0]) || taxInvoice;
+    idCard = await storedAssetsFromInput(document.getElementById('crmCustomerIdCard'), idCard);
+    taxInvoice = await storedAssetsFromInput(document.getElementById('crmCustomerTaxInvoice'), taxInvoice);
   } catch(err){ toast(err.message || 'تعذر قراءة المرفق'); return; }
   const customer = {
+    ...existing,
     id,
     name: document.getElementById('crmCustomerName').value.trim(),
     phone: document.getElementById('crmCustomerPhone').value.trim(),
@@ -4009,13 +4013,14 @@ async function saveCustomer(){
   };
   if(!customer.name || !customer.phone){ toast('اسم العميل ورقم الهاتف مطلوبين'); return; }
   let priorJobs;
-  try { priorJobs = collectPriorJobs(id); } catch(err){ toast(err.message); return; }
+  try { priorJobs = await collectPriorJobs(id); } catch(err){ toast(err.message); return; }
   if(existing){ crmData.customers = crmData.customers.map(x => x.id === id ? customer : x); logAudit('تعديل عميل', `${customer.name} — ${customer.phone}`); }
   else { crmData.customers.unshift(customer); logAudit('إضافة عميل', `${customer.name} — ${customer.phone}`); }
   selectedCrmCustomerId = id;
   crmData.jobs.push(...priorJobs);
-  saveCrmData();
+  await saveCrmData();
   document.getElementById('crmCustomerId').value = id;
+  clearSelectedAssets('crmCustomerIdCard','crmCustomerTaxInvoice');
   document.getElementById('priorJobsBuilder').replaceChildren();
   renderCrm();
   toast('تم حفظ العميل');
@@ -4077,7 +4082,7 @@ function renderCustomerProfile(){
   const customerExpenses = relatedExpenses.reduce((sum, expense) => sum + moneyValue(expense.amount), 0);
   const customerNet = customerRevenue - customerJobCosts - customerExpenses;
   const timeline = [
-    ...jobs.map(j => ({ date: j.completedAt || j.dueDate || j.createdAt, title: `${j.type}: ${j.title}`, meta: `${crmTeamNames(j).join('، ')} | ${j.status} | إيراد ${formatMoney(jobRevenue(j))} | صافي ${formatMoney(jobNetProfit(j))}`, text: j.report || j.description || '-', assets:[j.beforePhoto && {asset:j.beforePhoto,label:'قبل'},j.afterPhoto && {asset:j.afterPhoto,label:'بعد'}].filter(Boolean) })),
+    ...jobs.map(j => ({ date: j.completedAt || j.dueDate || j.createdAt, title: `${j.type}: ${j.title}`, meta: `${crmTeamNames(j).join('، ')} | ${j.status} | إيراد ${formatMoney(jobRevenue(j))} | صافي ${formatMoney(jobNetProfit(j))}`, text: j.report || j.description || '-', assets:[j.beforePhoto && {asset:j.beforePhoto,label:'قبل'},j.afterPhoto && {asset:j.afterPhoto,label:'بعد'},j.devicePhotos && {asset:j.devicePhotos,label:'الجهاز / الاستيكر'}].filter(Boolean) })),
     ...purchases.map(p => ({ date: p.date, title: `شراء: ${p.item}`, meta: `${p.quantity || 1} قطعة | بيع ${formatMoney(p.amount)} | مكسب حالي ${formatMoney(p.currentProfit)} | آخر السنة ${formatMoney(p.yearEndProfit)} | ${p.payment}`, text: p.warranty || '-', asset:p.photo })),
     ...relatedExpenses.map(expense => ({ date: expenseAccountingDate(expense), title: `مصروف: ${expense.title}`, meta: `${expense.category || 'أخرى'} | ${formatMoney(expense.amount)}`, text: expense.notes || '-' })),
     ...(c.notes ? [{ date: c.updatedAt, title: 'ملاحظات داخلية', meta: c.status, text: c.notes }] : [])
@@ -4119,7 +4124,7 @@ function renderCustomerProfile(){
           <select id="crmPurchasePayment" class="rounded-2xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900 px-4 py-3 outline-none"><option value="مدفوع">مدفوع</option><option value="جزئي">جزئي</option><option value="آجل">آجل</option></select>
           <input id="crmPurchaseWarranty" type="text" placeholder="الضمان / السيريال" class="rounded-2xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900 px-4 py-3 outline-none">
           <label class="rounded-2xl border border-dashed border-slate-300 dark:border-slate-700 p-3 text-sm font-bold cursor-pointer text-center">صورة الجهاز أو الاستيكر
-            <input id="crmPurchasePhoto" type="file" accept="image/*" capture="environment" class="hidden">
+            <input id="crmPurchasePhoto" type="file" accept="image/*" multiple class="hidden">
           </label>
           <button onclick="savePurchase()" class="rounded-2xl bg-brand-600 text-white px-5 py-3 font-black">حفظ المشتريات</button>
         </div>
@@ -4199,7 +4204,7 @@ async function savePurchase(){
   const amount = document.getElementById('crmPurchaseAmount').value || '0';
   const profits = saleProfitValues(brand, dealerPrice, amount, quantity);
   let photo = null;
-  try { photo = await storedAssetFromFile(document.getElementById('crmPurchasePhoto').files[0]); }
+  try { photo = await storedAssetsFromInput(document.getElementById('crmPurchasePhoto')); }
   catch(err){ toast(err.message || 'تعذر قراءة صورة الجهاز'); return; }
   crmData.purchases.unshift({
     id: crmId('purchase'),
@@ -4222,7 +4227,7 @@ async function savePurchase(){
     warranty: document.getElementById('crmPurchaseWarranty').value.trim(),
     createdAt: new Date().toISOString()
   });
-  saveCrmData();
+  await saveCrmData();
   logAudit('إضافة مشتريات', `${item} للعميل: ${crmCustomerById(selectedCrmCustomerId)?.name || '-'}`);
   renderCrm();
   toast('تم حفظ المشتريات');
@@ -4374,7 +4379,7 @@ function fillJobForm(id){
 
 async function saveJob(){
   if(!requireAdminAccess('jobs')) return;
-  if(!crmData.customers.length || !crmData.technicians.length){ toast('أضف عميل وفني أولًا'); return; }
+  if(!crmData.customers.length){ toast('أضف عميل أولًا'); return; }
   // collect dynamic assistants
   const assistantRows = document.querySelectorAll('#assistantsBuilder .assistant-row');
   const assistants = [];
@@ -4393,8 +4398,8 @@ async function saveJob(){
   let beforePhoto = existing?.beforePhoto || null;
   let afterPhoto = existing?.afterPhoto || null;
   try{
-    beforePhoto = await storedAssetFromFile(document.getElementById('crmJobBeforePhoto').files[0]) || beforePhoto;
-    afterPhoto = await storedAssetFromFile(document.getElementById('crmJobAfterPhoto').files[0]) || afterPhoto;
+    beforePhoto = await storedAssetsFromInput(document.getElementById('crmJobBeforePhoto'), beforePhoto);
+    afterPhoto = await storedAssetsFromInput(document.getElementById('crmJobAfterPhoto'), afterPhoto);
   } catch(err){ toast(err.message || 'تعذر قراءة صور الشغل'); return; }
   const status = document.getElementById('crmJobStatus').value;
   const revenue = document.getElementById('crmJobRevenue').value;
@@ -4402,6 +4407,7 @@ async function saveJob(){
   const laborCost = document.getElementById('crmJobLaborCost').value;
   const otherCost = document.getElementById('crmJobOtherCost').value;
   const job = {
+    ...existing,
     id,
     customerId: document.getElementById('crmJobCustomer').value,
     projectId: document.getElementById('crmJobProject').value,
@@ -4427,12 +4433,15 @@ async function saveJob(){
     updatedAt: now,
     completedAt: status === 'تم التنفيذ' ? (existing?.completedAt || now) : ''
   };
-  if(!job.customerId || !job.technicianId || !job.title){ toast('اختار العميل والفني واكتب عنوان الشغل'); return; }
+  if(!job.customerId || !job.title){ toast('اختار العميل واكتب عنوان الشغل'); return; }
+  if(job.status === 'تم التنفيذ' && !job.technicianId && !job.technicianName){ toast('حدد الفني قبل تسجيل الشغل كمنفذ'); return; }
   if(existing){ crmData.jobs = crmData.jobs.map(x => x.id === id ? job : x); logAudit('تعديل شغل', `${job.title} — ${crmCustomerById(job.customerId)?.name || '-'} | ${job.status}`); }
   else { crmData.jobs.unshift(job); logAudit('إضافة شغل', `${job.title} — ${crmCustomerById(job.customerId)?.name || '-'} | ${job.type}`); }
   selectedCrmCustomerId = job.customerId;
   selectedCrmTechId = job.technicianId;
-  saveCrmData();
+  await saveCrmData();
+  document.getElementById('crmJobId').value = id;
+  clearSelectedAssets('crmJobBeforePhoto','crmJobAfterPhoto');
   renderCrm();
   toast('تم حفظ الشغل');
 }
@@ -4666,7 +4675,7 @@ function renderAccounting(){
   }
 }
 
-function saveExpense(){
+async function saveExpense(){
   if(!requireAdminAccess('accounting')) return;
   const title = document.getElementById('accountingExpenseTitle').value.trim();
   const amount = moneyValue(document.getElementById('accountingExpenseAmount').value);
@@ -4687,20 +4696,20 @@ function saveExpense(){
   };
   if(!Array.isArray(crmData.expenses)) crmData.expenses = [];
   crmData.expenses.unshift(expense);
-  saveCrmData();
+  await saveCrmData();
   logAudit('إضافة مصروف', `${expense.category} — ${expense.title} — ${formatMoney(expense.amount)}`);
   resetExpenseForm();
   renderCrm();
   toast('تم حفظ المصروف');
 }
 
-function deleteExpense(id){
+async function deleteExpense(id){
   if(!requireAdminAccess('accounting')) return;
   const expense = (crmData.expenses || []).find(item => item.id === id);
   if(!expense) return;
   if(!confirm(`هتمسح مصروف "${expense.title}" بقيمة ${formatMoney(expense.amount)}. هل متأكد؟`)) return;
   crmData.expenses = crmData.expenses.filter(item => item.id !== id);
-  saveCrmData();
+  await saveCrmData();
   logAudit('مسح مصروف', `${expense.title} — ${formatMoney(expense.amount)}`);
   renderCrm();
   toast('تم مسح المصروف');
@@ -4731,21 +4740,24 @@ function fillInventoryItemForm(id){
   updateInventoryLineTotalPreview();
 }
 
-function saveInventoryItem(){
+async function saveInventoryItem(){
   if(!requireAdminAccess('inventory')) return;
   const id = document.getElementById('inventoryItemId').value || crmId('item');
   const existing = inventoryItemById(id);
   const name = document.getElementById('inventoryItemName').value.trim();
   const qty = moneyValue(document.getElementById('inventoryItemQty').value);
-  const unitPrice = moneyValue(document.getElementById('inventoryItemUnitPrice').value);
+  const unitPrice = inventoryPriceDraft ? discountedInventoryPrice(inventoryPriceDraft.dealerPrice, inventoryPriceDraft.priceRate) : moneyValue(document.getElementById('inventoryItemUnitPrice').value);
+  const storedQty = qty - (crmData.receipts || []).filter(r => r.itemId === id).length;
   if(!name){ toast('اكتب اسم الصنف'); return; }
   if(qty < 0 || unitPrice < 0){ toast('العدد والسعر لا يمكن أن يكونا بالسالب'); return; }
   const now = new Date().toISOString();
   const item = {
+    ...existing,
     id,
     name,
-    qty: String(qty),
-    quantity: String(qty),
+    ...(inventoryPriceDraft || {}),
+    qty: String(storedQty),
+    quantity: String(storedQty),
     unitPrice: String(unitPrice),
     unitCost: String(unitPrice),
     cost: String(unitPrice),
@@ -4765,33 +4777,33 @@ function saveInventoryItem(){
     crmData.inventory.unshift(item);
     logAudit('إضافة صنف مخزن', `${item.name} - ${qty} × ${formatMoney(unitPrice)}`);
   }
-  saveCrmData();
+  await saveCrmData();
   resetInventoryItemForm();
   renderCrm();
   toast('تم حفظ الصنف');
 }
 
-function deleteInventoryItem(id){
+async function deleteInventoryItem(id){
   if(!requireAdminAccess('inventory')) return;
   const item = inventoryItemById(id);
   if(!item) return;
   if(!confirm(`هتمسح "${item.name}" من المخزن. هل متأكد؟`)) return;
   crmData.inventory = (crmData.inventory || []).filter(x => x.id !== id);
   crmData.stockMoves = (crmData.stockMoves || []).filter(move => move.itemId !== id);
-  saveCrmData();
+  await saveCrmData();
   logAudit('مسح صنف مخزن', `${item.name} - ${formatMoney(inventoryItemValue(item))}`);
   renderCrm();
   toast('تم مسح الصنف');
 }
 
-function clearInventory(){
+async function clearInventory(){
   if(!requireAdminAccess('inventory')) return;
   const count = (crmData.inventory || []).length;
   if(!count){ toast('المخزن فاضي بالفعل'); return; }
   if(!confirm(`هتمسح كل المخزن (${count} صنف). هل متأكد؟`)) return;
   crmData.inventory = [];
   crmData.stockMoves = [];
-  saveCrmData();
+  await saveCrmData();
   logAudit('مسح المخزن بالكامل', `${count} صنف`);
   resetInventoryItemForm();
   renderCrm();
@@ -4802,10 +4814,10 @@ function saveStockMove(){
   toast('المخزن اتبسط: عدل العدد وسعر الوحدة من كارت الصنف مباشرة');
 }
 
-function deleteStockMove(id){
+async function deleteStockMove(id){
   if(!requireAdminAccess('inventory')) return;
   crmData.stockMoves = (crmData.stockMoves || []).filter(x => x.id !== id);
-  saveCrmData();
+  await saveCrmData();
   renderCrm();
 }
 
@@ -4932,7 +4944,7 @@ function fillProjectForm(id){
   }
 }
 
-function saveProject(){
+async function saveProject(){
   if(!requireAdminAccess('projects')) return;
   const id = document.getElementById('projectId').value || crmId('project');
   const existing = crmProjectById(id);
@@ -4962,13 +4974,13 @@ function saveProject(){
     crmData.projects.unshift(project);
     logAudit('إضافة مشروع', `${project.name} — ${project.status}`);
   }
-  saveCrmData();
+  await saveCrmData();
   resetProjectForm();
   renderCrm();
   toast('تم حفظ المشروع');
 }
 
-function deleteProject(id){
+async function deleteProject(id){
   if(!requireAdminAccess('projects')) return;
   const project = crmProjectById(id);
   if(!project) return;
@@ -4978,7 +4990,7 @@ function deleteProject(id){
   crmData.jobs = crmData.jobs.map(job => job.projectId === id ? { ...job, projectId: '' } : job);
   crmData.stockMoves = (crmData.stockMoves || []).map(move => move.projectId === id ? { ...move, projectId: '' } : move);
   crmData.expenses = (crmData.expenses || []).map(expense => expense.projectId === id ? { ...expense, projectId: '' } : expense);
-  saveCrmData();
+  await saveCrmData();
   logAudit('مسح مشروع', project.name);
   renderCrm();
   toast('تم مسح المشروع');
@@ -5078,7 +5090,7 @@ async function saveTechnician(){
   if(existing){ crmData.technicians = crmData.technicians.map(x => x.id === id ? tech : x); logAudit('تعديل فني', `${tech.name} — ${tech.role}`); }
   else { crmData.technicians.unshift(tech); logAudit('إضافة فني', `${tech.name} — ${tech.role}`); }
   selectedCrmTechId = id;
-  saveCrmData();
+  await saveCrmData();
   renderCrm();
   toast('تم حفظ الفني / المساعد');
 }
@@ -5140,7 +5152,7 @@ function renderTechProfile(){
   `;
 }
 
-function deleteCustomer(id){
+async function deleteCustomer(id){
   if(!requireAdminAccess('customers')) return;
   const c = crmCustomerById(id);
   if(!c) return;
@@ -5156,12 +5168,12 @@ function deleteCustomer(id){
   crmData.purchases = crmData.purchases.filter(p => p.customerId !== id);
   crmData.expenses = (crmData.expenses || []).filter(expense => expense.customerId !== id && !customerJobIds.has(expense.jobId));
   if(selectedCrmCustomerId === id) selectedCrmCustomerId = null;
-  saveCrmData();
+  await saveCrmData();
   renderCrm();
   toast(`تم مسح العميل "${c.name}"`);
 }
 
-function deleteTechnician(id){
+async function deleteTechnician(id){
   if(!requireAdminAccess('technicians')) return;
   const t = crmTechById(id);
   if(!t) return;
@@ -5179,7 +5191,7 @@ function deleteTechnician(id){
     return j;
   });
   if(selectedCrmTechId === id) selectedCrmTechId = null;
-  saveCrmData();
+  await saveCrmData();
   renderCrm();
   toast(`تم مسح الفني "${t.name}"`);
 }
@@ -5199,7 +5211,7 @@ function exportCrmData(){
   URL.revokeObjectURL(url);
 }
 
-function seedCrmDemo(){
+async function seedCrmDemo(){
   if(!isOwnerAccount()){
     toast('البيانات التجريبية متاحة للمالك فقط');
     return;
@@ -5333,7 +5345,7 @@ function seedCrmDemo(){
 
   selectedCrmCustomerId = customerId;
   selectedCrmTechId = techId;
-  saveCrmData();
+  await saveCrmData();
   logAudit('بيانات تجريبية', 'تم استبدال العملاء والشغل والمشتريات مع الاحتفاظ بالفنيين الحاليين');
   renderCrm();
   switchAdminView('customers');
@@ -5547,6 +5559,7 @@ document.addEventListener('keydown', function(e){
 
 window.addEventListener('load', async () => {
   if(localStorage.getItem('fg-theme') === 'dark') document.documentElement.classList.add('dark');
+  try { await initializeDurableCrm(); } catch { toast("تعذر فتح مساحة الحفظ؛ أعد المحاولة ولا تمسح بيانات المتصفح"); return; }
   loadProducts();
   loadCrmData();
   cloudSyncStarted = true;
@@ -5574,6 +5587,10 @@ window.addEventListener('load', async () => {
 </script>
 <script src="catalog-workflows.js"></script>
 <script src="reliability.js"></script>
+<script src="crm-merge.js"></script>
+<script src="durable-crm.js"></script>
+<script src="crm-upgrade.js"></script>
+<link rel="stylesheet" href="crm-upgrade.css">
 <script src="mobile-config.js"></script>
 <script src="compact.js"></script>
 
