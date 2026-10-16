@@ -1284,7 +1284,7 @@
               </div>
               <input id="crmJobCustomType" type="text" placeholder="نوع شغل مخصص لو القائمة مش مناسبة" class="w-full rounded-2xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900 px-4 py-3 outline-none">
               <div class="grid md:grid-cols-2 gap-3">
-                <input id="crmJobDueDate" type="date" class="w-full rounded-2xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900 px-4 py-3 outline-none">
+                <label>موعد الشغل المطلوب<input id="crmJobDueDate" type="date" class="w-full rounded-2xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900 px-4 py-3 outline-none"></label>
                 <select id="crmJobStatus" class="w-full rounded-2xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900 px-4 py-3 outline-none">
                   <option value="مطلوب">مطلوب</option>
                   <option value="جاري التنفيذ">جاري التنفيذ</option>
@@ -1293,6 +1293,7 @@
                   <option value="ملغي">ملغي</option>
                 </select>
               </div>
+              <label class="fg-upgrade">تاريخ الزيارة / التنفيذ الفعلي (عند اختيار تم التنفيذ)<input id="crmJobVisitDate" type="date"><small>للشغل القديم اختار يوم التنفيذ؛ لو فارغ يُسجل يوم التنفيذ الحالي.</small></label>
               <textarea id="crmJobDescription" rows="3" placeholder="تفاصيل المطلوب من الفريق" class="w-full rounded-2xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900 px-4 py-3 outline-none resize-none"></textarea>
               <textarea id="crmJobReport" rows="3" placeholder="تقرير الفني: عمل إيه عند العميل؟" class="w-full rounded-2xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900 px-4 py-3 outline-none resize-none"></textarea>
               <div class="grid grid-cols-2 gap-3">
@@ -1458,6 +1459,7 @@
                 <div class="font-black text-xl">الأصناف الحالية</div>
                 <div class="text-sm text-slate-500">كل صنف يظهر بعدده وسعر الوحدة والإجمالي.</div>
               </div>
+              <label class="fg-upgrade">فلتر القدرة<select id="inventoryCapacityFilter" onchange="renderInventory()"><option value="all">كل القدرات — من الأقل للأعلى</option><option value="1.5">1.5 حصان — 12</option><option value="2.25">2.25 حصان — 18</option><option value="3">3 حصان — 24</option><option value="4">4 حصان — 30</option><option value="5">5 حصان — 36</option><option value="6">6 حصان — 48</option><option value="7.5">7.5 حصان — 60</option><option value="unknown">قدرة غير محددة</option></select></label>
               <input id="inventorySearch" oninput="renderInventory()" type="text" placeholder="بحث في المخزن..." class="w-full md:w-72 rounded-2xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900 px-4 py-3 outline-none">
             </div>
             <div id="inventoryItemsList" class="grid md:grid-cols-2 xl:grid-cols-3 gap-4"></div>
@@ -4049,7 +4051,7 @@ function renderCustomers(){
         <button onclick="event.stopPropagation();deleteCustomer('${escapeJs(c.id)}')" class="absolute top-3 left-3 w-8 h-8 rounded-xl bg-red-100 dark:bg-red-900/40 text-red-600 dark:text-red-400 font-black text-sm hover:bg-red-200 dark:hover:bg-red-800/60 transition" title="مسح العميل">✕</button>
         <div class="font-black text-lg">${escapeHtml(c.name)}</div>
         <div class="text-sm text-slate-500 mt-1" dir="ltr">${escapeHtml(c.phone)}</div>
-        <div class="text-sm text-slate-500 mt-1">${escapeHtml(c.area || 'بدون منطقة')}</div>
+        <div class="text-sm text-slate-500 mt-1">${escapeHtml(c.area || 'بدون منطقة')}</div>${customerVisitSummary(c.id)}
         <div class="flex flex-wrap gap-2 mt-3">${crmPill(c.status)}${crmPill(`${jobs} شغل`)}${crmPill(`${purchases} مشتريات`)}</div>
       </div>
     `;
@@ -4084,7 +4086,7 @@ function renderCustomerProfile(){
   const customerExpenses = relatedExpenses.reduce((sum, expense) => sum + moneyValue(expense.amount), 0);
   const customerNet = customerRevenue - customerJobCosts - customerExpenses;
   const timeline = [
-    ...jobs.map(j => ({ date: j.completedAt || j.dueDate || j.createdAt, title: `${j.type}: ${j.title}`, meta: `${crmTeamNames(j).join('، ')} | ${j.status} | إيراد ${formatMoney(jobRevenue(j))} | صافي ${formatMoney(jobNetProfit(j))}`, text: j.report || j.description || '-', assets:[j.beforePhoto && {asset:j.beforePhoto,label:'قبل'},j.afterPhoto && {asset:j.afterPhoto,label:'بعد'},j.devicePhotos && {asset:j.devicePhotos,label:'الجهاز / الاستيكر'}].filter(Boolean) })),
+    ...jobs.map(j => ({ date: j.status === 'تم التنفيذ' ? actualVisitDate(j) : j.dueDate, title: `${j.type}: ${j.title}`, meta: `${j.status === 'تم التنفيذ' ? 'تاريخ التنفيذ' : 'الموعد المطلوب'} | ${crmTeamNames(j).join('، ')} | ${j.status} | إيراد ${formatMoney(jobRevenue(j))} | صافي ${formatMoney(jobNetProfit(j))}`, text: j.report || j.description || '-', assets:[j.beforePhoto && {asset:j.beforePhoto,label:'قبل'},j.afterPhoto && {asset:j.afterPhoto,label:'بعد'},j.devicePhotos && {asset:j.devicePhotos,label:'الجهاز / الاستيكر'}].filter(Boolean) })),
     ...purchases.map(p => ({ date: p.date, title: `شراء: ${p.item}`, meta: `${p.quantity || 1} قطعة | بيع ${formatMoney(p.amount)} | مكسب حالي ${formatMoney(p.currentProfit)} | آخر السنة ${formatMoney(p.yearEndProfit)} | ${p.payment}`, text: p.warranty || '-', asset:p.photo })),
     ...relatedExpenses.map(expense => ({ date: expenseAccountingDate(expense), title: `مصروف: ${expense.title}`, meta: `${expense.category || 'أخرى'} | ${formatMoney(expense.amount)}`, text: expense.notes || '-' })),
     ...(c.notes ? [{ date: c.updatedAt, title: 'ملاحظات داخلية', meta: c.status, text: c.notes }] : [])
@@ -4092,7 +4094,7 @@ function renderCustomerProfile(){
   el.innerHTML = `
     <div class="flex items-start justify-between gap-4 flex-wrap mb-4">
       <div>
-        <div class="font-black text-2xl">${escapeHtml(c.name)}</div>
+        <div class="font-black text-2xl">${escapeHtml(c.name)}</div>${customerVisitSummary(c.id)}
         <div class="text-slate-500 mt-1" dir="ltr">${escapeHtml(c.phone)}${c.altPhone ? ' / ' + escapeHtml(c.altPhone) : ''}</div>
         <div class="text-slate-500 mt-1">${escapeHtml(c.address || c.area || 'العنوان غير مسجل')}</div>
         ${parentCustomer ? `<div class="text-brand-700 dark:text-brand-300 mt-1 font-bold">تابع للعميل: ${escapeHtml(parentCustomer.name)}</div>` : ''}
@@ -4325,7 +4327,7 @@ function addJobLine(line = {}){
 }
 
 function resetJobForm(){
-  ['crmJobId','crmJobTitle','crmJobCustomType','crmJobDescription','crmJobReport','crmJobRevenue','crmJobMaterialCost','crmJobLaborCost','crmJobOtherCost'].forEach(id => {
+  ['crmJobVisitDate','crmJobId','crmJobTitle','crmJobCustomType','crmJobDescription','crmJobReport','crmJobRevenue','crmJobMaterialCost','crmJobLaborCost','crmJobOtherCost'].forEach(id => {
     const el = document.getElementById(id);
     if(el) el.value = '';
   });
@@ -4356,6 +4358,7 @@ function fillJobForm(id){
   document.getElementById('crmJobTitle').value = j.title || '';
   setSelectOrCustom('crmJobType', 'crmJobCustomType', j.type || 'معاينة', 'معاينة');
   document.getElementById('crmJobDueDate').value = j.dueDate || '';
+  document.getElementById('crmJobVisitDate').value = actualVisitDate(j);
   document.getElementById('crmJobStatus').value = j.status || 'مطلوب';
   document.getElementById('crmJobDescription').value = j.description || '';
   document.getElementById('crmJobReport').value = j.report || '';
@@ -4420,6 +4423,7 @@ async function saveJob(){
     type: customOrSelect('crmJobType', 'crmJobCustomType'),
     dueDate: document.getElementById('crmJobDueDate').value,
     status,
+    visitDate: status === 'تم التنفيذ' ? (document.getElementById('crmJobVisitDate').value || actualVisitDate(existing || {}) || crmDate()) : '',
     description: document.getElementById('crmJobDescription').value.trim(),
     report: document.getElementById('crmJobReport').value.trim(),
     beforePhoto,
@@ -4829,7 +4833,7 @@ function renderInventory(){
   if(!canAccessAdmin('inventory')) return;
   const items = crmData.inventory || [];
   const q = document.getElementById('inventorySearch')?.value?.trim().toLowerCase() || '';
-  const filtered = items.filter(item => [item.name,item.sku,item.category,item.notes].join(' ').toLowerCase().includes(q));
+  const filtered = filterInventoryCapacity(items, q, document.getElementById('inventoryCapacityFilter')?.value || 'all');
   const totalValue = items.reduce((sum, item) => sum + inventoryItemValue(item), 0);
   const totalQty = items.reduce((sum, item) => sum + inventoryBalance(item.id), 0);
   const avgUnitPrice = totalQty > 0 ? totalValue / totalQty : 0;
@@ -4842,7 +4846,7 @@ function renderInventory(){
   const list = document.getElementById('inventoryItemsList');
   if(!list) return;
   if(!filtered.length){
-    list.innerHTML = `<div class="md:col-span-2 xl:col-span-3 rounded-2xl border border-dashed border-slate-300 dark:border-slate-700 p-6 text-center text-slate-500">لا يوجد أصناف في المخزن.</div>`;
+    list.innerHTML = `<div class="md:col-span-2 xl:col-span-3 rounded-2xl border border-dashed border-slate-300 dark:border-slate-700 p-6 text-center text-slate-500">لا يوجد أصناف مطابقة للبحث والقدرة المختارة.</div>`;
     return;
   }
   list.innerHTML = filtered.map(item => {
@@ -4852,7 +4856,7 @@ function renderInventory(){
     return `
       <div class="rounded-[1.5rem] border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900 p-4">
         <div class="font-black text-lg">${escapeHtml(item.name)}</div>
-        ${inventoryPricingDetails(item)}
+        <div class="text-sm">${inventoryHorsepower(item) ? inventoryHorsepower(item) + ' حصان' : 'القدرة غير محددة'}</div>${inventoryPricingDetails(item)}
         <div class="grid grid-cols-3 gap-2 mt-3 text-sm">
           <div class="rounded-xl bg-white dark:bg-slate-950 p-3"><div class="text-xs text-slate-500">العدد</div><div class="font-black">${formatPrice(qty)}</div></div>
           <div class="rounded-xl bg-white dark:bg-slate-950 p-3"><div class="text-xs text-slate-500">السعر الصافي</div><div class="font-black">${formatMoney(price)}</div></div>
@@ -5596,6 +5600,7 @@ window.addEventListener('load', async () => {
 <script src="crm-record-corrections.js"></script>
 <script src="durable-crm.js"></script>
 <script src="inventory-pricing.js"></script>
+<script src="crm-history.js"></script>
 <script src="crm-upgrade.js"></script>
 <script src="crm-form-stability.js"></script>
 <link rel="stylesheet" href="crm-upgrade.css">

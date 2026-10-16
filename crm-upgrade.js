@@ -62,7 +62,7 @@ function inCrmRange(date,prefix){
 }
 function jobCard(job,done){
   const customer=crmCustomerById(job.customerId);
-  return `<article class="fg-record"><h3>${escapeHtml(job.title||'شغل')}</h3><p>${escapeHtml(customer?.name||'عميل غير محدد')} — ${escapeHtml(crmTeamNames(job).join('، ')||'الفني يُحدد لاحقًا')}</p><p>${escapeHtml(job.status)} · ${escapeHtml(done?jobAccountingDate(job):job.dueDate||'بدون موعد')}</p><p>${escapeHtml(job.report||job.description||'')}</p><div class="fg-actions"><button onclick="fillJobForm('${escapeJs(job.id)}')">فتح / تعديل الشغل</button>${done?`<button onclick="reopenJob('${escapeJs(job.id)}')">إرجاع للشغل المطلوب</button>`:`<button class="fg-primary" onclick="completeJob('${escapeJs(job.id)}')">✓ تم التنفيذ</button>`}</div></article>`;
+  return `<article class="fg-record"><h3>${escapeHtml(job.title||'شغل')}</h3><p>${escapeHtml(customer?.name||'عميل غير محدد')} — ${escapeHtml(crmTeamNames(job).join('، ')||'الفني يُحدد لاحقًا')}</p><p>${escapeHtml(job.status)} · ${escapeHtml(done?actualVisitDate(job)||'تاريخ التنفيذ غير مسجل':job.dueDate||'بدون موعد')}</p><p>${escapeHtml(job.report||job.description||'')}</p>${customerWorkHistory(job.customerId)}<div class="fg-actions"><button onclick="fillJobForm('${escapeJs(job.id)}')">فتح / تعديل الشغل</button>${done?`<button onclick="reopenJob('${escapeJs(job.id)}')">إرجاع للشغل المطلوب</button>`:`<button class="fg-primary" onclick="completeJob('${escapeJs(job.id)}')">✓ تم التنفيذ</button>`}</div></article>`;
 }
 function jobMatches(job,query){return [job.title,job.type,crmCustomerById(job.customerId)?.name,crmCustomerById(job.customerId)?.phone,...crmTeamNames(job)].join(' ').toLowerCase().includes(query);}
 renderJobs=function(){
@@ -74,20 +74,20 @@ renderJobs=function(){
 function renderCompletedJobs(){
   if(!canAccessAdmin('jobs')) return;
   const q=document.getElementById('completedSearch').value.trim().toLowerCase();
-  const list=crmData.jobs.filter(j=>j.status==='تم التنفيذ'&&canAccessJobRecord(j)&&jobMatches(j,q)&&inCrmRange(jobAccountingDate(j),'completed')).sort((a,b)=>jobAccountingDate(b).localeCompare(jobAccountingDate(a)));
+  const list=crmData.jobs.filter(j=>j.status==='تم التنفيذ'&&canAccessJobRecord(j)&&jobMatches(j,q)&&inCrmRange(actualVisitDate(j),'completed')).sort((a,b)=>actualVisitDate(b).localeCompare(actualVisitDate(a)));
   document.getElementById('completedJobsList').innerHTML=`<p>${list.length} شغلانة منفذة</p>`+list.map(j=>jobCard(j,true)).join('');
 }
 async function completeJob(id){
   if(!requireAdminAccess('jobs')) return;
   const job=crmJobById(id);if(!job||!canAccessJobRecord(job)||job.status==='تم التنفيذ') return;
   if(!job.technicianId&&!job.technicianName){fillJobForm(id);toast('حدد الفني الذي نفذ الشغل ثم اختر حالة تم التنفيذ واحفظ');return;}
-  const before={...job};job.status='تم التنفيذ';job.completedAt=new Date().toISOString();job.updatedAt=job.completedAt;
+  const before={...job};job.status='تم التنفيذ';job.visitDate=crmDate();job.completedAt=new Date().toISOString();job.updatedAt=job.completedAt;
   try{await saveCrmData();renderCrm();toast('تم النقل إلى الشغل المنفذ');}catch{Object.assign(job,before);toast('تعذر حفظ التنفيذ؛ حاول مرة أخرى');}
 }
 async function reopenJob(id){
   if(!requireAdminAccess('jobs')) return;
   const job=crmJobById(id);if(!job||!canAccessJobRecord(job)) return;
-  const before={...job};job.lastCompletedAt=job.completedAt;job.completedAt='';job.status='مطلوب';job.updatedAt=new Date().toISOString();
+  const before={...job};job.lastCompletedAt=job.completedAt;job.completedAt='';job.visitDate='';job.status='مطلوب';job.updatedAt=new Date().toISOString();
   try{await saveCrmData();renderCrm();toast('تم إرجاع الشغل للمطلوب');}catch{Object.assign(job,before);toast('تعذر الحفظ');}
 }
 const requiredRange=document.createElement('div');requiredRange.className='fg-upgrade';requiredRange.innerHTML='<div class="fg-filters"><label>موعد الشغل من <input id="requiredFrom" type="date" onchange="renderJobs()"></label><label>إلى <input id="requiredTo" type="date" onchange="renderJobs()"></label></div>';

@@ -94,6 +94,22 @@ async function main(){
  const stockBeforeOcr=await page.evaluate(()=>inventoryBalance('stock'));
  await page.evaluate(()=>readReceiptSerial());assert.equal(await page.inputValue('#receiptSerial'),'ABC123456');assert.equal(await page.evaluate(()=>inventoryBalance('stock')),stockBeforeOcr);ok('OCR suggestion requires review and never changes stock before saving');
  await page.setViewportSize({width:1440,height:960});await page.evaluate(()=>switchAdminView('completed'));await page.screenshot({path:'./desktop-completed.png'});
+ // History uses actual completed visits, never a future appointment or edit timestamp.
+ await page.evaluate(()=>{switchAdminView('jobs');fillJobForm(crmData.jobs.find(j=>j.status==='تم التنفيذ').id);});
+ await page.fill('#crmJobVisitDate','2026-08-15');const datedJob=await page.evaluate(()=>saveJob());assert.ok(datedJob);
+ assert.equal(await page.evaluate(id=>actualVisitDate(crmJobById(id)),datedJob),'2026-08-15');
+ await page.evaluate(id=>{fillJobForm(id);},datedJob);assert.equal(await page.inputValue('#crmJobVisitDate'),'2026-08-15');
+ await page.evaluate(id=>{selectedCrmCustomerId=crmJobById(id).customerId;switchAdminView('customers');renderCustomerProfile();},datedJob);
+ assert.ok((await page.locator('#crmCustomerProfile').innerText()).includes('2026-08-15'));
+ await page.evaluate(()=>{switchAdminView('jobs');renderJobs();});assert.ok((await page.locator('#crmJobsList').innerText()).includes('آخر زيارة منفذة'));
+ await page.evaluate(()=>{switchAdminView('inventory');renderInventory();});
+ const beforeFilter=await page.evaluate(()=>JSON.stringify(crmData.inventory));
+ await page.selectOption('#inventoryCapacityFilter','1.5');assert.ok((await page.locator('#inventoryItemsList').innerText()).includes('53KHEFT12DN8-708F'));assert.ok(!(await page.locator('#inventoryItemsList').innerText()).includes('M1SEFT-24CRN8F-Q8'));
+ await page.selectOption('#inventoryCapacityFilter','3');assert.ok((await page.locator('#inventoryItemsList').innerText()).includes('M1SEFT-24CRN8F-Q8'));
+ await page.fill('#inventorySearch','not-a-model');assert.ok((await page.locator('#inventoryItemsList').innerText()).includes('لا يوجد أصناف مطابقة'));
+ await page.fill('#inventorySearch','');await page.selectOption('#inventoryCapacityFilter','all');assert.equal(await page.evaluate(()=>JSON.stringify(crmData.inventory)),beforeFilter);
+ await page.screenshot({path:'./inventory-capacity-filter.png'});
+ ok('Actual visit date persists; customer and requested work history render; capacity filter leaves inventory unchanged');
  // Limited permissions cannot save inventory; linked technicians only see assigned jobs.
  await page.evaluate(()=>{currentAdminUser='employee';const list=JSON.parse(localStorage.getItem(STORAGE_KEYS.adminCreds));list.find(x=>x.username==='employee').permissions=['customers','jobs'];list.find(x=>x.username==='employee').technicianId='t';localStorage.setItem(STORAGE_KEYS.adminCreds,JSON.stringify(list));});
  assert.equal(await page.evaluate(()=>canAccessAdmin('receipts')),false);assert.equal(await page.evaluate(()=>canAccessJobRecord({technicianId:'different'})),false);ok('Existing staff permission and technician assignment restrictions preserved');
