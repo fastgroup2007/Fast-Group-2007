@@ -30,8 +30,21 @@
     return items.filter(item=>[item.model,item.name,item.sku,item.category,item.notes].join(' ').toLowerCase().includes(query.toLowerCase())&&(hp==='all'||(hp==='unknown'?inventoryHorsepower(item)===null:inventoryHorsepower(item)===Number(hp))))
       .sort((a,b)=>(inventoryHorsepower(a)??Infinity)-(inventoryHorsepower(b)??Infinity)||String(a.name||'').localeCompare(String(b.name||'')));
   }
-  Object.assign(root,{actualVisitDate,customerVisits,inventoryHorsepower,filterInventoryCapacity});
-  if(typeof module!=='undefined')module.exports={actualVisitDate,customerVisits,inventoryHorsepower,filterInventoryCapacity};
+  function sortCustomers(customers,jobs,mode='name'){
+    const names=new Intl.Collator('ar',{sensitivity:'base',numeric:true});
+    const visits=new Map();
+    for(const job of jobs){const date=actualVisitDate(job);if(date>(visits.get(job.customerId)||''))visits.set(job.customerId,date);}
+    const byName=(a,b)=>names.compare(String(a.name||'').trim(),String(b.name||'').trim());
+    const dateOf=c=>mode.startsWith('visit-')?Date.parse(visits.get(c.id)||''):Date.parse(c.createdAt||'');
+    return customers.slice().sort((a,b)=>{
+      if(mode==='name')return byName(a,b);
+      const x=dateOf(a),y=dateOf(b);
+      if(!Number.isFinite(x)||!Number.isFinite(y))return Number.isFinite(x)?-1:Number.isFinite(y)?1:byName(a,b);
+      return (mode.endsWith('-asc')?x-y:y-x)||byName(a,b);
+    });
+  }
+  Object.assign(root,{actualVisitDate,customerVisits,inventoryHorsepower,filterInventoryCapacity,sortCustomers});
+  if(typeof module!=='undefined')module.exports={actualVisitDate,customerVisits,inventoryHorsepower,filterInventoryCapacity,sortCustomers};
 })(globalThis);
 
 function customerVisitSummary(customerId){

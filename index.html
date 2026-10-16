@@ -1236,6 +1236,7 @@
                 </div>
                 <div class="flex gap-2 w-full md:w-auto">
                   <input id="crmCustomerSearch" oninput="renderCustomers()" type="text" placeholder="بحث..." class="w-full md:w-72 rounded-2xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900 px-4 py-3 outline-none">
+                  <label class="fg-upgrade">ترتيب العملاء<select id="crmCustomerSort" onchange="renderCustomers()"><option value="name">أبجديًا</option><option value="visit-desc">آخر زيارة — الأحدث أولًا</option><option value="visit-asc">آخر زيارة — الأقدم أولًا</option><option value="registered-desc">تاريخ التسجيل — الأحدث أولًا</option><option value="registered-asc">تاريخ التسجيل — الأقدم أولًا</option></select></label>
                   <select id="crmCustomerFilter" onchange="renderCustomers()" class="rounded-2xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900 px-4 py-3 outline-none">
                     <option value="all">كل الحالات</option>
                     <option value="جديد">جديد</option>
@@ -4035,10 +4036,10 @@ function renderCustomers(){
   if(!container) return;
   const q = document.getElementById('crmCustomerSearch')?.value?.trim().toLowerCase() || '';
   const status = document.getElementById('crmCustomerFilter')?.value || 'all';
-  const list = crmData.customers.filter(c => {
+  const list = sortCustomers(crmData.customers.filter(c => {
     const haystack = [c.name,c.phone,c.altPhone,c.area,c.address].join(' ').toLowerCase();
     return (!q || haystack.includes(q)) && (status === 'all' || c.status === status);
-  });
+  }), crmData.jobs.filter(canAccessJobRecord), document.getElementById('crmCustomerSort')?.value || 'name');
   if(!list.length){
     container.innerHTML = `<div class="md:col-span-2 xl:col-span-3 rounded-2xl border border-dashed border-slate-300 dark:border-slate-700 p-6 text-center text-slate-500">لا يوجد عملاء مطابقين.</div>`;
     return;
@@ -4051,7 +4052,7 @@ function renderCustomers(){
         <button onclick="event.stopPropagation();deleteCustomer('${escapeJs(c.id)}')" class="absolute top-3 left-3 w-8 h-8 rounded-xl bg-red-100 dark:bg-red-900/40 text-red-600 dark:text-red-400 font-black text-sm hover:bg-red-200 dark:hover:bg-red-800/60 transition" title="مسح العميل">✕</button>
         <div class="font-black text-lg">${escapeHtml(c.name)}</div>
         <div class="text-sm text-slate-500 mt-1" dir="ltr">${escapeHtml(c.phone)}</div>
-        <div class="text-sm text-slate-500 mt-1">${escapeHtml(c.area || 'بدون منطقة')}</div>${customerVisitSummary(c.id)}
+        <div class="text-sm text-slate-500 mt-1">${escapeHtml(c.area || 'بدون منطقة')}</div>${customerVisitSummary(c.id)}<div class="text-sm text-slate-500 mt-1">تاريخ التسجيل: ${escapeHtml((c.createdAt || '').slice(0,10) || 'غير مسجل')}</div>
         <div class="flex flex-wrap gap-2 mt-3">${crmPill(c.status)}${crmPill(`${jobs} شغل`)}${crmPill(`${purchases} مشتريات`)}</div>
       </div>
     `;
@@ -4094,7 +4095,7 @@ function renderCustomerProfile(){
   el.innerHTML = `
     <div class="flex items-start justify-between gap-4 flex-wrap mb-4">
       <div>
-        <div class="font-black text-2xl">${escapeHtml(c.name)}</div>${customerVisitSummary(c.id)}
+        <div class="font-black text-2xl">${escapeHtml(c.name)}</div>${customerVisitSummary(c.id)}<div class="text-sm text-slate-500 mt-1">تاريخ التسجيل: ${escapeHtml((c.createdAt || '').slice(0,10) || 'غير مسجل')}</div>
         <div class="text-slate-500 mt-1" dir="ltr">${escapeHtml(c.phone)}${c.altPhone ? ' / ' + escapeHtml(c.altPhone) : ''}</div>
         <div class="text-slate-500 mt-1">${escapeHtml(c.address || c.area || 'العنوان غير مسجل')}</div>
         ${parentCustomer ? `<div class="text-brand-700 dark:text-brand-300 mt-1 font-bold">تابع للعميل: ${escapeHtml(parentCustomer.name)}</div>` : ''}
