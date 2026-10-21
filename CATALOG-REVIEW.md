@@ -55,3 +55,9 @@ These entries display an explicit missing-photo message. Do not substitute a sim
 | Fresh | Air Curtain 90cm | — |
 
 Source lists: ELARABY AC 19 Aug 2026 Price List D.pdf; 2026 LG AC Price 15, June.pdf; FRESH PL 06.2026.pdf; supplied Haier June and Free Air March 2026 tables. Photo/spec evidence is stored per product in catalog-data.js.
+
+## Follow-up requested by owner
+- Restored the original responsive grid: two compact columns on mobile, original laptop/desktop breakpoints. Restored WhatsApp, quote request and model-copy actions; combined request text includes model, color, price and delivery/installation confirmation.
+- Header stays at the top, with brand filters pinned below it while browsing the catalog. Verified header top 0 and filter top equal to header height after scrolling.
+- Added blower, wash-bag and chemical cleaning explanations and a validated service choice in the maintenance message.
+- Passed 11 Node test cases/suites and browser checks at 390px and 1366px. The separate legacy crm-browser.cjs runner could not start because Playwright is not installed; browser checks used the connected browser instead.

@@ -4,7 +4,7 @@ const { normalizePhone, validateRequest, buildMessage } = require('../maintenanc
 
 const valid = {
   name: 'أحمد علي', phone: '٠١٠١٢٣٤٥٦٧٨', area: 'الإسكندرية، سموحة',
-  brand: 'شارب', problem: 'الجهاز تبريده ضعيف وبيسرّب مياه', preferred: 'الخميس بعد ٥ مساءً'
+  brand: 'شارب', service: 'صيانة بحوض الغسيل', problem: 'الجهاز تبريده ضعيف وبيسرّب مياه', preferred: 'الخميس بعد ٥ مساءً'
 };
 
 for (const input of ['01012345678', '٠١٠١٢٣٤٥٦٧٨', '۰۱۰۱۲۳۴۵۶۷۸', '+20 10 1234 5678', '00201012345678', '(010) 1234-5678']) {
@@ -18,7 +18,7 @@ for (const prefix of ['010', '011', '012', '015']) assert.equal(normalizePhone(p
 const checked = validateRequest(valid);
 assert.equal(checked.valid, true);
 assert.equal(checked.values.phone, '01012345678');
-for (const field of ['name', 'phone', 'area', 'brand', 'problem']) {
+for (const field of ['name', 'phone', 'area', 'brand', 'service', 'problem']) {
   const result = validateRequest({ ...valid, [field]: '   ' });
   assert.equal(result.valid, false, field);
   assert.ok(result.errors[field], field);
@@ -39,3 +39,7 @@ const url = new URL('https://wa.me/201013283466?text=' + encodeURIComponent(unus
 assert.equal(url.searchParams.get('text'), unusual);
 assert.equal(url.pathname, '/201013283466');
 console.log('PASS: Egyptian/Arabic phone formats, required fields, length limits, optional timing, WhatsApp encoding.');
+
+assert.ok(message.includes('نوع الصيانة المطلوب: صيانة بحوض الغسيل'));
+assert.equal(validateRequest({...valid,service:'invalid'}).valid,false);
+for(const service of ['صيانة هواء بالبلاور','صيانة كيميكال','مش متأكد — محتاج ترشيح الفني'])assert.equal(validateRequest({...valid,service}).valid,true);

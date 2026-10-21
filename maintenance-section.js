@@ -6,6 +6,8 @@
   const BUSINESS_PHONE = '201013283466';
   const BRANDS = ['كاريير', 'ميديا', 'شارب', 'تورنادو', 'هاير', 'LG', 'فري إير', 'فريش', 'ماركة تانية / مش متأكد'];
 
+  const SERVICES = ['صيانة هواء بالبلاور', 'صيانة بحوض الغسيل', 'صيانة كيميكال', 'مش متأكد — محتاج ترشيح الفني'];
+
   function cleanText(value) {
     return String(value || '').replace(/[\u0000-\u0008\u000B\u000C\u000E-\u001F\u007F]/g, '').trim();
   }
@@ -24,7 +26,7 @@
 
   function validateRequest(raw) {
     const values = {};
-    ['name', 'phone', 'area', 'brand', 'problem', 'preferred'].forEach(key => {
+    ['name', 'phone', 'area', 'brand', 'service', 'problem', 'preferred'].forEach(key => {
       values[key] = cleanText(raw[key]);
     });
     const errors = {};
@@ -34,6 +36,7 @@
     else values.phone = phone;
     if (values.area.length < 2 || values.area.length > 160) errors.area = 'اكتب المحافظة والمنطقة من حرفين إلى 160 حرف.';
     if (!BRANDS.includes(values.brand)) errors.brand = 'اختار ماركة الجهاز، أو «ماركة تانية / مش متأكد».';
+    if (!SERVICES.includes(values.service)) errors.service = 'اختار نوع الصيانة أو اطلب ترشيح الفني.';
     if (values.problem.length < 8 || values.problem.length > 1200) errors.problem = 'وصف المشكلة يكون من 8 إلى 1200 حرف عشان نقدر نفهم العطل.';
     if (values.preferred.length > 120) errors.preferred = 'اكتب الوقت المفضل في 120 حرف أو أقل.';
     return { values, errors, valid: Object.keys(errors).length === 0 };
@@ -47,6 +50,7 @@
       'رقم الموبايل: ' + values.phone,
       'المحافظة والمنطقة: ' + values.area,
       'ماركة الجهاز: ' + values.brand,
+      'نوع الصيانة المطلوب: ' + values.service,
       'المشكلة: ' + values.problem,
       'الوقت المفضل للتواصل أو الزيارة: ' + (values.preferred || 'حسب الاتفاق'),
       '',
@@ -130,11 +134,7 @@
             <h2 id="fgm-title">صيانة التكييف</h2>
             <p>التكييف محتاج تنظيف، تبريده ضعيف، أو فيه عطل؟ اكتب لنا التفاصيل ونرتب معاك الخطوة المناسبة.</p>
           </div>
-          <div class="fgm-services">
-            <article class="fgm-service"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3v18M3 12h18M5.6 5.6l12.8 12.8M5.6 18.4 18.4 5.6"/></svg><h3>تنظيف وصيانة دورية</h3><p>تنظيف الفلاتر والوحدات، ومراجعة الأداء والتصريف حسب حالة الجهاز.</p></article>
-            <article class="fgm-service"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="m14 6 4-4a6 6 0 0 1-7 8L4 17a2 2 0 0 0 3 3l7-7a6 6 0 0 0 8-7l-4 4z"/></svg><h3>كشف وإصلاح الأعطال</h3><p>فحص سبب ضعف التبريد، الأصوات غير المعتادة، أو توقف الجهاز عن التشغيل.</p></article>
-            <article class="fgm-service"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3C9 7 5 11 5 15a7 7 0 0 0 14 0c0-4-4-8-7-12Z"/><path d="M9 15a3 3 0 0 0 3 3"/></svg><h3>مراجعة التسريب والتصريف</h3><p>فحص تسريب المياه ودائرة التبريد وتحديد الإصلاح المطلوب بعد الكشف.</p></article>
-          </div>
+
         </div>`;
       const business = document.getElementById('business');
       const contact = document.getElementById('contact');
@@ -142,6 +142,17 @@
       else if (contact) contact.before(section);
       else (document.querySelector('main') || document.body).appendChild(section);
     }
+
+
+    const services = document.createElement('div');
+    services.className = 'fgm-wrap';
+    services.innerHTML = `<div class="fgm-heading"><h2>٣ أنواع لصيانة وتنظيف التكييف</h2><p>نوع التنظيف بيتحدد حسب حالة الجهاز ودرجة الاتساخ. الفني بيراجع الحالة ويأكد معاك المناسب والتكلفة قبل التنفيذ.</p></div>
+      <div class="fgm-services">
+      <article class="fgm-service"><h3>صيانة هواء بالبلاور</h3><p>تنظيف جاف بالهواء لإزالة الأتربة الخفيفة من الأجزاء المناسبة، مع تنظيف الفلاتر ومراجعة حركة الهواء.</p><p><b>مميزاتها:</b> مناسبة للصيانة الدورية والاتساخ البسيط، وبتقلل تراكم التراب من غير غسيل مائي شامل.</p><p><b>أنسب وقت:</b> بين مرات الغسيل العميق. الأوساخ الملتصقة والدهون ممكن تحتاج طريقة أقوى.</p></article>
+      <article class="fgm-service"><h3>صيانة بحوض الغسيل</h3><p>غسيل مائي باستخدام حوض أو كيس مخصص لتجميع المياه حول الوحدة، مع تنظيف الأجزاء القابلة للغسيل ومراجعة صرف المياه.</p><p><b>مميزاتها:</b> تنظيف أعمق للأتربة المتراكمة، وتجميع مياه الغسيل يساعد على حماية المكان المحيط والحفاظ على نظافته.</p><p><b>أنسب وقت:</b> لما الأتربة تكون متراكمة ومحتاجة غسيل. الفني بيعزل المكونات الكهربائية وبيستخدم ضغط مياه مناسب للجهاز.</p></article>
+      <article class="fgm-service"><h3>صيانة كيميكال</h3><p>تنظيف متخصص بمنظف مناسب لملفات التكييف وخاماتها، لفك الأوساخ العنيدة والدهون، مع الشطف حسب تعليمات المنظف والجهاز.</p><p><b>مميزاتها:</b> بتساعد في إزالة الرواسب اللي التنظيف العادي مش كفاية لها، والوصول لتنظيف أعمق حسب الحالة.</p><p><b>أنسب وقت:</b> للاتساخ الشديد بعد تقييم الفني. نوع المادة وتركيزها بيتحددوا بما يناسب الجهاز.</p></article>
+      </div>`;
+    section.appendChild(services);
 
     const request = document.createElement('div');
     request.id = 'maintenance-request';
@@ -156,6 +167,7 @@
           <div class="fgm-field"><label for="fgm-phone">رقم الموبايل *</label><input id="fgm-phone" name="phone" type="tel" dir="ltr" inputmode="tel" autocomplete="tel" required maxlength="24" placeholder="01012345678" aria-describedby="fgm-phone-help fgm-phone-error"><span id="fgm-phone-help" class="fgm-help">رقم مصري من 11 رقم. بنقبل كمان +20 والأرقام العربية.</span><span id="fgm-phone-error" class="fgm-error" hidden></span></div>
           <div class="fgm-field"><label for="fgm-area">المحافظة والمنطقة *</label><input id="fgm-area" name="area" autocomplete="address-level2" required maxlength="160" placeholder="مثال: الإسكندرية، سموحة" aria-describedby="fgm-area-error"><span id="fgm-area-error" class="fgm-error" hidden></span></div>
           <div class="fgm-field"><label for="fgm-brand">ماركة الجهاز *</label><select id="fgm-brand" name="brand" required aria-describedby="fgm-brand-error"><option value="">اختار الماركة</option>${BRANDS.map(brand => '<option>' + brand + '</option>').join('')}</select><span id="fgm-brand-error" class="fgm-error" hidden></span></div>
+          <div class="fgm-field fgm-wide"><label for="fgm-service">نوع الصيانة *</label><select id="fgm-service" name="service" required aria-describedby="fgm-service-error"><option value="">اختار نوع الصيانة</option>${SERVICES.map(service => '<option>' + service + '</option>').join('')}</select><span id="fgm-service-error" class="fgm-error" hidden></span></div>
           <div class="fgm-field fgm-wide"><label for="fgm-problem">وصف المشكلة *</label><textarea id="fgm-problem" name="problem" rows="4" required maxlength="1200" placeholder="مثال: التكييف تبريده ضعيف وبيسرّب مياه. اكتب كود الموديل لو موجود." aria-describedby="fgm-problem-error"></textarea><span id="fgm-problem-error" class="fgm-error" hidden></span></div>
           <div class="fgm-field fgm-wide"><label for="fgm-preferred">الوقت المفضل للتواصل أو الزيارة (اختياري)</label><input id="fgm-preferred" name="preferred" maxlength="120" placeholder="مثال: يوم الخميس بعد الساعة 5 مساءً" aria-describedby="fgm-preferred-help fgm-preferred-error"><span id="fgm-preferred-help" class="fgm-help">الوقت ده تفضيل منك، والموعد بيتأكد بعد التواصل.</span><span id="fgm-preferred-error" class="fgm-error" hidden></span></div>
         </div>
@@ -169,7 +181,7 @@
         <div class="fgm-actions"><a id="fgm-send" target="_blank" rel="noopener noreferrer" class="fgm-button fgm-whatsapp">افتح واتساب لإرسال الطلب</a></div>
         <p class="fgm-note">هتفتح محادثة فاست جروب على الرقم <bdi dir="ltr">01013283466</bdi> بالرسالة الجاهزة. اضغط إرسال هناك لإتمام طلبك.</p>
       </div>`;
-    (section.querySelector('.container, .fgm-wrap') || section).appendChild(request);
+    services.appendChild(request);
 
     // Add navigation only when absent; preserve existing gallery and service content.
     const desktopNav = document.querySelector('header nav');
@@ -195,7 +207,7 @@
     const preview = document.getElementById('fgm-preview');
     const status = document.getElementById('fgm-status');
     const send = document.getElementById('fgm-send');
-    const fields = ['name', 'phone', 'area', 'brand', 'problem', 'preferred'];
+    const fields = ['name', 'phone', 'area', 'brand', 'service', 'problem', 'preferred'];
     const clearPreview = () => {
       preview.hidden = true;
       send.removeAttribute('href');
