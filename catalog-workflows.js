@@ -8,9 +8,9 @@ function searchCatalog(query){
   const q = String(query || '').trim().toLowerCase();
   return unifiedCatalog().filter(p => [p.model,p.name,p.brand].join(' ').toLowerCase().includes(q));
 }
-function deviceCost(p){ return Math.round(Number(p.dealerPrice) * (p.brand === 'Midea' ? .96 : .97) * 100) / 100; }
-function yearDeviceCost(p){ return Math.round(Number(p.dealerPrice) * (p.brand === 'Midea' ? .92 : .93) * 100) / 100; }
-function deviceCostLabel(p){ return `التجاري: ${formatMoney(p.dealerPrice)} | بعد خصم ${p.brand === 'Midea' ? 4 : 3}%: ${formatMoney(deviceCost(p))} | بعد خصم ${p.brand === 'Midea' ? 8 : 7}%: ${formatMoney(yearDeviceCost(p))}`; }
+function deviceCost(p){ return Math.round(Number(p.dealerPrice) * (p.brand === 'Midea' ? .96 : p.brand === 'Carrier' ? .97 : 1) * 100) / 100; }
+function yearDeviceCost(p){ return Math.round(Number(p.dealerPrice) * (p.brand === 'Midea' ? .92 : p.brand === 'Carrier' ? .93 : 1) * 100) / 100; }
+function deviceCostLabel(p){ if(!Number(p.dealerPrice))return "سعر الموزع عند الطلب"; if(!["Carrier","Midea"].includes(p.brand))return `سعر الموزع بالقائمة: ${formatMoney(p.dealerPrice)}`; return `التجاري: ${formatMoney(p.dealerPrice)} | بعد خصم ${p.brand === 'Midea' ? 4 : 3}%: ${formatMoney(deviceCost(p))} | بعد خصم ${p.brand === 'Midea' ? 8 : 7}%: ${formatMoney(yearDeviceCost(p))}`; }
 function enhanceModelInput(input){
   if(input.dataset.catalogReady) return;
   input.dataset.catalogReady = 'true';

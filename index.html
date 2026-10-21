@@ -241,7 +241,7 @@
                     </svg>
                   </div>
                   <div class="font-black text-lg">السعر المعلن داخل الإسكندرية</div>
-                  <div class="text-sm text-slate-500 mt-1">السعر المعلن للعميل يشمل التوريد + التركيب القياسي + تفعيل الضمان المعتمد.</div>
+                  <div class="text-sm text-slate-500 mt-1">راجع تفاصيل كل موديل لمعرفة محتويات السعر والتركيب والضمان.</div>
                 </div>
                 <div class="rounded-3xl border border-slate-200 dark:border-slate-800 p-4 card-hover text-center">
                   <div class="w-14 h-14 rounded-2xl bg-cyan-50 dark:bg-cyan-900/30 flex items-center justify-center mx-auto mb-3">
@@ -407,7 +407,7 @@
         <h2 class="section-title text-3xl md:text-4xl font-black">كتالوج الأسعار الاحترافي</h2>
         <p class="text-slate-600 dark:text-slate-400 mt-4 text-lg leading-8">فلترة ذكية، ترتيب، مقارنة بين الموديلات، وتفاصيل تساعد العميل يوصل للقرار أسرع.</p>
         <div class="mt-4 inline-flex rounded-full bg-emerald-50 dark:bg-emerald-900/20 text-emerald-700 dark:text-emerald-300 px-4 py-2 text-sm font-black">
-          السعر يشمل التوريد داخل الإسكندرية + التركيب القياسي + تفعيل الضمان
+          الأسعار ومحتويات التوريد حسب قائمة كل موديل — يُؤكد السعر والتوفر قبل الطلب
         </div>
       </div>
 
@@ -840,7 +840,7 @@
         </details>
         <details class="reveal rounded-3xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900 p-5">
           <summary class="font-black cursor-pointer text-lg">هل السعر شامل التركيب؟</summary>
-          <p class="mt-4 text-slate-600 dark:text-slate-400 leading-8">نعم، السعر المعلن يشمل التوريد داخل الإسكندرية + التركيب القياسي + تفعيل الضمان المعتمد. أي تجهيزات إضافية غير قياسية يتم توضيحها للعميل قبل التنفيذ.</p>
+          <p class="mt-4 text-slate-600 dark:text-slate-400 leading-8">تفاصيل التركيب والتوريد تختلف حسب الماركة والموديل وقائمة الأسعار. راجع ملاحظات المنتج، وهنأكد لك الإجمالي ومحتويات التوريد وأي تجهيزات إضافية قبل الطلب.</p>
         </details>
         <details class="reveal rounded-3xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900 p-5">
           <summary class="font-black cursor-pointer text-lg">هل يوجد عروض وخصومات؟</summary>
@@ -2977,6 +2977,7 @@ function renderCompare(){
     ['الفئة', 'category'],
     ['النوع', 'type'],
     ['التشغيل', 'cooling'],
+    ['اللون', 'color'],
     ['الغاز', 'refrigerant'],
     ['المساحة', 'area']
   ];
@@ -2997,7 +2998,7 @@ function renderCompare(){
         <div class="p-4 font-black bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800">${label}</div>
         ${items.map(p => `
           <div class="p-4 border border-slate-200 dark:border-slate-800">
-            ${key === 'price' ? (hasDiscount(p) ? `<div class='line-through text-slate-400'>${formatPrice(p.originalPrice)} ج.م</div><div class='font-black text-brand-700'>${formatPrice(p.price)} ج.م</div>` : formatPrice(p[key]) + ' ج.م') : key === 'hp' ? p[key] + ' حصان' : key === 'category' ? categoryName(p[key]) : key === 'type' ? (p[key]==='Inverter' ? 'إنفرتر' : 'عادي') : escapeHtml(p[key])}
+            ${key === 'price' ? publicPriceMarkup(p) : key === 'hp' ? (p.hp ? p.hp + ' حصان' : 'لا ينطبق') : key === 'category' ? categoryName(p[key]) : key === 'type' ? (p.type==='Inverter' ? 'إنفرتر' : p.type==='Fixed' ? 'عادي' : 'غير محدد / لا ينطبق') : escapeHtml(p[key] || 'غير مذكور')}
           </div>
         `).join('')}
       `).join('')}
@@ -3751,7 +3752,8 @@ function getFormProduct(){
   const name = document.getElementById('apName').value.trim();
   const model = document.getElementById('apModel').value.trim();
   const price = Number(document.getElementById('apPrice').value || 0);
-  if(!name || !model || !price) {
+  const requestingPrice = products.find(p=>p.id===document.getElementById('apId').value)?.priceKind==='request';
+  if(!name || !model || (!price&&!requestingPrice)) {
     toast('أدخل اسم المنتج والموديل والسعر الحالي');
     return null;
   }
@@ -3767,9 +3769,9 @@ function getFormProduct(){
     cooling: document.getElementById('apCooling').value.trim() || 'بارد',
     price,
     originalPrice: originalPriceRaw > price ? originalPriceRaw : null,
-    refrigerant: document.getElementById('apRefrigerant').value.trim() || 'R-32',
+    refrigerant: document.getElementById('apRefrigerant').value.trim() || 'R410A',
     area: document.getElementById('apArea').value.trim() || '-',
-    img: document.getElementById('apImg').value.trim() || images.indoorFallback,
+    img: document.getElementById('apImg').value.trim(),
     badge: document.getElementById('apBadge').value.trim(),
     features: document.getElementById('apFeatures').value.split(',').map(x => x.trim()).filter(Boolean)
   };
@@ -3780,7 +3782,7 @@ function saveProduct(){
   const product = getFormProduct();
   if(!product) return;
   const index = products.findIndex(p => p.id === product.id);
-  if(index >= 0){ products[index] = product; logAudit('تعديل منتج', `${product.brand} ${product.name} — ${product.model}`); }
+  if(index >= 0){ const old=products[index]; products[index] = {...old,...product,gallery:old.img===product.img?old.gallery:[product.img].filter(Boolean)}; logAudit('تعديل منتج', `${product.brand} ${product.name} — ${product.model}`); }
   else { products.unshift(product); logAudit('إضافة منتج', `${product.brand} ${product.name} — ${product.model}`); }
   saveProductsToStorage();
   renderAdminProducts();
@@ -3817,6 +3819,7 @@ function deleteProduct(id){
   if(!p) return;
   if(!confirm(`حذف المنتج: ${p.name} ؟`)) return;
   logAudit('مسح منتج', `${p.brand} ${p.name} — ${p.model}`);
+  if(window.FGCatalog) window.FGCatalog.recordDelete(p);
   products = products.filter(x => x.id !== id);
   compareList = compareList.filter(x => x !== id);
   saveProductsToStorage();
@@ -5606,7 +5609,10 @@ window.addEventListener('load', async () => {
 <script src="crm-form-stability.js"></script>
 <link rel="stylesheet" href="crm-upgrade.css">
 <script src="mobile-config.js"></script>
+<script src="catalog-data.js"></script>
+<script src="catalog-runtime.js"></script>
 <script src="compact.js"></script>
+<script src="maintenance-section.js"></script>
 
 </body>
 </html>

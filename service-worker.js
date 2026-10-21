@@ -1,5 +1,5 @@
-const CACHE_NAME = 'fast-group-repairs-v11';
-const APP_SHELL = ['./', 'index.html', 'app.css', 'compact.css', 'compact.js', 'mobile-config.js', 'catalog-workflows.js', 'reliability.js', 'crm-merge.js', 'crm-record-corrections.js', 'durable-crm.js', 'crm-upgrade.js', 'crm-history.js', 'inventory-pricing.js', 'crm-form-stability.js', 'crm-upgrade.css', 'manifest.webmanifest', 'fast-group-icon.svg', 'device-placeholder.svg'].map(path=>new URL(path,self.registration.scope).href);
+const CACHE_NAME = 'fast-group-catalog-v12';
+const APP_SHELL = ['./', 'index.html', 'app.css', 'compact.css', 'compact.js', 'mobile-config.js', 'catalog-workflows.js', 'catalog-data.js', 'catalog-runtime.js', 'maintenance-section.js', 'reliability.js', 'crm-merge.js', 'crm-record-corrections.js', 'durable-crm.js', 'crm-upgrade.js', 'crm-history.js', 'inventory-pricing.js', 'crm-form-stability.js', 'crm-upgrade.css', 'manifest.webmanifest', 'fast-group-icon.svg', 'device-placeholder.svg'].map(path=>new URL(path,self.registration.scope).href);
 
 self.addEventListener('install', event => {
   event.waitUntil(caches.open(CACHE_NAME).then(cache => cache.addAll(APP_SHELL)).then(() => self.skipWaiting()));
