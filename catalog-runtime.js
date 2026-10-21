@@ -10,7 +10,7 @@
   const core=oldDefaults.filter(p=>!String(p.id).startsWith('catalog-')).map(p=>({...p,gallery:[p.img].filter(Boolean)}));
   const defaults=[...core,...data.products];
   defaultProducts.splice(0,defaultProducts.length,...clone(defaults));
-  const legacy=[...data.legacy,...oldDefaults];
+  const legacy=[...data.legacy,...(data.history||[]),...oldDefaults];
   const byKey=new Map(defaults.map(p=>[key(p),p]));
   const byId=new Map(defaults.map(p=>[String(p.id),p]));
   const legacyCore=new Set(core.map(key));
@@ -81,7 +81,7 @@
   const e=escapeHtml;
   const type=p=>p.type==='Inverter'?'إنفرتر':p.type==='Fixed'?'عادي':p.type==='Other'?'': 'النظام غير محدد بالقائمة';
   const price=p=>Number(p.price)>0?formatPrice(p.price)+' ج.م':'السعر عند الطلب';
-  const priceLabel=p=>p.priceKind==='dealer'?'سعر الموزع بالقائمة':!Number(p.price)?'تواصل لتأكيد السعر والتوفر':p.catalogSource?'سعر المستهلك بالقائمة':'السعر الحالي';
+  const priceLabel=p=>Number(p.price)?'السعر شامل التركيب المجاني':'التركيب مجاني — تواصل لتأكيد السعر والتوفر';
   const safeUrl=u=>/^(https?:\/\/|data:image\/|\.\/|catalog-images\/)/.test(String(u||''))?u:'';
   const photo=p=>(Array.isArray(p.gallery)?p.gallery:[]).find(Boolean)||p.img||'';
   const style=document.createElement('style');style.id='fg-catalog-style';style.textContent=`
@@ -138,7 +138,7 @@
   setIndoorFallback=window.FGCatalog.imageFailed;
   categoryName=v=>categories[v]||v;
   publicPriceMarkup=p=>`<div class="fgc-price">${Number(p.originalPrice)>Number(p.price)&&Number(p.price)>0?`<s>${e(formatPrice(p.originalPrice))} ج.م</s>`:''}<strong>${e(price(p))}</strong><small>${e(priceLabel(p))}</small></div>`;
-  function wa(p){return waLink(`السلام عليكم، أريد طلب المنتج والاستفسار عن:\n${brands[p.brand]||p.brand} ${p.name}\nالموديل: ${p.model}${p.color?'\nاللون: '+p.color:''}\nالسعر الحالي: ${price(p)}\nبرجاء تأكيد السعر والتوفر وتفاصيل التوريد والتركيب والضمان.`);}
+  function wa(p){return waLink(`السلام عليكم، أريد طلب المنتج والاستفسار عن:\n${brands[p.brand]||p.brand} ${p.name}\nالموديل: ${p.model}${p.color?'\nاللون: '+p.color:''}\nالسعر الحالي: ${price(p)}\nالسعر شامل التركيب المجاني.\nبرجاء تأكيد السعر والتوفر وتفاصيل التوريد والضمان.`);}
   renderProducts=list=>{
     document.getElementById('resultsCount').textContent=list.length;
     document.getElementById('noResults').classList.toggle('hidden',!!list.length);
@@ -150,7 +150,7 @@
     const p=products.find(x=>String(x.id)===String(id));if(!p)return;
     const family=colorFamily(p),variants=family?products.filter(x=>colorFamily(x)===family):[];
     const specs=[['الموديل',p.model],['الماركة',brands[p.brand]||p.brand],['القدرة',p.hp?p.hp+' حصان':'لا ينطبق'],['السلسلة',p.series||p.name],['السعة بالقائمة',p.capacityBtu?formatPrice(p.capacityBtu)+' BTU/h':'غير مذكورة'],['الفئة',categories[p.category]],['النظام',type(p)||'لا ينطبق'],['التشغيل',p.cooling],['الغاز',p.refrigerant||'R410A'],['اللون',p.color||'غير موثق'],['المساحة التقريبية',p.area||'تحتاج معاينة'],...(p.modelAlias?[['كود المصنع المطابق',p.modelAlias]]:[]),...(p.ean?[['EAN',p.ean]]:[]),...(p.catalogDate?[['تاريخ قائمة الأسعار',p.catalogDate]]:[])];
-    document.getElementById('productModalBody').innerHTML=`<div class="fgc-details"><div>${media(p)}${variants.length>1?`<div class="fgc-colors" aria-label="الألوان المتاحة بأكواد مستقلة">${variants.map(v=>`<button type="button" data-color-id="${e(v.id)}" aria-pressed="${v.id===p.id}">${e(v.color||v.model)}</button>`).join('')}</div>`:''}${p.photoSource?`<p><a class="fgc-source" href="${e(p.photoSource)}" target="_blank" rel="noopener">مصدر صورة الموديل</a></p>`:''}</div><div><h2>${e(brands[p.brand]||p.brand)} — ${e(p.name)}</h2>${publicPriceMarkup(p)}<table>${specs.map(([k,v])=>`<tr><th>${e(k)}</th><td>${e(v??'غير مذكور')}</td></tr>`).join('')}</table>${p.warranty?`<p><b>الضمان حسب القائمة:</b> ${e(p.warranty)}</p>`:''}<ul>${[...(p.features||[]),...(p.notes||[])].map(t=>`<li>${e(t)}</li>`).join('')}</ul>${p.catalogSource?`<p class="fgc-model">المصدر: ${e(p.catalogSource)}</p>`:''}<div class="fgc-actions"><a class="fgc-whatsapp" target="_blank" rel="noopener" href="${e(wa(p))}">واتساب</a><button type="button" data-quote="${e(p.id)}">طلب عرض سعر</button><button type="button" data-copy-model="${e(p.id)}">نسخ الموديل</button><button type="button" data-compare="${e(p.id)}">أضف للمقارنة</button></div></div></div>`;
+    document.getElementById('productModalBody').innerHTML=`<div class="fgc-details"><div>${media(p)}${variants.length>1?`<div class="fgc-colors" aria-label="الألوان المتاحة بأكواد مستقلة">${variants.map(v=>`<button type="button" data-color-id="${e(v.id)}" aria-pressed="${v.id===p.id}">${e(v.color||v.model)}</button>`).join('')}</div>`:''}${p.photoSource?`<p><a class="fgc-source" href="${e(p.photoSource)}" target="_blank" rel="noopener">مصدر صورة الموديل</a></p>`:''}</div><div><h2>${e(brands[p.brand]||p.brand)} — ${e(p.name)}</h2>${publicPriceMarkup(p)}<table>${specs.map(([k,v])=>`<tr><th>${e(k)}</th><td>${e(v??'غير مذكور')}</td></tr>`).join('')}</table>${p.warranty?`<p><b>الضمان حسب القائمة:</b> ${e(p.warranty)}</p>`:''}<ul>${[...(p.features||[]),...(p.notes||[]).filter(t=>!t.includes('تركيب'))].map(t=>`<li>${e(t)}</li>`).join('')}</ul>${p.catalogSource?`<p class="fgc-model">المصدر: ${e(p.catalogSource)}</p>`:''}<div class="fgc-actions"><a class="fgc-whatsapp" target="_blank" rel="noopener" href="${e(wa(p))}">واتساب</a><button type="button" data-quote="${e(p.id)}">طلب عرض سعر</button><button type="button" data-copy-model="${e(p.id)}">نسخ الموديل</button><button type="button" data-compare="${e(p.id)}">أضف للمقارنة</button></div></div></div>`;
     const body=document.getElementById('productModalBody');
     body.insertAdjacentHTML('afterbegin','<button type="button" class="fgc-close" data-close-detail>إغلاق ✕</button>');
     body.setAttribute('role','dialog');body.setAttribute('aria-modal','true');body.setAttribute('aria-label','تفاصيل '+p.model);
